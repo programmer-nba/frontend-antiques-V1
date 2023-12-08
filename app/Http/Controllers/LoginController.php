@@ -40,6 +40,8 @@ class LoginController extends Controller
 
 // dd(Auth::User());
 
+    // dd(env('DEV_API'));
+
         try {
             $response = Http::post(env('DEV_API').'/login', [
                 'username' => $request->get('username'),
