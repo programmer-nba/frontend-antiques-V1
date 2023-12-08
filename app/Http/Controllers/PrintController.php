@@ -15,18 +15,17 @@ class PrintController extends Controller
         // ]);
 
         // $data = $response->json()["data"];
-        $response = Http::post(env('DEV_API').'/v1/report/receiptorder', [
+        $response = Http::withOptions(["verify"=>false])->post(env('DEV_API').'/report/receiptorder', [
             'orderId' =>request()->id
         ]);
 
-        $data = $response->json()["data"];
-
+        
         // dd($data);
         return view('antiques_user.print.report', compact('data'));
     }
     public function generate()
     {
-        $response = Http::post(env('DEV_API').'/v1/report/receiptorder', [
+        $response = Http::withOptions(["verify"=>false])->post(env('DEV_API').'/v1/report/receiptorder', [
             'orderId' =>request()->id
         ]);
 

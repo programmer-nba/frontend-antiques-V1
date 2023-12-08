@@ -43,7 +43,8 @@ class LoginController extends Controller
     // dd(env('DEV_API'));
 
         try {
-            $response = Http::post(env('DEV_API').'/login', [
+            $response = Http::withOptions(["verify"=>false])->
+            post(env('DEV_API').'/login', [
                 'username' => $request->get('username'),
                 'password' => $request->get('password'),
             ]);
