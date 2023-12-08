@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Http;
 class CashierController extends Controller
 {
     public function index() {
-        $response = Http::get(env('DEV_API').'/get');
+        $response = Http::withOptions(["verify"=>false])->get(env('DEV_API').'/get');
         $categorys = $response->json()["data"];
 
         return view('antiques_cashier.index', compact('categorys'));
