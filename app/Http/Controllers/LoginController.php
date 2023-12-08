@@ -11,7 +11,6 @@ use RealRashid\SweetAlert\Facades\Alert;
 class LoginController extends Controller
 {
     public function login(Request $request){
-        // dd($request->all());
 
         // $response = Http::get(env('DEV_API').'/v1/nba-shop/antiques/get');
         // session(['level' => 1]);
@@ -40,8 +39,10 @@ class LoginController extends Controller
 // }
 
 // dd(Auth::User());
+dd("123");
+
         try {
-            $response = Http::post(env('DEV_API').'/v1/antiques/login', [
+            $response = Http::post(env('DEV_API').'/login', [
                 'username' => $request->get('username'),
                 'password' => $request->get('password'),
             ]);
