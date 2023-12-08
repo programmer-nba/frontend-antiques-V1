@@ -1,21 +1,37 @@
-version: '3'
-
+version: "3.7"
 services:
-
-  web:
+  app:
     build:
-      context: .
-      dockerfile: docker/nginx/Dockerfile
+      args:
+        user: sammy
+        uid: 1000
+      context: ./
+      dockerfile: Dockerfile.dev
+    working_dir: /var/www/
+    environment:
+      - COMPOSER_MEMORY_LIMIT=-1
+    volumes:
+      - ./:/var/www
+    networks:
+      - lahmi
+
+  nginx:
+    image: nginx:alpine
     ports:
-      - "8888:80"
+      - 8888:80
+    depends_on:
+      - app
     volumes:
-      - .:/app/
-    links:
-      - php
+      - ./:/var/www
+      - ./docker-compose/nginx:/etc/nginx/conf.d/
+    networks:
+      - lahmi
 
-  php:
-    build:
-      context: .
-      dockerfile: docker/php/Dockerfile
-    volumes:
-      - .:/app/
+networks:
+  lahmi:
+    driver: bridge
+
+volumes:
+  dbdata:
+    driver: local
+
