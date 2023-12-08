@@ -39,7 +39,6 @@ class LoginController extends Controller
 // }
 
 // dd(Auth::User());
-dd("123");
 
         try {
             $response = Http::post(env('DEV_API').'/login', [
