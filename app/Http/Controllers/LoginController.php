@@ -61,6 +61,9 @@ class LoginController extends Controller
             }
 
         } catch (\Throwable $th) {
+
+            dd($th);
+
             Alert::error("เข้าสู่ระบบไม่สำเร็จ", "username หรือ password ไม่ถูกต้อง");
 
 
