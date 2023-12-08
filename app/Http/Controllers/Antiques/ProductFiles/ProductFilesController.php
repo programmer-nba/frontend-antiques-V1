@@ -15,7 +15,7 @@ class ProductFilesController extends Controller
      */
     public function index()
     {
-        $response = Http::get(env('DEV_API').'/v1/antiques/get');
+        $response = Http::get(env('DEV_API').'/get');
         $categorys = $response->json()["data"];
 
        return view('antiques.product_files.category.index', compact('categorys'));
@@ -40,7 +40,7 @@ class ProductFilesController extends Controller
     public function store(Request $request)
     {
         // dd($request->all());
-        $response = Http::post(env('DEV_API').'/v1/antiques/CreateCategory', [
+        $response = Http::post(env('DEV_API').'/CreateCategory', [
             'category_name_th' => $request->get('category_name_th'),
             'category_name_en' => $request->get('category_name_en'),
         ]);
@@ -70,7 +70,7 @@ class ProductFilesController extends Controller
      */
     public function edit($id)
     {
-        // $response = Http::get(env('DEV_API').'/v1/antiques/getbyid', [
+        // $response = Http::get(env('DEV_API').'/getbyid', [
 
 
 
@@ -79,7 +79,7 @@ class ProductFilesController extends Controller
         // ]);
         $param['_id']   = $id;
 
-        $response = Http::withBody(json_encode($param),'application/json')->get(env('DEV_API').'/v1/antiques/getbyid');
+        $response = Http::withBody(json_encode($param),'application/json')->get(env('DEV_API').'/getbyid');
 
         $categorys = $response->json()["data"];
 
@@ -95,7 +95,7 @@ class ProductFilesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $response = Http::put(env('DEV_API').'/v1/antiques/update', [
+        $response = Http::put(env('DEV_API').'/update', [
             'category_id' => $id,
             'category_name_en' => $request->get('category_name_en'),
             'category_name_th' => $request->get('category_name_th'),
@@ -113,7 +113,7 @@ class ProductFilesController extends Controller
      */
     public function destroy($id)
     {
-        $response = Http::delete(env('DEV_API').'/v1/antiques/delete', [
+        $response = Http::delete(env('DEV_API').'/delete', [
             '_id' => $id
         ]);
 

@@ -282,7 +282,7 @@ self.customer.birthday = result
     $("#vehicle").on("change", async function () {
       await axios
         .post(
-          process.env.MIX_DEV_API + "/v1/antiques/customer/filterCusByData",
+          process.env.MIX_DEV_API + "/customer/filterCusByData",
           {
             vehicle: $("#vehicle").val(),
           },
@@ -310,7 +310,7 @@ self.customer.birthday = result
     $("#idcard").on("change", async function () {
       await axios
         .post(
-          process.env.MIX_DEV_API + "/v1/antiques/customer/filterCusByData",
+          process.env.MIX_DEV_API + "/customer/filterCusByData",
           {
             id_card: $("#idcard").val(),
           },
@@ -340,7 +340,7 @@ self.customer.birthday = result
     $("#name").on("change", async function () {
       await axios
         .post(
-          process.env.MIX_DEV_API + "/v1/antiques/customer/filterCusByData",
+          process.env.MIX_DEV_API + "/customer/filterCusByData",
           {
             fullname_th: $("#name").val(),
           },
@@ -424,7 +424,7 @@ self.customer.birthday = result
         var clickedItems = [];
         await axios
           .post(
-            process.env.MIX_DEV_API + "/v1/antiques/getdetailvendor",
+            process.env.MIX_DEV_API + "/getdetailvendor",
             {
               detail_id: element.detail_id,
               class: self.type,
@@ -473,7 +473,7 @@ self.customer.birthday = result
         console.log("customer",this.customer)
         await axios
         .post(
-          process.env.MIX_DEV_API + "/v1/antiques/customer/createCus",
+          process.env.MIX_DEV_API + "/customer/createCus",
           {
             id_card: this.customer.idcard,
             fullname_th: this.customer.name,
@@ -507,7 +507,7 @@ self.customer.birthday = result
     async saveafterfinish(){
         await axios
         .post(
-          process.env.MIX_DEV_API + "/v1/antiques/order/saveafterfinish",
+          process.env.MIX_DEV_API + "/order/saveafterfinish",
           {
             customers: this.$store.state.customers,
             items: this.$store.state.items,
@@ -545,7 +545,7 @@ self.customer.birthday = result
     },
     async loadId() {
       await axios
-        .get(process.env.MIX_DEV_API + "/v1/antiques/customer/dropdownCus_id", {
+        .get(process.env.MIX_DEV_API + "/customer/dropdownCus_id", {
           headers: {
             "ngrok-skip-browser-warning": "true",
           },
@@ -562,7 +562,7 @@ self.customer.birthday = result
     },
     async loadName() {
       await axios
-        .get(process.env.MIX_DEV_API + "/v1/antiques/customer/dropdownCus_name", {
+        .get(process.env.MIX_DEV_API + "/customer/dropdownCus_name", {
           headers: {
             "ngrok-skip-browser-warning": "true",
           },
@@ -574,7 +574,7 @@ self.customer.birthday = result
     },
     async loadVehicle() {
       await axios
-        .get(process.env.MIX_DEV_API + "/v1/antiques/customer/dropdownCus_vehicle", {
+        .get(process.env.MIX_DEV_API + "/customer/dropdownCus_vehicle", {
           headers: {
             "ngrok-skip-browser-warning": "true",
           },
@@ -624,7 +624,7 @@ self.customer.birthday = result
     },
     async getOrder(){
         console.log("test", this.$store.state.customers)
-        await axios.post(process.env.MIX_DEV_API + "/v1/antiques/order/getorderbydateandqueue",{
+        await axios.post(process.env.MIX_DEV_API + "/order/getorderbydateandqueue",{
             createAt : this.$store.state.queueDate[1],
             queue: this.$store.state.queueDate[0]
         } ,{

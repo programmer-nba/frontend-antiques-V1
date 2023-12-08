@@ -79,7 +79,7 @@ export default {
 
   methods: {
     async getOrderDataByDateAndQueue(){
-      await axios.post(process.env.MIX_DEV_API + "/v1/antiques/order/getorderbydateandqueue",{
+      await axios.post(process.env.MIX_DEV_API + "/order/getorderbydateandqueue",{
             createAt : this.date,
             queue: this.queue
         } ,{
@@ -123,7 +123,7 @@ export default {
       showModal() {
         const config = {
         method: 'get',
-        url: process.env.MIX_DEV_API + "/v1/antiques/order/getfinishtoday",
+        url: process.env.MIX_DEV_API + "/order/getfinishtoday",
         headers: {
             "ngrok-skip-browser-warning": "true",
           // Add any other headers as needed
@@ -153,7 +153,7 @@ export default {
 
         const config = {
         method: 'get',
-        url: process.env.MIX_DEV_API + "/v1/antiques/order/getlastqueue",
+        url: process.env.MIX_DEV_API + "/order/getlastqueue",
         headers: {
             "ngrok-skip-browser-warning": "true",
           // Add any other headers as needed

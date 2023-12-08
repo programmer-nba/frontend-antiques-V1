@@ -221,7 +221,7 @@ $(this.$refs.mySelect2).on('change', this.handleSelectChange2);
       console.log(val[0]);
       await axios
         .post(
-          process.env.MIX_DEV_API + "/v1/antiques/customer/filterCusByData",
+          process.env.MIX_DEV_API + "/customer/filterCusByData",
           {
             id_card: val[0].name,
           },
@@ -279,7 +279,7 @@ $(this.$refs.mySelect2).on('change', this.handleSelectChange2);
         },
     async loadId() {
       await axios
-        .get(process.env.MIX_DEV_API + "/v1/antiques/customer/dropdownCus_id", {
+        .get(process.env.MIX_DEV_API + "/customer/dropdownCus_id", {
           headers: {
             "ngrok-skip-browser-warning": "true",
           },
@@ -296,7 +296,7 @@ $(this.$refs.mySelect2).on('change', this.handleSelectChange2);
     },
     async loadName() {
       await axios
-        .get(process.env.MIX_DEV_API + "/v1/antiques/customer/dropdownCus_name", {
+        .get(process.env.MIX_DEV_API + "/customer/dropdownCus_name", {
           headers: {
             "ngrok-skip-browser-warning": "true",
           },
@@ -308,7 +308,7 @@ $(this.$refs.mySelect2).on('change', this.handleSelectChange2);
     },
     async loadVehicle() {
       await axios
-        .get(process.env.MIX_DEV_API + "/v1/antiques/customer/dropdownCus_vehicle", {
+        .get(process.env.MIX_DEV_API + "/customer/dropdownCus_vehicle", {
           headers: {
             "ngrok-skip-browser-warning": "true",
           },

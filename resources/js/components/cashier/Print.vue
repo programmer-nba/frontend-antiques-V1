@@ -142,7 +142,7 @@ export default {
   methods: {
     print: async function () {
         const self = this;
-    await axios.post(process.env.MIX_DEV_API + "/v1/antiques/order/getorderbydateandqueue",{
+    await axios.post(process.env.MIX_DEV_API + "/order/getorderbydateandqueue",{
             createAt : this.$store.state.queueDate[1],
             queue: this.$store.state.queueDate[0]
         } ,{

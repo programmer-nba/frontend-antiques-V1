@@ -398,7 +398,7 @@ export default {
 
   async mounted() {
     await axios
-      .get(process.env.MIX_DEV_API + "/v1/antiques/get", {
+      .get(process.env.MIX_DEV_API + "/get", {
         headers: {
           "ngrok-skip-browser-warning": "true",
         },
@@ -462,7 +462,7 @@ export default {
 
       await axios
         .post(
-          process.env.MIX_DEV_API + "/v1/antiques/getcatebyid",
+          process.env.MIX_DEV_API + "/getcatebyid",
           {
             category_id: event.category_id,
           },
@@ -479,7 +479,7 @@ export default {
 
       //       await axios
       // .post(
-      //   process.env.MIX_DEV_API + "/v1/antiques/CreateCategory",
+      //   process.env.MIX_DEV_API + "/CreateCategory",
       //   {
       //     category_name_th: this.item_categorys[0].category_name_th,
       //     category_name_en: this.item_categorys[0].category_name_en
@@ -520,7 +520,7 @@ export default {
 
       await axios
         .post(
-          process.env.MIX_DEV_API + "/v1/antiques/getdetailbyid",
+          process.env.MIX_DEV_API + "/getdetailbyid",
           {
             type_id: event.type_id,
           },
@@ -539,7 +539,7 @@ export default {
     async saveCategory() {
       await axios
         .post(
-          process.env.MIX_DEV_API + "/v1/antiques/CreateCategory",
+          process.env.MIX_DEV_API + "/CreateCategory",
           {
             category_name_th: this.category_name_th,
             category_name_en: this.category_name_en,
@@ -566,7 +566,7 @@ export default {
       });
       await axios
         .post(
-          process.env.MIX_DEV_API + "/v1/antiques/createtype",
+          process.env.MIX_DEV_API + "/createtype",
           {
             category_id: this.choose_category_id,
             detail_th: this.type_name_th,
@@ -598,7 +598,7 @@ export default {
       });
       await axios
         .post(
-          process.env.MIX_DEV_API + "/v1/antiques/createdetailproduct",
+          process.env.MIX_DEV_API + "/createdetailproduct",
           {
             category_id: this.choose_category_id,
             type_id: this.choose_type_id,
@@ -625,7 +625,7 @@ export default {
     async updateCategory(index, id) {
       await axios
         .put(
-          process.env.MIX_DEV_API + "/v1/antiques/update",
+          process.env.MIX_DEV_API + "/update",
           {
             _id: id,
             category_name_th: this.item_categorys[index].category_name_th,
@@ -651,7 +651,7 @@ export default {
 
         await axios
         .put(
-          process.env.MIX_DEV_API + "/v1/antiques/updatevendor",
+          process.env.MIX_DEV_API + "/updatevendor",
           {
             vendor_id: this.vendor_id,
             vendor_data: JSON.stringify(
@@ -683,7 +683,7 @@ export default {
     async updateType(index, id) {
       await axios
         .put(
-          process.env.MIX_DEV_API + "/v1/antiques/updateType",
+          process.env.MIX_DEV_API + "/updateType",
           {
             _id: id,
             detail_th: this.item_types[index].detail_th,
@@ -707,7 +707,7 @@ export default {
     async updateDetail(index, id) {
       await axios
         .put(
-          process.env.MIX_DEV_API + "/v1/antiques/updatedetail",
+          process.env.MIX_DEV_API + "/updatedetail",
           {
             _id: id,
             detail_name_th: this.item_detail_products[index].detail_name_th,
@@ -741,7 +741,7 @@ export default {
         if (result.isConfirmed) {
           await axios
             .put(
-              process.env.MIX_DEV_API + "/v1/antiques/deletetypedata",
+              process.env.MIX_DEV_API + "/deletetypedata",
               {
                 _id: id,
               },
@@ -776,7 +776,7 @@ export default {
         if (result.isConfirmed) {
           await axios
             .put(
-              process.env.MIX_DEV_API + "/v1/antiques/deletedetail",
+              process.env.MIX_DEV_API + "/deletedetail",
               {
                 detail_id: id,
               },
@@ -811,7 +811,7 @@ export default {
         if (result.isConfirmed) {
           await axios
             .put(
-              process.env.MIX_DEV_API + "/v1/antiques/delete",
+              process.env.MIX_DEV_API + "/delete",
               {
                 _id: id,
               },
@@ -834,7 +834,7 @@ export default {
 
       //         await axios
       //         .delete(
-      //           process.env.MIX_DEV_API + "/v1/antiques/delete",
+      //           process.env.MIX_DEV_API + "/delete",
       //           {
       //             _id: id,
       //           },
@@ -877,7 +877,7 @@ export default {
 
       await axios
         .post(
-          process.env.MIX_DEV_API + "/v1/antiques/getvendorbyid",
+          process.env.MIX_DEV_API + "/getvendorbyid",
           {
             detail_id: event.detail_id,
           },

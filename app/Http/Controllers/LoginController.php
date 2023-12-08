@@ -87,7 +87,7 @@ dd("123");
 
     public function register(Request $request) {
 
-        $response = Http::post(env('DEV_API').'/v1/antiques/register', [
+        $response = Http::post(env('DEV_API').'/register', [
             'username' => 'admin',
             'password' => '12345678',
             'level' => 1,

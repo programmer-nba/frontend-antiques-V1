@@ -33,7 +33,7 @@ export default {
       // }, 0);
       await axios
         .post(
-          process.env.MIX_DEV_API + "/v1/antiques/order/approveorder",
+          process.env.MIX_DEV_API + "/order/approveorder",
           {
             _id: this.$store.state.orderId,
             items: this.$store.state.items,

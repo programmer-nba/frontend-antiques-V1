@@ -290,7 +290,7 @@ export default {
 
       await axios
         .post(
-          process.env.MIX_DEV_API + "/v1/antiques/order/createOrder",
+          process.env.MIX_DEV_API + "/order/createOrder",
           {
             customers: this.$store.state.customers,
             items: this.$store.state.items,
@@ -345,13 +345,13 @@ export default {
       console.log("sssssssssssssssssssssssss");
       const self = this;
 
-      //   await axios.get(process.env.MIX_DEV_API + "/v1/antiques/getOrderData", {'category_id': 1}).then(function (res) {
+      //   await axios.get(process.env.MIX_DEV_API + "/getOrderData", {'category_id': 1}).then(function (res) {
       //     console.log(res)
       //   });
 
       await axios
         .post(
-          process.env.MIX_DEV_API + "/v1/antiques/getOrderData",
+          process.env.MIX_DEV_API + "/getOrderData",
           {
             category_id: item.category_id,
           },
@@ -389,7 +389,7 @@ export default {
       // alert(id)
       await axios
         .post(
-          process.env.MIX_DEV_API + "/v1/antiques/getdetailvendor",
+          process.env.MIX_DEV_API + "/getdetailvendor",
           {
             detail_id: id,
             class: this.$store.state.customers.class,
