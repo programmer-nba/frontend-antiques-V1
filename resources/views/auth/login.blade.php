@@ -5,16 +5,17 @@ hold-transition login-page
 
 @section('content')
 <div class="login-box">
-    <div class="login-logo">
-        <a href="{{ route('home') }}"><b>{{ config('app.name') }}</b></a>
-    </div>
+ 
 
     <!-- /.login-logo -->
 
     <!-- /.login-box-body -->
     <div class="card">
         <div class="card-body login-card-body">
-            <p class="login-box-msg">เข้าสู่ระบบ {{session('level')}} dd</p>
+            <div class="login-logo">
+                <a href=""><b>ระบบรับซื้อของเก่า</b></a>
+            </div>
+            <p class="login-box-msg">เข้าสู่ระบบ</p>
 
             <form method="post" action="{{route('login.login')}}">
                 @csrf

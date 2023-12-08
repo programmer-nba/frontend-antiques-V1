@@ -34,6 +34,10 @@
             color: red;
             padding-left: 5px;
         }
+        body{
+            background-image: url("{{asset('images/222222222.jpg')}}") !important;
+            background-position: center !important;
+        }
     </style>
     @stack('page_css')
 
