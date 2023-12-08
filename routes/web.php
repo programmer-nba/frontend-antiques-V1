@@ -19,6 +19,11 @@ use App\Http\Middleware\CheckUser;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/clear-cache', function() {
+    $exitCode = Artisan::call('cache:clear');
+    return $exitCode;
+    // return what you want
+});
 
 Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'App\Http\Controllers\LanguageController@switchLang']);
 Route::get('login', [LoginController::class, 'index'])->name('login.login');
