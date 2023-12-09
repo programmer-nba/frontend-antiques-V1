@@ -1,5 +1,4 @@
 <template>
-
 <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
                   <a class="nav-link" href="#"></a>
@@ -45,7 +44,7 @@
                         margin-right: -29px;
                       ">Queue: </label>
                         <div class="col-sm-4">
-                          <input type="number" v-model="queue" class="form-control" id="staticEmail"  style="font-size: 36px;
+                          <input type="number" v-model="this.$store.state.queueDate[0]" class="form-control" id="staticEmail"  style="font-size: 36px;
                           color: red;
                           padding-left: 0px;
                           font-weight: bold;
@@ -87,7 +86,7 @@ export default {
                 "ngrok-skip-browser-warning": "true",
 }
         }).then((res)=>{
-            console.log('--แจ้งเตือน LINE--', res)
+            console.log('--แจ้งเตือนgg LINE--', res)
         //     var clickedItems = [];
         // clickedItems.push({ description: item.detail_name_th, qty: this.num, total: this.num * this.mul });
     //   localStorage.storedData = JSON.stringify(this.clickedItems);
@@ -205,6 +204,9 @@ export default {
   },
   watch:{
     date:function(){
+        alert(this.$store.state.queueDate[1])
+        alert(this.date)
+
         this.$store.dispatch("loadQueueAndDate", [
             this.queue,
             this.date
@@ -213,6 +215,8 @@ export default {
 
     },
     queue:function(){
+     
+
         this.$store.dispatch("loadQueueAndDate", [
             this.queue,
             this.date

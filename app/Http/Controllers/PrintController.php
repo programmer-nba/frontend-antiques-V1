@@ -18,8 +18,8 @@ class PrintController extends Controller
         $response = Http::withOptions(["verify"=>false])->post(env('DEV_API').'/report/receiptorder', [
             'orderId' =>request()->id
         ]);
+        $data = $response->json()["data"];
 
-        
         // dd($data);
         return view('antiques_user.print.report', compact('data'));
     }

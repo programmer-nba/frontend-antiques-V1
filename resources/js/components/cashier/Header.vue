@@ -138,7 +138,7 @@ export default {
                 "ngrok-skip-browser-warning": "true",
 }
         }).then((res)=>{
-            console.log('--แจ้งเตือน LINE--', res)
+            console.log('--rrrrrแจ้งเตือน LINE--', res)
         //     var clickedItems = [];
         // clickedItems.push({ description: item.detail_name_th, qty: this.num, total: this.num * this.mul });
     //   localStorage.storedData = JSON.stringify(this.clickedItems);

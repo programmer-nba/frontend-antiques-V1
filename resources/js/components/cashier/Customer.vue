@@ -6,34 +6,63 @@
     class-name="btn btn-primary float-right"
     icon-name="fa fa-plus"
   >
-  <div class="form-group">
+    <div class="form-group">
       <label for="exampleInputEmail1">หมายเลขทะเบียนรถ </label>
-      <input type="text" class="form-control" v-model="customer.vehicle" placeholder="ป้อนหมายเลขทะเบียนรถ" />
+      <input
+        type="text"
+        class="form-control"
+        v-model="customer.vehicle"
+        placeholder="ป้อนหมายเลขทะเบียนรถ"
+      />
     </div>
     <div class="form-group">
       <label for="exampleInputEmail1">เลขบัตรประชาชน </label>
-      <input type="text" class="form-control" v-model="customer.idcard" placeholder="ป้อนเลขบัตรประชาชน" />
+      <input
+        type="text"
+        class="form-control"
+        v-model="customer.idcard"
+        placeholder="ป้อนเลขบัตรประชาชน"
+      />
     </div>
     <div class="form-group">
       <label for="exampleInputEmail1">ชื่อ </label>
-      <input type="text" class="form-control" v-model="customer.name" placeholder="ป้อนชื่อ" />
+      <input
+        type="text"
+        class="form-control"
+        v-model="customer.name"
+        placeholder="ป้อนชื่อ"
+      />
     </div>
     <div class="form-group">
       <label for="exampleInputEmail1">ที่อยู่ </label>
-      <input type="text" class="form-control" v-model="customer.address" placeholder="ป้อนที่อยู่" />
+      <input
+        type="text"
+        class="form-control"
+        v-model="customer.address"
+        placeholder="ป้อนที่อยู่"
+      />
     </div>
     <div class="form-group">
       <label for="exampleInputEmail1">วันเกิด </label>
-      <input type="text" class="form-control" v-model="customer.birthday" placeholder="ป้อนวันเกิด" />
+      <input
+        type="text"
+        class="form-control"
+        v-model="customer.birthday"
+        placeholder="ป้อนวันเกิด"
+      />
     </div>
     <!-- <button
-                              @click="() => saveCategory()"
-                              type="button"
-                              class="btn btn-primary float-right"
-                            >
-                              <i class="fa fa-save mr-2"></i>บันทึก
-                            </button> -->
-    <button type="button" @click="saveCustomer()" class="btn btn-success mr-2 float-right">
+                                @click="() => saveCategory()"
+                                type="button"
+                                class="btn btn-primary float-right"
+                              >
+                                <i class="fa fa-save mr-2"></i>บันทึก
+                              </button> -->
+    <button
+      type="button"
+      @click="saveCustomer()"
+      class="btn btn-success mr-2 float-right"
+    >
       <i class="fa fa-save mr-2"></i>บันทึกข้อมูล
     </button> </modal
   >&nbsp;
@@ -41,10 +70,13 @@
   <br /><br />
   <form>
     <div class="row">
+     
+    
       <div class="col-sm-4">
         <div class="form-group">
           <label>ID</label>
           <select2-component
+            :disabled="this.$store.state.dataOpen[0] == 'FINISH'"
             v-model="idCard"
             name="idcard[]"
             id="idcard"
@@ -61,7 +93,13 @@
         <div class="form-group">
           <label>Name</label>
 
-          <select2-component v-model="name" name="name[]" id="name" class="form-control">
+          <select2-component
+            :disabled="this.$store.state.dataOpen[0] == 'FINISH'"
+            v-model="name"
+            name="name[]"
+            id="name"
+            class="form-control"
+          >
             <option value="">-- กรุณาเลือก --</option>
             <option v-for="data in dataName" :value="data.fullname_th">
               {{ data.fullname_th }}
@@ -88,7 +126,12 @@
       <div class="col-sm-4">
         <div class="form-group">
           <label>Warehoursse</label>
-          <select2-component name="Warehoursse[]" id="Warehoursse" class="form-control">
+          <select2-component
+            :disabled="this.$store.state.dataOpen[0] == 'FINISH'"
+            name="Warehoursse[]"
+            id="Warehoursse"
+            class="form-control"
+          >
             <option value="1">W01 - WH Inside</option>
           </select2-component>
         </div>
@@ -109,6 +152,7 @@
           <label>Vehicle ID </label>
 
           <select2-component
+            :disabled="this.$store.state.dataOpen[0] == 'FINISH'"
             v-model="vehicle"
             name="vehicle[]"
             id="vehicle"
@@ -130,7 +174,7 @@
   </form>
   <table>
     <tr>
-      <td @click="showModal">
+        <td @click="showModal">
         <img
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnqaInVc1iASODNTtkxaSp7Z_zoIDUDMNArKQwxCHUHw&s"
           alt=""
@@ -139,7 +183,7 @@
       </td>
       <td>
         <img
-          @click="getOrder()"
+          @click="getOrder2()"
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLQDlDeKd8O4BrfOk6iuyzaaqXITgUJ69Zzw&usqp=CAU"
           alt=""
           style="height: 80px; width: 80px; margin-right: 20px"
@@ -163,7 +207,8 @@
         </td> -->
     </tr>
   </table>
-  <!-- Modal -->
+
+    <!-- Modal -->
 <div class="modal fade"  id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-xl">
     <div class="modal-content">
@@ -174,6 +219,7 @@
         </button>
       </div>
       <div class="modal-body">
+
         <div v-if="responseData" style="overflow-x:auto;">
       <!-- <p>Response Data: {{ responseData }}</p> -->
       <table class="table table-striped">
@@ -222,7 +268,6 @@
     </div>
   </div>
 </div>
-
 </template>
 
 <script>
@@ -236,6 +281,7 @@ export default {
     return {
         modalOpen: false,
         responseData: null,
+
       active: false,
       key: [],
       show: false,
@@ -256,66 +302,15 @@ export default {
       type: "",
       loadCustomers: [],
       customer: {
-        name: '',
-        vehicle: '',
-        idcard: '',
-        address: '',
-        birthday: ''
-      }
+        name: "",
+        vehicle: "",
+        idcard: "",
+        address: "",
+        birthday: "",
+      },
     };
   },
   mounted: async function () {
-    $('#createCustomer').on('show.bs.modal', function (e) {
-    setInterval(() => {
-        $.ajax({
-        url: 'https://localhost:8182/thaiid/read.jsonp?callback=callback&section1=true&section2a=true&section2c=true',
-        method: 'GET',
-        type: 'JSON',
-        success: function (jsondata) {
-
-            var data = jsondata.substr(13, jsondata.length - 14);
-            var jdata = JSON.parse(data);
-            console.log(jdata)
-
-            if (jdata !== null) {
-                self.customer.idcard = jdata.CitizenNo
-                self.customer.name = jdata.TitleNameTh+jdata.FirstNameTh + " " + jdata.LastNameTh
-                self.customer.address = `บ้านเลขที่ ${jdata.HomeNo} หมู่ ${jdata.Moo} ตำบล${jdata.Tumbol} อำเภอ${jdata.Amphur} จังหวัด${jdata.Province}`
-
-                const date = new Date(jdata.BirthDate
-.substr(0,4) -543, jdata.BirthDate.substr(4,2)-1, String(jdata.BirthDate).substr(6,2))
-                console.log(jdata.BirthDate
-.substr(0,4), jdata.BirthDate
-.substr(4,2), jdata.BirthDate
-.substr(6,2))
-const result = date.toLocaleDateString('th-TH', {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
-})
-
-self.customer.birthday = result
-
-            }else{
-                self.customer.idcard = "";
-                self.customer.name = "";
-                self.customer.address = "";
-            }
-        }, error: function (jqXHR, textStatus, errorThrown) {
-            console.log(textStatus)
-            // $.busyLoadFull("hide");
-            // Swal.fire({
-            //     type: 'warning',
-            //     title: 'ไม่สำเร็จ',
-            //     text: 'ยังไม่มีการอนุญาตการอ่านบัตร!' + textStatus
-            // }).then((res) => {
-            //     start_read();
-            // });
-        }
-    })
-    }, 1000);
-
-})
     try {
       // Call the appropriate smart card reader API or library
       const cardData = await smartCardReader.read();
@@ -330,6 +325,67 @@ self.customer.birthday = result
     this.loadName();
     this.loadVehicle();
     const self = this;
+
+    $("#createCustomer").on("hidden.bs.modal", function () {
+      //   alert('hidden event fired!');
+    });
+
+    $("#createCustomer").on("show.bs.modal", function (e) {
+      setInterval(() => {
+        $.ajax({
+          url:
+            "https://localhost:8182/thaiid/read.jsonp?callback=callback&section1=true&section2a=true&section2c=true",
+          method: "GET",
+          type: "JSON",
+          success: function (jsondata) {
+            var data = jsondata.substr(13, jsondata.length - 14);
+            var jdata = JSON.parse(data);
+            console.log(jdata);
+
+            if (jdata !== null) {
+              self.customer.idcard = jdata.CitizenNo;
+              self.customer.name =
+                jdata.TitleNameTh + jdata.FirstNameTh + " " + jdata.LastNameTh;
+              self.customer.address = `บ้านเลขที่ ${jdata.HomeNo} หมู่ ${jdata.Moo} ตำบล${jdata.Tumbol} อำเภอ${jdata.Amphur} จังหวัด${jdata.Province}`;
+
+              const date = new Date(
+                jdata.BirthDate.substr(0, 4) - 543,
+                jdata.BirthDate.substr(4, 2) - 1,
+                String(jdata.BirthDate).substr(6, 2)
+              );
+              console.log(
+                jdata.BirthDate.substr(0, 4),
+                jdata.BirthDate.substr(4, 2),
+                jdata.BirthDate.substr(6, 2)
+              );
+              const result = date.toLocaleDateString("th-TH", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              });
+
+              self.customer.birthday = result;
+            } else {
+              self.customer.idcard = "";
+              self.customer.name = "";
+              self.customer.address = "";
+            }
+          },
+          error: function (jqXHR, textStatus, errorThrown) {
+            console.log(textStatus);
+            // $.busyLoadFull("hide");
+            // Swal.fire({
+            //     type: 'warning',
+            //     title: 'ไม่สำเร็จ',
+            //     text: 'ยังไม่มีการอนุญาตการอ่านบัตร!' + textStatus
+            // }).then((res) => {
+            //     start_read();
+            // });
+          },
+        });
+      }, 1000);
+    });
+
     $("#vehicle").on("change", async function () {
       await axios
         .post(
@@ -485,7 +541,7 @@ self.customer.birthday = result
               },
             }
           )
-          .then((response) => {
+          .then(async (response) => {
             self.mul = response.data.data;
 
             // clickedItems.push({
@@ -495,7 +551,7 @@ self.customer.birthday = result
             //   detail_id: element.detail_id,
             // });
             // console.log("it", clickedItems)
-            self.$store.dispatch(
+            await self.$store.dispatch(
               "loadItems",
               self.$store.state.items.concat([
                 {
@@ -520,38 +576,6 @@ self.customer.birthday = result
     loadCustomers: function (val, oldVal) {},
   },
   methods: {
-    async saveCustomer(){
-        console.log("customer",this.customer)
-        await axios
-        .post(
-          process.env.MIX_DEV_API + "/customer/createCus",
-          {
-            id_card: this.customer.idcard,
-            fullname_th: this.customer.name,
-            vehicle: this.customer.vehicle,
-            birthday: this.customer.birthday,
-            address: this.customer.address
-          },
-          {
-            headers: {
-              "ngrok-skip-browser-warning": "true",
-            },
-          }
-        )
-        .then((response) => {
-
-            this.$swal({
-            title: "บันทึกรายการข้อมูลสำเร็จ!",
-            icon: "success",
-          }).then(function () {
-            window.location.reload();
-          });
-
-          setTimeout(() => {
-            window.location.reload();
-          }, 5000);
-        });
-    },
     showModal() {
         const config = {
         method: 'get',
@@ -578,6 +602,37 @@ self.customer.birthday = result
           console.error('Error:', error);
         });
       },
+    async saveCustomer() {
+      console.log("customer", this.customer);
+      await axios
+        .post(
+          process.env.MIX_DEV_API + "/customer/createCus",
+          {
+            id_card: this.customer.idcard,
+            fullname_th: this.customer.name,
+            vehicle: this.customer.vehicle,
+            birthday: this.customer.birthday,
+            address: this.customer.address,
+          },
+          {
+            headers: {
+              "ngrok-skip-browser-warning": "true",
+            },
+          }
+        )
+        .then((response) => {
+          this.$swal({
+            title: "บันทึกรายการข้อมูลสำเร็จ!",
+            icon: "success",
+          }).then(function () {
+            window.location.reload();
+          });
+
+          setTimeout(() => {
+            window.location.reload();
+          }, 5000);
+        });
+    },
     clear() {
       alert("clear");
     },
@@ -698,8 +753,60 @@ self.customer.birthday = result
       // let api_url = process.env.MIX_API_KEY;
       // alert(api_url)
     },
-    async getOrder() {
-      console.log("test", this.$store.state.queueDate);
+    async getOrder(item){
+        console.log("item", item)
+        var clickedItems = [];
+
+        //sdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsd
+        this.$store.dispatch("loadOrderId", item._id);
+        $('#exampleModal').modal('hide')
+
+        clickedItems.push({ description: item.detail_name_th, qty: this.num, total: this.num * this.mul });
+    //   localStorage.storedData = JSON.stringify(this.clickedItems);
+      this.$store.dispatch("loadItems", item.order_detail);
+
+      this.$store.dispatch("loadQueueAndDate", [
+            item.queue,
+            item.createAt,
+            item.queue
+          ]);
+
+      await axios
+        .post(
+          process.env.MIX_DEV_API + "/order/getorderbydateandqueue",
+          {
+            createAt: item.createAt,
+            queue: item.queue,
+          },
+          {
+            headers: {
+              "ngrok-skip-browser-warning": "true",
+            },
+          }
+        )
+        .then((res) => {
+          console.log("--แจ้งเตือน LINE--", res);
+          //     var clickedItems = [];
+          // clickedItems.push({ description: item.detail_name_th, qty: this.num, total: this.num * this.mul });
+          //   localStorage.storedData = JSON.stringify(this.clickedItems);
+          this.$store.dispatch("loadOrderId", res.data.data[0]._id);
+          $("#idcard").val(res.data.data[1].id_card).trigger("change");
+
+          this.$store.dispatch("loadOpen", [res.data.data[0].status]);
+
+          if (typeof res.data.data[0].order_detail == "undefined") {
+            this.$store.dispatch("loadItems", []);
+          } else {
+            this.$store.dispatch("loadItems", res.data.data[0].order_detail);
+          }
+        })
+        .catch((err) => {
+          this.$store.dispatch("loadItems", []);
+        });
+
+    },
+    async getOrder2() {
+      console.log("test", this.$store.state.customers);
       await axios
         .post(
           process.env.MIX_DEV_API + "/order/getorderbydateandqueue",
@@ -719,6 +826,7 @@ self.customer.birthday = result
           // clickedItems.push({ description: item.detail_name_th, qty: this.num, total: this.num * this.mul });
           //   localStorage.storedData = JSON.stringify(this.clickedItems);
           this.$store.dispatch("loadOrderId", res.data.data[0]._id);
+          $("#idcard").val(res.data.data[1].id_card).trigger("change");
 
           this.$store.dispatch("loadOpen", [res.data.data[0].status]);
 
