@@ -22608,6 +22608,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 } else {
                   window.open('/cashier/print/receipt-cash-bill?id=' + self.orderId, '_blank');
                 }
+              })["catch"](function (error) {
+                $('#modal-loading').modal('hide');
               });
             case 4:
             case "end":

@@ -12,4 +12,15 @@ class ProductFilesController extends Controller
 
         return view('DASHBOARD_ADMIN.product_files.index');
     }
+
+    public function purchasesummary(){
+
+        return view('DASHBOARD_ADMIN.purchasesummary.index');
+    }
+
+
+    public function ordersummaryreportbydate(){
+
+        return view('DASHBOARD_ADMIN.ordersummaryreportbydate.index');
+    }
 }

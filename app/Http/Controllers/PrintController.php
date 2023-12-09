@@ -73,4 +73,15 @@ class PrintController extends Controller
 
         return $pdf->stream();
     }
+
+    public function purchaseSummary(){
+
+        return view('print.purchase_summary');
+
+    }
+
+    public function orderSummaryReportByDate(){
+
+        return view('print.ordersummaryreportbydate');
+    }
 }

@@ -71,3 +71,5 @@ Route::middleware([CheckCashier::class])->group(function () {
 
 
 Route::get('cashier/print/receipt-cash-bill', [PrintController::class, 'receiptCashBill'])->name('cashier.print.receipt-cash-bill');
+Route::get('cashier/print/purchasesummary', [PrintController::class, 'purchaseSummary'])->name('cashier.print.purchasesummary');
+Route::get('cashier/print/ordersummaryreportbydate', [PrintController::class, 'orderSummaryReportByDate'])->name('cashier.print.ordersummaryreportbydate');

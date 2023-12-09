@@ -165,7 +165,10 @@ export default {
 
             }
 
-        });
+        }).catch(error => {
+            $('#modal-loading').modal('hide');
+        })
+
     },
   },
 };

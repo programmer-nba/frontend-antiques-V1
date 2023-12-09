@@ -54,6 +54,8 @@ Route::resource('products', App\Http\Controllers\ProductsController::class);
 Route::middleware([CheckAdmin::class])->group(function () {
 
     Route::get('product_files', [App\Http\Controllers\DASHBOARD_ADMIN\ProductFilesController::class, 'index'])->name('product_files.index');
+    Route::get('purchasesummary', [App\Http\Controllers\DASHBOARD_ADMIN\ProductFilesController::class, 'purchasesummary'])->name('purchasesummary.index');
+    Route::get('ordersummaryreportbydate', [App\Http\Controllers\DASHBOARD_ADMIN\ProductFilesController::class, 'ordersummaryreportbydate'])->name('ordersummaryreportbydate.index');
 
     // Route::resource('takeTheJobs', App\Http\Controllers\take_the_jobsController::class);
     // Route::resource('product_files', App\Http\Controllers\Antiques\ProductFiles\ProductFilesController::class);
