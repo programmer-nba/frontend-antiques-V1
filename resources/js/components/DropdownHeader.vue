@@ -318,7 +318,16 @@ export default {
           setTimeout(() => {
             window.location.reload();
           }, 5000);
+        }).catch((err) => {
+            $('#modal-loading').modal('hide');
+            this.$swal({
+            title: "เกิดข้อผิดพลาด",
+            icon: "warning",
+          }).then(function () {
+            window.location.reload();
+          });
         });
+;
     },
     test() {
       alert("dd");
