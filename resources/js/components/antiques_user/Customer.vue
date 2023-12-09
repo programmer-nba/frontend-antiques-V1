@@ -628,6 +628,8 @@ self.customer.birthday = result
     },
     async getOrder(){
         console.log("test", this.$store.state.customers)
+        $('#modal-loading').modal('show');
+
         await axios.post(process.env.MIX_DEV_API + "/order/getorderbydateandqueue",{
             createAt : this.$store.state.queueDate[1],
             queue: this.$store.state.queueDate[0]
@@ -636,6 +638,9 @@ self.customer.birthday = result
                 "ngrok-skip-browser-warning": "true",
 }
         }).then((res)=>{
+
+            $('#modal-loading').modal('hide');
+
             console.log('--แจ้งเตือน LINE--', res)
         //     var clickedItems = [];
         // clickedItems.push({ description: item.detail_name_th, qty: this.num, total: this.num * this.mul });
@@ -653,6 +658,8 @@ self.customer.birthday = result
                 this.$store.dispatch("loadItems", []);
 
             }else{
+                $('#modal-loading').modal('hide');
+
                 this.$store.dispatch("loadItems", res.data.data[0].order_detail);
 
             }

@@ -774,6 +774,7 @@ export default {
             item.createAt,
             item.queue
           ]);
+          $('#modal-loading').modal('show');
 
       await axios
         .post(
@@ -803,14 +804,21 @@ export default {
           } else {
             this.$store.dispatch("loadItems", res.data.data[0].order_detail);
           }
+
+          $('#modal-loading').modal('hide');
+
         })
         .catch((err) => {
+            $('#modal-loading').modal('hide');
+
           this.$store.dispatch("loadItems", []);
         });
 
     },
     async getOrder2() {
       console.log("test", this.$store.state.customers);
+      $('#modal-loading').modal('show');
+
       await axios
         .post(
           process.env.MIX_DEV_API + "/order/getorderbydateandqueue",
@@ -839,8 +847,14 @@ export default {
           } else {
             this.$store.dispatch("loadItems", res.data.data[0].order_detail);
           }
+
+          $('#modal-loading').modal('hide');
+
         })
         .catch((err) => {
+
+            $('#modal-loading').modal('hide');
+
           this.$store.dispatch("loadItems", []);
         });
       // console.log("item", item)

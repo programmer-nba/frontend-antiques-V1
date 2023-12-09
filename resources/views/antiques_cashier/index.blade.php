@@ -76,7 +76,7 @@
                 <div class="col-md-8" style="padding-right:4px;">
                     <div class="card">
 
-                   <cashier-print username="{{session('username')}}"></cashier-print>
+                   <cashier-print username="{{session('name')}}"></cashier-print>
                     </div>
                 </div>
                 <div class="col-md-4" style="padding-left:4px;">

@@ -52,7 +52,7 @@ class LoginController extends Controller
             Session::put('level', $response->json()["data"]["level"]);
             Session::put('token', $response->json()["token"]);
             Session::put('username', $response->json()["data"]["username"]);
-
+            Session::put('name', $response->json()["data"]["name"]);
 
             if(session('level') == 1){
                 return redirect()->route('product_files.index');

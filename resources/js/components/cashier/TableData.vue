@@ -13,6 +13,7 @@
                                            <th>Amount</th>
                                            <th>DeductAmt</th>
                                            <th>Total</th>
+                                           <th></th>
                                        </tr>
                                    </thead>
                                    <tbody>
@@ -27,6 +28,99 @@
                                            <td></td>
                                            <td>0</td>
                                            <td>{{value.total}}</td>
+                                           <td  v-if="this.$store.state.dataOpen[0] != 'FINISH'">
+<!-- <button type="" class="btn btn-warning"><i class="fa fa-edit mr-2"></i>แก้ไข</button> -->
+<modal
+                          :modal-id="'test'+i"
+                          title="แก้ไขรายการสินค้า"
+                          button-text="แก้ไข"
+                          class-name="btn btn-sm btn-warning"
+                          icon-name="fa fa-edit"
+                        >
+                        <input
+                                type="email"
+                                disabled
+                                class="form-control"
+                                id="exampleInputEmail1"
+                                aria-describedby="emailHelp"
+                                placeholder="Enter email"
+                                :value="
+                                  value.description +
+                                  '-' +
+                                  value.detail_id
+                                "
+                              />
+                        <div class="form-row align-items-center">
+                              <div class="col-auto my-1">
+                                <button
+                                  style="font-size: 25px; width: 60px; height: 60px"
+                                  type="button"
+                                  class="btn btn-danger"
+                                  @click="datas[i].qty--"
+                                >
+                                  -
+                                </button>
+                              </div>
+                              <div class="col-auto my-1">
+                                <label class="mr-sm-2" for="inlineFormCustomSelect"
+                                  >Product Description</label
+                                >
+                                <input
+                                  class="form-control"
+                                  type="number"
+                                  min="0"
+                                  v-model="datas[i].qty"
+                                />
+                              </div>
+                              <div class="col-auto my-1">
+                                <button
+                                  style="font-size: 25px; width: 60px; height: 60px"
+                                  type="button"
+                                  class="btn btn-primary"
+                                  @click="datas[i].qty++"
+                                >
+                                  +
+                                </button>
+                              </div>
+                            </div>
+                            <br />
+
+                            <!-- <table class="table table-bordered">
+                              <tbody>
+                                <tr>
+                                  <td><b>Total Qty</b></td>
+                                  <td>
+                                    <input
+                                      style="
+                                        color: red;
+                                        font-weight: bold;
+                                        font-size: 21px;
+                                      "
+                                      type="email"
+                                      disabled
+                                      class="form-control"
+                                      id="exampleInputEmail1"
+                                      aria-describedby="emailHelp"
+                                      placeholder="Enter email"
+                                      :value="num * mul"
+                                    />
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table> -->
+                            <br />
+                            <button
+                              data-dismiss="modal"
+                              @click="() => onSelect(product)"
+                              type="button"
+                              class="btn btn-success float-right btn-lg"
+                            >
+                              <i class="fa fa-save mr-2"></i>บันทึก
+                            </button>
+
+                         </modal
+                        >&nbsp;&nbsp;
+                                            </td>
 
                                        </tr>
 
@@ -98,14 +192,34 @@ export default {
    }
  },
  methods: {
-   onSelect(item) {
-     this.show = false;
-     this.active = false;
-     this.clickedItems.push({ text: "buzz", value: "buzz" });
-     localStorage.storedData = JSON.stringify(this.clickedItems);
+    async onSelect(item) {
+      this.show = false;
+      this.active = false;
+      this.$store.dispatch('loadItems',this.datas)
 
-     console.log(this.clickedItems);
-   },
+      //save spiderman
+      $('#modal-loading').modal('show');
+
+      await axios
+        .post(
+          process.env.MIX_DEV_API + "/order/createOrder",
+          {
+            customers: this.$store.state.customers,
+            items: this.$store.state.items,
+            createAt : this.$store.state.queueDate[1],
+            queue: this.$store.state.queueDate[0]
+          },
+          {
+            headers: {
+              "ngrok-skip-browser-warning": "true",
+            },
+          }
+        )
+        .then((response) => {
+            $('#modal-loading').modal('hide');
+        });
+
+    },
    async toggleModal() {
      const self = this;
 

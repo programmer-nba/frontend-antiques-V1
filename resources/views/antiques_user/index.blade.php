@@ -23,6 +23,10 @@
 .btn:disabled {
     background-color: grey !important;
 }
+button:disabled{
+    background-color: grey !important;
+
+}
 
     </style>
 @endpush
@@ -78,7 +82,7 @@
                     <div class="card">
 
                     <div class="card-body" style="">
-                        <dropdown-header data="{{ json_encode($categorys) }}" username="{{session('username')}}"></dropdown-header>
+                        <dropdown-header data="{{ json_encode($categorys) }}" username="{{session('name')}}"></dropdown-header>
                     </div>
                 </div>
 

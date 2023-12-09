@@ -241,6 +241,11 @@ export default {
   },
 
   mounted: function () {
+    const self = this;
+    $(document).on('show.bs.modal', '.modal', function () {
+        self.num = 0;
+});
+
     // this.dataTemp = this.$store.state.items;
     var vm = this;
 
@@ -372,7 +377,7 @@ export default {
         });
     },
     async test(id) {
-      console.log("jj", this.$store.state.customers.class);
+        console.log("jj", this.$store.state.customers.class);
       // alert(id)
       await axios
         .post(

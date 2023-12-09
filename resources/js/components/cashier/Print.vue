@@ -16,13 +16,13 @@
                                                 Report</button> -->
                                             <br><br>
                                             <div class="row">
-                                                <div class="col-sm-4">
+                                                <!-- <div class="col-sm-4">
 
                                                     <div class="form-group">
                                                         <label>เลขที่ใบเสร็จ</label>
                                                         <input type="text" class="form-control" placeholder="Enter ...">
                                                     </div>
-                                                </div>
+                                                </div> -->
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label>Record by</label>
