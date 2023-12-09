@@ -9,7 +9,9 @@
                                             <!-- <a @click="print" class="btn btn-primary mr-2"><i
                                                     class="fa fa-print mr-2"></i>PRINT
                                                 REPORT</a> -->
-                                            <button @click="print" type="button" class="btn btn-primary mr-2"><i class="fa fa-print mr-2"></i>ออกใบเสร็จรับเงิน</button>
+                                            <button @click="print(1)" type="button" class="btn btn-primary mr-2"><i class="fa fa-print mr-2"></i>ออกใบเสร็จรับเงิน</button>
+                                            <button @click="print(2)" type="button" class="btn btn-primary mr-2"><i class="fa fa-print mr-2"></i>ออกใบรับเงิน</button>
+
                                             <!-- <button class="btn btn-primary mr-2"><i
                                                     class="fa fa-print mr-2"></i>พิมพ์บัตรประชาชน</button>
                                             <button class="btn btn-secondary mt-2"><i class="fa fa-print mr-2"></i>Paid Details
@@ -140,8 +142,10 @@ export default {
 },
   created() {},
   methods: {
-    print: async function () {
+    print: async function (type) {
         const self = this;
+        $('#modal-loading').modal('show');
+
     await axios.post(process.env.MIX_DEV_API + "/order/getorderbydateandqueue",{
             createAt : this.$store.state.queueDate[1],
             queue: this.$store.state.queueDate[0]
@@ -150,9 +154,16 @@ export default {
                 "ngrok-skip-browser-warning": "true",
             }
         }).then((res)=>{
-            self.orderId = res.data.data[0].orderId
+            $('#modal-loading').modal('hide');
 
-            window.open('/cashier/print/receiptorder?id='+self.orderId, '_blank');
+            self.orderId = res.data.data[0].orderId
+            if(type == 1){
+                window.open('/cashier/print/receiptorder?id='+self.orderId, '_blank');
+
+            }else{
+                window.open('/cashier/print/receipt-cash-bill?id='+self.orderId, '_blank');
+
+            }
 
         });
     },

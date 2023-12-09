@@ -51,13 +51,21 @@ class PrintController extends Controller
     public function receiptCashBill(){
 
 
-        $data = [
-            [
-                'quantity' => 1,
-                'description' => '1 Year Subscription',
-                'price' => '129.00'
-            ]
-        ];
+
+        $response = Http::withOptions(["verify"=>false])->post(env('DEV_API').'/report/receiptcashbill', [
+            'orderId' =>request()->id
+        ]);
+
+
+        $data = $response->json()["data"];
+
+        // $data = [
+        //     [
+        //         'quantity' => 1,
+        //         'description' => '1 Year Subscription',
+        //         'price' => '129.00'
+        //     ]
+        // ];
         return view('print.reciept_cash_bill', ['data' => $data]);
 
         $pdf = PDF::loadView('print.reciept_cash_bill', ['data' => $data])->setOption('fontDir', public_path('/fonts'));

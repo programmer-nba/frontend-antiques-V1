@@ -20190,8 +20190,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 setTimeout(function () {
                   window.location.reload();
                 }, 5000);
+              })["catch"](function (err) {
+                $('#modal-loading').modal('hide');
+                _this.$swal({
+                  title: "เกิดข้อผิดพลาด",
+                  icon: "warning"
+                }).then(function () {
+                  window.location.reload();
+                });
               });
             case 3:
+              ;
+            case 4:
             case "end":
               return _context.stop();
           }
@@ -22575,13 +22585,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   created: function created() {},
   methods: {
     print: function () {
-      var _print = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+      var _print = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(type) {
         var self;
         return _regeneratorRuntime().wrap(function _callee2$(_context2) {
           while (1) switch (_context2.prev = _context2.next) {
             case 0:
               self = this;
-              _context2.next = 3;
+              $('#modal-loading').modal('show');
+              _context2.next = 4;
               return axios.post("https://6e81-147-50-183-56.ngrok-free.app/antiques" + "/order/getorderbydateandqueue", {
                 createAt: this.$store.state.queueDate[1],
                 queue: this.$store.state.queueDate[0]
@@ -22590,16 +22601,21 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   "ngrok-skip-browser-warning": "true"
                 }
               }).then(function (res) {
+                $('#modal-loading').modal('hide');
                 self.orderId = res.data.data[0].orderId;
-                window.open('/cashier/print/receiptorder?id=' + self.orderId, '_blank');
+                if (type == 1) {
+                  window.open('/cashier/print/receiptorder?id=' + self.orderId, '_blank');
+                } else {
+                  window.open('/cashier/print/receipt-cash-bill?id=' + self.orderId, '_blank');
+                }
               });
-            case 3:
+            case 4:
             case "end":
               return _context2.stop();
           }
         }, _callee2, this);
       }));
-      function print() {
+      function print(_x) {
         return _print.apply(this, arguments);
       }
       return print;
@@ -25160,12 +25176,17 @@ var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, null, -1 /* HOISTED */);
 var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("ออกใบเสร็จรับเงิน");
 var _hoisted_7 = [_hoisted_5, _hoisted_6];
-var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
-var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
-var _hoisted_10 = {
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "fa fa-print mr-2"
+}, null, -1 /* HOISTED */);
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("ออกใบรับเงิน");
+var _hoisted_10 = [_hoisted_8, _hoisted_9];
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
+var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
+var _hoisted_13 = {
   "class": "row"
 };
-var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "col-sm-4"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "form-group"
@@ -25174,54 +25195,60 @@ var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   "class": "form-control",
   placeholder: "Enter ..."
 })])], -1 /* HOISTED */);
-var _hoisted_12 = {
+var _hoisted_15 = {
   "class": "col-sm-4"
 };
-var _hoisted_13 = {
+var _hoisted_16 = {
   "class": "form-group"
 };
-var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", null, "Paid by", -1 /* HOISTED */);
-var _hoisted_15 = ["value"];
-var _hoisted_16 = {
+var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", null, "Paid by", -1 /* HOISTED */);
+var _hoisted_18 = ["value"];
+var _hoisted_19 = {
   "class": "col-md-5"
 };
-var _hoisted_17 = {
+var _hoisted_20 = {
   "class": ""
 };
-var _hoisted_18 = {
+var _hoisted_21 = {
   "class": "card-body"
 };
-var _hoisted_19 = {
+var _hoisted_22 = {
   "class": "form-group row"
 };
-var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "for": "inputEmail3",
   "class": "col-sm-4 col-form-label"
 }, "Total/ยอดรวม", -1 /* HOISTED */);
-var _hoisted_21 = {
+var _hoisted_24 = {
   "class": "col-sm-8"
 };
-var _hoisted_22 = ["value"];
+var _hoisted_25 = ["value"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <a @click=\"print\" class=\"btn btn-primary mr-2\"><i\n                                                    class=\"fa fa-print mr-2\"></i>PRINT\n                                                REPORT</a> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-    onClick: _cache[0] || (_cache[0] = function () {
-      return $options.print && $options.print.apply($options, arguments);
+    onClick: _cache[0] || (_cache[0] = function ($event) {
+      return $options.print(1);
     }),
     type: "button",
     "class": "btn btn-primary mr-2"
-  }, _hoisted_7), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <button class=\"btn btn-primary mr-2\"><i\n                                                    class=\"fa fa-print mr-2\"></i>พิมพ์บัตรประชาชน</button>\n                                            <button class=\"btn btn-secondary mt-2\"><i class=\"fa fa-print mr-2\"></i>Paid Details\n                                                Report</button> "), _hoisted_8, _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"col-sm-4\">\n\n                                                    <div class=\"form-group\">\n                                                        <label>เลขที่ใบเสร็จ</label>\n                                                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter ...\">\n                                                    </div>\n                                                </div> "), _hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [_hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  }, _hoisted_7), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    onClick: _cache[1] || (_cache[1] = function ($event) {
+      return $options.print(2);
+    }),
+    type: "button",
+    "class": "btn btn-primary mr-2"
+  }, _hoisted_10), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <button class=\"btn btn-primary mr-2\"><i\n                                                    class=\"fa fa-print mr-2\"></i>พิมพ์บัตรประชาชน</button>\n                                            <button class=\"btn btn-secondary mt-2\"><i class=\"fa fa-print mr-2\"></i>Paid Details\n                                                Report</button> "), _hoisted_11, _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"col-sm-4\">\n\n                                                    <div class=\"form-group\">\n                                                        <label>เลขที่ใบเสร็จ</label>\n                                                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter ...\">\n                                                    </div>\n                                                </div> "), _hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [_hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     readonly: "",
     type: "text",
     "class": "form-control",
     placeholder: "Enter ...",
     value: this.username
-  }, null, 8 /* PROPS */, _hoisted_15)])])])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"form-group row\">\n                                            <label for=\"inputEmail3\" class=\"col-sm-4 col-form-label\">Amount</label>\n                                            <div class=\"col-sm-8\">\n                                                <input type=\"email\" class=\"form-control\" id=\"inputEmail3\" placeholder=\"Email\">\n                                            </div>\n                                        </div>\n                                        <div class=\"form-group row\">\n                                            <label for=\"inputEmail3\" class=\"col-sm-4 col-form-label\">Deduct</label>\n                                            <div class=\"col-sm-8\">\n                                                <input type=\"email\" class=\"form-control\" id=\"inputEmail3\" placeholder=\"Email\">\n                                            </div>\n                                        </div>\n                                        <div class=\"form-group row\">\n                                            <label for=\"inputEmail3\" class=\"col-sm-4 col-form-label\">Sell/ขายหักบิล</label>\n                                            <div class=\"col-sm-8\">\n                                                <input type=\"email\" class=\"form-control\" id=\"inputEmail3\" placeholder=\"Email\">\n                                            </div>\n                                        </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"form-group row\">\n\n                                            <div class=\"col-sm-9\">\n\n                                                <div class=\"row\">\n                                                    <div class=\"col-md-6\">\n                                                        <div class=\"form-check\">\n                                                            <input class=\"form-check-input\" type=\"radio\" name=\"exampleRadios\" id=\"exampleRadios1\" value=\"option1\" checked>\n                                                            <label class=\"form-check-label\" for=\"exampleRadios1\">\n                                                              Vat\n                                                            </label>\n                                                          </div>\n\n                                                    </div>\n                                                    <br><br>\n                                                    <div class=\"col-md-6\">\n                                                        <div class=\"form-check\">\n                                                            <input class=\"form-check-input\" type=\"radio\" name=\"exampleRadios\" id=\"exampleRadios2\" value=\"option1\" checked>\n                                                            <label class=\"form-check-label\" for=\"exampleRadios2\">\n                                                              Include Vat\n                                                            </label>\n                                                          </div>\n\n                                                    </div>\n                                                    <div class=\"col-md-5\" style=\"display: inline-block;\">\n                                                        <input style=\"display: inline-block;width:4rem;\" type=\"password\"\n                                                            class=\"form-control\" id=\"inputPassword\" placeholder=\"Password\">\n                                                        <span style=\"display: inline-block;\">&nbsp;%</span>\n\n\n                                                    </div>\n                                                    <div class=\"col-md-7\">\n                                                        <input type=\"password\" class=\"form-control\" id=\"inputPassword\"\n                                                            placeholder=\"Password\">\n\n                                                    </div>\n                                                </div>\n                                            </div>\n                                        </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [_hoisted_20, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  }, null, 8 /* PROPS */, _hoisted_18)])])])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"form-group row\">\n                                            <label for=\"inputEmail3\" class=\"col-sm-4 col-form-label\">Amount</label>\n                                            <div class=\"col-sm-8\">\n                                                <input type=\"email\" class=\"form-control\" id=\"inputEmail3\" placeholder=\"Email\">\n                                            </div>\n                                        </div>\n                                        <div class=\"form-group row\">\n                                            <label for=\"inputEmail3\" class=\"col-sm-4 col-form-label\">Deduct</label>\n                                            <div class=\"col-sm-8\">\n                                                <input type=\"email\" class=\"form-control\" id=\"inputEmail3\" placeholder=\"Email\">\n                                            </div>\n                                        </div>\n                                        <div class=\"form-group row\">\n                                            <label for=\"inputEmail3\" class=\"col-sm-4 col-form-label\">Sell/ขายหักบิล</label>\n                                            <div class=\"col-sm-8\">\n                                                <input type=\"email\" class=\"form-control\" id=\"inputEmail3\" placeholder=\"Email\">\n                                            </div>\n                                        </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"form-group row\">\n\n                                            <div class=\"col-sm-9\">\n\n                                                <div class=\"row\">\n                                                    <div class=\"col-md-6\">\n                                                        <div class=\"form-check\">\n                                                            <input class=\"form-check-input\" type=\"radio\" name=\"exampleRadios\" id=\"exampleRadios1\" value=\"option1\" checked>\n                                                            <label class=\"form-check-label\" for=\"exampleRadios1\">\n                                                              Vat\n                                                            </label>\n                                                          </div>\n\n                                                    </div>\n                                                    <br><br>\n                                                    <div class=\"col-md-6\">\n                                                        <div class=\"form-check\">\n                                                            <input class=\"form-check-input\" type=\"radio\" name=\"exampleRadios\" id=\"exampleRadios2\" value=\"option1\" checked>\n                                                            <label class=\"form-check-label\" for=\"exampleRadios2\">\n                                                              Include Vat\n                                                            </label>\n                                                          </div>\n\n                                                    </div>\n                                                    <div class=\"col-md-5\" style=\"display: inline-block;\">\n                                                        <input style=\"display: inline-block;width:4rem;\" type=\"password\"\n                                                            class=\"form-control\" id=\"inputPassword\" placeholder=\"Password\">\n                                                        <span style=\"display: inline-block;\">&nbsp;%</span>\n\n\n                                                    </div>\n                                                    <div class=\"col-md-7\">\n                                                        <input type=\"password\" class=\"form-control\" id=\"inputPassword\"\n                                                            placeholder=\"Password\">\n\n                                                    </div>\n                                                </div>\n                                            </div>\n                                        </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_22, [_hoisted_23, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_24, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     type: "email",
     "class": "form-control",
     id: "inputEmail3",
     placeholder: "",
     value: $options.sum
-  }, null, 8 /* PROPS */, _hoisted_22)])])])])])]);
+  }, null, 8 /* PROPS */, _hoisted_25)])])])])])]);
 }
 
 /***/ }),

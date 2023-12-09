@@ -40,6 +40,24 @@ table.products th {
     color: #ffffff;
     padding: 0.5rem;
 }
+
+table.t1 th   {
+    border: 1px solid black;
+  border-collapse: collapse;
+
+}
+
+table.t1 td   {
+    border: 1px solid black;
+  border-collapse: collapse;
+
+}
+
+td.sum {
+    height: 22px;;
+}
+
+
 table tr.items {
     background-color: rgb(241 245 249);
 }
@@ -73,7 +91,7 @@ td {
         <h1>บิลเงินสด/ใบรับเงิน</h1>
     </div>
     <div  style="position: absolute;top:0;right:0;">
-        <p>Page 1 of 1</p>
+            {{-- <p>Page 1 of 1</p> --}}
     </div>
     {{-- <table class="w-full">
         <tr>
@@ -85,7 +103,6 @@ td {
             </td>
         </tr>
     </table> --}}
-
     <div class="margin-top">
         <table class="w-full" style="">
             <tr>
@@ -93,52 +110,111 @@ td {
                     <div>ข้าพเจ้า</div>
                 </td>
                 <td style="width: 55%;">
-                    <div> นายสุพล โสภศรี</div>
-                    <div>เลขที่ 19 ซ.อุดมสุข 22 แขวงบางนาเหนือ เขตบางนา กทม.</div>
-                    <div>เลขที่บัตรประชาชน 1100201391951</div>
+                    <div> {{$data["fullname_th"]}}</div>
+                    <div>{{$data['address']}}</div>
+                    <div>เลขที่บัตรประชาชน {{$data['id_card']}}</div>
                 </td>
                 <td  style="text-align: right;width: 30%;padding-right:20px;">
                     <div > <span>เลขที่รายการ</span></div>
                     <div>วันที่</div>
                 </td>
                 <td  style="text-align: right;width: 10%;">
-                    <div class="line"> 39</div>
-                    <div class="line"> 29/11/2023</div>
+                    <div class="line"> {{$data['queue']}}</div>
+                    <div class="line"> {{$data['createAt']}}</div>
                 </td>
             </tr>
         </table>
     </div>
+    <div>
+        ได้รับเงินจาก วงษ์พาณิชย์ สุขุมวิท 101/1 เลขที่3 ซ.วชิรธรรมสาธิต 16 แขวงบางนาเหนือ เขตบางนา กทม. <br>เลขประจำตัวผู้เสียภาษีอากร 3530900029188
+    </div>
 
     <div class="margin-top">
-        <table class="products">
-            <tr>
-                <th>Qty</th>
-                <th>Description</th>
-                <th>Price</th>
+        <table class="t1">
+            <tr style="text-align: center">
+                <th>ลำดับ</th>
+                <th>รายการ</th>
+                <th>จำนวน</th>
+                <th>หน่วย</th>
+                <th>หักออก</th>
+                <th>จำนวนสุทธิ</th>
+                <th>ราคา</th>
+                <th>จำนวนเงิน</th>
             </tr>
-            <tr class="items">
-                @foreach($data as $item)
+            @foreach($data["orderList"] as $key => $item)
+
+
+            <tr class="items" style="text-align:center;">
                     <td>
-                        {{ $item['quantity'] }}
+                        {{$key+1}}
                     </td>
-                    <td>
+                    <td style="text-align:left;">
                         {{ $item['description'] }}
                     </td>
                     <td>
-                        {{ $item['price'] }}
+                        {{ $item['qty'] }}
                     </td>
-                @endforeach
+                    <td>
+                        กิโล
+                    </td>
+                    <td>
+                        0
+                    </td>
+                    <td>
+                        {{ $item['qty'] }}
+                    </td>
+                    <td>
+                        {{ round($item['total'] /  $item['qty'], 2) }}
+                    </td>
+                    <td>
+                        {{  $item['total'] }}
+                    </td>
+            </tr>
+            @endforeach
+            <tr>
+                <td class="sum" colspan="7" style="text-align: right">ยอดรวม</td>
+                <td class="sum" style="text-align: center">{{$data['totalPrice']}}</td>
             </tr>
         </table>
     </div>
 
-    <div class="total">
-        Total: $129.00 USD
-    </div>
+    <br><br>
 
-    <div class="footer margin-top">
-        <div>Thank you</div>
-        <div>&copy; Laravel Daily</div>
+    <div class=" margin-top">
+        <table class="w-full" style="">
+            <tr>
+                <td style="width:33.33%;text-align:center;">
+                    <div style="        border-bottom: 3px solid #000;
+                    display: inline-block;
+                    padding-bottom: 5px;
+                    width: 10rem;
+
+                "></div>
+                    <div>ผู้จ่ายเงิน</div>
+                </td>
+                <td  style="width:33.33%;text-align:center;">
+                    <div style="        border-bottom: 3px solid #000;
+                    display: inline-block;
+                    padding-bottom: 5px;
+                    width: 10rem;
+
+                "></div>
+                    <div>ผู้บันทึก</div>
+                </td>
+                <td  style="width:33.33%;text-align:center;">
+                    <div style="        border-bottom: 3px solid #000;
+                    display: inline-block;
+                    padding-bottom: 5px;
+                    width: 10rem;
+
+                "></div>
+                    <div>ผู้รับเงิน</div>
+                </td>
+            </tr>
+        </table>
     </div>
+    <script type="text/javascript">
+        window.onload = function() { window.print(); }
+    </script>
 </body>
 </html>
