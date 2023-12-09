@@ -28,7 +28,7 @@
                                            <td></td>
                                            <td>0</td>
                                            <td>{{value.total}}</td>
-                                           <td  v-if="this.$store.state.dataOpen[0] != 'FINISH'">
+                                           <td >
 <!-- <button type="" class="btn btn-warning"><i class="fa fa-edit mr-2"></i>แก้ไข</button> -->
 <modal
                           :modal-id="'test'+i"
