@@ -20,7 +20,9 @@
             height: calc(1.6em + 0.75rem + 2px) !important;
             padding: 0.375rem 0.75rem;
         }
-
+.btn:disabled {
+    background-color: grey !important;
+}
 
     </style>
 @endpush

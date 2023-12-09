@@ -11,7 +11,7 @@
                       ">Type: </label>
                         <div class="col-sm-10">
 
-                          <input type="text" readonly class="form-control" id="staticEmail" value="66REC1122">
+                          <input type="text" readonly class="form-control" id="staticEmail" :value="this.$store.state.dataOpen[1]">
                         </div>
                       </div>
                 </li>
@@ -215,7 +215,7 @@ export default {
 
     },
     queue:function(){
-     
+
 
         this.$store.dispatch("loadQueueAndDate", [
             this.queue,

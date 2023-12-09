@@ -51,7 +51,7 @@
             id="idcard"
             class="form-control"
           >
-            <option value="">-- กรุณาเลือก --</option>
+            <option value="000000000">-- กรุณาเลือก --</option>
             <option v-for="data in dataId" :value="data.id_card" @click="test(data)">
               {{ data.id_card }}
             </option>
@@ -63,7 +63,7 @@
           <label>Name</label>
 
           <select2-component  :disabled="this.$store.state.dataOpen[0] == 'FINISH'" v-model="name" name="name[]" id="name" class="form-control">
-            <option value="">-- กรุณาเลือก --</option>
+            <option value="000000000">-- กรุณาเลือก --</option>
             <option v-for="data in dataName" :value="data.fullname_th">
               {{ data.fullname_th }}
             </option>
@@ -117,7 +117,7 @@
             id="vehicle"
             class="form-control"
           >
-            <option value="">-- กรุณาเลือก --</option>
+            <option value="000000000">-- กรุณาเลือก --</option>
             <option v-for="(data, key) in dataVehicle" :value="data.vehicle">
               {{ data.vehicle }}
             </option>
@@ -502,7 +502,11 @@ self.customer.birthday = result
         });
     },
     clear(){
-        alert("clear");
+        $("#idcard").val("000000000").trigger("change");
+        $("#name").val("000000000").trigger("change");
+        $("#vehicle").val("000000000").trigger("change");
+
+        this.type = "";
     },
     async saveafterfinish(){
         await axios
@@ -640,7 +644,8 @@ self.customer.birthday = result
     $("#idcard").val(res.data.data[1].id_card).trigger("change");
 
     this.$store.dispatch("loadOpen", [
-        res.data.data[0].status
+        res.data.data[0].status,
+        res.data.data[0].trackorder
           ]);
 
 

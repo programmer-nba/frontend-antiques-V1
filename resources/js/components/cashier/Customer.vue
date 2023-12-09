@@ -70,8 +70,8 @@
   <br /><br />
   <form>
     <div class="row">
-     
-    
+
+
       <div class="col-sm-4">
         <div class="form-group">
           <label>ID</label>
@@ -82,7 +82,7 @@
             id="idcard"
             class="form-control"
           >
-            <option value="">-- กรุณาเลือก --</option>
+            <option value="000000000">-- กรุณาเลือก --</option>
             <option v-for="data in dataId" :value="data.id_card" @click="test(data)">
               {{ data.id_card }}
             </option>
@@ -100,7 +100,7 @@
             id="name"
             class="form-control"
           >
-            <option value="">-- กรุณาเลือก --</option>
+            <option value="000000000">-- กรุณาเลือก --</option>
             <option v-for="data in dataName" :value="data.fullname_th">
               {{ data.fullname_th }}
             </option>
@@ -158,7 +158,7 @@
             id="vehicle"
             class="form-control"
           >
-            <option value="">-- กรุณาเลือก --</option>
+            <option value="000000000">-- กรุณาเลือก --</option>
             <option v-for="(data, key) in dataVehicle" :value="data.vehicle">
               {{ data.vehicle }}
             </option>
@@ -331,7 +331,7 @@ export default {
     });
 
     $("#createCustomer").on("show.bs.modal", function (e) {
-      setInterval(() => {
+    //   setInterval(() => {
         $.ajax({
           url:
             "https://localhost:8182/thaiid/read.jsonp?callback=callback&section1=true&section2a=true&section2c=true",
@@ -383,7 +383,7 @@ export default {
             // });
           },
         });
-      }, 1000);
+    //   }, 1000);
     });
 
     $("#vehicle").on("change", async function () {
@@ -634,7 +634,11 @@ export default {
         });
     },
     clear() {
-      alert("clear");
+        $("#idcard").val("000000000").trigger("change");
+        $("#name").val("000000000").trigger("change");
+        $("#vehicle").val("000000000").trigger("change");
+
+        this.type = "";
     },
     async saveafterfinish() {
       await axios
@@ -792,7 +796,7 @@ export default {
           this.$store.dispatch("loadOrderId", res.data.data[0]._id);
           $("#idcard").val(res.data.data[1].id_card).trigger("change");
 
-          this.$store.dispatch("loadOpen", [res.data.data[0].status]);
+          this.$store.dispatch("loadOpen", [res.data.data[0].status, res.data.data[0].trackorder]);
 
           if (typeof res.data.data[0].order_detail == "undefined") {
             this.$store.dispatch("loadItems", []);
@@ -828,7 +832,7 @@ export default {
           this.$store.dispatch("loadOrderId", res.data.data[0]._id);
           $("#idcard").val(res.data.data[1].id_card).trigger("change");
 
-          this.$store.dispatch("loadOpen", [res.data.data[0].status]);
+          this.$store.dispatch("loadOpen", [res.data.data[0].status, res.data.data[0].trackorder]);
 
           if (typeof res.data.data[0].order_detail == "undefined") {
             this.$store.dispatch("loadItems", []);

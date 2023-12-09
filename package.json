@@ -25,6 +25,7 @@
         "vue-loader": "^16.2.0"
     },
     "dependencies": {
+        "cors": "^2.8.5",
         "datatables.net-dt": "^1.13.7",
         "datatables.net-responsive": "^2.5.0",
         "datatables.net-select": "^1.7.0",
