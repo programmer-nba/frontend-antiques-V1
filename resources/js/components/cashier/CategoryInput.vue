@@ -299,7 +299,7 @@ export default {
         )
         .then((response) => {
           this.$swal({
-            title: "เพิ่มรายการข้อมูลสำเร็จ!",
+            title: "จ่ายเงินสำเร็จ!",
             icon: "success",
           }).then(function () {
             window.location.reload();

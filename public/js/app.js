@@ -20133,6 +20133,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     };
   },
   mounted: function mounted() {
+    var self = this;
+    $(document).on('show.bs.modal', '.modal', function () {
+      self.num = 0;
+    });
+
     // this.dataTemp = this.$store.state.items;
     var vm = this;
     $(this.$el).select2().trigger("change").on("change", function () {
@@ -21555,7 +21560,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 }
               }).then(function (response) {
                 _this.$swal({
-                  title: "เพิ่มรายการข้อมูลสำเร็จ!",
+                  title: "จ่ายเงินสำเร็จ!",
                   icon: "success"
                 }).then(function () {
                   window.location.reload();
