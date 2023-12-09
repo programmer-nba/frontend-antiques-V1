@@ -76,7 +76,7 @@
         <div class="form-group">
           <label>ID</label>
           <select2-component
-            :disabled="this.$store.state.dataOpen[0] == 'FINISH'"
+
             v-model="idCard"
             name="idcard[]"
             id="idcard"
@@ -94,7 +94,7 @@
           <label>Name</label>
 
           <select2-component
-            :disabled="this.$store.state.dataOpen[0] == 'FINISH'"
+
             v-model="name"
             name="name[]"
             id="name"
@@ -127,7 +127,7 @@
         <div class="form-group">
           <label>Warehoursse</label>
           <select2-component
-            :disabled="this.$store.state.dataOpen[0] == 'FINISH'"
+
             name="Warehoursse[]"
             id="Warehoursse"
             class="form-control"
@@ -152,7 +152,7 @@
           <label>Vehicle ID </label>
 
           <select2-component
-            :disabled="this.$store.state.dataOpen[0] == 'FINISH'"
+
             v-model="vehicle"
             name="vehicle[]"
             id="vehicle"
