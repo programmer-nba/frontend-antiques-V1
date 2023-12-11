@@ -25,12 +25,13 @@ class ProductFilesController extends Controller
 
             $data = $response->json()["data"];
         }
+        dd($data);
 
         return view('DASHBOARD_ADMIN.purchasesummary.index', compact('data'));
     }
 
 
-    public function ordersummaryreportbydate(){
+    public function summaryreportbydate (){
 
         $data  = [];
 
@@ -49,5 +50,30 @@ class ProductFilesController extends Controller
 
 
         return view('DASHBOARD_ADMIN.ordersummaryreportbydate.index', compact('data'));
+    }
+
+    public function ordersummaryreportbynumber(){
+        $data  = [];
+
+        return view('DASHBOARD_ADMIN.ordersummaryreportbynumber.index', compact('data'));
+
+    }
+
+    public function summaryReportByProduct(){
+        $data  = [];
+
+        if(!empty(request()->datestart) && !empty(request()->datestop)){
+            $response = Http::withOptions(["verify"=>false])->post(env('DEV_API').'/report/purchasesummary', [
+                'StartDate' =>request()->datestart,
+                'EndDate' =>request()->datestop
+            ]);
+
+            $data = $response->json()["data"];
+        }
+
+
+
+        return view('DASHBOARD_ADMIN.summaryreportbyproduct.index', compact('data'));
+
     }
 }

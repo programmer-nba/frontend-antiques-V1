@@ -74,7 +74,7 @@ class PrintController extends Controller
         return $pdf->stream();
     }
 
-    public function purchaseSummary(){
+    public function summaryreportbyproduct(){
 
         $data  = [];
 
@@ -95,6 +95,18 @@ class PrintController extends Controller
 
     public function orderSummaryReportByDate(){
 
-        return view('print.ordersummaryreportbydate');
+        $data  = [];
+
+        if(!empty(request()->datestart) && !empty(request()->datestop)){
+            $response = Http::withOptions(["verify"=>false])->post(env('DEV_API').'/report/ordersummaryreportbydate', [
+                'StartDate' =>request()->datestart,
+                'EndDate' =>request()->datestop
+            ]);
+
+            $data = $response->json()["data"];
+        }
+
+
+        return view('print.ordersummaryreportbydate',compact('data'));
     }
 }

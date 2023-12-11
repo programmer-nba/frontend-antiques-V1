@@ -83,6 +83,13 @@ td {
              border-bottom-width: 3.1px;
              text-align: center;
          }
+
+         .text-center{
+            text-align: center;
+         }
+         .text-left{
+            text-align: left;
+         }
     </style>
 </head>
 <body style="position: relative;">

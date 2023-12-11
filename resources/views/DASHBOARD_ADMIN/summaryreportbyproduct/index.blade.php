@@ -14,7 +14,7 @@
 
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">รายงานสรุปการซื้อ/ตามวันที่</h3>
+                <h3 class="card-title">รายงานสรุปการซื้อ/ตามสินค้า</h3>
             </div>
             <div class="card-body">
 
@@ -48,24 +48,28 @@
 
                 <br>
                 @if (!empty(request()->datestart) && !empty(request()->datestop))
-                <a target="_blank" href="{{route('cashier.print.summaryreportbydate',[
+                <a target="_blank" href="{{route('cashier.print.summaryreportbyproduct',[
                     'datestart' => request()->datestart,
                     'datestop' => request()->datestop
-                ])}}" class="btn btn-primary float-right"><i class="fa fa-print mr-2"></i>พิมพ์เอกสาร</a>                <h5>รายงานสรุปการซื้อ/ตามวันที่</h5>
+                ])}}" class="btn btn-primary float-right"><i class="fa fa-print mr-2"></i>พิมพ์เอกสาร</a>                <h5>รายงานสรุปการซื้อ/ตามสินค้า</h5>
                 <h5>วันที่ {{request()->datestart}} ถึง {{request()->datestop}}</h5>
                 <table id="example" class="table table-striped table-bordered" style="width:100%">
                     <thead>
                         <tr>
-                            <th class="text-center">วันที่</th>
-                            <th>จำนวนเงิน</th>
+                            <th class="text-center">ลำดับ</th>
+                            <th>รายการ</th>
+                            <th class="text-center">หน่วย</th>
+                            <th class="text-center">จำนวนสุทธิ</th>
+                            <th class="text-center">จน.หักออก</th>
+                            <th class="text-center">ราคาเฉลี่ย</th>
+                            <th class="text-center">จำนวนเงิน</th>
                             <th class="text-center">หักออก</th>
-                            <th class="text-center">Vat</th>
                             <th class="text-center">จำนวนเงินสุทธิ</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($data as $key => $value)
-                        {{-- <tr class="text-center">
+                        <tr class="text-center">
                             <td>{{$key}}</td>
                             <td class="text-left">{{$value["description"]}}</td>
                             <td>{{$value["unit"]}}</td>
@@ -76,13 +80,6 @@
                             <td>{{$value['total']}}</td>
                             <td></td>
                             <td>{{$value['total']}}</td>
-                        </tr> --}}
-                        <tr>
-                            <td>01/11/2023</td>
-                            <td>30768.00</td>
-                            <td></td>
-                            <td></td>
-                            <td>30768.00</td>
                         </tr>
                         @endforeach
                     </tbody>
