@@ -15,22 +15,39 @@ class ProductFilesController extends Controller
     }
 
     public function purchasesummary(){
+        $data  = [];
 
-        $response = Http::withOptions(["verify"=>false])->post(env('DEV_API').'/report/receiptcashbill', [
-            'orderId' =>request()->id
-        ]);
+        if(!empty(request()->datestart) && !empty(request()->datestop)){
+            $response = Http::withOptions(["verify"=>false])->post(env('DEV_API').'/report/purchasesummary', [
+                'StartDate' =>request()->datestart,
+                'EndDate' =>request()->datestop
+            ]);
 
+            $data = $response->json()["data"];
+        }
 
-        $data = $response->json()["data"];
-
-        dd($data);
-
-        return view('DASHBOARD_ADMIN.purchasesummary.index');
+        return view('DASHBOARD_ADMIN.purchasesummary.index', compact('data'));
     }
 
 
     public function ordersummaryreportbydate(){
 
-        return view('DASHBOARD_ADMIN.ordersummaryreportbydate.index');
+        $data  = [];
+
+        if(!empty(request()->datestart) && !empty(request()->datestop)){
+            $response = Http::withOptions(["verify"=>false])->post(env('DEV_API').'/report/ordersummaryreportbydate', [
+                'StartDate' =>request()->datestart,
+                'EndDate' =>request()->datestop
+            ]);
+
+            $data = $response->json()["data"];
+        }
+
+
+
+        // dd($data);
+
+
+        return view('DASHBOARD_ADMIN.ordersummaryreportbydate.index', compact('data'));
     }
 }

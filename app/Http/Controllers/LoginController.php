@@ -60,7 +60,6 @@ class LoginController extends Controller
                 return redirect()->route('user.index');
             }else{
                 return redirect()->route('cashier.index');
-
             }
 
         } catch (\Throwable $th) {
@@ -83,6 +82,13 @@ class LoginController extends Controller
 
         // dd(session()->all());
         // Session::flush();
+        if(session('level') == 1){
+            return redirect()->route('product_files.index');
+        }else if(session('level') == 2){
+            return redirect()->route('user.index');
+        }else if(session('level') == 3){
+            return redirect()->route('cashier.index');
+        }
 
         return view('auth.login');
     }

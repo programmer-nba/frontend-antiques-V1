@@ -86,133 +86,39 @@ td {
     </style>
 </head>
 <body style="position: relative;">
-
-    <div class="total" style="text-align:center;">
-        <h1>บิลเงินสด/ใบรับเงิน</h1>
-    </div>
-    <div  style="position: absolute;top:0;right:0;">
-            {{-- <p>Page 1 of 1</p> --}}
-    </div>
-    {{-- <table class="w-full">
-        <tr>
-            <td class="w-half">
-                <img src="https://www.ilovepdf.com/img/ilovepdf/social/en-US/imagepdf.png" alt="laravel daily" width="200" />
-            </td>
-            <td class="w-half">
-                <h2>Invoice ID: 834847473dd</h2>
-            </td>
-        </tr>
-    </table> --}}
-    <div class="margin-top">
-        <table class="w-full" style="">
+    <h5>รายงานสรุปการซื้อ/ตามสินค้า</h5>
+    <h5>วันที่ {{request()->datestart}} ถึง {{request()->datestop}}</h5>
+    <table id="example" class="table table-striped table-bordered t1" style="width:100%">
+        <thead>
             <tr>
-                <td style="width: 5%;">
-                    <div>ข้าพเจ้า</div>
-                </td>
-                <td style="width: 55%;">
-                    <div> {{$data["fullname_th"]}}</div>
-                    <div>{{$data['address']}}</div>
-                    <div>เลขที่บัตรประชาชน {{$data['id_card']}}</div>
-                </td>
-                <td  style="text-align: right;width: 30%;padding-right:20px;">
-                    <div > <span>เลขที่รายการ</span></div>
-                    <div>วันที่</div>
-                </td>
-                <td  style="text-align: right;width: 10%;">
-                    <div class="line"> {{$data['queue']}}</div>
-                    <div class="line"> {{$data['createAt']}}</div>
-                </td>
-            </tr>
-        </table>
-    </div>
-    <div>
-        ได้รับเงินจาก วงษ์พาณิชย์ สุขุมวิท 101/1 เลขที่3 ซ.วชิรธรรมสาธิต 16 แขวงบางนาเหนือ เขตบางนา กทม. <br>เลขประจำตัวผู้เสียภาษีอากร 3530900029188
-    </div>
-
-    <div class="margin-top">
-        <table class="t1">
-            <tr style="text-align: center">
-                <th>ลำดับ</th>
+                <th class="text-center">ลำดับ</th>
                 <th>รายการ</th>
-                <th>จำนวน</th>
-                <th>หน่วย</th>
-                <th>หักออก</th>
-                <th>จำนวนสุทธิ</th>
-                <th>ราคา</th>
-                <th>จำนวนเงิน</th>
+                <th class="text-center">หน่วย</th>
+                <th class="text-center">จำนวนสุทธิ</th>
+                <th class="text-center">จน.หักออก</th>
+                <th class="text-center">ราคาเฉลี่ย</th>
+                <th class="text-center">จำนวนเงิน</th>
+                <th class="text-center">หักออก</th>
+                <th class="text-center">จำนวนเงินสุทธิ</th>
             </tr>
-            @foreach($data["orderList"] as $key => $item)
-
-
-            <tr class="items" style="text-align:center;">
-                    <td>
-                        {{$key+1}}
-                    </td>
-                    <td style="text-align:left;">
-                        {{ $item['description'] }}
-                    </td>
-                    <td>
-                        {{ $item['qty'] }}
-                    </td>
-                    <td>
-                        กิโล
-                    </td>
-                    <td>
-                        0
-                    </td>
-                    <td>
-                        {{ $item['qty'] }}
-                    </td>
-                    <td>
-                        {{ round($item['total'] /  $item['qty'], 2) }}
-                    </td>
-                    <td>
-                        {{  $item['total'] }}
-                    </td>
+        </thead>
+        <tbody>
+            @foreach ($data as $key => $value)
+            <tr class="text-center">
+                <td>{{$key}}</td>
+                <td class="text-left">{{$value["description"]}}</td>
+                <td>{{$value["unit"]}}</td>
+                <td>{{$value['qty']}}</td>
+                <td></td>
+                <td>                        {{ round($value['total'] /  $value['qty'], 2) }}
+                </td>
+                <td>{{$value['total']}}</td>
+                <td></td>
+                <td>{{$value['total']}}</td>
             </tr>
             @endforeach
-            <tr>
-                <td class="sum" colspan="7" style="text-align: right">ยอดรวม</td>
-                <td class="sum" style="text-align: center">{{$data['totalPrice']}}</td>
-            </tr>
-        </table>
-    </div>
-
-    <br><br>
-
-    <div class=" margin-top">
-        <table class="w-full" style="">
-            <tr>
-                <td style="width:33.33%;text-align:center;">
-                    <div style="        border-bottom: 3px solid #000;
-                    display: inline-block;
-                    padding-bottom: 5px;
-                    width: 10rem;
-
-                "></div>
-                    <div>ผู้จ่ายเงิน</div>
-                </td>
-                <td  style="width:33.33%;text-align:center;">
-                    <div style="        border-bottom: 3px solid #000;
-                    display: inline-block;
-                    padding-bottom: 5px;
-                    width: 10rem;
-
-                "></div>
-                    <div>ผู้บันทึก</div>
-                </td>
-                <td  style="width:33.33%;text-align:center;">
-                    <div style="        border-bottom: 3px solid #000;
-                    display: inline-block;
-                    padding-bottom: 5px;
-                    width: 10rem;
-
-                "></div>
-                    <div>ผู้รับเงิน</div>
-                </td>
-            </tr>
-        </table>
-    </div>
+        </tbody>
+    </table>
     <script type="text/javascript">
         window.onload = function() { window.print(); }
     </script>

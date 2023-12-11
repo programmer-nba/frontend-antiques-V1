@@ -76,7 +76,20 @@ class PrintController extends Controller
 
     public function purchaseSummary(){
 
-        return view('print.purchase_summary');
+        $data  = [];
+
+        if(!empty(request()->datestart) && !empty(request()->datestop)){
+            $response = Http::withOptions(["verify"=>false])->post(env('DEV_API').'/report/purchasesummary', [
+                'StartDate' =>request()->datestart,
+                'EndDate' =>request()->datestop
+            ]);
+
+            $data = $response->json()["data"];
+        }
+
+
+
+        return view('print.purchase_summary', compact('data'));
 
     }
 

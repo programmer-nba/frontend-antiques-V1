@@ -48,9 +48,12 @@
 
                 <br>
                 @if (!empty(request()->datestart) && !empty(request()->datestop))
-                <button class="btn btn-primary float-right"><i class="fa fa-print mr-2"></i>พิมพ์เอกสาร</button>
+                <a href="{{route('cashier.print.purchasesummary',[
+                    'datestart' => request()->datestart,
+                    'datestop' => request()->datestop
+                ])}}" class="btn btn-primary float-right"><i class="fa fa-print mr-2"></i>พิมพ์เอกสาร</a>
                 <h5>รายงานสรุปการซื้อ/ตามสินค้า</h5>
-                <h5>วันที่ 04/11/2023 ถึง 04/11/2023</h5>
+                <h5>วันที่ {{request()->datestart}} ถึง {{request()->datestop}}</h5>
                 <table id="example" class="table table-striped table-bordered" style="width:100%">
                     <thead>
                         <tr>
