@@ -284,7 +284,7 @@ export default {
       // }, 0);
       await axios
         .post(
-          process.env.MIX_DEV_API + "/order/createOrder",
+          process.env.MIX_DEV_API + "/order/approveorder",
           {
             customers: this.$store.state.customers,
             items: this.$store.state.items,

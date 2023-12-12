@@ -21549,7 +21549,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return axios.post("https://antiques.nbadigital.tech/antiques" + "/order/createOrder", {
+              return axios.post("https://antiques.nbadigital.tech/antiques" + "/order/approveorder", {
                 customers: this.$store.state.customers,
                 items: this.$store.state.items,
                 createAt: this.$store.state.queueDate[1],
