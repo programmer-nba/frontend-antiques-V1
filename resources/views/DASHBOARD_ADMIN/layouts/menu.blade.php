@@ -38,6 +38,13 @@
         <p>รายงานสรุปการซื้อประจำวัน/ตามเลขที่</p>
     </a>
 </li>
+<li class="nav-item">
+    <a href="{{route('dashboard.index')}}"
+       class="nav-link {{ Request::is('admin/dashboard*') ? 'active' : '' }}">
+       <i class="nav-icon fas fa-list"></i>
+        <p>ภาพรวมระบบ</p>
+    </a>
+</li>
 {{--
 
 <li class="nav-item">

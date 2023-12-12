@@ -69,6 +69,7 @@
                     </thead>
                     <tbody>
                         @foreach ($data as $key => $value)
+                        @dd($value)
                         <tr class="text-center">
                             <td>{{$key}}</td>
                             <td class="text-left">{{$value["description"]}}</td>

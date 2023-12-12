@@ -21773,48 +21773,47 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               //   alert('hidden event fired!');
             });
             $("#createCustomer").on("show.bs.modal", function (e) {
-              //   setInterval(() => {
-              $.ajax({
-                url: "https://localhost:8182/thaiid/read.jsonp?callback=callback&section1=true&section2a=true&section2c=true",
-                method: "GET",
-                type: "JSON",
-                success: function success(jsondata) {
-                  var data = jsondata.substr(13, jsondata.length - 14);
-                  var jdata = JSON.parse(data);
-                  console.log(jdata);
-                  if (jdata !== null) {
-                    self.customer.idcard = jdata.CitizenNo;
-                    self.customer.name = jdata.TitleNameTh + jdata.FirstNameTh + " " + jdata.LastNameTh;
-                    self.customer.address = "\u0E1A\u0E49\u0E32\u0E19\u0E40\u0E25\u0E02\u0E17\u0E35\u0E48 ".concat(jdata.HomeNo, " \u0E2B\u0E21\u0E39\u0E48 ").concat(jdata.Moo, " \u0E15\u0E33\u0E1A\u0E25").concat(jdata.Tumbol, " \u0E2D\u0E33\u0E40\u0E20\u0E2D").concat(jdata.Amphur, " \u0E08\u0E31\u0E07\u0E2B\u0E27\u0E31\u0E14").concat(jdata.Province);
-                    var date = new Date(jdata.BirthDate.substr(0, 4) - 543, jdata.BirthDate.substr(4, 2) - 1, String(jdata.BirthDate).substr(6, 2));
-                    console.log(jdata.BirthDate.substr(0, 4), jdata.BirthDate.substr(4, 2), jdata.BirthDate.substr(6, 2));
-                    var result = date.toLocaleDateString("th-TH", {
-                      year: "numeric",
-                      month: "long",
-                      day: "numeric"
-                    });
-                    self.customer.birthday = result;
-                  } else {
-                    self.customer.idcard = "";
-                    self.customer.name = "";
-                    self.customer.address = "";
+              setInterval(function () {
+                $.ajax({
+                  url: "https://localhost:8182/thaiid/read.jsonp?callback=callback&section1=true&section2a=true&section2c=true",
+                  method: "GET",
+                  type: "JSON",
+                  success: function success(jsondata) {
+                    var data = jsondata.substr(13, jsondata.length - 14);
+                    var jdata = JSON.parse(data);
+                    console.log(jdata);
+                    if (jdata !== null) {
+                      self.customer.idcard = jdata.CitizenNo;
+                      self.customer.name = jdata.TitleNameTh + jdata.FirstNameTh + " " + jdata.LastNameTh;
+                      self.customer.address = "\u0E1A\u0E49\u0E32\u0E19\u0E40\u0E25\u0E02\u0E17\u0E35\u0E48 ".concat(jdata.HomeNo, " \u0E2B\u0E21\u0E39\u0E48 ").concat(jdata.Moo, " \u0E15\u0E33\u0E1A\u0E25").concat(jdata.Tumbol, " \u0E2D\u0E33\u0E40\u0E20\u0E2D").concat(jdata.Amphur, " \u0E08\u0E31\u0E07\u0E2B\u0E27\u0E31\u0E14").concat(jdata.Province);
+                      var date = new Date(jdata.BirthDate.substr(0, 4) - 543, jdata.BirthDate.substr(4, 2) - 1, String(jdata.BirthDate).substr(6, 2));
+                      console.log(jdata.BirthDate.substr(0, 4), jdata.BirthDate.substr(4, 2), jdata.BirthDate.substr(6, 2));
+                      var result = date.toLocaleDateString("th-TH", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric"
+                      });
+                      self.customer.birthday = result;
+                    } else {
+                      self.customer.idcard = "";
+                      self.customer.name = "";
+                      self.customer.address = "";
+                    }
+                  },
+                  error: function error(jqXHR, textStatus, errorThrown) {
+                    console.log(textStatus);
+                    // $.busyLoadFull("hide");
+                    // Swal.fire({
+                    //     type: 'warning',
+                    //     title: 'ไม่สำเร็จ',
+                    //     text: 'ยังไม่มีการอนุญาตการอ่านบัตร!' + textStatus
+                    // }).then((res) => {
+                    //     start_read();
+                    // });
                   }
-                },
-                error: function error(jqXHR, textStatus, errorThrown) {
-                  console.log(textStatus);
-                  // $.busyLoadFull("hide");
-                  // Swal.fire({
-                  //     type: 'warning',
-                  //     title: 'ไม่สำเร็จ',
-                  //     text: 'ยังไม่มีการอนุญาตการอ่านบัตร!' + textStatus
-                  // }).then((res) => {
-                  //     start_read();
-                  // });
-                }
-              });
-              //   }, 1000);
+                });
+              }, 1000);
             });
-
             $("#vehicle").on("change", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
               return _regeneratorRuntime().wrap(function _callee$(_context) {
                 while (1) switch (_context.prev = _context.next) {

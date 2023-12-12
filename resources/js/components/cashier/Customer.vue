@@ -331,7 +331,7 @@ export default {
     });
 
     $("#createCustomer").on("show.bs.modal", function (e) {
-    //   setInterval(() => {
+      setInterval(() => {
         $.ajax({
           url:
             "https://localhost:8182/thaiid/read.jsonp?callback=callback&section1=true&section2a=true&section2c=true",
@@ -383,7 +383,7 @@ export default {
             // });
           },
         });
-    //   }, 1000);
+      }, 1000);
     });
 
     $("#vehicle").on("change", async function () {

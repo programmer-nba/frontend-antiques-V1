@@ -48,7 +48,7 @@
 
                 <br>
                 @if (!empty(request()->datestart) && !empty(request()->datestop))
-                <a target="_blank" href="{{route('cashier.print.summaryreportbydate',[
+                <a target="_blank" href="{{route('cashier.print.ordersummaryreportbynumber',[
                     'datestart' => request()->datestart,
                     'datestop' => request()->datestop
                 ])}}" class="btn btn-primary float-right"><i class="fa fa-print mr-2"></i>พิมพ์เอกสาร</a>                <h5>รายงานสรุปการซื้อ/ตามวันที่</h5>
@@ -75,7 +75,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @for ($i=0; $i<33; $i++)
+                        @for ($i=0; $i<2; $i++)
 
                         <tr>
                             <td rowspan="3" >1</td>
@@ -87,26 +87,26 @@
 
                             </td>
                             <td rowspan="1" colspan="1" style="border-left: unset">
-                               sdfsdfs
+                               ผ้าใส - 1001 lorem
                             </td>
                             <td rowspan="1" colspan="1">
-                                sdfsd
+                                4.70
 
                                 </td>
                                 <td rowspan="1" colspan="1">
-                                   sdfsdfs
+                                   3.90
                                 </td>
                                 <td rowspan="1" colspan="1">
-                                    sdfsdfs
+                                    37.35
                                  </td>
                                  <td rowspan="1" colspan="1">
-                                    sdfsdfs
+
                                  </td>
                                  <td rowspan="1" colspan="1">
-                                    sdfsdfs
+
                                  </td>
                                  <td rowspan="1" colspan="1">
-                                    sdfsdfs
+                                    37.85
                                  </td>
                             {{-- <td>01/11/2023</td>
                             <td>30768.00</td>
@@ -123,49 +123,44 @@
 
                                 </td>
                                 <td rowspan="1" colspan="1" style="border-left: unset">
-                                   sdfsdfs
+                                   กระป๋อง - 5601
                                 </td>
                                 <td rowspan="1" colspan="1">
-                                    sdfsdfs
+                                    1.00
                                  </td>
                                  <td rowspan="1" colspan="1">
-                                    sdfsdfs
+                                    42.00
                                  </td>
                                  <td rowspan="1" colspan="1">
-                                    sdfsdfs
+                                    42.00
                                  </td>
                                  <td rowspan="1" colspan="1">
-                                    sdfsdfs
+
                                  </td>
                                  <td rowspan="1" colspan="1">
-                                    sdfsdfs
+
                                  </td>
                                  <td rowspan="1" colspan="1">
-                                    sdfsdfs
+                                    43.00
                                  </td>
                         </tr>
                         <tr>
-                            <td rowspan="1" colspan="2">
+                            <td rowspan="1" colspan="4" style="text-align: right">
                                 ยอดรวม
 
                                 </td>
-                                <td rowspan="1" colspan="1">
-                                    sdfsdfs
+
+                                 <td rowspan="1" colspan="1">
+                                    79.00
                                  </td>
                                  <td rowspan="1" colspan="1">
-                                    sdfsdfs
+                                    0.00
                                  </td>
                                  <td rowspan="1" colspan="1">
-                                    sdfsdfs
+                                    0.00
                                  </td>
                                  <td rowspan="1" colspan="1">
-                                    sdfsdfs
-                                 </td>
-                                 <td rowspan="1" colspan="1">
-                                    sdfsdfs
-                                 </td>
-                                 <td rowspan="1" colspan="1">
-                                    sdfsdfs
+                                    79.00
                                  </td>
                         </tr>
                         @endfor

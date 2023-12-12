@@ -76,4 +76,9 @@ class ProductFilesController extends Controller
         return view('DASHBOARD_ADMIN.summaryreportbyproduct.index', compact('data'));
 
     }
+
+    public function dashboard(){
+
+        return view('DASHBOARD_ADMIN.dashboard.index');
+    }
 }
