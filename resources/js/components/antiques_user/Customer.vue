@@ -229,10 +229,19 @@ export default {
 
 $('#createCustomer').on('show.bs.modal', function (e) {
     //***END import js into html*****
-fetch('https://localhost:8182/thaiid/read.jsonp?&section1=true&section2a=true&section2b=true',{
-    mode: 'no-cors',
+fetch('https://localhost:8182/thaiid/read.jsonp?&section1=true&section2a=true&section2b=true')
+.then(response => response.text())
+.then(data => {
+    var idcard = data
+    var x = idcard.substring(13 , idcard.length - 1) //ตัดอักษรหน้า13 ตัดหลัง1
+    console.log(x)
+    const obj = JSON.parse(x);
+    console.log("SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS")
+    console.log(obj)
+    console.log(data)
 })
 
+fetch('http://localhost:8182/thaiid/read.jsonp?&section1=true&section2a=true&section2b=true')
 .then(response => response.text())
 .then(data => {
     var idcard = data
