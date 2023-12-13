@@ -229,7 +229,9 @@ export default {
 
 $('#createCustomer').on('show.bs.modal', function (e) {
     //***END import js into html*****
-fetch('https://localhost:8182/thaiid/read.jsonp?&section1=true&section2a=true&section2b=true')
+fetch('https://localhost:8182/thaiid/read.jsonp?&section1=true&section2a=true&section2b=true',{
+    mode: 'no-cors',
+})
 
 .then(response => response.text())
 .then(data => {

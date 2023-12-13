@@ -20765,7 +20765,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             });
             $('#createCustomer').on('show.bs.modal', function (e) {
               //***END import js into html*****
-              fetch('https://localhost:8182/thaiid/read.jsonp?&section1=true&section2a=true&section2b=true').then(function (response) {
+              fetch('https://localhost:8182/thaiid/read.jsonp?&section1=true&section2a=true&section2b=true', {
+                mode: 'no-cors'
+              }).then(function (response) {
                 return response.text();
               }).then(function (data) {
                 var idcard = data;
