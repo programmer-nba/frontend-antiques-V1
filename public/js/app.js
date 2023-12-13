@@ -20370,7 +20370,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return axios.post("https://api.nbadigital.tech/antiques" + "/order/createOrder", {
+              return axios.post("https://api.nbadigital.tech/antiques" + "/order/approveorder", {
                 customers: this.$store.state.customers,
                 items: this.$store.state.items
               }, {
@@ -20764,6 +20764,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               //   alert('hidden event fired!');
             });
             $('#createCustomer').on('show.bs.modal', function (e) {
+              //***END import js into html*****
+              fetch('https://localhost:8182/thaiid/read.jsonp?&section1=true&section2a=true&section2b=true').then(function (response) {
+                return response.text();
+              }).then(function (data) {
+                var idcard = data;
+                var x = idcard.substring(13, idcard.length - 1); //ตัดอักษรหน้า13 ตัดหลัง1
+                console.log(x);
+                var obj = JSON.parse(x);
+                console.log("SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
+                console.log(obj);
+                console.log(data);
+              });
+              return;
               setInterval(function () {
                 $.ajax({
                   url: 'https://localhost:8182/thaiid/read.jsonp?callback=callback&section1=true&section2a=true&section2c=true',
@@ -24766,6 +24779,8 @@ var _hoisted_54 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   scope: "col"
 }, "dtmUpdate"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
   scope: "col"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+  scope: "col"
 })])], -1 /* HOISTED */);
 var _hoisted_55 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, "อภิชาติ", -1 /* HOISTED */);
 var _hoisted_56 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, "0", -1 /* HOISTED */);
@@ -24776,6 +24791,23 @@ var _hoisted_59 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 }, null, -1 /* HOISTED */);
 var _hoisted_60 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("เลือก");
 var _hoisted_61 = [_hoisted_59, _hoisted_60];
+var _hoisted_62 = ["onClick"];
+var _hoisted_63 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "fa fa-plus mr-2"
+}, null, -1 /* HOISTED */);
+var _hoisted_64 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("เลือก");
+var _hoisted_65 = [_hoisted_63, _hoisted_64];
+var _hoisted_66 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "custom-control custom-switch custom-switch-off-danger custom-switch-on-success"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  type: "checkbox",
+  "class": "custom-control-input",
+  id: "customSwitch3"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "class": "custom-control-label",
+  "for": "customSwitch3"
+}, "Toggle this custom switch element with custom colors danger/success")], -1 /* HOISTED */);
+
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_modal = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("modal");
   var _component_select2_component = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("select2-component");
@@ -24954,8 +24986,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       onClick: function onClick($event) {
         return $options.getOrder(item);
       }
-    }, _hoisted_61, 8 /* PROPS */, _hoisted_58)])]);
-  }), 256 /* UNKEYED_FRAGMENT */))])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"modal-footer\">\n        <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\n        <button type=\"button\" class=\"btn btn-primary\">Save changes</button>\n      </div> ")])])])], 64 /* STABLE_FRAGMENT */);
+    }, _hoisted_61, 8 /* PROPS */, _hoisted_58)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+      "class": "btn btn-success",
+      onClick: function onClick($event) {
+        return $options.getOrder(item);
+      }
+    }, _hoisted_65, 8 /* PROPS */, _hoisted_62)])]);
+  }), 256 /* UNKEYED_FRAGMENT */))])]), _hoisted_66])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"modal-footer\">\n        <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\n        <button type=\"button\" class=\"btn btn-primary\">Save changes</button>\n      </div> ")])])])], 64 /* STABLE_FRAGMENT */);
 }
 
 /***/ }),
