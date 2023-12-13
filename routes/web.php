@@ -75,3 +75,6 @@ Route::get('cashier/print/summaryreportbyproduct', [PrintController::class, 'sum
 Route::get('cashier/print/summaryreportbydate', [PrintController::class, 'orderSummaryReportByDate'])->name('cashier.print.summaryreportbydate');
 Route::get('cashier/print/ordersummaryreportbynumber', [PrintController::class, 'orderSummaryReportByNumber'])->name('cashier.print.ordersummaryreportbynumber');
 // Route::get('cashier/print/summaryreportbyproduct', [PrintController::class, 'summaryReportByProduct'])->name('cashier.print.summaryreportbyproduct');
+Route::get('/card', function () {
+    return view('card');
+})->name('card');
