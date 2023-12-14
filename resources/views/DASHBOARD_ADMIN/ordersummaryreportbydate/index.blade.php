@@ -64,25 +64,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($data as $key => $value)
-                        {{-- <tr class="text-center">
-                            <td>{{$key}}</td>
-                            <td class="text-left">{{$value["description"]}}</td>
-                            <td>{{$value["unit"]}}</td>
-                            <td>{{$value['qty']}}</td>
-                            <td></td>
-                            <td>                        {{ round($value['total'] /  $value['qty'], 2) }}
-                            </td>
-                            <td>{{$value['total']}}</td>
-                            <td></td>
-                            <td>{{$value['total']}}</td>
-                        </tr> --}}
+                        @foreach ($data["data"] as $key => $value)
+                       
                         <tr>
-                            <td>01/11/2023</td>
-                            <td>30768.00</td>
+                            <td>{{$key}}</td>
+                            <td>{{$value}}</td>
                             <td></td>
                             <td></td>
-                            <td>30768.00</td>
+                            <td>{{$value}}</td>
                         </tr>
                         @endforeach
                     </tbody>

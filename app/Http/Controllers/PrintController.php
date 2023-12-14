@@ -78,14 +78,12 @@ class PrintController extends Controller
 
         $data  = [];
 
-        if(!empty(request()->datestart) && !empty(request()->datestop)){
             $response = Http::withOptions(["verify"=>false])->post(env('DEV_API').'/report/purchasesummary', [
-                'StartDate' =>request()->datestart,
-                'EndDate' =>request()->datestop
+                'StartDate' =>request()->datestart ?? "",
+                'EndDate' =>request()->datestop ?? ""
             ]);
 
             $data = $response->json()["data"];
-        }
 
 
 

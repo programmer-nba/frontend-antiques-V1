@@ -21,7 +21,8 @@
                         width: 50%;
                       ">Status: </label>
                         <div class="col-sm-10">
-                          <input type="text" readonly class="form-control" id="staticEmail" :value="this.$store.state.dataOpen[0]">
+                          <input style="color: blue;
+    font-weight: bold;" type="text" readonly class="form-control" id="staticEmail" :value="this.$store.state.dataOpen[0]">
                         </div>
                       </div>
                 </li>

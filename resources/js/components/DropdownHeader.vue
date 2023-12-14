@@ -181,6 +181,27 @@
                               </div>
                             </div>
                             <br />
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>จำนวน</th>
+                                        <th>คำอธิบาย</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                       <td>+</td>
+                                       <td>10</td>
+                                       <td></td>
+                                    </tr>
+                                    <tr>
+                                       <td>-</td>
+                                       <td>5</td>
+                                       <td>ขวดแตก</td>
+                                    </tr>
+                                </tbody>
+                            </table>
 
                             <!-- <table class="table table-bordered">
                               <tbody>

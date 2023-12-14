@@ -36,6 +36,7 @@
             <input type="date"  v-model="date" class="form-control" id="email"  name="date" >
           </div>
         </div>
+        
 
         </div>
 

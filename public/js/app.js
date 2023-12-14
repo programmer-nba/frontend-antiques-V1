@@ -19495,7 +19495,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         while (1) switch (_context2.prev = _context2.next) {
           case 0:
             _context2.next = 2;
-            return axios__WEBPACK_IMPORTED_MODULE_0___default().get("https://api.nbadigital.tech/antiques" + "/get", {
+            return axios__WEBPACK_IMPORTED_MODULE_0___default().get("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/get", {
               headers: {
                 "ngrok-skip-browser-warning": "true"
               }
@@ -19563,7 +19563,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               self.item_detail_products = [];
               _this2.choose_category_id = event.category_id;
               _context3.next = 7;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().post("https://api.nbadigital.tech/antiques" + "/getcatebyid", {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/getcatebyid", {
                 category_id: event.category_id
               }, {
                 headers: {
@@ -19606,7 +19606,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               _this3.choose_type_id = event.type_id;
               _context4.next = 6;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().post("https://api.nbadigital.tech/antiques" + "/getdetailbyid", {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/getdetailbyid", {
                 type_id: event.type_id
               }, {
                 headers: {
@@ -19630,7 +19630,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) switch (_context5.prev = _context5.next) {
             case 0:
               _context5.next = 2;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().post("https://api.nbadigital.tech/antiques" + "/CreateCategory", {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/CreateCategory", {
                 category_name_th: _this4.category_name_th,
                 category_name_en: _this4.category_name_en
               }, {
@@ -19662,7 +19662,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 detail_en: _this5.type_name_en
               });
               _context6.next = 3;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().post("https://api.nbadigital.tech/antiques" + "/createtype", {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/createtype", {
                 category_id: _this5.choose_category_id,
                 detail_th: _this5.type_name_th,
                 detail_en: _this5.type_name_en
@@ -19699,7 +19699,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 price_D: 0
               });
               _context7.next = 3;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().post("https://api.nbadigital.tech/antiques" + "/createdetailproduct", {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/createdetailproduct", {
                 category_id: _this6.choose_category_id,
                 type_id: _this6.choose_type_id,
                 detail_name_th: _this6.detail_name_th,
@@ -19731,7 +19731,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) switch (_context8.prev = _context8.next) {
             case 0:
               _context8.next = 2;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().put("https://api.nbadigital.tech/antiques" + "/update", {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().put("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/update", {
                 _id: id,
                 category_name_th: _this7.item_categorys[index].category_name_th,
                 category_name_en: _this7.item_categorys[index].category_name_en
@@ -19761,7 +19761,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) switch (_context9.prev = _context9.next) {
             case 0:
               _context9.next = 2;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().put("https://api.nbadigital.tech/antiques" + "/updatevendor", {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().put("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/updatevendor", {
                 vendor_id: _this8.vendor_id,
                 vendor_data: JSON.stringify({
                   A: _this8.vendor_type[0]["A"],
@@ -19795,7 +19795,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) switch (_context10.prev = _context10.next) {
             case 0:
               _context10.next = 2;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().put("https://api.nbadigital.tech/antiques" + "/updateType", {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().put("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/updateType", {
                 _id: id,
                 detail_th: _this9.item_types[index].detail_th,
                 detail_en: _this9.item_types[index].detail_en
@@ -19825,7 +19825,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) switch (_context11.prev = _context11.next) {
             case 0:
               _context11.next = 2;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().put("https://api.nbadigital.tech/antiques" + "/updatedetail", {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().put("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/updatedetail", {
                 _id: id,
                 detail_name_th: _this10.item_detail_products[index].detail_name_th,
                 detail_name_en: _this10.item_detail_products[index].detail_name_en
@@ -19872,7 +19872,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                           break;
                         }
                         _context12.next = 3;
-                        return axios__WEBPACK_IMPORTED_MODULE_0___default().put("https://api.nbadigital.tech/antiques" + "/deletetypedata", {
+                        return axios__WEBPACK_IMPORTED_MODULE_0___default().put("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/deletetypedata", {
                           _id: id
                         }, {
                           headers: {
@@ -19927,7 +19927,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                           break;
                         }
                         _context14.next = 3;
-                        return axios__WEBPACK_IMPORTED_MODULE_0___default().put("https://api.nbadigital.tech/antiques" + "/deletedetail", {
+                        return axios__WEBPACK_IMPORTED_MODULE_0___default().put("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/deletedetail", {
                           detail_id: id
                         }, {
                           headers: {
@@ -19982,7 +19982,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                           break;
                         }
                         _context16.next = 3;
-                        return axios__WEBPACK_IMPORTED_MODULE_0___default().put("https://api.nbadigital.tech/antiques" + "/delete", {
+                        return axios__WEBPACK_IMPORTED_MODULE_0___default().put("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/delete", {
                           _id: id
                         }, {
                           headers: {
@@ -20058,7 +20058,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               //   });
               _this14.choose_detail_id = event.detail_id;
               _context18.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().post("https://api.nbadigital.tech/antiques" + "/getvendorbyid", {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/getvendorbyid", {
                 detail_id: event.detail_id
               }, {
                 headers: {
@@ -20175,7 +20175,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               $('#modal-loading').modal('show');
               _context.next = 3;
-              return axios.post("https://api.nbadigital.tech/antiques" + "/order/createOrder", {
+              return axios.post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/order/createOrder", {
                 customers: this.$store.state.customers,
                 items: this.$store.state.items,
                 createAt: this.$store.state.queueDate[1],
@@ -20252,7 +20252,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               //     console.log(res)
               //   });
               _context2.next = 5;
-              return axios.post("https://api.nbadigital.tech/antiques" + "/getOrderData", {
+              return axios.post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/getOrderData", {
                 category_id: item.category_id
               }, {
                 headers: {
@@ -20294,7 +20294,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             console.log("jj", _this3.$store.state.customers["class"]);
             // alert(id)
             _context3.next = 3;
-            return axios.post("https://api.nbadigital.tech/antiques" + "/getdetailvendor", {
+            return axios.post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/getdetailvendor", {
               detail_id: id,
               "class": _this3.$store.state.customers["class"]
             }, {
@@ -20370,7 +20370,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return axios.post("https://api.nbadigital.tech/antiques" + "/order/approveorder", {
+              return axios.post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/order/approveorder", {
                 customers: this.$store.state.customers,
                 items: this.$store.state.items
               }, {
@@ -20433,7 +20433,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               //     return sum + tax.total;
               // }, 0);
               _context.next = 5;
-              return axios.post("https://api.nbadigital.tech/antiques" + "/order/approveorder", {
+              return axios.post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/order/approveorder", {
                 _id: this.$store.state.orderId,
                 items: this.$store.state.items
               }, {
@@ -20593,7 +20593,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               //save spiderman
               $('#modal-loading').modal('show');
               _context.next = 6;
-              return axios.post("https://api.nbadigital.tech/antiques" + "/order/createOrder", {
+              return axios.post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/order/createOrder", {
                 customers: _this.$store.state.customers,
                 items: _this.$store.state.items,
                 createAt: _this.$store.state.queueDate[1],
@@ -20810,7 +20810,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 while (1) switch (_context.prev = _context.next) {
                   case 0:
                     _context.next = 2;
-                    return axios.post("https://api.nbadigital.tech/antiques" + "/customer/filterCusByData", {
+                    return axios.post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/customer/filterCusByData", {
                       vehicle: $("#vehicle").val()
                     }, {
                       headers: {
@@ -20839,7 +20839,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 while (1) switch (_context3.prev = _context3.next) {
                   case 0:
                     _context3.next = 2;
-                    return axios.post("https://api.nbadigital.tech/antiques" + "/customer/filterCusByData", {
+                    return axios.post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/customer/filterCusByData", {
                       id_card: $("#idcard").val()
                     }, {
                       headers: {
@@ -20883,7 +20883,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 while (1) switch (_context4.prev = _context4.next) {
                   case 0:
                     _context4.next = 2;
-                    return axios.post("https://api.nbadigital.tech/antiques" + "/customer/filterCusByData", {
+                    return axios.post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/customer/filterCusByData", {
                       fullname_th: $("#name").val()
                     }, {
                       headers: {
@@ -20981,7 +20981,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                         console.log("aam", element);
                         clickedItems = [];
                         _context7.next = 4;
-                        return axios.post("https://api.nbadigital.tech/antiques" + "/getdetailvendor", {
+                        return axios.post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/getdetailvendor", {
                           detail_id: element.detail_id,
                           "class": self.type
                         }, {
@@ -21070,7 +21070,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             case 0:
               console.log("customer", _this.customer);
               _context10.next = 3;
-              return axios.post("https://api.nbadigital.tech/antiques" + "/customer/createCus", {
+              return axios.post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/customer/createCus", {
                 id_card: _this.customer.idcard,
                 fullname_th: _this.customer.name,
                 vehicle: _this.customer.vehicle,
@@ -21111,7 +21111,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) switch (_context11.prev = _context11.next) {
             case 0:
               _context11.next = 2;
-              return axios.post("https://api.nbadigital.tech/antiques" + "/order/saveafterfinish", {
+              return axios.post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/order/saveafterfinish", {
                 customers: _this2.$store.state.customers,
                 items: _this2.$store.state.items
               }, {
@@ -21162,7 +21162,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) switch (_context12.prev = _context12.next) {
             case 0:
               _context12.next = 2;
-              return axios.get("https://api.nbadigital.tech/antiques" + "/customer/dropdownCus_id", {
+              return axios.get("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/customer/dropdownCus_id", {
                 headers: {
                   "ngrok-skip-browser-warning": "true"
                 }
@@ -21188,7 +21188,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) switch (_context13.prev = _context13.next) {
             case 0:
               _context13.next = 2;
-              return axios.get("https://api.nbadigital.tech/antiques" + "/customer/dropdownCus_name", {
+              return axios.get("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/customer/dropdownCus_name", {
                 headers: {
                   "ngrok-skip-browser-warning": "true"
                 }
@@ -21209,7 +21209,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) switch (_context14.prev = _context14.next) {
             case 0:
               _context14.next = 2;
-              return axios.get("https://api.nbadigital.tech/antiques" + "/customer/dropdownCus_vehicle", {
+              return axios.get("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/customer/dropdownCus_vehicle", {
                 headers: {
                   "ngrok-skip-browser-warning": "true"
                 }
@@ -21284,7 +21284,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               console.log("test", _this7.$store.state.customers);
               $('#modal-loading').modal('show');
               _context16.next = 4;
-              return axios.post("https://api.nbadigital.tech/antiques" + "/order/getorderbydateandqueue", {
+              return axios.post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/order/getorderbydateandqueue", {
                 createAt: _this7.$store.state.queueDate[1],
                 queue: _this7.$store.state.queueDate[0]
               }, {
@@ -21358,7 +21358,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return axios.post("https://api.nbadigital.tech/antiques" + "/order/getorderbydateandqueue", {
+              return axios.post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/order/getorderbydateandqueue", {
                 createAt: _this.date,
                 queue: _this.queue
               }, {
@@ -21405,7 +21405,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this2 = this;
       var config = {
         method: 'get',
-        url: "https://api.nbadigital.tech/antiques" + "/order/getfinishtoday",
+        url: "https://6029-147-50-183-56.ngrok-free.app/antiques" + "/order/getfinishtoday",
         headers: {
           "ngrok-skip-browser-warning": "true"
           // Add any other headers as needed
@@ -21429,7 +21429,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     var _this3 = this;
     var config = {
       method: 'get',
-      url: "https://api.nbadigital.tech/antiques" + "/order/getlastqueue",
+      url: "https://6029-147-50-183-56.ngrok-free.app/antiques" + "/order/getlastqueue",
       headers: {
         "ngrok-skip-browser-warning": "true"
         // Add any other headers as needed
@@ -21549,7 +21549,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return axios.post("https://api.nbadigital.tech/antiques" + "/order/approveorder", {
+              return axios.post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/order/approveorder", {
                 customers: this.$store.state.customers,
                 items: this.$store.state.items,
                 createAt: this.$store.state.queueDate[1],
@@ -21615,7 +21615,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               //     console.log(res)
               //   });
               _context2.next = 5;
-              return axios.post("https://api.nbadigital.tech/antiques" + "/getOrderData", {
+              return axios.post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/getOrderData", {
                 category_id: item.category_id
               }, {
                 headers: {
@@ -21657,7 +21657,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             console.log("jj", _this3.$store.state.customers["class"]);
             // alert(id)
             _context3.next = 3;
-            return axios.post("https://api.nbadigital.tech/antiques" + "/getdetailvendor", {
+            return axios.post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/getdetailvendor", {
               detail_id: id,
               "class": _this3.$store.state.customers["class"]
             }, {
@@ -21710,6 +21710,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   data: function data() {
     return {
+      selectedDate: new Date().toLocaleDateString('th-TH', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      }),
       modalOpen: false,
       responseData: null,
       active: false,
@@ -21819,7 +21824,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 while (1) switch (_context.prev = _context.next) {
                   case 0:
                     _context.next = 2;
-                    return axios.post("https://api.nbadigital.tech/antiques" + "/customer/filterCusByData", {
+                    return axios.post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/customer/filterCusByData", {
                       vehicle: $("#vehicle").val()
                     }, {
                       headers: {
@@ -21848,7 +21853,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 while (1) switch (_context3.prev = _context3.next) {
                   case 0:
                     _context3.next = 2;
-                    return axios.post("https://api.nbadigital.tech/antiques" + "/customer/filterCusByData", {
+                    return axios.post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/customer/filterCusByData", {
                       id_card: $("#idcard").val()
                     }, {
                       headers: {
@@ -21892,7 +21897,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 while (1) switch (_context4.prev = _context4.next) {
                   case 0:
                     _context4.next = 2;
-                    return axios.post("https://api.nbadigital.tech/antiques" + "/customer/filterCusByData", {
+                    return axios.post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/customer/filterCusByData", {
                       fullname_th: $("#name").val()
                     }, {
                       headers: {
@@ -21990,7 +21995,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                         console.log("aam", element);
                         clickedItems = [];
                         _context7.next = 4;
-                        return axios.post("https://api.nbadigital.tech/antiques" + "/getdetailvendor", {
+                        return axios.post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/getdetailvendor", {
                           detail_id: element.detail_id,
                           "class": self.type
                         }, {
@@ -22071,11 +22076,39 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     loadCustomers: function loadCustomers(val, oldVal) {}
   },
   methods: {
+    updateUnlock: function updateUnlock(evt, item) {
+      console.log("evt", evt.target.checked);
+      console.log("item", item);
+      // $('#modal-loading').modal('show');
+
+      // await axios
+      //   .post(
+      //     process.env.MIX_DEV_API + "/order/getorderbydateandqueue",
+      //     {
+      //       createAt: item.createAt,
+      //       queue: item.queue,
+      //     },
+      //     {
+      //       headers: {
+      //         "ngrok-skip-browser-warning": "true",
+      //       },
+      //     }
+      //   )
+      //   .then((res) => {
+
+      //     $('#modal-loading').modal('hide');
+
+      //   })
+      //   .catch((err) => {
+      //       $('#modal-loading').modal('hide');
+
+      //   });
+    },
     showModal: function showModal() {
       var _this = this;
       var config = {
         method: 'get',
-        url: "https://api.nbadigital.tech/antiques" + "/order/getfinishtoday",
+        url: "https://6029-147-50-183-56.ngrok-free.app/antiques" + "/order/getfinishtoday",
         headers: {
           "ngrok-skip-browser-warning": "true"
           // Add any other headers as needed
@@ -22102,7 +22135,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             case 0:
               console.log("customer", _this2.customer);
               _context10.next = 3;
-              return axios.post("https://api.nbadigital.tech/antiques" + "/customer/createCus", {
+              return axios.post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/customer/createCus", {
                 id_card: _this2.customer.idcard,
                 fullname_th: _this2.customer.name,
                 vehicle: _this2.customer.vehicle,
@@ -22143,7 +22176,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) switch (_context11.prev = _context11.next) {
             case 0:
               _context11.next = 2;
-              return axios.post("https://api.nbadigital.tech/antiques" + "/order/saveafterfinish", {
+              return axios.post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/order/saveafterfinish", {
                 customers: _this3.$store.state.customers,
                 items: _this3.$store.state.items
               }, {
@@ -22194,7 +22227,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) switch (_context12.prev = _context12.next) {
             case 0:
               _context12.next = 2;
-              return axios.get("https://api.nbadigital.tech/antiques" + "/customer/dropdownCus_id", {
+              return axios.get("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/customer/dropdownCus_id", {
                 headers: {
                   "ngrok-skip-browser-warning": "true"
                 }
@@ -22220,7 +22253,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) switch (_context13.prev = _context13.next) {
             case 0:
               _context13.next = 2;
-              return axios.get("https://api.nbadigital.tech/antiques" + "/customer/dropdownCus_name", {
+              return axios.get("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/customer/dropdownCus_name", {
                 headers: {
                   "ngrok-skip-browser-warning": "true"
                 }
@@ -22241,7 +22274,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) switch (_context14.prev = _context14.next) {
             case 0:
               _context14.next = 2;
-              return axios.get("https://api.nbadigital.tech/antiques" + "/customer/dropdownCus_vehicle", {
+              return axios.get("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/customer/dropdownCus_vehicle", {
                 headers: {
                   "ngrok-skip-browser-warning": "true"
                 }
@@ -22328,7 +22361,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               _this8.$store.dispatch("loadQueueAndDate", [item.queue, item.createAt, item.queue]);
               $('#modal-loading').modal('show');
               _context16.next = 10;
-              return axios.post("https://api.nbadigital.tech/antiques" + "/order/getorderbydateandqueue", {
+              return axios.post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/order/getorderbydateandqueue", {
                 createAt: item.createAt,
                 queue: item.queue
               }, {
@@ -22369,7 +22402,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               console.log("test", _this9.$store.state.customers);
               $('#modal-loading').modal('show');
               _context17.next = 4;
-              return axios.post("https://api.nbadigital.tech/antiques" + "/order/getorderbydateandqueue", {
+              return axios.post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/order/getorderbydateandqueue", {
                 createAt: _this9.$store.state.queueDate[1],
                 queue: _this9.$store.state.queueDate[0]
               }, {
@@ -22443,7 +22476,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return axios.post("https://api.nbadigital.tech/antiques" + "/order/getorderbydateandqueue", {
+              return axios.post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/order/getorderbydateandqueue", {
                 createAt: _this.date,
                 queue: _this.queue
               }, {
@@ -22490,7 +22523,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this2 = this;
       var config = {
         method: 'get',
-        url: "https://api.nbadigital.tech/antiques" + "/order/getfinishtoday",
+        url: "https://6029-147-50-183-56.ngrok-free.app/antiques" + "/order/getfinishtoday",
         headers: {
           "ngrok-skip-browser-warning": "true"
           // Add any other headers as needed
@@ -22514,7 +22547,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     var _this3 = this;
     var config = {
       method: 'get',
-      url: "https://api.nbadigital.tech/antiques" + "/order/getlastqueue",
+      url: "https://6029-147-50-183-56.ngrok-free.app/antiques" + "/order/getlastqueue",
       headers: {
         "ngrok-skip-browser-warning": "true"
         // Add any other headers as needed
@@ -22597,7 +22630,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               self = this;
               $('#modal-loading').modal('show');
               _context2.next = 4;
-              return axios.post("https://api.nbadigital.tech/antiques" + "/order/getorderbydateandqueue", {
+              return axios.post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/order/getorderbydateandqueue", {
                 createAt: this.$store.state.queueDate[1],
                 queue: this.$store.state.queueDate[0]
               }, {
@@ -22704,7 +22737,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               //save spiderman
               $('#modal-loading').modal('show');
               _context.next = 6;
-              return axios.post("https://api.nbadigital.tech/antiques" + "/order/createOrder", {
+              return axios.post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/order/createOrder", {
                 customers: _this.$store.state.customers,
                 items: _this.$store.state.items,
                 createAt: _this.$store.state.queueDate[1],
@@ -24323,6 +24356,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     id: "staticEmail",
     value: this.$store.state.dataOpen[1]
   }, null, 8 /* PROPS */, _hoisted_7)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [_hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    style: {
+      "color": "blue",
+      "font-weight": "bold"
+    },
     type: "text",
     readonly: "",
     "class": "form-control",
@@ -24763,39 +24800,22 @@ var _hoisted_54 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   scope: "col"
 }, "strTRNNO"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
   scope: "col"
-}, "PaidBy"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
-  scope: "col"
 }, "dtmUpdate"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
   scope: "col"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+}, "unlock"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
   scope: "col"
 })])], -1 /* HOISTED */);
-var _hoisted_55 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, "อภิชาติ", -1 /* HOISTED */);
-var _hoisted_56 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, "0", -1 /* HOISTED */);
-var _hoisted_57 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, null, -1 /* HOISTED */);
+var _hoisted_55 = {
+  "class": "custom-control custom-switch custom-switch-off-danger custom-switch-on-success"
+};
+var _hoisted_56 = ["onChange", "id", "checked"];
+var _hoisted_57 = ["for"];
 var _hoisted_58 = ["onClick"];
 var _hoisted_59 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "class": "fa fa-plus mr-2"
 }, null, -1 /* HOISTED */);
 var _hoisted_60 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("เลือก");
 var _hoisted_61 = [_hoisted_59, _hoisted_60];
-var _hoisted_62 = ["onClick"];
-var _hoisted_63 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-  "class": "fa fa-plus mr-2"
-}, null, -1 /* HOISTED */);
-var _hoisted_64 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("เลือก");
-var _hoisted_65 = [_hoisted_63, _hoisted_64];
-var _hoisted_66 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "custom-control custom-switch custom-switch-off-danger custom-switch-on-success"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-  type: "checkbox",
-  "class": "custom-control-input",
-  id: "customSwitch3"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "class": "custom-control-label",
-  "for": "customSwitch3"
-}, "Toggle this custom switch element with custom colors danger/success")], -1 /* HOISTED */);
-
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_modal = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("modal");
   var _component_select2_component = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("select2-component");
@@ -24968,19 +24988,25 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       "width": "80px",
       "margin-right": "20px"
     }
-  })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <td>\n        <a href=\"/user/print/queue\">\n          <img\n            src=\"https://icons-for-free.com/iconfiles/png/512/print-131964753156480777.png\"\n            alt=\"\"\n            style=\"height: 80px; width: 80px; margin-right: 20px\"\n          /></a>\n        </td> ")])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Modal "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_47, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_48, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_49, [_hoisted_50, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_51, [$data.responseData ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_52, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p>Response Data: {{ responseData }}</p> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_53, [_hoisted_54, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.responseData.data, function (item) {
-    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tr", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.selectedDate), 1 /* TEXT */), _hoisted_55, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.customer_class), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.status), 1 /* TEXT */), _hoisted_56, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.queue), 1 /* TEXT */), _hoisted_57, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.queue), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.createAt), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <td>\n        <a href=\"/user/print/queue\">\n          <img\n            src=\"https://icons-for-free.com/iconfiles/png/512/print-131964753156480777.png\"\n            alt=\"\"\n            style=\"height: 80px; width: 80px; margin-right: 20px\"\n          /></a>\n        </td> ")])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Modal "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_47, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_48, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_49, [_hoisted_50, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_51, [$data.responseData ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_52, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p>Response Data: {{ responseData }}</p> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_53, [_hoisted_54, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.responseData.data, function (item, key) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tr", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(key + 1), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.selectedDate), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.customer_class), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.status), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.pay_status), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.trackorder), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.createAt), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_55, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+      onChange: function onChange($event) {
+        return $options.updateUnlock($event, item);
+      },
+      type: "checkbox",
+      "class": "custom-control-input",
+      id: 'customSwitch' + key,
+      checked: item.status != 'FINISH'
+    }, null, 40 /* PROPS, HYDRATE_EVENTS */, _hoisted_56), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+      "class": "custom-control-label",
+      "for": 'customSwitch' + key
+    }, null, 8 /* PROPS */, _hoisted_57)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
       "class": "btn btn-success",
       onClick: function onClick($event) {
         return $options.getOrder(item);
       }
-    }, _hoisted_61, 8 /* PROPS */, _hoisted_58)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-      "class": "btn btn-success",
-      onClick: function onClick($event) {
-        return $options.getOrder(item);
-      }
-    }, _hoisted_65, 8 /* PROPS */, _hoisted_62)])]);
-  }), 256 /* UNKEYED_FRAGMENT */))])]), _hoisted_66])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"modal-footer\">\n        <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\n        <button type=\"button\" class=\"btn btn-primary\">Save changes</button>\n      </div> ")])])])], 64 /* STABLE_FRAGMENT */);
+    }, _hoisted_61, 8 /* PROPS */, _hoisted_58)])]);
+  }), 256 /* UNKEYED_FRAGMENT */))])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"modal-footer\">\n        <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\n        <button type=\"button\" class=\"btn btn-primary\">Save changes</button>\n      </div> ")])])])], 64 /* STABLE_FRAGMENT */);
 }
 
 /***/ }),
@@ -25172,7 +25198,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         return $options.getOrder(item);
       }
     }, _hoisted_28, 8 /* PROPS */, _hoisted_25)])]);
-  }), 256 /* UNKEYED_FRAGMENT */))])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"modal-footer\">\r\n        <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\r\n        <button type=\"button\" class=\"btn btn-primary\">Save changes</button>\r\n      </div> ")])])])], 64 /* STABLE_FRAGMENT */);
+  }), 256 /* UNKEYED_FRAGMENT */))])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"modal-footer\">\n        <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\n        <button type=\"button\" class=\"btn btn-primary\">Save changes</button>\n      </div> ")])])])], 64 /* STABLE_FRAGMENT */);
 }
 
 /***/ }),
@@ -25247,11 +25273,14 @@ var _hoisted_22 = {
   "class": "form-group row"
 };
 var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  style: {
+    "font-size": "23px"
+  },
   "for": "inputEmail3",
-  "class": "col-sm-4 col-form-label"
+  "class": "col-sm-5 col-form-label"
 }, "Total/ยอดรวม", -1 /* HOISTED */);
 var _hoisted_24 = {
-  "class": "col-sm-8"
+  "class": "col-sm-7"
 };
 var _hoisted_25 = ["value"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -25274,11 +25303,17 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     placeholder: "Enter ...",
     value: this.username
   }, null, 8 /* PROPS */, _hoisted_18)])])])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"form-group row\">\n                                            <label for=\"inputEmail3\" class=\"col-sm-4 col-form-label\">Amount</label>\n                                            <div class=\"col-sm-8\">\n                                                <input type=\"email\" class=\"form-control\" id=\"inputEmail3\" placeholder=\"Email\">\n                                            </div>\n                                        </div>\n                                        <div class=\"form-group row\">\n                                            <label for=\"inputEmail3\" class=\"col-sm-4 col-form-label\">Deduct</label>\n                                            <div class=\"col-sm-8\">\n                                                <input type=\"email\" class=\"form-control\" id=\"inputEmail3\" placeholder=\"Email\">\n                                            </div>\n                                        </div>\n                                        <div class=\"form-group row\">\n                                            <label for=\"inputEmail3\" class=\"col-sm-4 col-form-label\">Sell/ขายหักบิล</label>\n                                            <div class=\"col-sm-8\">\n                                                <input type=\"email\" class=\"form-control\" id=\"inputEmail3\" placeholder=\"Email\">\n                                            </div>\n                                        </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"form-group row\">\n\n                                            <div class=\"col-sm-9\">\n\n                                                <div class=\"row\">\n                                                    <div class=\"col-md-6\">\n                                                        <div class=\"form-check\">\n                                                            <input class=\"form-check-input\" type=\"radio\" name=\"exampleRadios\" id=\"exampleRadios1\" value=\"option1\" checked>\n                                                            <label class=\"form-check-label\" for=\"exampleRadios1\">\n                                                              Vat\n                                                            </label>\n                                                          </div>\n\n                                                    </div>\n                                                    <br><br>\n                                                    <div class=\"col-md-6\">\n                                                        <div class=\"form-check\">\n                                                            <input class=\"form-check-input\" type=\"radio\" name=\"exampleRadios\" id=\"exampleRadios2\" value=\"option1\" checked>\n                                                            <label class=\"form-check-label\" for=\"exampleRadios2\">\n                                                              Include Vat\n                                                            </label>\n                                                          </div>\n\n                                                    </div>\n                                                    <div class=\"col-md-5\" style=\"display: inline-block;\">\n                                                        <input style=\"display: inline-block;width:4rem;\" type=\"password\"\n                                                            class=\"form-control\" id=\"inputPassword\" placeholder=\"Password\">\n                                                        <span style=\"display: inline-block;\">&nbsp;%</span>\n\n\n                                                    </div>\n                                                    <div class=\"col-md-7\">\n                                                        <input type=\"password\" class=\"form-control\" id=\"inputPassword\"\n                                                            placeholder=\"Password\">\n\n                                                    </div>\n                                                </div>\n                                            </div>\n                                        </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_22, [_hoisted_23, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_24, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "email",
+    style: {
+      "font-size": "35px",
+      "color": "green",
+      "font-weight": "bold"
+    },
+    type: "text",
     "class": "form-control",
     id: "inputEmail3",
     placeholder: "",
-    value: $options.sum
+    value: $options.sum,
+    disabled: ""
   }, null, 8 /* PROPS */, _hoisted_25)])])])])])]);
 }
 

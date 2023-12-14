@@ -61,23 +61,25 @@
                     </thead>
                     <tbody>
                         <tr class="text-center">
-                            <td>sdfsd</td>
-                            <td class="text-danger"><button type="button" class="btn btn-success">
+                            <td>1</td>
+                            <td class="text-danger">
+                                <button type="button" class="btn btn-success">
                                 จ่ายเงินแล้ว <span class="badge badge-light">APPROVE</span>
                                 <span class="sr-only">unread messages</span>
                               </button>
 
                             </td>
 
-                            <td>sdfsd</td>
-                            <td>sdfsd</td>
-                            <td>sdfsd</td>
-                            <td>sdfsd</td>
+                            <td>นายอภิชาติ หวังดี ที่อยู่ 158 ม.9 ต.หนองหาร</td>
+                            <td>A</td>
+                            <td><a href="https://shop-admin.nbadigital.tech/thailand">คลิกเพื่อดูข้อมูลสินค้า</a></td>
+                            <td>250</td>
                             <td>
                                 <img  style="width:70px;height:70px;" src="https://inwfile.com/s-cw/sxx8u7.jpg" alt="">
                             </td>
 
                         </tr>
+                        @for ($i=0; $i<=10; $i++)
                         <tr>
                             <td>sdfsd</td>
                             <td class="text-danger">
@@ -108,6 +110,8 @@
                             <td>sdfsd</td>
 
                         </tr>
+                        @endfor
+
                     </tbody>
                 </table>
                 @endif

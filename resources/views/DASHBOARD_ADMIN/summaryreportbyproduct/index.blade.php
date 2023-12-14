@@ -47,12 +47,12 @@
 
 
                 <br>
-                @if (!empty(request()->datestart) && !empty(request()->datestop))
+                @if (true)
                 <a target="_blank" href="{{route('cashier.print.summaryreportbyproduct',[
                     'datestart' => request()->datestart,
                     'datestop' => request()->datestop
                 ])}}" class="btn btn-primary float-right"><i class="fa fa-print mr-2"></i>พิมพ์เอกสาร</a>                <h5>รายงานสรุปการซื้อ/ตามสินค้า</h5>
-                <h5>วันที่ {{request()->datestart}} ถึง {{request()->datestop}}</h5>
+                <h5>วันที่ {{request()->datestart ?? "ทั้งหมด"}} ถึง {{request()->datestop  ?? "ทั้งหมด"}}</h5>
                 <table id="example" class="table table-striped table-bordered" style="width:100%">
                     <thead>
                         <tr>
@@ -69,7 +69,6 @@
                     </thead>
                     <tbody>
                         @foreach ($data as $key => $value)
-                        @dd($value)
                         <tr class="text-center">
                             <td>{{$key}}</td>
                             <td class="text-left">{{$value["description"]}}</td>

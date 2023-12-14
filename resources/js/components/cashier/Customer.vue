@@ -232,27 +232,33 @@
       <th scope="col">Finish</th>
       <th scope="col">Pay_Status</th>
       <th scope="col">strTRNNO</th>
-      <th scope="col">PaidBy</th>
       <th scope="col">dtmUpdate</th>
+      <th scope="col">unlock</th>
       <th scope="col"></th>
 
     </tr>
   </thead>
   <tbody>
-    <tr v-for="item in responseData.data">
-    <td>{{selectedDate}}</td>
-      <td>อภิชาติ</td>
+
+    <tr v-for="(item, key) in responseData.data">
+    <td>{{key+1}}</td>
+      <td>{{selectedDate}}</td>
+      <td>{{item}}</td>
       <td>{{item.customer_class}}</td>
       <td>{{item.status}}</td>
-      <td>0</td>
-      <td>{{item.queue}}</td>
-      <td></td>
-      <td>{{item.queue}}</td>
+      <td>{{item.pay_status}}</td>
+      <td>{{item.trackorder}}</td>
       <td>{{item.createAt}}</td>
+
+      <td>
+        <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
+<input @change="updateUnlock($event, item)"  type="checkbox" class="custom-control-input" :id="'customSwitch'+key" :checked="item.status != 'FINISH'">
+<label class="custom-control-label" :for="'customSwitch'+key"></label>
+</div>
+      </td>
       <td>
         <button class="btn btn-success" @click="getOrder(item)"><i class="fa fa-plus mr-2"></i>เลือก</button>
       </td>
-
     </tr>
   </tbody>
 </table>
@@ -279,6 +285,11 @@ export default {
   },
   data() {
     return {
+        selectedDate: new Date().toLocaleDateString('th-TH', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      }),
         modalOpen: false,
         responseData: null,
 
@@ -576,6 +587,35 @@ export default {
     loadCustomers: function (val, oldVal) {},
   },
   methods: {
+    updateUnlock(evt, item){
+        console.log("evt", evt.target.checked)
+        console.log("item", item)
+        // $('#modal-loading').modal('show');
+
+// await axios
+//   .post(
+//     process.env.MIX_DEV_API + "/order/getorderbydateandqueue",
+//     {
+//       createAt: item.createAt,
+//       queue: item.queue,
+//     },
+//     {
+//       headers: {
+//         "ngrok-skip-browser-warning": "true",
+//       },
+//     }
+//   )
+//   .then((res) => {
+
+
+//     $('#modal-loading').modal('hide');
+
+//   })
+//   .catch((err) => {
+//       $('#modal-loading').modal('hide');
+
+//   });
+    },
     showModal() {
         const config = {
         method: 'get',

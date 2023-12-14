@@ -109,9 +109,11 @@
                                             </div>
                                         </div> -->
                                         <div class="form-group row">
-                                            <label for="inputEmail3" class="col-sm-4 col-form-label">Total/ยอดรวม</label>
-                                            <div class="col-sm-8">
-                                                <input type="email" class="form-control" id="inputEmail3" placeholder="" :value="sum">
+                                            <label style="font-size:23px;" for="inputEmail3" class="col-sm-5 col-form-label">Total/ยอดรวม</label>
+                                            <div class="col-sm-7">
+                                                <input style="    font-size: 35px;
+    color: green;
+    font-weight: bold;" type="text" class="form-control" id="inputEmail3" placeholder="" :value="sum" disabled >
                                             </div>
                                         </div>
                                     </div>

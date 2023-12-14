@@ -35,14 +35,13 @@ class ProductFilesController extends Controller
 
         $data  = [];
 
-        if(!empty(request()->datestart) && !empty(request()->datestop)){
             $response = Http::withOptions(["verify"=>false])->post(env('DEV_API').'/report/ordersummaryreportbydate', [
-                'StartDate' =>request()->datestart,
-                'EndDate' =>request()->datestop
+                'StartDate' =>request()->datestart ?? "",
+                'EndDate' =>request()->datestop ?? ""
             ]);
 
             $data = $response->json()["data"];
-        }
+
 
 
 
@@ -62,15 +61,12 @@ class ProductFilesController extends Controller
     public function summaryReportByProduct(){
         $data  = [];
 
-        if(!empty(request()->datestart) && !empty(request()->datestop)){
             $response = Http::withOptions(["verify"=>false])->post(env('DEV_API').'/report/purchasesummary', [
-                'StartDate' =>request()->datestart,
-                'EndDate' =>request()->datestop
+                'StartDate' =>request()->datestart ?? "",
+                'EndDate' =>request()->datestop ?? ""
             ]);
 
             $data = $response->json()["data"];
-        }
-
 
 
         return view('DASHBOARD_ADMIN.summaryreportbyproduct.index', compact('data'));

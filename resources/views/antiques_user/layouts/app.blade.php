@@ -25,7 +25,13 @@
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     @stack('third_party_stylesheets')
+
+    <link href='https://fonts.googleapis.com/css?family=Sarabun' rel='stylesheet'>
+
     <style>
+        body {
+    font-family: 'Sarabun' !important;font-size: 22px;
+}
         .dataTables_wrapper {
             margin: 20px;
         }
