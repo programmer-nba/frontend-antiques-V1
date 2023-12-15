@@ -20118,6 +20118,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       active: false,
       show: false,
       num: 0,
+      deduct: 0,
+      amoung: 0,
       mul: 0,
       items: [{
         text: "foo",
@@ -20153,11 +20155,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   destroyed: function destroyed() {
     $(this.$el).off().select2("destroy");
   },
-  computed: {
+  watch: {
     // mul() {
     //     console.log(this.$store.state.customers)
     //     alert("ff")
     // }
+    amoung: function amoung() {
+      this.num = this.amoung * 12 - this.deduct;
+    },
+    deduct: function deduct() {
+      this.num = this.amoung * 12 - this.deduct;
+    }
   },
   methods: _defineProperty({
     save: function () {
@@ -20231,7 +20239,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         description: item.detail_name_th,
         qty: this.num,
         total: this.num * this.mul,
-        detail_id: item.detail_id
+        detail_id: item.detail_id,
+        unit: item.unit
       });
       localStorage.storedData = JSON.stringify(clickedItems);
       this.$store.dispatch("loadItems", this.$store.state.items.concat(clickedItems));
@@ -21642,7 +21651,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         description: item.detail_name_th,
         qty: this.num,
         total: this.num * this.mul,
-        detail_id: item.detail_id
+        detail_id: item.detail_id,
+        unit: item.unit
       });
       localStorage.storedData = JSON.stringify(clickedItems);
       this.$store.dispatch("loadItems", this.$store.state.items.concat(clickedItems));
@@ -23477,32 +23487,79 @@ var _hoisted_30 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 }, "Product description", -1 /* HOISTED */);
 var _hoisted_31 = ["value"];
 var _hoisted_32 = {
-  "class": "form-row align-items-center"
+  key: 0
 };
 var _hoisted_33 = {
-  "class": "col-auto my-1"
+  "class": "form-row align-items-center"
 };
 var _hoisted_34 = {
   "class": "col-auto my-1"
 };
-var _hoisted_35 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "class": "mr-sm-2",
-  "for": "inlineFormCustomSelect"
-}, "Product Description", -1 /* HOISTED */);
-var _hoisted_36 = {
+var _hoisted_35 = {
   "class": "col-auto my-1"
 };
-var _hoisted_37 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
-var _hoisted_38 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("thead", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "จำนวน"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "คำอธิบาย")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, "+"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, "10"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, "-"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, "5"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, "ขวดแตก")])])], -1 /* HOISTED */);
-var _hoisted_39 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
-var _hoisted_40 = ["onClick"];
-var _hoisted_41 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+var _hoisted_36 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "class": "mr-sm-2",
+  "for": "inlineFormCustomSelect"
+}, "จำนวน - Amoung (เข้าเป็นลัง)", -1 /* HOISTED */);
+var _hoisted_37 = {
+  "class": "col-auto my-1"
+};
+var _hoisted_38 = {
+  "class": "form-row align-items-center"
+};
+var _hoisted_39 = {
+  "class": "col-auto my-1"
+};
+var _hoisted_40 = {
+  "class": "col-auto my-1"
+};
+var _hoisted_41 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "class": "mr-sm-2 text-danger",
+  "for": "inlineFormCustomSelect"
+}, "จำนวน - Amoung (ตัดเป็นขวด)", -1 /* HOISTED */);
+var _hoisted_42 = {
+  "class": "col-auto my-1"
+};
+var _hoisted_43 = {
+  "class": "form-row align-items-center"
+};
+var _hoisted_44 = {
+  "class": "col-auto my-1"
+};
+var _hoisted_45 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "class": "mr-sm-2",
+  "for": "inlineFormCustomSelect"
+}, "ผลรวมทั้งหมด - Amoung (ขวด)", -1 /* HOISTED */);
+var _hoisted_46 = {
+  key: 1
+};
+var _hoisted_47 = {
+  "class": "form-row align-items-center"
+};
+var _hoisted_48 = {
+  "class": "col-auto my-1"
+};
+var _hoisted_49 = {
+  "class": "col-auto my-1"
+};
+var _hoisted_50 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "class": "mr-sm-2",
+  "for": "inlineFormCustomSelect"
+}, "จำนวน - Amoung (KG)", -1 /* HOISTED */);
+var _hoisted_51 = {
+  "class": "col-auto my-1"
+};
+var _hoisted_52 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
+var _hoisted_53 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
+var _hoisted_54 = ["onClick"];
+var _hoisted_55 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "class": "fa fa-save mr-2"
 }, null, -1 /* HOISTED */);
-var _hoisted_42 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("บันทึก ");
-var _hoisted_43 = [_hoisted_41, _hoisted_42];
-var _hoisted_44 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("   ");
-var _hoisted_45 = {
+var _hoisted_56 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("บันทึก ");
+var _hoisted_57 = [_hoisted_55, _hoisted_56];
+var _hoisted_58 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("   ");
+var _hoisted_59 = {
   key: 0,
   "class": "modal-backdrop fade show"
 };
@@ -23588,7 +23645,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           "aria-describedby": "emailHelp",
           placeholder: "Enter email",
           value: product.detail_name_th + '-' + product.detail_name_en + '-' + product.detail_id
-        }, null, 8 /* PROPS */, _hoisted_31), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <small id=\"emailHelp\" class=\"form-text text-muted\">We'll never share your email with anyone else.</small> ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_32, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_33, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+        }, null, 8 /* PROPS */, _hoisted_31), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <small id=\"emailHelp\" class=\"form-text text-muted\">We'll never share your email with anyone else.</small> ")]), product.detail_id == 17 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_32, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_33, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_34, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
           style: {
             "font-size": "25px",
             "width": "60px",
@@ -23597,16 +23654,16 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           type: "button",
           "class": "btn btn-danger",
           onClick: _cache[2] || (_cache[2] = function ($event) {
-            return $data.num--;
+            return $data.amoung--;
           })
-        }, " - ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_34, [_hoisted_35, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+        }, " - ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_35, [_hoisted_36, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
           "class": "form-control",
           type: "number",
           min: "0",
           "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
-            return $data.num = $event;
+            return $data.amoung = $event;
           })
-        }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.num]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_36, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+        }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.amoung]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_37, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
           style: {
             "font-size": "25px",
             "width": "60px",
@@ -23615,20 +23672,96 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           type: "button",
           "class": "btn btn-primary",
           onClick: _cache[4] || (_cache[4] = function ($event) {
+            return $data.amoung++;
+          })
+        }, " + ")])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_38, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_39, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+          style: {
+            "font-size": "25px",
+            "width": "60px",
+            "height": "60px"
+          },
+          type: "button",
+          "class": "btn btn-danger",
+          onClick: _cache[5] || (_cache[5] = function ($event) {
+            return $data.deduct--;
+          })
+        }, " - ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_40, [_hoisted_41, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+          "class": "form-control text-danger font-weight-bold",
+          type: "number",
+          min: "0",
+          "onUpdate:modelValue": _cache[6] || (_cache[6] = function ($event) {
+            return $data.deduct = $event;
+          })
+        }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.deduct]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_42, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+          style: {
+            "font-size": "25px",
+            "width": "60px",
+            "height": "60px"
+          },
+          type: "button",
+          "class": "btn btn-primary",
+          onClick: _cache[7] || (_cache[7] = function ($event) {
+            return $data.deduct++;
+          })
+        }, " + ")])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_43, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_44, [_hoisted_45, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+          disabled: "",
+          "class": "form-control",
+          type: "number",
+          min: "0",
+          "onUpdate:modelValue": _cache[8] || (_cache[8] = function ($event) {
+            return $data.num = $event;
+          }),
+          style: {
+            "font-size": "20px",
+            "color": "blue",
+            "font-weight": "bold"
+          }
+        }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.num]])])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), product.detail_id != 17 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_46, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_47, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_48, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+          style: {
+            "font-size": "25px",
+            "width": "60px",
+            "height": "60px"
+          },
+          type: "button",
+          "class": "btn btn-danger",
+          onClick: _cache[9] || (_cache[9] = function ($event) {
+            return $data.num--;
+          })
+        }, " - ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_49, [_hoisted_50, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+          "class": "form-control",
+          type: "number",
+          min: "0",
+          "onUpdate:modelValue": _cache[10] || (_cache[10] = function ($event) {
+            return $data.num = $event;
+          }),
+          style: {
+            "font-size": "20px",
+            "color": "blue",
+            "font-weight": "bold"
+          }
+        }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.num]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_51, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+          style: {
+            "font-size": "25px",
+            "width": "60px",
+            "height": "60px"
+          },
+          type: "button",
+          "class": "btn btn-primary",
+          onClick: _cache[11] || (_cache[11] = function ($event) {
             return $data.num++;
           })
-        }, " + ")])]), _hoisted_37, _hoisted_38, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <table class=\"table table-bordered\">\n                              <tbody>\n                                <tr>\n                                  <td><b>Total Qty</b></td>\n                                  <td>\n                                    <input\n                                      style=\"\n                                        color: red;\n                                        font-weight: bold;\n                                        font-size: 21px;\n                                      \"\n                                      type=\"email\"\n                                      disabled\n                                      class=\"form-control\"\n                                      id=\"exampleInputEmail1\"\n                                      aria-describedby=\"emailHelp\"\n                                      placeholder=\"Enter email\"\n                                      :value=\"num * mul\"\n                                    />\n                                  </td>\n                                </tr>\n                              </tbody>\n                            </table> "), _hoisted_39, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+        }, " + ")])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _hoisted_52, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <table class=\"table table-bordered\">\n                              <tbody>\n                                <tr>\n                                  <td><b>Total Qty</b></td>\n                                  <td>\n                                    <input\n                                      style=\"\n                                        color: red;\n                                        font-weight: bold;\n                                        font-size: 21px;\n                                      \"\n                                      type=\"email\"\n                                      disabled\n                                      class=\"form-control\"\n                                      id=\"exampleInputEmail1\"\n                                      aria-describedby=\"emailHelp\"\n                                      placeholder=\"Enter email\"\n                                      :value=\"num * mul\"\n                                    />\n                                  </td>\n                                </tr>\n                              </tbody>\n                            </table> "), _hoisted_53, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
           "data-dismiss": "modal",
           onClick: function onClick() {
             return $options.onSelect(product);
           },
           type: "button",
           "class": "btn btn-success float-right btn-lg"
-        }, _hoisted_43, 8 /* PROPS */, _hoisted_40)])];
+        }, _hoisted_57, 8 /* PROPS */, _hoisted_54)])];
       }),
       _: 2 /* DYNAMIC */
-    }, 1032 /* PROPS, DYNAMIC_SLOTS */, ["modal-id"]), _hoisted_44], 8 /* PROPS */, _hoisted_27)]);
-  }), 256 /* UNKEYED_FRAGMENT */))])])])])])])])], 2 /* CLASS */), $data.active ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_45)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])], 64 /* STABLE_FRAGMENT */);
+    }, 1032 /* PROPS, DYNAMIC_SLOTS */, ["modal-id"]), _hoisted_58], 8 /* PROPS */, _hoisted_27)]);
+  }), 256 /* UNKEYED_FRAGMENT */))])])])])])])])], 2 /* CLASS */), $data.active ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_59)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])], 64 /* STABLE_FRAGMENT */);
 }
 
 /***/ }),
@@ -23876,59 +24009,55 @@ var _hoisted_4 = {
 var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "ProductID", -1 /* HOISTED */);
 var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "Description", -1 /* HOISTED */);
 var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "Qty", -1 /* HOISTED */);
-var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "DeductQty", -1 /* HOISTED */);
-var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "Net Qty", -1 /* HOISTED */);
-var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "UM", -1 /* HOISTED */);
-var _hoisted_11 = {
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "UM", -1 /* HOISTED */);
+var _hoisted_9 = {
   key: 0
 };
-var _hoisted_12 = {
+var _hoisted_10 = {
   "class": "text-left"
 };
-var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, null, -1 /* HOISTED */);
-var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, null, -1 /* HOISTED */);
-var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, "กิโล", -1 /* HOISTED */);
-var _hoisted_16 = {
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, "กิโล", -1 /* HOISTED */);
+var _hoisted_12 = {
   key: 0
 };
-var _hoisted_17 = ["value"];
-var _hoisted_18 = {
+var _hoisted_13 = ["value"];
+var _hoisted_14 = {
   "class": "form-row align-items-center"
 };
-var _hoisted_19 = {
+var _hoisted_15 = {
   "class": "col-auto my-1"
 };
-var _hoisted_20 = ["onClick"];
-var _hoisted_21 = {
+var _hoisted_16 = ["onClick"];
+var _hoisted_17 = {
   "class": "col-auto my-1"
 };
-var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "class": "mr-sm-2",
   "for": "inlineFormCustomSelect"
 }, "Product Description", -1 /* HOISTED */);
-var _hoisted_23 = ["onUpdate:modelValue"];
-var _hoisted_24 = {
+var _hoisted_19 = ["onUpdate:modelValue"];
+var _hoisted_20 = {
   "class": "col-auto my-1"
 };
-var _hoisted_25 = ["onClick"];
-var _hoisted_26 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
-var _hoisted_27 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
-var _hoisted_28 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+var _hoisted_21 = ["onClick"];
+var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
+var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
+var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "class": "fa fa-save mr-2"
 }, null, -1 /* HOISTED */);
-var _hoisted_29 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("บันทึก ");
-var _hoisted_30 = [_hoisted_28, _hoisted_29];
-var _hoisted_31 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("   ");
-var _hoisted_32 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
+var _hoisted_25 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("บันทึก ");
+var _hoisted_26 = [_hoisted_24, _hoisted_25];
+var _hoisted_27 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("   ");
+var _hoisted_28 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _this = this;
   var _component_modal = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("modal");
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("thead", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", _hoisted_4, [_hoisted_5, _hoisted_6, _hoisted_7, _hoisted_8, _hoisted_9, _hoisted_10, this.$store.state.dataOpen[0] != 'FINISH' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("th", _hoisted_11)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <th>Amount</th>\n                                            <th>DeductAmt</th>\n                                            <th>Total</th> ")])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($options.datas, function (value, i) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("thead", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", _hoisted_4, [_hoisted_5, _hoisted_6, _hoisted_7, _hoisted_8, this.$store.state.dataOpen[0] != 'FINISH' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("th", _hoisted_9)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <th>Amount</th>\n                                            <th>DeductAmt</th>\n                                            <th>Total</th> ")])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($options.datas, function (value, i) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tr", {
       "class": "text-center",
       key: i
-    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(i + 1), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(value.description), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(value.qty), 1 /* TEXT */), _hoisted_13, _hoisted_14, _hoisted_15, _this.$store.state.dataOpen[0] != 'FINISH' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("td", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <button type=\"\" class=\"btn btn-warning\"><i class=\"fa fa-edit mr-2\"></i>แก้ไข</button> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_modal, {
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(i + 1), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(value.description), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(value.qty), 1 /* TEXT */), _hoisted_11, _this.$store.state.dataOpen[0] != 'FINISH' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("td", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <button type=\"\" class=\"btn btn-warning\"><i class=\"fa fa-edit mr-2\"></i>แก้ไข</button> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_modal, {
       "modal-id": 'test' + i,
       title: "แก้ไขรายการสินค้า",
       "button-text": "แก้ไข",
@@ -23944,7 +24073,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           "aria-describedby": "emailHelp",
           placeholder: "Enter email",
           value: value.description + '-' + value.detail_id
-        }, null, 8 /* PROPS */, _hoisted_17), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+        }, null, 8 /* PROPS */, _hoisted_13), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
           style: {
             "font-size": "25px",
             "width": "60px",
@@ -23955,14 +24084,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           onClick: function onClick($event) {
             return $options.datas[i].qty--;
           }
-        }, " - ", 8 /* PROPS */, _hoisted_20)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [_hoisted_22, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+        }, " - ", 8 /* PROPS */, _hoisted_16)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [_hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
           "class": "form-control",
           type: "number",
           min: "0",
           "onUpdate:modelValue": function onUpdateModelValue($event) {
             return $options.datas[i].qty = $event;
           }
-        }, null, 8 /* PROPS */, _hoisted_23), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $options.datas[i].qty]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_24, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+        }, null, 8 /* PROPS */, _hoisted_19), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $options.datas[i].qty]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
           style: {
             "font-size": "25px",
             "width": "60px",
@@ -23973,18 +24102,18 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           onClick: function onClick($event) {
             return $options.datas[i].qty++;
           }
-        }, " + ", 8 /* PROPS */, _hoisted_25)])]), _hoisted_26, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <table class=\"table table-bordered\">\n                              <tbody>\n                                <tr>\n                                  <td><b>Total Qty</b></td>\n                                  <td>\n                                    <input\n                                      style=\"\n                                        color: red;\n                                        font-weight: bold;\n                                        font-size: 21px;\n                                      \"\n                                      type=\"email\"\n                                      disabled\n                                      class=\"form-control\"\n                                      id=\"exampleInputEmail1\"\n                                      aria-describedby=\"emailHelp\"\n                                      placeholder=\"Enter email\"\n                                      :value=\"num * mul\"\n                                    />\n                                  </td>\n                                </tr>\n                              </tbody>\n                            </table> "), _hoisted_27, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+        }, " + ", 8 /* PROPS */, _hoisted_21)])]), _hoisted_22, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <table class=\"table table-bordered\">\n                              <tbody>\n                                <tr>\n                                  <td><b>Total Qty</b></td>\n                                  <td>\n                                    <input\n                                      style=\"\n                                        color: red;\n                                        font-weight: bold;\n                                        font-size: 21px;\n                                      \"\n                                      type=\"email\"\n                                      disabled\n                                      class=\"form-control\"\n                                      id=\"exampleInputEmail1\"\n                                      aria-describedby=\"emailHelp\"\n                                      placeholder=\"Enter email\"\n                                      :value=\"num * mul\"\n                                    />\n                                  </td>\n                                </tr>\n                              </tbody>\n                            </table> "), _hoisted_23, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
           "data-dismiss": "modal",
           onClick: _cache[0] || (_cache[0] = function () {
             return $options.onSelect(_ctx.product);
           }),
           type: "button",
           "class": "btn btn-success float-right btn-lg"
-        }, _hoisted_30)];
+        }, _hoisted_26)];
       }),
       _: 2 /* DYNAMIC */
-    }, 1032 /* PROPS, DYNAMIC_SLOTS */, ["modal-id"]), _hoisted_31])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <td></td>\n                                            <td>0</td>\n                                            <td>{{value.total}}</td> ")]);
-  }), 128 /* KEYED_FRAGMENT */))])])]), _hoisted_32, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"row\">\n    <div class=\"col-md-4\">\n\n        </div>\n        <div class=\"col-md-2\">\n\n</div>\n<div class=\"col-md-6\">\n    <div class=\"form-group row\" style=\"margin-bottom: 0px;    margin-bottom: 0px;margin-top: -12px;\n\n    \">\n    <label for=\"staticEmail\" class=\"col-sm-6\" style=\"\"><span>Weight:</span> <span style=\"    font-size: 28px;\">25.48 KG</span>  </label>\n    <label for=\"staticEmail\" class=\"col-sm-6\" style=\"\"><span>Total:</span> <span style=\"    font-size: 28px;\">                                {{totalTaxes}}\n</span> </label>\n\n\n    </div>\n\n</div>\n\n</div> ")], 64 /* STABLE_FRAGMENT */);
+    }, 1032 /* PROPS, DYNAMIC_SLOTS */, ["modal-id"]), _hoisted_27])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <td></td>\n                                            <td>0</td>\n                                            <td>{{value.total}}</td> ")]);
+  }), 128 /* KEYED_FRAGMENT */))])])]), _hoisted_28, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"row\">\n    <div class=\"col-md-4\">\n\n        </div>\n        <div class=\"col-md-2\">\n\n</div>\n<div class=\"col-md-6\">\n    <div class=\"form-group row\" style=\"margin-bottom: 0px;    margin-bottom: 0px;margin-top: -12px;\n\n    \">\n    <label for=\"staticEmail\" class=\"col-sm-6\" style=\"\"><span>Weight:</span> <span style=\"    font-size: 28px;\">25.48 KG</span>  </label>\n    <label for=\"staticEmail\" class=\"col-sm-6\" style=\"\"><span>Total:</span> <span style=\"    font-size: 28px;\">                                {{totalTaxes}}\n</span> </label>\n\n\n    </div>\n\n</div>\n\n</div> ")], 64 /* STABLE_FRAGMENT */);
 }
 
 /***/ }),
@@ -25423,44 +25552,41 @@ var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   }
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", {
   "class": "text-center"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "ProductID"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "Description"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "Qty"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "DeductQty"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "Net Qty"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "UM"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "Amount"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "DeductAmt"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "Total"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th")])], -1 /* HOISTED */);
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "ProductID"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "Description"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "Qty"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "UM"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "Amount"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "Total"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th")])], -1 /* HOISTED */);
 var _hoisted_4 = {
   "class": "text-left"
 };
-var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, null, -1 /* HOISTED */);
-var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, null, -1 /* HOISTED */);
-var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, "กิโล", -1 /* HOISTED */);
-var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, null, -1 /* HOISTED */);
-var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, "0", -1 /* HOISTED */);
-var _hoisted_10 = ["value"];
-var _hoisted_11 = {
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, "กิโล", -1 /* HOISTED */);
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, "0", -1 /* HOISTED */);
+var _hoisted_7 = ["value"];
+var _hoisted_8 = {
   "class": "form-row align-items-center"
 };
-var _hoisted_12 = {
+var _hoisted_9 = {
   "class": "col-auto my-1"
 };
-var _hoisted_13 = ["onClick"];
+var _hoisted_10 = ["onClick"];
+var _hoisted_11 = {
+  "class": "col-auto my-1"
+};
+var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "class": "mr-sm-2",
+  "for": "inlineFormCustomSelect"
+}, "Product Description (KG)", -1 /* HOISTED */);
+var _hoisted_13 = ["onUpdate:modelValue"];
 var _hoisted_14 = {
   "class": "col-auto my-1"
 };
-var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "class": "mr-sm-2",
-  "for": "inlineFormCustomSelect"
-}, "Product Description", -1 /* HOISTED */);
-var _hoisted_16 = ["onUpdate:modelValue"];
-var _hoisted_17 = {
-  "class": "col-auto my-1"
-};
-var _hoisted_18 = ["onClick"];
-var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
-var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
-var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+var _hoisted_15 = ["onClick"];
+var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
+var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
+var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "class": "fa fa-save mr-2"
 }, null, -1 /* HOISTED */);
-var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("บันทึก ");
-var _hoisted_23 = [_hoisted_21, _hoisted_22];
-var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("   ");
-var _hoisted_25 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
+var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("บันทึก ");
+var _hoisted_20 = [_hoisted_18, _hoisted_19];
+var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("   ");
+var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_modal = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("modal");
@@ -25468,7 +25594,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tr", {
       "class": "text-center",
       key: i
-    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(i + 1), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(value.description), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(value.qty), 1 /* TEXT */), _hoisted_5, _hoisted_6, _hoisted_7, _hoisted_8, _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(value.total), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <button type=\"\" class=\"btn btn-warning\"><i class=\"fa fa-edit mr-2\"></i>แก้ไข</button> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_modal, {
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(i + 1), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(value.description), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(value.qty), 1 /* TEXT */), _hoisted_5, _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(value.total), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <button type=\"\" class=\"btn btn-warning\"><i class=\"fa fa-edit mr-2\"></i>แก้ไข</button> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_modal, {
       "modal-id": 'test' + i,
       title: "แก้ไขรายการสินค้า",
       "button-text": "แก้ไข",
@@ -25484,7 +25610,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           "aria-describedby": "emailHelp",
           placeholder: "Enter email",
           value: value.description + '-' + value.detail_id
-        }, null, 8 /* PROPS */, _hoisted_10), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+        }, null, 8 /* PROPS */, _hoisted_7), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
           style: {
             "font-size": "25px",
             "width": "60px",
@@ -25495,14 +25621,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           onClick: function onClick($event) {
             return $options.datas[i].qty--;
           }
-        }, " - ", 8 /* PROPS */, _hoisted_13)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [_hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+        }, " - ", 8 /* PROPS */, _hoisted_10)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [_hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
           "class": "form-control",
           type: "number",
           min: "0",
           "onUpdate:modelValue": function onUpdateModelValue($event) {
             return $options.datas[i].qty = $event;
           }
-        }, null, 8 /* PROPS */, _hoisted_16), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $options.datas[i].qty]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+        }, null, 8 /* PROPS */, _hoisted_13), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $options.datas[i].qty]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
           style: {
             "font-size": "25px",
             "width": "60px",
@@ -25513,18 +25639,18 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           onClick: function onClick($event) {
             return $options.datas[i].qty++;
           }
-        }, " + ", 8 /* PROPS */, _hoisted_18)])]), _hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <table class=\"table table-bordered\">\n                              <tbody>\n                                <tr>\n                                  <td><b>Total Qty</b></td>\n                                  <td>\n                                    <input\n                                      style=\"\n                                        color: red;\n                                        font-weight: bold;\n                                        font-size: 21px;\n                                      \"\n                                      type=\"email\"\n                                      disabled\n                                      class=\"form-control\"\n                                      id=\"exampleInputEmail1\"\n                                      aria-describedby=\"emailHelp\"\n                                      placeholder=\"Enter email\"\n                                      :value=\"num * mul\"\n                                    />\n                                  </td>\n                                </tr>\n                              </tbody>\n                            </table> "), _hoisted_20, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+        }, " + ", 8 /* PROPS */, _hoisted_15)])]), _hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <table class=\"table table-bordered\">\n                              <tbody>\n                                <tr>\n                                  <td><b>Total Qty</b></td>\n                                  <td>\n                                    <input\n                                      style=\"\n                                        color: red;\n                                        font-weight: bold;\n                                        font-size: 21px;\n                                      \"\n                                      type=\"email\"\n                                      disabled\n                                      class=\"form-control\"\n                                      id=\"exampleInputEmail1\"\n                                      aria-describedby=\"emailHelp\"\n                                      placeholder=\"Enter email\"\n                                      :value=\"num * mul\"\n                                    />\n                                  </td>\n                                </tr>\n                              </tbody>\n                            </table> "), _hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
           "data-dismiss": "modal",
           onClick: _cache[0] || (_cache[0] = function () {
             return $options.onSelect(_ctx.product);
           }),
           type: "button",
           "class": "btn btn-success float-right btn-lg"
-        }, _hoisted_23)];
+        }, _hoisted_20)];
       }),
       _: 2 /* DYNAMIC */
-    }, 1032 /* PROPS, DYNAMIC_SLOTS */, ["modal-id"]), _hoisted_24])]);
-  }), 128 /* KEYED_FRAGMENT */))])])]), _hoisted_25, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"row\">\n   <div class=\"col-md-4\">\n\n       </div>\n       <div class=\"col-md-2\">\n\n</div>\n<div class=\"col-md-6\">\n   <div class=\"form-group row\" style=\"margin-bottom: 0px;    margin-bottom: 0px;margin-top: -12px;\n\n   \">\n   <label for=\"staticEmail\" class=\"col-sm-6\" style=\"\"><span>Weight:</span> <span style=\"    font-size: 28px;\">25.48 KG</span>  </label>\n   <label for=\"staticEmail\" class=\"col-sm-6\" style=\"\"><span>Total:</span> <span style=\"    font-size: 28px;\">                                {{totalTaxes}}\n</span> </label>\n\n\n   </div>\n\n</div>\n\n</div> ")], 64 /* STABLE_FRAGMENT */);
+    }, 1032 /* PROPS, DYNAMIC_SLOTS */, ["modal-id"]), _hoisted_21])]);
+  }), 128 /* KEYED_FRAGMENT */))])])]), _hoisted_22, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"row\">\n   <div class=\"col-md-4\">\n\n       </div>\n       <div class=\"col-md-2\">\n\n</div>\n<div class=\"col-md-6\">\n   <div class=\"form-group row\" style=\"margin-bottom: 0px;    margin-bottom: 0px;margin-top: -12px;\n\n   \">\n   <label for=\"staticEmail\" class=\"col-sm-6\" style=\"\"><span>Weight:</span> <span style=\"    font-size: 28px;\">25.48 KG</span>  </label>\n   <label for=\"staticEmail\" class=\"col-sm-6\" style=\"\"><span>Total:</span> <span style=\"    font-size: 28px;\">                                {{totalTaxes}}\n</span> </label>\n\n\n   </div>\n\n</div>\n\n</div> ")], 64 /* STABLE_FRAGMENT */);
 }
 
 /***/ }),

@@ -7,11 +7,8 @@
                                            <th>ProductID</th>
                                            <th>Description</th>
                                            <th>Qty</th>
-                                           <th>DeductQty</th>
-                                           <th>Net Qty</th>
                                            <th>UM</th>
                                            <th>Amount</th>
-                                           <th>DeductAmt</th>
                                            <th>Total</th>
                                            <th></th>
                                        </tr>
@@ -22,10 +19,7 @@
                                            <td>{{i+1}}</td>
                                            <td class="text-left">{{value.description}}</td>
                                            <td>{{value.qty}}</td>
-                                           <td></td>
-                                           <td></td>
                                            <td>กิโล</td>
-                                           <td></td>
                                            <td>0</td>
                                            <td>{{value.total}}</td>
                                            <td >
@@ -63,7 +57,7 @@
                               </div>
                               <div class="col-auto my-1">
                                 <label class="mr-sm-2" for="inlineFormCustomSelect"
-                                  >Product Description</label
+                                  >Product Description (KG)</label
                                 >
                                 <input
                                   class="form-control"

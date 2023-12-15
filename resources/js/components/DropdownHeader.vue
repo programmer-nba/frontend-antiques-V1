@@ -146,8 +146,99 @@
                               />
                               <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
                             </div>
+                            <div v-if="product.detail_id == 17">
+
+                                <div class="form-row align-items-center">
+                              <div class="col-auto my-1">
+                                <button
+                                  style="font-size: 25px; width: 60px; height: 60px"
+                                  type="button"
+                                  class="btn btn-danger"
+                                  @click="amoung--"
+                                >
+                                  -
+                                </button>
+                              </div>
+                              <div class="col-auto my-1">
+                                <label class="mr-sm-2" for="inlineFormCustomSelect"
+                                  >จำนวน - Amoung  (เข้าเป็นลัง)</label
+                                >
+                                <input
+                                  class="form-control"
+                                  type="number"
+
+                                  min="0"
+                                  v-model="amoung"
+                                />
+                              </div>
+                              <div class="col-auto my-1">
+                                <button
+                                  style="font-size: 25px; width: 60px; height: 60px"
+                                  type="button"
+                                  class="btn btn-primary"
+                                  @click="amoung++"
+                                >
+                                  +
+                                </button>
+                              </div>
+                            </div>
 
                             <div class="form-row align-items-center">
+                              <div class="col-auto my-1">
+                                <button
+                                  style="font-size: 25px; width: 60px; height: 60px"
+                                  type="button"
+                                  class="btn btn-danger"
+                                  @click="deduct--"
+                                >
+                                  -
+                                </button>
+                              </div>
+                              <div class="col-auto my-1">
+                                <label class="mr-sm-2 text-danger" for="inlineFormCustomSelect"
+                                  >จำนวน - Amoung  (ตัดเป็นขวด)</label
+                                >
+                                <input
+                                  class="form-control text-danger font-weight-bold"
+                                  type="number"
+                                  min="0"
+                                  v-model="deduct"
+                                />
+                              </div>
+                              <div class="col-auto my-1">
+                                <button
+                                  style="font-size: 25px; width: 60px; height: 60px"
+                                  type="button"
+                                  class="btn btn-primary"
+                                  @click="deduct++"
+                                >
+                                  +
+                                </button>
+                              </div>
+                            </div>
+
+                            <div class="form-row align-items-center">
+
+                              <div class="col-auto my-1">
+                                <label class="mr-sm-2" for="inlineFormCustomSelect"
+                                  >ผลรวมทั้งหมด - Amoung  (ขวด)</label
+                                >
+                                <input
+                                disabled
+                                  class="form-control"
+                                  type="number"
+                                  min="0"
+                                  v-model="num"
+                                  style="    font-size: 20px;
+    color: blue;
+    font-weight: bold;"
+                                />
+                              </div>
+
+                            </div>
+                            </div>
+                            <div v-if="product.detail_id != 17">
+                                <div class="form-row align-items-center">
                               <div class="col-auto my-1">
                                 <button
                                   style="font-size: 25px; width: 60px; height: 60px"
@@ -160,13 +251,16 @@
                               </div>
                               <div class="col-auto my-1">
                                 <label class="mr-sm-2" for="inlineFormCustomSelect"
-                                  >Product Description</label
+                                  >จำนวน - Amoung (KG)</label
                                 >
                                 <input
                                   class="form-control"
                                   type="number"
                                   min="0"
                                   v-model="num"
+                                  style="    font-size: 20px;
+    color: blue;
+    font-weight: bold;"
                                 />
                               </div>
                               <div class="col-auto my-1">
@@ -180,28 +274,11 @@
                                 </button>
                               </div>
                             </div>
+
+
+                            </div>
                             <br />
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th></th>
-                                        <th>จำนวน</th>
-                                        <th>คำอธิบาย</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                       <td>+</td>
-                                       <td>10</td>
-                                       <td></td>
-                                    </tr>
-                                    <tr>
-                                       <td>-</td>
-                                       <td>5</td>
-                                       <td>ขวดแตก</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+
 
                             <!-- <table class="table table-bordered">
                               <tbody>
@@ -261,6 +338,8 @@ export default {
       active: false,
       show: false,
       num: 0,
+      deduct:0,
+      amoung:0,
       mul: 0,
       items: [
         { text: "foo", value: "bar" },
@@ -300,11 +379,20 @@ export default {
   destroyed: function () {
     $(this.$el).off().select2("destroy");
   },
-  computed: {
+  watch: {
     // mul() {
     //     console.log(this.$store.state.customers)
     //     alert("ff")
     // }
+    amoung(){
+        this.num = (this.amoung*12)-this.deduct
+
+},
+deduct(){
+    this.num = (this.amoung*12)-this.deduct
+
+}
+
   },
   methods: {
     save: async function () {
@@ -370,7 +458,8 @@ export default {
         description: item.detail_name_th,
         qty: this.num,
         total: this.num * this.mul,
-        detail_id: item.detail_id
+        detail_id: item.detail_id,
+        unit: item.unit
       });
       localStorage.storedData = JSON.stringify(clickedItems);
       this.$store.dispatch("loadItems", this.$store.state.items.concat(clickedItems));

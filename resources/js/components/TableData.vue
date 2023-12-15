@@ -7,8 +7,6 @@
                                             <th>ProductID</th>
                                             <th>Description</th>
                                             <th>Qty</th>
-                                            <th>DeductQty</th>
-                                            <th>Net Qty</th>
                                             <th>UM</th>
                                             <th v-if="this.$store.state.dataOpen[0] != 'FINISH'"></th>
 
@@ -23,8 +21,6 @@
                                             <td>{{i+1}}</td>
                                             <td class="text-left">{{value.description}}</td>
                                             <td>{{value.qty}}</td>
-                                            <td></td>
-                                            <td></td>
                                             <td>กิโล</td>
                                             <td  v-if="this.$store.state.dataOpen[0] != 'FINISH'">
 <!-- <button type="" class="btn btn-warning"><i class="fa fa-edit mr-2"></i>แก้ไข</button> -->

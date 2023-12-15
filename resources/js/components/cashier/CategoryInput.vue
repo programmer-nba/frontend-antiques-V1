@@ -325,6 +325,7 @@ export default {
         qty: this.num,
         total: this.num * this.mul,
         detail_id: item.detail_id,
+        unit: item.unit
       });
       localStorage.storedData = JSON.stringify(clickedItems);
       this.$store.dispatch("loadItems", this.$store.state.items.concat(clickedItems));
