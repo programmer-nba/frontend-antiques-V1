@@ -12,7 +12,8 @@
     </div>
     <div class="form-group">
       <label for="exampleInputEmail1">เลขบัตรประชาชน </label>
-      <input type="text" class="form-control" v-model="customer.idcard" placeholder="ป้อนเลขบัตรประชาชน" />
+      <input type="text" class="form-control" v-model="customer.idcard" placeholder="ป้อนเลขบัตรประชาชน"     maxlength = "13"
+/>
     </div>
     <div class="form-group">
       <label for="exampleInputEmail1">ชื่อ </label>
