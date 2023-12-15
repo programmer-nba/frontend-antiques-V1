@@ -47,7 +47,7 @@
 
 
                 <br>
-                @if (!empty(request()->datestart) && !empty(request()->datestop))
+                @if (true)
                 <a target="_blank" href="{{route('cashier.print.summaryreportbydate',[
                     'datestart' => request()->datestart,
                     'datestop' => request()->datestop
@@ -57,7 +57,7 @@
                     <thead>
                         <tr>
                             <th class="text-center">วันที่</th>
-                            <th>จำนวนเงิน</th>
+                            <th class="text-center">จำนวนเงิน</th>
                             <th class="text-center">หักออก</th>
                             <th class="text-center">Vat</th>
                             <th class="text-center">จำนวนเงินสุทธิ</th>
@@ -65,7 +65,7 @@
                     </thead>
                     <tbody>
                         @foreach ($data["data"] as $key => $value)
-                       
+
                         <tr>
                             <td>{{$key}}</td>
                             <td>{{$value}}</td>

@@ -3,7 +3,7 @@
    overflow-y: auto;">
        <table class="table table-bordered" style="    ">
                                    <thead style="background-color:blueviolet;color:white;">
-                                       <tr>
+                                       <tr class="text-center">
                                            <th>ProductID</th>
                                            <th>Description</th>
                                            <th>Qty</th>
@@ -18,9 +18,9 @@
                                    </thead>
                                    <tbody>
 
-                                       <tr v-for="(value, i) in datas" :key="i">
+                                       <tr class="text-center" v-for="(value, i) in datas" :key="i">
                                            <td>{{i+1}}</td>
-                                           <td>{{value.description}}</td>
+                                           <td class="text-left">{{value.description}}</td>
                                            <td>{{value.qty}}</td>
                                            <td></td>
                                            <td></td>

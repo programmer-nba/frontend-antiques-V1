@@ -19495,7 +19495,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         while (1) switch (_context2.prev = _context2.next) {
           case 0:
             _context2.next = 2;
-            return axios__WEBPACK_IMPORTED_MODULE_0___default().get("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/get", {
+            return axios__WEBPACK_IMPORTED_MODULE_0___default().get("https://6702-147-50-183-56.ngrok-free.app/antiques" + "/get", {
               headers: {
                 "ngrok-skip-browser-warning": "true"
               }
@@ -19563,7 +19563,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               self.item_detail_products = [];
               _this2.choose_category_id = event.category_id;
               _context3.next = 7;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/getcatebyid", {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().post("https://6702-147-50-183-56.ngrok-free.app/antiques" + "/getcatebyid", {
                 category_id: event.category_id
               }, {
                 headers: {
@@ -19606,7 +19606,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               _this3.choose_type_id = event.type_id;
               _context4.next = 6;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/getdetailbyid", {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().post("https://6702-147-50-183-56.ngrok-free.app/antiques" + "/getdetailbyid", {
                 type_id: event.type_id
               }, {
                 headers: {
@@ -19630,7 +19630,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) switch (_context5.prev = _context5.next) {
             case 0:
               _context5.next = 2;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/CreateCategory", {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().post("https://6702-147-50-183-56.ngrok-free.app/antiques" + "/CreateCategory", {
                 category_name_th: _this4.category_name_th,
                 category_name_en: _this4.category_name_en
               }, {
@@ -19662,7 +19662,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 detail_en: _this5.type_name_en
               });
               _context6.next = 3;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/createtype", {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().post("https://6702-147-50-183-56.ngrok-free.app/antiques" + "/createtype", {
                 category_id: _this5.choose_category_id,
                 detail_th: _this5.type_name_th,
                 detail_en: _this5.type_name_en
@@ -19699,7 +19699,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 price_D: 0
               });
               _context7.next = 3;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/createdetailproduct", {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().post("https://6702-147-50-183-56.ngrok-free.app/antiques" + "/createdetailproduct", {
                 category_id: _this6.choose_category_id,
                 type_id: _this6.choose_type_id,
                 detail_name_th: _this6.detail_name_th,
@@ -19731,7 +19731,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) switch (_context8.prev = _context8.next) {
             case 0:
               _context8.next = 2;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().put("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/update", {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().put("https://6702-147-50-183-56.ngrok-free.app/antiques" + "/update", {
                 _id: id,
                 category_name_th: _this7.item_categorys[index].category_name_th,
                 category_name_en: _this7.item_categorys[index].category_name_en
@@ -19761,7 +19761,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) switch (_context9.prev = _context9.next) {
             case 0:
               _context9.next = 2;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().put("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/updatevendor", {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().put("https://6702-147-50-183-56.ngrok-free.app/antiques" + "/updatevendor", {
                 vendor_id: _this8.vendor_id,
                 vendor_data: JSON.stringify({
                   A: _this8.vendor_type[0]["A"],
@@ -19795,7 +19795,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) switch (_context10.prev = _context10.next) {
             case 0:
               _context10.next = 2;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().put("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/updateType", {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().put("https://6702-147-50-183-56.ngrok-free.app/antiques" + "/updateType", {
                 _id: id,
                 detail_th: _this9.item_types[index].detail_th,
                 detail_en: _this9.item_types[index].detail_en
@@ -19825,7 +19825,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) switch (_context11.prev = _context11.next) {
             case 0:
               _context11.next = 2;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().put("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/updatedetail", {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().put("https://6702-147-50-183-56.ngrok-free.app/antiques" + "/updatedetail", {
                 _id: id,
                 detail_name_th: _this10.item_detail_products[index].detail_name_th,
                 detail_name_en: _this10.item_detail_products[index].detail_name_en
@@ -19872,7 +19872,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                           break;
                         }
                         _context12.next = 3;
-                        return axios__WEBPACK_IMPORTED_MODULE_0___default().put("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/deletetypedata", {
+                        return axios__WEBPACK_IMPORTED_MODULE_0___default().put("https://6702-147-50-183-56.ngrok-free.app/antiques" + "/deletetypedata", {
                           _id: id
                         }, {
                           headers: {
@@ -19927,7 +19927,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                           break;
                         }
                         _context14.next = 3;
-                        return axios__WEBPACK_IMPORTED_MODULE_0___default().put("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/deletedetail", {
+                        return axios__WEBPACK_IMPORTED_MODULE_0___default().put("https://6702-147-50-183-56.ngrok-free.app/antiques" + "/deletedetail", {
                           detail_id: id
                         }, {
                           headers: {
@@ -19982,7 +19982,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                           break;
                         }
                         _context16.next = 3;
-                        return axios__WEBPACK_IMPORTED_MODULE_0___default().put("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/delete", {
+                        return axios__WEBPACK_IMPORTED_MODULE_0___default().put("https://6702-147-50-183-56.ngrok-free.app/antiques" + "/delete", {
                           _id: id
                         }, {
                           headers: {
@@ -20058,7 +20058,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               //   });
               _this14.choose_detail_id = event.detail_id;
               _context18.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/getvendorbyid", {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().post("https://6702-147-50-183-56.ngrok-free.app/antiques" + "/getvendorbyid", {
                 detail_id: event.detail_id
               }, {
                 headers: {
@@ -20175,7 +20175,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               $('#modal-loading').modal('show');
               _context.next = 3;
-              return axios.post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/order/createOrder", {
+              return axios.post("https://6702-147-50-183-56.ngrok-free.app/antiques" + "/order/createOrder", {
                 customers: this.$store.state.customers,
                 items: this.$store.state.items,
                 createAt: this.$store.state.queueDate[1],
@@ -20252,7 +20252,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               //     console.log(res)
               //   });
               _context2.next = 5;
-              return axios.post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/getOrderData", {
+              return axios.post("https://6702-147-50-183-56.ngrok-free.app/antiques" + "/getOrderData", {
                 category_id: item.category_id
               }, {
                 headers: {
@@ -20294,7 +20294,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             console.log("jj", _this3.$store.state.customers["class"]);
             // alert(id)
             _context3.next = 3;
-            return axios.post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/getdetailvendor", {
+            return axios.post("https://6702-147-50-183-56.ngrok-free.app/antiques" + "/getdetailvendor", {
               detail_id: id,
               "class": _this3.$store.state.customers["class"]
             }, {
@@ -20370,7 +20370,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return axios.post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/order/approveorder", {
+              return axios.post("https://6702-147-50-183-56.ngrok-free.app/antiques" + "/order/approveorder", {
                 customers: this.$store.state.customers,
                 items: this.$store.state.items
               }, {
@@ -20433,7 +20433,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               //     return sum + tax.total;
               // }, 0);
               _context.next = 5;
-              return axios.post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/order/approveorder", {
+              return axios.post("https://6702-147-50-183-56.ngrok-free.app/antiques" + "/order/approveorder", {
                 _id: this.$store.state.orderId,
                 items: this.$store.state.items
               }, {
@@ -20593,7 +20593,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               //save spiderman
               $('#modal-loading').modal('show');
               _context.next = 6;
-              return axios.post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/order/createOrder", {
+              return axios.post("https://6702-147-50-183-56.ngrok-free.app/antiques" + "/order/createOrder", {
                 customers: _this.$store.state.customers,
                 items: _this.$store.state.items,
                 createAt: _this.$store.state.queueDate[1],
@@ -20696,6 +20696,8 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
 function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return e; }; var t, e = {}, r = Object.prototype, n = r.hasOwnProperty, o = Object.defineProperty || function (t, e, r) { t[e] = r.value; }, i = "function" == typeof Symbol ? Symbol : {}, a = i.iterator || "@@iterator", c = i.asyncIterator || "@@asyncIterator", u = i.toStringTag || "@@toStringTag"; function define(t, e, r) { return Object.defineProperty(t, e, { value: r, enumerable: !0, configurable: !0, writable: !0 }), t[e]; } try { define({}, ""); } catch (t) { define = function define(t, e, r) { return t[e] = r; }; } function wrap(t, e, r, n) { var i = e && e.prototype instanceof Generator ? e : Generator, a = Object.create(i.prototype), c = new Context(n || []); return o(a, "_invoke", { value: makeInvokeMethod(t, r, c) }), a; } function tryCatch(t, e, r) { try { return { type: "normal", arg: t.call(e, r) }; } catch (t) { return { type: "throw", arg: t }; } } e.wrap = wrap; var h = "suspendedStart", l = "suspendedYield", f = "executing", s = "completed", y = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var p = {}; define(p, a, function () { return this; }); var d = Object.getPrototypeOf, v = d && d(d(values([]))); v && v !== r && n.call(v, a) && (p = v); var g = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(p); function defineIteratorMethods(t) { ["next", "throw", "return"].forEach(function (e) { define(t, e, function (t) { return this._invoke(e, t); }); }); } function AsyncIterator(t, e) { function invoke(r, o, i, a) { var c = tryCatch(t[r], t, o); if ("throw" !== c.type) { var u = c.arg, h = u.value; return h && "object" == _typeof(h) && n.call(h, "__await") ? e.resolve(h.__await).then(function (t) { invoke("next", t, i, a); }, function (t) { invoke("throw", t, i, a); }) : e.resolve(h).then(function (t) { u.value = t, i(u); }, function (t) { return invoke("throw", t, i, a); }); } a(c.arg); } var r; o(this, "_invoke", { value: function value(t, n) { function callInvokeWithMethodAndArg() { return new e(function (e, r) { invoke(t, n, e, r); }); } return r = r ? r.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(e, r, n) { var o = h; return function (i, a) { if (o === f) throw new Error("Generator is already running"); if (o === s) { if ("throw" === i) throw a; return { value: t, done: !0 }; } for (n.method = i, n.arg = a;;) { var c = n.delegate; if (c) { var u = maybeInvokeDelegate(c, n); if (u) { if (u === y) continue; return u; } } if ("next" === n.method) n.sent = n._sent = n.arg;else if ("throw" === n.method) { if (o === h) throw o = s, n.arg; n.dispatchException(n.arg); } else "return" === n.method && n.abrupt("return", n.arg); o = f; var p = tryCatch(e, r, n); if ("normal" === p.type) { if (o = n.done ? s : l, p.arg === y) continue; return { value: p.arg, done: n.done }; } "throw" === p.type && (o = s, n.method = "throw", n.arg = p.arg); } }; } function maybeInvokeDelegate(e, r) { var n = r.method, o = e.iterator[n]; if (o === t) return r.delegate = null, "throw" === n && e.iterator["return"] && (r.method = "return", r.arg = t, maybeInvokeDelegate(e, r), "throw" === r.method) || "return" !== n && (r.method = "throw", r.arg = new TypeError("The iterator does not provide a '" + n + "' method")), y; var i = tryCatch(o, e.iterator, r.arg); if ("throw" === i.type) return r.method = "throw", r.arg = i.arg, r.delegate = null, y; var a = i.arg; return a ? a.done ? (r[e.resultName] = a.value, r.next = e.nextLoc, "return" !== r.method && (r.method = "next", r.arg = t), r.delegate = null, y) : a : (r.method = "throw", r.arg = new TypeError("iterator result is not an object"), r.delegate = null, y); } function pushTryEntry(t) { var e = { tryLoc: t[0] }; 1 in t && (e.catchLoc = t[1]), 2 in t && (e.finallyLoc = t[2], e.afterLoc = t[3]), this.tryEntries.push(e); } function resetTryEntry(t) { var e = t.completion || {}; e.type = "normal", delete e.arg, t.completion = e; } function Context(t) { this.tryEntries = [{ tryLoc: "root" }], t.forEach(pushTryEntry, this), this.reset(!0); } function values(e) { if (e || "" === e) { var r = e[a]; if (r) return r.call(e); if ("function" == typeof e.next) return e; if (!isNaN(e.length)) { var o = -1, i = function next() { for (; ++o < e.length;) if (n.call(e, o)) return next.value = e[o], next.done = !1, next; return next.value = t, next.done = !0, next; }; return i.next = i; } } throw new TypeError(_typeof(e) + " is not iterable"); } return GeneratorFunction.prototype = GeneratorFunctionPrototype, o(g, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), o(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, u, "GeneratorFunction"), e.isGeneratorFunction = function (t) { var e = "function" == typeof t && t.constructor; return !!e && (e === GeneratorFunction || "GeneratorFunction" === (e.displayName || e.name)); }, e.mark = function (t) { return Object.setPrototypeOf ? Object.setPrototypeOf(t, GeneratorFunctionPrototype) : (t.__proto__ = GeneratorFunctionPrototype, define(t, u, "GeneratorFunction")), t.prototype = Object.create(g), t; }, e.awrap = function (t) { return { __await: t }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, c, function () { return this; }), e.AsyncIterator = AsyncIterator, e.async = function (t, r, n, o, i) { void 0 === i && (i = Promise); var a = new AsyncIterator(wrap(t, r, n, o), i); return e.isGeneratorFunction(r) ? a : a.next().then(function (t) { return t.done ? t.value : a.next(); }); }, defineIteratorMethods(g), define(g, u, "Generator"), define(g, a, function () { return this; }), define(g, "toString", function () { return "[object Generator]"; }), e.keys = function (t) { var e = Object(t), r = []; for (var n in e) r.push(n); return r.reverse(), function next() { for (; r.length;) { var t = r.pop(); if (t in e) return next.value = t, next.done = !1, next; } return next.done = !0, next; }; }, e.values = values, Context.prototype = { constructor: Context, reset: function reset(e) { if (this.prev = 0, this.next = 0, this.sent = this._sent = t, this.done = !1, this.delegate = null, this.method = "next", this.arg = t, this.tryEntries.forEach(resetTryEntry), !e) for (var r in this) "t" === r.charAt(0) && n.call(this, r) && !isNaN(+r.slice(1)) && (this[r] = t); }, stop: function stop() { this.done = !0; var t = this.tryEntries[0].completion; if ("throw" === t.type) throw t.arg; return this.rval; }, dispatchException: function dispatchException(e) { if (this.done) throw e; var r = this; function handle(n, o) { return a.type = "throw", a.arg = e, r.next = n, o && (r.method = "next", r.arg = t), !!o; } for (var o = this.tryEntries.length - 1; o >= 0; --o) { var i = this.tryEntries[o], a = i.completion; if ("root" === i.tryLoc) return handle("end"); if (i.tryLoc <= this.prev) { var c = n.call(i, "catchLoc"), u = n.call(i, "finallyLoc"); if (c && u) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } else if (c) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); } else { if (!u) throw new Error("try statement without catch or finally"); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } } } }, abrupt: function abrupt(t, e) { for (var r = this.tryEntries.length - 1; r >= 0; --r) { var o = this.tryEntries[r]; if (o.tryLoc <= this.prev && n.call(o, "finallyLoc") && this.prev < o.finallyLoc) { var i = o; break; } } i && ("break" === t || "continue" === t) && i.tryLoc <= e && e <= i.finallyLoc && (i = null); var a = i ? i.completion : {}; return a.type = t, a.arg = e, i ? (this.method = "next", this.next = i.finallyLoc, y) : this.complete(a); }, complete: function complete(t, e) { if ("throw" === t.type) throw t.arg; return "break" === t.type || "continue" === t.type ? this.next = t.arg : "return" === t.type ? (this.rval = this.arg = t.arg, this.method = "return", this.next = "end") : "normal" === t.type && e && (this.next = e), y; }, finish: function finish(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.finallyLoc === t) return this.complete(r.completion, r.afterLoc), resetTryEntry(r), y; } }, "catch": function _catch(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.tryLoc === t) { var n = r.completion; if ("throw" === n.type) { var o = n.arg; resetTryEntry(r); } return o; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(e, r, n) { return this.delegate = { iterator: values(e), resultName: r, nextLoc: n }, "next" === this.method && (this.arg = t), y; } }, e; }
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+function _asyncIterator(r) { var n, t, o, e = 2; for ("undefined" != typeof Symbol && (t = Symbol.asyncIterator, o = Symbol.iterator); e--;) { if (t && null != (n = r[t])) return n.call(r); if (o && null != (n = r[o])) return new AsyncFromSyncIterator(n.call(r)); t = "@@asyncIterator", o = "@@iterator"; } throw new TypeError("Object is not async iterable"); }
+function AsyncFromSyncIterator(r) { function AsyncFromSyncIteratorContinuation(r) { if (Object(r) !== r) return Promise.reject(new TypeError(r + " is not an object.")); var n = r.done; return Promise.resolve(r.value).then(function (r) { return { value: r, done: n }; }); } return AsyncFromSyncIterator = function AsyncFromSyncIterator(r) { this.s = r, this.n = r.next; }, AsyncFromSyncIterator.prototype = { s: null, n: null, next: function next() { return AsyncFromSyncIteratorContinuation(this.n.apply(this.s, arguments)); }, "return": function _return(r) { var n = this.s["return"]; return void 0 === n ? Promise.resolve({ value: r, done: !0 }) : AsyncFromSyncIteratorContinuation(n.apply(this.s, arguments)); }, "throw": function _throw(r) { var n = this.s["return"]; return void 0 === n ? Promise.reject(r) : AsyncFromSyncIteratorContinuation(n.apply(this.s, arguments)); } }, new AsyncFromSyncIterator(r); }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -20810,7 +20812,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 while (1) switch (_context.prev = _context.next) {
                   case 0:
                     _context.next = 2;
-                    return axios.post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/customer/filterCusByData", {
+                    return axios.post("https://6702-147-50-183-56.ngrok-free.app/antiques" + "/customer/filterCusByData", {
                       vehicle: $("#vehicle").val()
                     }, {
                       headers: {
@@ -20839,7 +20841,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 while (1) switch (_context3.prev = _context3.next) {
                   case 0:
                     _context3.next = 2;
-                    return axios.post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/customer/filterCusByData", {
+                    return axios.post("https://6702-147-50-183-56.ngrok-free.app/antiques" + "/customer/filterCusByData", {
                       id_card: $("#idcard").val()
                     }, {
                       headers: {
@@ -20883,7 +20885,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 while (1) switch (_context4.prev = _context4.next) {
                   case 0:
                     _context4.next = 2;
-                    return axios.post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/customer/filterCusByData", {
+                    return axios.post("https://6702-147-50-183-56.ngrok-free.app/antiques" + "/customer/filterCusByData", {
                       fullname_th: $("#name").val()
                     }, {
                       headers: {
@@ -20960,9 +20962,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       console.log(oldVal);
     },
     idCard: function () {
-      var _idCard = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee8(val, oldVal) {
-        var self, items;
-        return _regeneratorRuntime().wrap(function _callee8$(_context8) {
+      var _idCard = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee7(val, oldVal) {
+        var self, items, _iteratorAbruptCompletion, _didIteratorError, _iteratorError, _loop, clickedItems, _iterator, _step;
+        return _regeneratorRuntime().wrap(function _callee7$(_context8) {
           while (1) switch (_context8.prev = _context8.next) {
             case 0:
               self = this;
@@ -20971,69 +20973,114 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               console.log("jj", this.loadCustomers);
               items = this.$store.state.items;
               this.$store.dispatch("loadItems", []);
-              _context8.next = 8;
-              return items.forEach( /*#__PURE__*/function () {
-                var _ref5 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee7(element) {
-                  var clickedItems;
-                  return _regeneratorRuntime().wrap(function _callee7$(_context7) {
-                    while (1) switch (_context7.prev = _context7.next) {
-                      case 0:
-                        console.log("aam", element);
-                        clickedItems = [];
-                        _context7.next = 4;
-                        return axios.post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/getdetailvendor", {
-                          detail_id: element.detail_id,
-                          "class": self.type
-                        }, {
-                          headers: {
-                            "ngrok-skip-browser-warning": "true"
-                          }
-                        }).then( /*#__PURE__*/function () {
-                          var _ref6 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee6(response) {
-                            return _regeneratorRuntime().wrap(function _callee6$(_context6) {
-                              while (1) switch (_context6.prev = _context6.next) {
-                                case 0:
-                                  self.mul = response.data.data;
+              $('#modal-loading').modal('show');
+              _iteratorAbruptCompletion = false;
+              _didIteratorError = false;
+              _context8.prev = 9;
+              _loop = /*#__PURE__*/_regeneratorRuntime().mark(function _loop() {
+                var element;
+                return _regeneratorRuntime().wrap(function _loop$(_context7) {
+                  while (1) switch (_context7.prev = _context7.next) {
+                    case 0:
+                      element = _step.value;
+                      console.log("aam", element);
+                      clickedItems = [];
+                      _context7.next = 5;
+                      return axios.post("https://6702-147-50-183-56.ngrok-free.app/antiques" + "/getdetailvendor", {
+                        detail_id: element.detail_id,
+                        "class": self.type
+                      }, {
+                        headers: {
+                          "ngrok-skip-browser-warning": "true"
+                        }
+                      }).then( /*#__PURE__*/function () {
+                        var _ref5 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee6(response) {
+                          return _regeneratorRuntime().wrap(function _callee6$(_context6) {
+                            while (1) switch (_context6.prev = _context6.next) {
+                              case 0:
+                                self.mul = response.data.data;
 
-                                  // clickedItems.push({
-                                  //   description: element.description,
-                                  //   qty: element.qty,
-                                  //   total: element.qty * self.mul,
-                                  //   detail_id: element.detail_id,
-                                  // });
-                                  // console.log("it", clickedItems)
-                                  _context6.next = 3;
-                                  return self.$store.dispatch("loadItems", self.$store.state.items.concat([{
-                                    description: element.description,
-                                    qty: element.qty,
-                                    total: element.qty * self.mul,
-                                    detail_id: element.detail_id
-                                  }]));
-                                case 3:
-                                case "end":
-                                  return _context6.stop();
-                              }
-                            }, _callee6);
-                          }));
-                          return function (_x5) {
-                            return _ref6.apply(this, arguments);
-                          };
-                        }());
-                      case 4:
-                      case "end":
-                        return _context7.stop();
-                    }
-                  }, _callee7);
-                }));
-                return function (_x4) {
-                  return _ref5.apply(this, arguments);
-                };
-              }());
-            case 8:
+                                // clickedItems.push({
+                                //   description: element.description,
+                                //   qty: element.qty,
+                                //   total: element.qty * self.mul,
+                                //   detail_id: element.detail_id,
+                                // });
+                                // console.log("it", clickedItems)
+                                _context6.next = 3;
+                                return self.$store.dispatch("loadItems", self.$store.state.items.concat([{
+                                  description: element.description,
+                                  qty: element.qty,
+                                  total: element.qty * self.mul,
+                                  detail_id: element.detail_id
+                                }]));
+                              case 3:
+                              case "end":
+                                return _context6.stop();
+                            }
+                          }, _callee6);
+                        }));
+                        return function (_x4) {
+                          return _ref5.apply(this, arguments);
+                        };
+                      }());
+                    case 5:
+                    case "end":
+                      return _context7.stop();
+                  }
+                }, _loop);
+              });
+              _iterator = _asyncIterator(items);
+            case 12:
+              _context8.next = 14;
+              return _iterator.next();
+            case 14:
+              if (!(_iteratorAbruptCompletion = !(_step = _context8.sent).done)) {
+                _context8.next = 19;
+                break;
+              }
+              return _context8.delegateYield(_loop(), "t0", 16);
+            case 16:
+              _iteratorAbruptCompletion = false;
+              _context8.next = 12;
+              break;
+            case 19:
+              _context8.next = 25;
+              break;
+            case 21:
+              _context8.prev = 21;
+              _context8.t1 = _context8["catch"](9);
+              _didIteratorError = true;
+              _iteratorError = _context8.t1;
+            case 25:
+              _context8.prev = 25;
+              _context8.prev = 26;
+              if (!(_iteratorAbruptCompletion && _iterator["return"] != null)) {
+                _context8.next = 30;
+                break;
+              }
+              _context8.next = 30;
+              return _iterator["return"]();
+            case 30:
+              _context8.prev = 30;
+              if (!_didIteratorError) {
+                _context8.next = 33;
+                break;
+              }
+              throw _iteratorError;
+            case 33:
+              return _context8.finish(30);
+            case 34:
+              return _context8.finish(25);
+            case 35:
+              setTimeout(function () {
+                $('#modal-loading').modal('hide');
+              }, 2000);
+            case 36:
             case "end":
               return _context8.stop();
           }
-        }, _callee8, this);
+        }, _callee7, this, [[9, 21, 25, 35], [26,, 30, 34]]);
       }));
       function idCard(_x2, _x3) {
         return _idCard.apply(this, arguments);
@@ -21041,16 +21088,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       return idCard;
     }(),
     name: function () {
-      var _name = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee9(val, oldVal) {
-        return _regeneratorRuntime().wrap(function _callee9$(_context9) {
+      var _name = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee8(val, oldVal) {
+        return _regeneratorRuntime().wrap(function _callee8$(_context9) {
           while (1) switch (_context9.prev = _context9.next) {
             case 0:
             case "end":
               return _context9.stop();
           }
-        }, _callee9);
+        }, _callee8);
       }));
-      function name(_x6, _x7) {
+      function name(_x5, _x6) {
         return _name.apply(this, arguments);
       }
       return name;
@@ -21064,13 +21111,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   methods: {
     saveCustomer: function saveCustomer() {
       var _this = this;
-      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee10() {
-        return _regeneratorRuntime().wrap(function _callee10$(_context10) {
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee9() {
+        return _regeneratorRuntime().wrap(function _callee9$(_context10) {
           while (1) switch (_context10.prev = _context10.next) {
             case 0:
               console.log("customer", _this.customer);
               _context10.next = 3;
-              return axios.post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/customer/createCus", {
+              return axios.post("https://6702-147-50-183-56.ngrok-free.app/antiques" + "/customer/createCus", {
                 id_card: _this.customer.idcard,
                 fullname_th: _this.customer.name,
                 vehicle: _this.customer.vehicle,
@@ -21095,7 +21142,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             case "end":
               return _context10.stop();
           }
-        }, _callee10);
+        }, _callee9);
       }))();
     },
     clear: function clear() {
@@ -21106,12 +21153,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     saveafterfinish: function saveafterfinish() {
       var _this2 = this;
-      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee11() {
-        return _regeneratorRuntime().wrap(function _callee11$(_context11) {
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee10() {
+        return _regeneratorRuntime().wrap(function _callee10$(_context11) {
           while (1) switch (_context11.prev = _context11.next) {
             case 0:
               _context11.next = 2;
-              return axios.post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/order/saveafterfinish", {
+              return axios.post("https://6702-147-50-183-56.ngrok-free.app/antiques" + "/order/saveafterfinish", {
                 customers: _this2.$store.state.customers,
                 items: _this2.$store.state.items
               }, {
@@ -21133,7 +21180,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             case "end":
               return _context11.stop();
           }
-        }, _callee11);
+        }, _callee10);
       }))();
     },
     reloadPage: function reloadPage() {
@@ -21143,9 +21190,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       alert(val);
       console.log(val);
     },
-    mySelectEvent: function mySelectEvent(_ref7) {
-      var id = _ref7.id,
-        text = _ref7.text;
+    mySelectEvent: function mySelectEvent(_ref6) {
+      var id = _ref6.id,
+        text = _ref6.text;
       alert({
         id: id,
         text: text
@@ -21157,12 +21204,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     loadId: function loadId() {
       var _this3 = this;
-      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee12() {
-        return _regeneratorRuntime().wrap(function _callee12$(_context12) {
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee11() {
+        return _regeneratorRuntime().wrap(function _callee11$(_context12) {
           while (1) switch (_context12.prev = _context12.next) {
             case 0:
               _context12.next = 2;
-              return axios.get("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/customer/dropdownCus_id", {
+              return axios.get("https://6702-147-50-183-56.ngrok-free.app/antiques" + "/customer/dropdownCus_id", {
                 headers: {
                   "ngrok-skip-browser-warning": "true"
                 }
@@ -21178,17 +21225,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             case "end":
               return _context12.stop();
           }
-        }, _callee12);
+        }, _callee11);
       }))();
     },
     loadName: function loadName() {
       var _this4 = this;
-      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee13() {
-        return _regeneratorRuntime().wrap(function _callee13$(_context13) {
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee12() {
+        return _regeneratorRuntime().wrap(function _callee12$(_context13) {
           while (1) switch (_context13.prev = _context13.next) {
             case 0:
               _context13.next = 2;
-              return axios.get("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/customer/dropdownCus_name", {
+              return axios.get("https://6702-147-50-183-56.ngrok-free.app/antiques" + "/customer/dropdownCus_name", {
                 headers: {
                   "ngrok-skip-browser-warning": "true"
                 }
@@ -21199,17 +21246,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             case "end":
               return _context13.stop();
           }
-        }, _callee13);
+        }, _callee12);
       }))();
     },
     loadVehicle: function loadVehicle() {
       var _this5 = this;
-      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee14() {
-        return _regeneratorRuntime().wrap(function _callee14$(_context14) {
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee13() {
+        return _regeneratorRuntime().wrap(function _callee13$(_context14) {
           while (1) switch (_context14.prev = _context14.next) {
             case 0:
               _context14.next = 2;
-              return axios.get("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/customer/dropdownCus_vehicle", {
+              return axios.get("https://6702-147-50-183-56.ngrok-free.app/antiques" + "/customer/dropdownCus_vehicle", {
                 headers: {
                   "ngrok-skip-browser-warning": "true"
                 }
@@ -21220,7 +21267,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             case "end":
               return _context14.stop();
           }
-        }, _callee14);
+        }, _callee13);
       }))();
     },
     greet: function greet(event) {
@@ -21248,9 +21295,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     toggleModal: function toggleModal() {
       var _this6 = this;
-      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee15() {
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee14() {
         var self;
-        return _regeneratorRuntime().wrap(function _callee15$(_context15) {
+        return _regeneratorRuntime().wrap(function _callee14$(_context15) {
           while (1) switch (_context15.prev = _context15.next) {
             case 0:
               self = _this6;
@@ -21267,7 +21314,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             case "end":
               return _context15.stop();
           }
-        }, _callee15);
+        }, _callee14);
       }))();
     },
     test: function test(id) {
@@ -21277,14 +21324,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     getOrder: function getOrder() {
       var _this7 = this;
-      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee16() {
-        return _regeneratorRuntime().wrap(function _callee16$(_context16) {
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee15() {
+        return _regeneratorRuntime().wrap(function _callee15$(_context16) {
           while (1) switch (_context16.prev = _context16.next) {
             case 0:
               console.log("test", _this7.$store.state.customers);
               $('#modal-loading').modal('show');
               _context16.next = 4;
-              return axios.post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/order/getorderbydateandqueue", {
+              return axios.post("https://6702-147-50-183-56.ngrok-free.app/antiques" + "/order/getorderbydateandqueue", {
                 createAt: _this7.$store.state.queueDate[1],
                 queue: _this7.$store.state.queueDate[0]
               }, {
@@ -21307,13 +21354,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   _this7.$store.dispatch("loadItems", res.data.data[0].order_detail);
                 }
               })["catch"](function (err) {
+                $('#modal-loading').modal('hide');
                 _this7.$store.dispatch("loadItems", []);
               });
             case 4:
             case "end":
               return _context16.stop();
           }
-        }, _callee16);
+        }, _callee15);
       }))();
     }
   }
@@ -21358,7 +21406,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return axios.post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/order/getorderbydateandqueue", {
+              return axios.post("https://6702-147-50-183-56.ngrok-free.app/antiques" + "/order/getorderbydateandqueue", {
                 createAt: _this.date,
                 queue: _this.queue
               }, {
@@ -21405,7 +21453,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this2 = this;
       var config = {
         method: 'get',
-        url: "https://6029-147-50-183-56.ngrok-free.app/antiques" + "/order/getfinishtoday",
+        url: "https://6702-147-50-183-56.ngrok-free.app/antiques" + "/order/getfinishtoday",
         headers: {
           "ngrok-skip-browser-warning": "true"
           // Add any other headers as needed
@@ -21429,7 +21477,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     var _this3 = this;
     var config = {
       method: 'get',
-      url: "https://6029-147-50-183-56.ngrok-free.app/antiques" + "/order/getlastqueue",
+      url: "https://6702-147-50-183-56.ngrok-free.app/antiques" + "/order/getlastqueue",
       headers: {
         "ngrok-skip-browser-warning": "true"
         // Add any other headers as needed
@@ -21549,7 +21597,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return axios.post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/order/approveorder", {
+              return axios.post("https://6702-147-50-183-56.ngrok-free.app/antiques" + "/order/approveorder", {
                 customers: this.$store.state.customers,
                 items: this.$store.state.items,
                 createAt: this.$store.state.queueDate[1],
@@ -21615,7 +21663,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               //     console.log(res)
               //   });
               _context2.next = 5;
-              return axios.post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/getOrderData", {
+              return axios.post("https://6702-147-50-183-56.ngrok-free.app/antiques" + "/getOrderData", {
                 category_id: item.category_id
               }, {
                 headers: {
@@ -21657,7 +21705,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             console.log("jj", _this3.$store.state.customers["class"]);
             // alert(id)
             _context3.next = 3;
-            return axios.post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/getdetailvendor", {
+            return axios.post("https://6702-147-50-183-56.ngrok-free.app/antiques" + "/getdetailvendor", {
               detail_id: id,
               "class": _this3.$store.state.customers["class"]
             }, {
@@ -21703,6 +21751,8 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
 function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return e; }; var t, e = {}, r = Object.prototype, n = r.hasOwnProperty, o = Object.defineProperty || function (t, e, r) { t[e] = r.value; }, i = "function" == typeof Symbol ? Symbol : {}, a = i.iterator || "@@iterator", c = i.asyncIterator || "@@asyncIterator", u = i.toStringTag || "@@toStringTag"; function define(t, e, r) { return Object.defineProperty(t, e, { value: r, enumerable: !0, configurable: !0, writable: !0 }), t[e]; } try { define({}, ""); } catch (t) { define = function define(t, e, r) { return t[e] = r; }; } function wrap(t, e, r, n) { var i = e && e.prototype instanceof Generator ? e : Generator, a = Object.create(i.prototype), c = new Context(n || []); return o(a, "_invoke", { value: makeInvokeMethod(t, r, c) }), a; } function tryCatch(t, e, r) { try { return { type: "normal", arg: t.call(e, r) }; } catch (t) { return { type: "throw", arg: t }; } } e.wrap = wrap; var h = "suspendedStart", l = "suspendedYield", f = "executing", s = "completed", y = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var p = {}; define(p, a, function () { return this; }); var d = Object.getPrototypeOf, v = d && d(d(values([]))); v && v !== r && n.call(v, a) && (p = v); var g = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(p); function defineIteratorMethods(t) { ["next", "throw", "return"].forEach(function (e) { define(t, e, function (t) { return this._invoke(e, t); }); }); } function AsyncIterator(t, e) { function invoke(r, o, i, a) { var c = tryCatch(t[r], t, o); if ("throw" !== c.type) { var u = c.arg, h = u.value; return h && "object" == _typeof(h) && n.call(h, "__await") ? e.resolve(h.__await).then(function (t) { invoke("next", t, i, a); }, function (t) { invoke("throw", t, i, a); }) : e.resolve(h).then(function (t) { u.value = t, i(u); }, function (t) { return invoke("throw", t, i, a); }); } a(c.arg); } var r; o(this, "_invoke", { value: function value(t, n) { function callInvokeWithMethodAndArg() { return new e(function (e, r) { invoke(t, n, e, r); }); } return r = r ? r.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(e, r, n) { var o = h; return function (i, a) { if (o === f) throw new Error("Generator is already running"); if (o === s) { if ("throw" === i) throw a; return { value: t, done: !0 }; } for (n.method = i, n.arg = a;;) { var c = n.delegate; if (c) { var u = maybeInvokeDelegate(c, n); if (u) { if (u === y) continue; return u; } } if ("next" === n.method) n.sent = n._sent = n.arg;else if ("throw" === n.method) { if (o === h) throw o = s, n.arg; n.dispatchException(n.arg); } else "return" === n.method && n.abrupt("return", n.arg); o = f; var p = tryCatch(e, r, n); if ("normal" === p.type) { if (o = n.done ? s : l, p.arg === y) continue; return { value: p.arg, done: n.done }; } "throw" === p.type && (o = s, n.method = "throw", n.arg = p.arg); } }; } function maybeInvokeDelegate(e, r) { var n = r.method, o = e.iterator[n]; if (o === t) return r.delegate = null, "throw" === n && e.iterator["return"] && (r.method = "return", r.arg = t, maybeInvokeDelegate(e, r), "throw" === r.method) || "return" !== n && (r.method = "throw", r.arg = new TypeError("The iterator does not provide a '" + n + "' method")), y; var i = tryCatch(o, e.iterator, r.arg); if ("throw" === i.type) return r.method = "throw", r.arg = i.arg, r.delegate = null, y; var a = i.arg; return a ? a.done ? (r[e.resultName] = a.value, r.next = e.nextLoc, "return" !== r.method && (r.method = "next", r.arg = t), r.delegate = null, y) : a : (r.method = "throw", r.arg = new TypeError("iterator result is not an object"), r.delegate = null, y); } function pushTryEntry(t) { var e = { tryLoc: t[0] }; 1 in t && (e.catchLoc = t[1]), 2 in t && (e.finallyLoc = t[2], e.afterLoc = t[3]), this.tryEntries.push(e); } function resetTryEntry(t) { var e = t.completion || {}; e.type = "normal", delete e.arg, t.completion = e; } function Context(t) { this.tryEntries = [{ tryLoc: "root" }], t.forEach(pushTryEntry, this), this.reset(!0); } function values(e) { if (e || "" === e) { var r = e[a]; if (r) return r.call(e); if ("function" == typeof e.next) return e; if (!isNaN(e.length)) { var o = -1, i = function next() { for (; ++o < e.length;) if (n.call(e, o)) return next.value = e[o], next.done = !1, next; return next.value = t, next.done = !0, next; }; return i.next = i; } } throw new TypeError(_typeof(e) + " is not iterable"); } return GeneratorFunction.prototype = GeneratorFunctionPrototype, o(g, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), o(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, u, "GeneratorFunction"), e.isGeneratorFunction = function (t) { var e = "function" == typeof t && t.constructor; return !!e && (e === GeneratorFunction || "GeneratorFunction" === (e.displayName || e.name)); }, e.mark = function (t) { return Object.setPrototypeOf ? Object.setPrototypeOf(t, GeneratorFunctionPrototype) : (t.__proto__ = GeneratorFunctionPrototype, define(t, u, "GeneratorFunction")), t.prototype = Object.create(g), t; }, e.awrap = function (t) { return { __await: t }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, c, function () { return this; }), e.AsyncIterator = AsyncIterator, e.async = function (t, r, n, o, i) { void 0 === i && (i = Promise); var a = new AsyncIterator(wrap(t, r, n, o), i); return e.isGeneratorFunction(r) ? a : a.next().then(function (t) { return t.done ? t.value : a.next(); }); }, defineIteratorMethods(g), define(g, u, "Generator"), define(g, a, function () { return this; }), define(g, "toString", function () { return "[object Generator]"; }), e.keys = function (t) { var e = Object(t), r = []; for (var n in e) r.push(n); return r.reverse(), function next() { for (; r.length;) { var t = r.pop(); if (t in e) return next.value = t, next.done = !1, next; } return next.done = !0, next; }; }, e.values = values, Context.prototype = { constructor: Context, reset: function reset(e) { if (this.prev = 0, this.next = 0, this.sent = this._sent = t, this.done = !1, this.delegate = null, this.method = "next", this.arg = t, this.tryEntries.forEach(resetTryEntry), !e) for (var r in this) "t" === r.charAt(0) && n.call(this, r) && !isNaN(+r.slice(1)) && (this[r] = t); }, stop: function stop() { this.done = !0; var t = this.tryEntries[0].completion; if ("throw" === t.type) throw t.arg; return this.rval; }, dispatchException: function dispatchException(e) { if (this.done) throw e; var r = this; function handle(n, o) { return a.type = "throw", a.arg = e, r.next = n, o && (r.method = "next", r.arg = t), !!o; } for (var o = this.tryEntries.length - 1; o >= 0; --o) { var i = this.tryEntries[o], a = i.completion; if ("root" === i.tryLoc) return handle("end"); if (i.tryLoc <= this.prev) { var c = n.call(i, "catchLoc"), u = n.call(i, "finallyLoc"); if (c && u) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } else if (c) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); } else { if (!u) throw new Error("try statement without catch or finally"); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } } } }, abrupt: function abrupt(t, e) { for (var r = this.tryEntries.length - 1; r >= 0; --r) { var o = this.tryEntries[r]; if (o.tryLoc <= this.prev && n.call(o, "finallyLoc") && this.prev < o.finallyLoc) { var i = o; break; } } i && ("break" === t || "continue" === t) && i.tryLoc <= e && e <= i.finallyLoc && (i = null); var a = i ? i.completion : {}; return a.type = t, a.arg = e, i ? (this.method = "next", this.next = i.finallyLoc, y) : this.complete(a); }, complete: function complete(t, e) { if ("throw" === t.type) throw t.arg; return "break" === t.type || "continue" === t.type ? this.next = t.arg : "return" === t.type ? (this.rval = this.arg = t.arg, this.method = "return", this.next = "end") : "normal" === t.type && e && (this.next = e), y; }, finish: function finish(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.finallyLoc === t) return this.complete(r.completion, r.afterLoc), resetTryEntry(r), y; } }, "catch": function _catch(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.tryLoc === t) { var n = r.completion; if ("throw" === n.type) { var o = n.arg; resetTryEntry(r); } return o; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(e, r, n) { return this.delegate = { iterator: values(e), resultName: r, nextLoc: n }, "next" === this.method && (this.arg = t), y; } }, e; }
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+function _asyncIterator(r) { var n, t, o, e = 2; for ("undefined" != typeof Symbol && (t = Symbol.asyncIterator, o = Symbol.iterator); e--;) { if (t && null != (n = r[t])) return n.call(r); if (o && null != (n = r[o])) return new AsyncFromSyncIterator(n.call(r)); t = "@@asyncIterator", o = "@@iterator"; } throw new TypeError("Object is not async iterable"); }
+function AsyncFromSyncIterator(r) { function AsyncFromSyncIteratorContinuation(r) { if (Object(r) !== r) return Promise.reject(new TypeError(r + " is not an object.")); var n = r.done; return Promise.resolve(r.value).then(function (r) { return { value: r, done: n }; }); } return AsyncFromSyncIterator = function AsyncFromSyncIterator(r) { this.s = r, this.n = r.next; }, AsyncFromSyncIterator.prototype = { s: null, n: null, next: function next() { return AsyncFromSyncIteratorContinuation(this.n.apply(this.s, arguments)); }, "return": function _return(r) { var n = this.s["return"]; return void 0 === n ? Promise.resolve({ value: r, done: !0 }) : AsyncFromSyncIteratorContinuation(n.apply(this.s, arguments)); }, "throw": function _throw(r) { var n = this.s["return"]; return void 0 === n ? Promise.reject(r) : AsyncFromSyncIteratorContinuation(n.apply(this.s, arguments)); } }, new AsyncFromSyncIterator(r); }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -21824,7 +21874,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 while (1) switch (_context.prev = _context.next) {
                   case 0:
                     _context.next = 2;
-                    return axios.post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/customer/filterCusByData", {
+                    return axios.post("https://6702-147-50-183-56.ngrok-free.app/antiques" + "/customer/filterCusByData", {
                       vehicle: $("#vehicle").val()
                     }, {
                       headers: {
@@ -21853,7 +21903,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 while (1) switch (_context3.prev = _context3.next) {
                   case 0:
                     _context3.next = 2;
-                    return axios.post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/customer/filterCusByData", {
+                    return axios.post("https://6702-147-50-183-56.ngrok-free.app/antiques" + "/customer/filterCusByData", {
                       id_card: $("#idcard").val()
                     }, {
                       headers: {
@@ -21897,7 +21947,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 while (1) switch (_context4.prev = _context4.next) {
                   case 0:
                     _context4.next = 2;
-                    return axios.post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/customer/filterCusByData", {
+                    return axios.post("https://6702-147-50-183-56.ngrok-free.app/antiques" + "/customer/filterCusByData", {
                       fullname_th: $("#name").val()
                     }, {
                       headers: {
@@ -21974,10 +22024,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       console.log(oldVal);
     },
     idCard: function () {
-      var _idCard = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee8(val, oldVal) {
-        var self, items;
-        return _regeneratorRuntime().wrap(function _callee8$(_context8) {
-          while (1) switch (_context8.prev = _context8.next) {
+      var _idCard = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee6(val, oldVal) {
+        var self, items, _iteratorAbruptCompletion, _didIteratorError, _iteratorError, _iterator, _step, element, clickedItems, response;
+        return _regeneratorRuntime().wrap(function _callee6$(_context6) {
+          while (1) switch (_context6.prev = _context6.next) {
             case 0:
               self = this;
               this.$store.dispatch("loadCustomers", this.loadCustomers);
@@ -21985,69 +22035,85 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               console.log("jj", this.loadCustomers);
               items = this.$store.state.items;
               this.$store.dispatch("loadItems", []);
-              _context8.next = 8;
-              return items.forEach( /*#__PURE__*/function () {
-                var _ref5 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee7(element) {
-                  var clickedItems;
-                  return _regeneratorRuntime().wrap(function _callee7$(_context7) {
-                    while (1) switch (_context7.prev = _context7.next) {
-                      case 0:
-                        console.log("aam", element);
-                        clickedItems = [];
-                        _context7.next = 4;
-                        return axios.post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/getdetailvendor", {
-                          detail_id: element.detail_id,
-                          "class": self.type
-                        }, {
-                          headers: {
-                            "ngrok-skip-browser-warning": "true"
-                          }
-                        }).then( /*#__PURE__*/function () {
-                          var _ref6 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee6(response) {
-                            return _regeneratorRuntime().wrap(function _callee6$(_context6) {
-                              while (1) switch (_context6.prev = _context6.next) {
-                                case 0:
-                                  self.mul = response.data.data;
+              $('#modal-loading').modal('show');
+              _iteratorAbruptCompletion = false;
+              _didIteratorError = false;
+              _context6.prev = 9;
+              _iterator = _asyncIterator(items);
+            case 11:
+              _context6.next = 13;
+              return _iterator.next();
+            case 13:
+              if (!(_iteratorAbruptCompletion = !(_step = _context6.sent).done)) {
+                _context6.next = 25;
+                break;
+              }
+              element = _step.value;
+              console.log("aam", element);
+              clickedItems = [];
+              _context6.next = 19;
+              return axios.post("https://6702-147-50-183-56.ngrok-free.app/antiques" + "/getdetailvendor", {
+                detail_id: element.detail_id,
+                "class": self.type
+              }, {
+                headers: {
+                  "ngrok-skip-browser-warning": "true"
+                }
+              });
+            case 19:
+              response = _context6.sent;
+              _context6.next = 22;
+              return self.$store.dispatch("loadItems", self.$store.state.items.concat([{
+                description: element.description,
+                qty: element.qty,
+                total: element.qty * response.data.data,
+                detail_id: element.detail_id
+              }]));
+            case 22:
+              _iteratorAbruptCompletion = false;
+              _context6.next = 11;
+              break;
+            case 25:
+              _context6.next = 31;
+              break;
+            case 27:
+              _context6.prev = 27;
+              _context6.t0 = _context6["catch"](9);
+              _didIteratorError = true;
+              _iteratorError = _context6.t0;
+            case 31:
+              _context6.prev = 31;
+              _context6.prev = 32;
+              if (!(_iteratorAbruptCompletion && _iterator["return"] != null)) {
+                _context6.next = 36;
+                break;
+              }
+              _context6.next = 36;
+              return _iterator["return"]();
+            case 36:
+              _context6.prev = 36;
+              if (!_didIteratorError) {
+                _context6.next = 39;
+                break;
+              }
+              throw _iteratorError;
+            case 39:
+              return _context6.finish(36);
+            case 40:
+              return _context6.finish(31);
+            case 41:
+              setTimeout(function () {
+                $('#modal-loading').modal('hide');
+              }, 2000);
 
-                                  // clickedItems.push({
-                                  //   description: element.description,
-                                  //   qty: element.qty,
-                                  //   total: element.qty * self.mul,
-                                  //   detail_id: element.detail_id,
-                                  // });
-                                  // console.log("it", clickedItems)
-                                  _context6.next = 3;
-                                  return self.$store.dispatch("loadItems", self.$store.state.items.concat([{
-                                    description: element.description,
-                                    qty: element.qty,
-                                    total: element.qty * self.mul,
-                                    detail_id: element.detail_id
-                                  }]));
-                                case 3:
-                                case "end":
-                                  return _context6.stop();
-                              }
-                            }, _callee6);
-                          }));
-                          return function (_x5) {
-                            return _ref6.apply(this, arguments);
-                          };
-                        }());
-                      case 4:
-                      case "end":
-                        return _context7.stop();
-                    }
-                  }, _callee7);
-                }));
-                return function (_x4) {
-                  return _ref5.apply(this, arguments);
-                };
-              }());
-            case 8:
+              //   await items.forEach(async function (element) {
+
+              //   });
+            case 42:
             case "end":
-              return _context8.stop();
+              return _context6.stop();
           }
-        }, _callee8, this);
+        }, _callee6, this, [[9, 27, 31, 41], [32,, 36, 40]]);
       }));
       function idCard(_x2, _x3) {
         return _idCard.apply(this, arguments);
@@ -22055,16 +22121,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       return idCard;
     }(),
     name: function () {
-      var _name = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee9(val, oldVal) {
-        return _regeneratorRuntime().wrap(function _callee9$(_context9) {
-          while (1) switch (_context9.prev = _context9.next) {
+      var _name = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee7(val, oldVal) {
+        return _regeneratorRuntime().wrap(function _callee7$(_context7) {
+          while (1) switch (_context7.prev = _context7.next) {
             case 0:
             case "end":
-              return _context9.stop();
+              return _context7.stop();
           }
-        }, _callee9);
+        }, _callee7);
       }));
-      function name(_x6, _x7) {
+      function name(_x4, _x5) {
         return _name.apply(this, arguments);
       }
       return name;
@@ -22077,38 +22143,47 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   methods: {
     updateUnlock: function updateUnlock(evt, item) {
-      console.log("evt", evt.target.checked);
-      console.log("item", item);
-      // $('#modal-loading').modal('show');
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee8() {
+        var status;
+        return _regeneratorRuntime().wrap(function _callee8$(_context8) {
+          while (1) switch (_context8.prev = _context8.next) {
+            case 0:
+              console.log("evt", evt.target.checked);
+              console.log("item", item);
+              // $('#modal-loading').modal('show');
 
-      // await axios
-      //   .post(
-      //     process.env.MIX_DEV_API + "/order/getorderbydateandqueue",
-      //     {
-      //       createAt: item.createAt,
-      //       queue: item.queue,
-      //     },
-      //     {
-      //       headers: {
-      //         "ngrok-skip-browser-warning": "true",
-      //       },
-      //     }
-      //   )
-      //   .then((res) => {
-
-      //     $('#modal-loading').modal('hide');
-
-      //   })
-      //   .catch((err) => {
-      //       $('#modal-loading').modal('hide');
-
-      //   });
+              if (evt.target.checked) {
+                status = 0;
+              } else {
+                status = 1;
+              }
+              $('#modal-loading').modal('show');
+              _context8.next = 6;
+              return axios.post("https://6702-147-50-183-56.ngrok-free.app/antiques" + "/order/updatestatusafterpay", {
+                _id: item._id,
+                status: status
+              }, {
+                headers: {
+                  "ngrok-skip-browser-warning": "true"
+                }
+              }).then(function (res) {
+                $('#modal-loading').modal('hide');
+              })["catch"](function (err) {
+                alert(err);
+                $('#modal-loading').modal('hide');
+              });
+            case 6:
+            case "end":
+              return _context8.stop();
+          }
+        }, _callee8);
+      }))();
     },
     showModal: function showModal() {
       var _this = this;
       var config = {
         method: 'get',
-        url: "https://6029-147-50-183-56.ngrok-free.app/antiques" + "/order/getfinishtoday",
+        url: "https://6702-147-50-183-56.ngrok-free.app/antiques" + "/order/getfinishtoday",
         headers: {
           "ngrok-skip-browser-warning": "true"
           // Add any other headers as needed
@@ -22129,13 +22204,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     saveCustomer: function saveCustomer() {
       var _this2 = this;
-      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee10() {
-        return _regeneratorRuntime().wrap(function _callee10$(_context10) {
-          while (1) switch (_context10.prev = _context10.next) {
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee9() {
+        return _regeneratorRuntime().wrap(function _callee9$(_context9) {
+          while (1) switch (_context9.prev = _context9.next) {
             case 0:
               console.log("customer", _this2.customer);
-              _context10.next = 3;
-              return axios.post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/customer/createCus", {
+              _context9.next = 3;
+              return axios.post("https://6702-147-50-183-56.ngrok-free.app/antiques" + "/customer/createCus", {
                 id_card: _this2.customer.idcard,
                 fullname_th: _this2.customer.name,
                 vehicle: _this2.customer.vehicle,
@@ -22158,9 +22233,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               });
             case 3:
             case "end":
-              return _context10.stop();
+              return _context9.stop();
           }
-        }, _callee10);
+        }, _callee9);
       }))();
     },
     clear: function clear() {
@@ -22171,12 +22246,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     saveafterfinish: function saveafterfinish() {
       var _this3 = this;
-      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee11() {
-        return _regeneratorRuntime().wrap(function _callee11$(_context11) {
-          while (1) switch (_context11.prev = _context11.next) {
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee10() {
+        return _regeneratorRuntime().wrap(function _callee10$(_context10) {
+          while (1) switch (_context10.prev = _context10.next) {
             case 0:
-              _context11.next = 2;
-              return axios.post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/order/saveafterfinish", {
+              _context10.next = 2;
+              return axios.post("https://6702-147-50-183-56.ngrok-free.app/antiques" + "/order/saveafterfinish", {
                 customers: _this3.$store.state.customers,
                 items: _this3.$store.state.items
               }, {
@@ -22196,9 +22271,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               });
             case 2:
             case "end":
-              return _context11.stop();
+              return _context10.stop();
           }
-        }, _callee11);
+        }, _callee10);
       }))();
     },
     reloadPage: function reloadPage() {
@@ -22208,9 +22283,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       alert(val);
       console.log(val);
     },
-    mySelectEvent: function mySelectEvent(_ref7) {
-      var id = _ref7.id,
-        text = _ref7.text;
+    mySelectEvent: function mySelectEvent(_ref5) {
+      var id = _ref5.id,
+        text = _ref5.text;
       alert({
         id: id,
         text: text
@@ -22222,12 +22297,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     loadId: function loadId() {
       var _this4 = this;
-      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee12() {
-        return _regeneratorRuntime().wrap(function _callee12$(_context12) {
-          while (1) switch (_context12.prev = _context12.next) {
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee11() {
+        return _regeneratorRuntime().wrap(function _callee11$(_context11) {
+          while (1) switch (_context11.prev = _context11.next) {
             case 0:
-              _context12.next = 2;
-              return axios.get("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/customer/dropdownCus_id", {
+              _context11.next = 2;
+              return axios.get("https://6702-147-50-183-56.ngrok-free.app/antiques" + "/customer/dropdownCus_id", {
                 headers: {
                   "ngrok-skip-browser-warning": "true"
                 }
@@ -22241,19 +22316,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               })["catch"](function (err) {});
             case 2:
             case "end":
-              return _context12.stop();
+              return _context11.stop();
           }
-        }, _callee12);
+        }, _callee11);
       }))();
     },
     loadName: function loadName() {
       var _this5 = this;
-      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee13() {
-        return _regeneratorRuntime().wrap(function _callee13$(_context13) {
-          while (1) switch (_context13.prev = _context13.next) {
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee12() {
+        return _regeneratorRuntime().wrap(function _callee12$(_context12) {
+          while (1) switch (_context12.prev = _context12.next) {
             case 0:
-              _context13.next = 2;
-              return axios.get("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/customer/dropdownCus_name", {
+              _context12.next = 2;
+              return axios.get("https://6702-147-50-183-56.ngrok-free.app/antiques" + "/customer/dropdownCus_name", {
                 headers: {
                   "ngrok-skip-browser-warning": "true"
                 }
@@ -22262,19 +22337,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               })["catch"](function (err) {});
             case 2:
             case "end":
-              return _context13.stop();
+              return _context12.stop();
           }
-        }, _callee13);
+        }, _callee12);
       }))();
     },
     loadVehicle: function loadVehicle() {
       var _this6 = this;
-      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee14() {
-        return _regeneratorRuntime().wrap(function _callee14$(_context14) {
-          while (1) switch (_context14.prev = _context14.next) {
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee13() {
+        return _regeneratorRuntime().wrap(function _callee13$(_context13) {
+          while (1) switch (_context13.prev = _context13.next) {
             case 0:
-              _context14.next = 2;
-              return axios.get("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/customer/dropdownCus_vehicle", {
+              _context13.next = 2;
+              return axios.get("https://6702-147-50-183-56.ngrok-free.app/antiques" + "/customer/dropdownCus_vehicle", {
                 headers: {
                   "ngrok-skip-browser-warning": "true"
                 }
@@ -22283,9 +22358,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               })["catch"](function (err) {});
             case 2:
             case "end":
-              return _context14.stop();
+              return _context13.stop();
           }
-        }, _callee14);
+        }, _callee13);
       }))();
     },
     greet: function greet(event) {
@@ -22313,13 +22388,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     toggleModal: function toggleModal() {
       var _this7 = this;
-      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee15() {
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee14() {
         var self;
-        return _regeneratorRuntime().wrap(function _callee15$(_context15) {
-          while (1) switch (_context15.prev = _context15.next) {
+        return _regeneratorRuntime().wrap(function _callee14$(_context14) {
+          while (1) switch (_context14.prev = _context14.next) {
             case 0:
               self = _this7;
-              _context15.next = 3;
+              _context14.next = 3;
               return axios.get("https://dummyjson.com/products").then(function (res) {
                 var body = document.querySelector("body");
                 self.active = !self.active;
@@ -22330,9 +22405,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               });
             case 3:
             case "end":
-              return _context15.stop();
+              return _context14.stop();
           }
-        }, _callee15);
+        }, _callee14);
       }))();
     },
     test: function test(id) {
@@ -22342,10 +22417,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     getOrder: function getOrder(item) {
       var _this8 = this;
-      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee16() {
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee15() {
         var clickedItems;
-        return _regeneratorRuntime().wrap(function _callee16$(_context16) {
-          while (1) switch (_context16.prev = _context16.next) {
+        return _regeneratorRuntime().wrap(function _callee15$(_context15) {
+          while (1) switch (_context15.prev = _context15.next) {
             case 0:
               console.log("item", item);
               clickedItems = []; //sdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsd
@@ -22360,8 +22435,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               _this8.$store.dispatch("loadItems", item.order_detail);
               _this8.$store.dispatch("loadQueueAndDate", [item.queue, item.createAt, item.queue]);
               $('#modal-loading').modal('show');
-              _context16.next = 10;
-              return axios.post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/order/getorderbydateandqueue", {
+              _context15.next = 10;
+              return axios.post("https://6702-147-50-183-56.ngrok-free.app/antiques" + "/order/getorderbydateandqueue", {
                 createAt: item.createAt,
                 queue: item.queue
               }, {
@@ -22388,21 +22463,21 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               });
             case 10:
             case "end":
-              return _context16.stop();
+              return _context15.stop();
           }
-        }, _callee16);
+        }, _callee15);
       }))();
     },
     getOrder2: function getOrder2() {
       var _this9 = this;
-      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee17() {
-        return _regeneratorRuntime().wrap(function _callee17$(_context17) {
-          while (1) switch (_context17.prev = _context17.next) {
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee16() {
+        return _regeneratorRuntime().wrap(function _callee16$(_context16) {
+          while (1) switch (_context16.prev = _context16.next) {
             case 0:
               console.log("test", _this9.$store.state.customers);
               $('#modal-loading').modal('show');
-              _context17.next = 4;
-              return axios.post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/order/getorderbydateandqueue", {
+              _context16.next = 4;
+              return axios.post("https://6702-147-50-183-56.ngrok-free.app/antiques" + "/order/getorderbydateandqueue", {
                 createAt: _this9.$store.state.queueDate[1],
                 queue: _this9.$store.state.queueDate[0]
               }, {
@@ -22429,9 +22504,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               });
             case 4:
             case "end":
-              return _context17.stop();
+              return _context16.stop();
           }
-        }, _callee17);
+        }, _callee16);
       }))();
     }
   }
@@ -22476,7 +22551,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return axios.post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/order/getorderbydateandqueue", {
+              return axios.post("https://6702-147-50-183-56.ngrok-free.app/antiques" + "/order/getorderbydateandqueue", {
                 createAt: _this.date,
                 queue: _this.queue
               }, {
@@ -22523,7 +22598,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this2 = this;
       var config = {
         method: 'get',
-        url: "https://6029-147-50-183-56.ngrok-free.app/antiques" + "/order/getfinishtoday",
+        url: "https://6702-147-50-183-56.ngrok-free.app/antiques" + "/order/getfinishtoday",
         headers: {
           "ngrok-skip-browser-warning": "true"
           // Add any other headers as needed
@@ -22547,7 +22622,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     var _this3 = this;
     var config = {
       method: 'get',
-      url: "https://6029-147-50-183-56.ngrok-free.app/antiques" + "/order/getlastqueue",
+      url: "https://6702-147-50-183-56.ngrok-free.app/antiques" + "/order/getlastqueue",
       headers: {
         "ngrok-skip-browser-warning": "true"
         // Add any other headers as needed
@@ -22630,7 +22705,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               self = this;
               $('#modal-loading').modal('show');
               _context2.next = 4;
-              return axios.post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/order/getorderbydateandqueue", {
+              return axios.post("https://6702-147-50-183-56.ngrok-free.app/antiques" + "/order/getorderbydateandqueue", {
                 createAt: this.$store.state.queueDate[1],
                 queue: this.$store.state.queueDate[0]
               }, {
@@ -22737,7 +22812,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               //save spiderman
               $('#modal-loading').modal('show');
               _context.next = 6;
-              return axios.post("https://6029-147-50-183-56.ngrok-free.app/antiques" + "/order/createOrder", {
+              return axios.post("https://6702-147-50-183-56.ngrok-free.app/antiques" + "/order/createOrder", {
                 customers: _this.$store.state.customers,
                 items: _this.$store.state.items,
                 createAt: _this.$store.state.queueDate[1],
@@ -23795,58 +23870,65 @@ var _hoisted_3 = {
     "color": "white"
   }
 };
-var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "ProductID", -1 /* HOISTED */);
-var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "Description", -1 /* HOISTED */);
-var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "Qty", -1 /* HOISTED */);
-var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "DeductQty", -1 /* HOISTED */);
-var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "Net Qty", -1 /* HOISTED */);
-var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "UM", -1 /* HOISTED */);
-var _hoisted_10 = {
+var _hoisted_4 = {
+  "class": "text-center"
+};
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "ProductID", -1 /* HOISTED */);
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "Description", -1 /* HOISTED */);
+var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "Qty", -1 /* HOISTED */);
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "DeductQty", -1 /* HOISTED */);
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "Net Qty", -1 /* HOISTED */);
+var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "UM", -1 /* HOISTED */);
+var _hoisted_11 = {
   key: 0
 };
-var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, null, -1 /* HOISTED */);
-var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, null, -1 /* HOISTED */);
-var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, "กิโล", -1 /* HOISTED */);
-var _hoisted_14 = {
-  key: 0
+var _hoisted_12 = {
+  "class": "text-left"
 };
-var _hoisted_15 = ["value"];
+var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, null, -1 /* HOISTED */);
+var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, null, -1 /* HOISTED */);
+var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, "กิโล", -1 /* HOISTED */);
 var _hoisted_16 = {
+  key: 0
+};
+var _hoisted_17 = ["value"];
+var _hoisted_18 = {
   "class": "form-row align-items-center"
 };
-var _hoisted_17 = {
-  "class": "col-auto my-1"
-};
-var _hoisted_18 = ["onClick"];
 var _hoisted_19 = {
   "class": "col-auto my-1"
 };
-var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+var _hoisted_20 = ["onClick"];
+var _hoisted_21 = {
+  "class": "col-auto my-1"
+};
+var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "class": "mr-sm-2",
   "for": "inlineFormCustomSelect"
 }, "Product Description", -1 /* HOISTED */);
-var _hoisted_21 = ["onUpdate:modelValue"];
-var _hoisted_22 = {
+var _hoisted_23 = ["onUpdate:modelValue"];
+var _hoisted_24 = {
   "class": "col-auto my-1"
 };
-var _hoisted_23 = ["onClick"];
-var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
-var _hoisted_25 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
-var _hoisted_26 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+var _hoisted_25 = ["onClick"];
+var _hoisted_26 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
+var _hoisted_27 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
+var _hoisted_28 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "class": "fa fa-save mr-2"
 }, null, -1 /* HOISTED */);
-var _hoisted_27 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("บันทึก ");
-var _hoisted_28 = [_hoisted_26, _hoisted_27];
-var _hoisted_29 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("   ");
-var _hoisted_30 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
+var _hoisted_29 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("บันทึก ");
+var _hoisted_30 = [_hoisted_28, _hoisted_29];
+var _hoisted_31 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("   ");
+var _hoisted_32 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _this = this;
   var _component_modal = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("modal");
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("thead", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [_hoisted_4, _hoisted_5, _hoisted_6, _hoisted_7, _hoisted_8, _hoisted_9, this.$store.state.dataOpen[0] != 'FINISH' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("th", _hoisted_10)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <th>Amount</th>\n                                            <th>DeductAmt</th>\n                                            <th>Total</th> ")])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($options.datas, function (value, i) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("thead", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", _hoisted_4, [_hoisted_5, _hoisted_6, _hoisted_7, _hoisted_8, _hoisted_9, _hoisted_10, this.$store.state.dataOpen[0] != 'FINISH' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("th", _hoisted_11)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <th>Amount</th>\n                                            <th>DeductAmt</th>\n                                            <th>Total</th> ")])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($options.datas, function (value, i) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tr", {
+      "class": "text-center",
       key: i
-    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(i + 1), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(value.description), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(value.qty), 1 /* TEXT */), _hoisted_11, _hoisted_12, _hoisted_13, _this.$store.state.dataOpen[0] != 'FINISH' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("td", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <button type=\"\" class=\"btn btn-warning\"><i class=\"fa fa-edit mr-2\"></i>แก้ไข</button> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_modal, {
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(i + 1), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(value.description), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(value.qty), 1 /* TEXT */), _hoisted_13, _hoisted_14, _hoisted_15, _this.$store.state.dataOpen[0] != 'FINISH' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("td", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <button type=\"\" class=\"btn btn-warning\"><i class=\"fa fa-edit mr-2\"></i>แก้ไข</button> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_modal, {
       "modal-id": 'test' + i,
       title: "แก้ไขรายการสินค้า",
       "button-text": "แก้ไข",
@@ -23862,7 +23944,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           "aria-describedby": "emailHelp",
           placeholder: "Enter email",
           value: value.description + '-' + value.detail_id
-        }, null, 8 /* PROPS */, _hoisted_15), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+        }, null, 8 /* PROPS */, _hoisted_17), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
           style: {
             "font-size": "25px",
             "width": "60px",
@@ -23873,14 +23955,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           onClick: function onClick($event) {
             return $options.datas[i].qty--;
           }
-        }, " - ", 8 /* PROPS */, _hoisted_18)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [_hoisted_20, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+        }, " - ", 8 /* PROPS */, _hoisted_20)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [_hoisted_22, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
           "class": "form-control",
           type: "number",
           min: "0",
           "onUpdate:modelValue": function onUpdateModelValue($event) {
             return $options.datas[i].qty = $event;
           }
-        }, null, 8 /* PROPS */, _hoisted_21), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $options.datas[i].qty]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_22, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+        }, null, 8 /* PROPS */, _hoisted_23), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $options.datas[i].qty]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_24, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
           style: {
             "font-size": "25px",
             "width": "60px",
@@ -23891,18 +23973,18 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           onClick: function onClick($event) {
             return $options.datas[i].qty++;
           }
-        }, " + ", 8 /* PROPS */, _hoisted_23)])]), _hoisted_24, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <table class=\"table table-bordered\">\n                              <tbody>\n                                <tr>\n                                  <td><b>Total Qty</b></td>\n                                  <td>\n                                    <input\n                                      style=\"\n                                        color: red;\n                                        font-weight: bold;\n                                        font-size: 21px;\n                                      \"\n                                      type=\"email\"\n                                      disabled\n                                      class=\"form-control\"\n                                      id=\"exampleInputEmail1\"\n                                      aria-describedby=\"emailHelp\"\n                                      placeholder=\"Enter email\"\n                                      :value=\"num * mul\"\n                                    />\n                                  </td>\n                                </tr>\n                              </tbody>\n                            </table> "), _hoisted_25, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+        }, " + ", 8 /* PROPS */, _hoisted_25)])]), _hoisted_26, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <table class=\"table table-bordered\">\n                              <tbody>\n                                <tr>\n                                  <td><b>Total Qty</b></td>\n                                  <td>\n                                    <input\n                                      style=\"\n                                        color: red;\n                                        font-weight: bold;\n                                        font-size: 21px;\n                                      \"\n                                      type=\"email\"\n                                      disabled\n                                      class=\"form-control\"\n                                      id=\"exampleInputEmail1\"\n                                      aria-describedby=\"emailHelp\"\n                                      placeholder=\"Enter email\"\n                                      :value=\"num * mul\"\n                                    />\n                                  </td>\n                                </tr>\n                              </tbody>\n                            </table> "), _hoisted_27, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
           "data-dismiss": "modal",
           onClick: _cache[0] || (_cache[0] = function () {
             return $options.onSelect(_ctx.product);
           }),
           type: "button",
           "class": "btn btn-success float-right btn-lg"
-        }, _hoisted_28)];
+        }, _hoisted_30)];
       }),
       _: 2 /* DYNAMIC */
-    }, 1032 /* PROPS, DYNAMIC_SLOTS */, ["modal-id"]), _hoisted_29])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <td></td>\n                                            <td>0</td>\n                                            <td>{{value.total}}</td> ")]);
-  }), 128 /* KEYED_FRAGMENT */))])])]), _hoisted_30, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"row\">\n    <div class=\"col-md-4\">\n\n        </div>\n        <div class=\"col-md-2\">\n\n</div>\n<div class=\"col-md-6\">\n    <div class=\"form-group row\" style=\"margin-bottom: 0px;    margin-bottom: 0px;margin-top: -12px;\n\n    \">\n    <label for=\"staticEmail\" class=\"col-sm-6\" style=\"\"><span>Weight:</span> <span style=\"    font-size: 28px;\">25.48 KG</span>  </label>\n    <label for=\"staticEmail\" class=\"col-sm-6\" style=\"\"><span>Total:</span> <span style=\"    font-size: 28px;\">                                {{totalTaxes}}\n</span> </label>\n\n\n    </div>\n\n</div>\n\n</div> ")], 64 /* STABLE_FRAGMENT */);
+    }, 1032 /* PROPS, DYNAMIC_SLOTS */, ["modal-id"]), _hoisted_31])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <td></td>\n                                            <td>0</td>\n                                            <td>{{value.total}}</td> ")]);
+  }), 128 /* KEYED_FRAGMENT */))])])]), _hoisted_32, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"row\">\n    <div class=\"col-md-4\">\n\n        </div>\n        <div class=\"col-md-2\">\n\n</div>\n<div class=\"col-md-6\">\n    <div class=\"form-group row\" style=\"margin-bottom: 0px;    margin-bottom: 0px;margin-top: -12px;\n\n    \">\n    <label for=\"staticEmail\" class=\"col-sm-6\" style=\"\"><span>Weight:</span> <span style=\"    font-size: 28px;\">25.48 KG</span>  </label>\n    <label for=\"staticEmail\" class=\"col-sm-6\" style=\"\"><span>Total:</span> <span style=\"    font-size: 28px;\">                                {{totalTaxes}}\n</span> </label>\n\n\n    </div>\n\n</div>\n\n</div> ")], 64 /* STABLE_FRAGMENT */);
 }
 
 /***/ }),
@@ -24989,7 +25071,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       "margin-right": "20px"
     }
   })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <td>\n        <a href=\"/user/print/queue\">\n          <img\n            src=\"https://icons-for-free.com/iconfiles/png/512/print-131964753156480777.png\"\n            alt=\"\"\n            style=\"height: 80px; width: 80px; margin-right: 20px\"\n          /></a>\n        </td> ")])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Modal "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_47, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_48, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_49, [_hoisted_50, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_51, [$data.responseData ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_52, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p>Response Data: {{ responseData }}</p> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_53, [_hoisted_54, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.responseData.data, function (item, key) {
-    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tr", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(key + 1), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.selectedDate), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.customer_class), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.status), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.pay_status), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.trackorder), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.createAt), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_55, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tr", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(key + 1), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.selectedDate), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.customer_name), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.customer_class), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.status), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.pay_status), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.trackorder), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.createAt), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_55, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
       onChange: function onChange($event) {
         return $options.updateUnlock($event, item);
       },
@@ -25243,46 +25325,37 @@ var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 var _hoisted_13 = {
   "class": "row"
 };
-var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_14 = {
   "class": "col-sm-4"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "form-group"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", null, "Record by"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-  type: "text",
-  "class": "form-control",
-  placeholder: "Enter ..."
-})])], -1 /* HOISTED */);
+};
 var _hoisted_15 = {
-  "class": "col-sm-4"
-};
-var _hoisted_16 = {
   "class": "form-group"
 };
-var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", null, "Paid by", -1 /* HOISTED */);
-var _hoisted_18 = ["value"];
-var _hoisted_19 = {
+var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", null, "Paid by", -1 /* HOISTED */);
+var _hoisted_17 = ["value"];
+var _hoisted_18 = {
   "class": "col-md-5"
 };
-var _hoisted_20 = {
+var _hoisted_19 = {
   "class": ""
 };
-var _hoisted_21 = {
+var _hoisted_20 = {
   "class": "card-body"
 };
-var _hoisted_22 = {
+var _hoisted_21 = {
   "class": "form-group row"
 };
-var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   style: {
     "font-size": "23px"
   },
   "for": "inputEmail3",
   "class": "col-sm-5 col-form-label"
 }, "Total/ยอดรวม", -1 /* HOISTED */);
-var _hoisted_24 = {
+var _hoisted_23 = {
   "class": "col-sm-7"
 };
-var _hoisted_25 = ["value"];
+var _hoisted_24 = ["value"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <a @click=\"print\" class=\"btn btn-primary mr-2\"><i\n                                                    class=\"fa fa-print mr-2\"></i>PRINT\n                                                REPORT</a> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     onClick: _cache[0] || (_cache[0] = function ($event) {
@@ -25296,13 +25369,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }),
     type: "button",
     "class": "btn btn-primary mr-2"
-  }, _hoisted_10), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <button class=\"btn btn-primary mr-2\"><i\n                                                    class=\"fa fa-print mr-2\"></i>พิมพ์บัตรประชาชน</button>\n                                            <button class=\"btn btn-secondary mt-2\"><i class=\"fa fa-print mr-2\"></i>Paid Details\n                                                Report</button> "), _hoisted_11, _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"col-sm-4\">\n\n                                                    <div class=\"form-group\">\n                                                        <label>เลขที่ใบเสร็จ</label>\n                                                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter ...\">\n                                                    </div>\n                                                </div> "), _hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [_hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  }, _hoisted_10), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <button class=\"btn btn-primary mr-2\"><i\n                                                    class=\"fa fa-print mr-2\"></i>พิมพ์บัตรประชาชน</button>\n                                            <button class=\"btn btn-secondary mt-2\"><i class=\"fa fa-print mr-2\"></i>Paid Details\n                                                Report</button> "), _hoisted_11, _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"col-sm-4\">\n\n                                                    <div class=\"form-group\">\n                                                        <label>เลขที่ใบเสร็จ</label>\n                                                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter ...\">\n                                                    </div>\n                                                </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"col-sm-4\">\n                                                    <div class=\"form-group\">\n                                                        <label>Record by</label>\n                                                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter ...\">\n\n                                                    </div>\n                                                </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [_hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     readonly: "",
     type: "text",
     "class": "form-control",
     placeholder: "Enter ...",
     value: this.username
-  }, null, 8 /* PROPS */, _hoisted_18)])])])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"form-group row\">\n                                            <label for=\"inputEmail3\" class=\"col-sm-4 col-form-label\">Amount</label>\n                                            <div class=\"col-sm-8\">\n                                                <input type=\"email\" class=\"form-control\" id=\"inputEmail3\" placeholder=\"Email\">\n                                            </div>\n                                        </div>\n                                        <div class=\"form-group row\">\n                                            <label for=\"inputEmail3\" class=\"col-sm-4 col-form-label\">Deduct</label>\n                                            <div class=\"col-sm-8\">\n                                                <input type=\"email\" class=\"form-control\" id=\"inputEmail3\" placeholder=\"Email\">\n                                            </div>\n                                        </div>\n                                        <div class=\"form-group row\">\n                                            <label for=\"inputEmail3\" class=\"col-sm-4 col-form-label\">Sell/ขายหักบิล</label>\n                                            <div class=\"col-sm-8\">\n                                                <input type=\"email\" class=\"form-control\" id=\"inputEmail3\" placeholder=\"Email\">\n                                            </div>\n                                        </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"form-group row\">\n\n                                            <div class=\"col-sm-9\">\n\n                                                <div class=\"row\">\n                                                    <div class=\"col-md-6\">\n                                                        <div class=\"form-check\">\n                                                            <input class=\"form-check-input\" type=\"radio\" name=\"exampleRadios\" id=\"exampleRadios1\" value=\"option1\" checked>\n                                                            <label class=\"form-check-label\" for=\"exampleRadios1\">\n                                                              Vat\n                                                            </label>\n                                                          </div>\n\n                                                    </div>\n                                                    <br><br>\n                                                    <div class=\"col-md-6\">\n                                                        <div class=\"form-check\">\n                                                            <input class=\"form-check-input\" type=\"radio\" name=\"exampleRadios\" id=\"exampleRadios2\" value=\"option1\" checked>\n                                                            <label class=\"form-check-label\" for=\"exampleRadios2\">\n                                                              Include Vat\n                                                            </label>\n                                                          </div>\n\n                                                    </div>\n                                                    <div class=\"col-md-5\" style=\"display: inline-block;\">\n                                                        <input style=\"display: inline-block;width:4rem;\" type=\"password\"\n                                                            class=\"form-control\" id=\"inputPassword\" placeholder=\"Password\">\n                                                        <span style=\"display: inline-block;\">&nbsp;%</span>\n\n\n                                                    </div>\n                                                    <div class=\"col-md-7\">\n                                                        <input type=\"password\" class=\"form-control\" id=\"inputPassword\"\n                                                            placeholder=\"Password\">\n\n                                                    </div>\n                                                </div>\n                                            </div>\n                                        </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_22, [_hoisted_23, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_24, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  }, null, 8 /* PROPS */, _hoisted_17)])])])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"form-group row\">\n                                            <label for=\"inputEmail3\" class=\"col-sm-4 col-form-label\">Amount</label>\n                                            <div class=\"col-sm-8\">\n                                                <input type=\"email\" class=\"form-control\" id=\"inputEmail3\" placeholder=\"Email\">\n                                            </div>\n                                        </div>\n                                        <div class=\"form-group row\">\n                                            <label for=\"inputEmail3\" class=\"col-sm-4 col-form-label\">Deduct</label>\n                                            <div class=\"col-sm-8\">\n                                                <input type=\"email\" class=\"form-control\" id=\"inputEmail3\" placeholder=\"Email\">\n                                            </div>\n                                        </div>\n                                        <div class=\"form-group row\">\n                                            <label for=\"inputEmail3\" class=\"col-sm-4 col-form-label\">Sell/ขายหักบิล</label>\n                                            <div class=\"col-sm-8\">\n                                                <input type=\"email\" class=\"form-control\" id=\"inputEmail3\" placeholder=\"Email\">\n                                            </div>\n                                        </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"form-group row\">\n\n                                            <div class=\"col-sm-9\">\n\n                                                <div class=\"row\">\n                                                    <div class=\"col-md-6\">\n                                                        <div class=\"form-check\">\n                                                            <input class=\"form-check-input\" type=\"radio\" name=\"exampleRadios\" id=\"exampleRadios1\" value=\"option1\" checked>\n                                                            <label class=\"form-check-label\" for=\"exampleRadios1\">\n                                                              Vat\n                                                            </label>\n                                                          </div>\n\n                                                    </div>\n                                                    <br><br>\n                                                    <div class=\"col-md-6\">\n                                                        <div class=\"form-check\">\n                                                            <input class=\"form-check-input\" type=\"radio\" name=\"exampleRadios\" id=\"exampleRadios2\" value=\"option1\" checked>\n                                                            <label class=\"form-check-label\" for=\"exampleRadios2\">\n                                                              Include Vat\n                                                            </label>\n                                                          </div>\n\n                                                    </div>\n                                                    <div class=\"col-md-5\" style=\"display: inline-block;\">\n                                                        <input style=\"display: inline-block;width:4rem;\" type=\"password\"\n                                                            class=\"form-control\" id=\"inputPassword\" placeholder=\"Password\">\n                                                        <span style=\"display: inline-block;\">&nbsp;%</span>\n\n\n                                                    </div>\n                                                    <div class=\"col-md-7\">\n                                                        <input type=\"password\" class=\"form-control\" id=\"inputPassword\"\n                                                            placeholder=\"Password\">\n\n                                                    </div>\n                                                </div>\n                                            </div>\n                                        </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [_hoisted_22, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     style: {
       "font-size": "35px",
       "color": "green",
@@ -25314,7 +25387,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     placeholder: "",
     value: $options.sum,
     disabled: ""
-  }, null, 8 /* PROPS */, _hoisted_25)])])])])])]);
+  }, null, 8 /* PROPS */, _hoisted_24)])])])])])]);
 }
 
 /***/ }),
@@ -25348,48 +25421,54 @@ var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
     "background-color": "blueviolet",
     "color": "white"
   }
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "ProductID"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "Description"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "Qty"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "DeductQty"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "Net Qty"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "UM"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "Amount"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "DeductAmt"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "Total"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th")])], -1 /* HOISTED */);
-var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, null, -1 /* HOISTED */);
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", {
+  "class": "text-center"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "ProductID"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "Description"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "Qty"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "DeductQty"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "Net Qty"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "UM"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "Amount"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "DeductAmt"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "Total"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th")])], -1 /* HOISTED */);
+var _hoisted_4 = {
+  "class": "text-left"
+};
 var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, null, -1 /* HOISTED */);
-var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, "กิโล", -1 /* HOISTED */);
-var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, null, -1 /* HOISTED */);
-var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, "0", -1 /* HOISTED */);
-var _hoisted_9 = ["value"];
-var _hoisted_10 = {
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, null, -1 /* HOISTED */);
+var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, "กิโล", -1 /* HOISTED */);
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, null, -1 /* HOISTED */);
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, "0", -1 /* HOISTED */);
+var _hoisted_10 = ["value"];
+var _hoisted_11 = {
   "class": "form-row align-items-center"
 };
-var _hoisted_11 = {
+var _hoisted_12 = {
   "class": "col-auto my-1"
 };
-var _hoisted_12 = ["onClick"];
-var _hoisted_13 = {
+var _hoisted_13 = ["onClick"];
+var _hoisted_14 = {
   "class": "col-auto my-1"
 };
-var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "class": "mr-sm-2",
   "for": "inlineFormCustomSelect"
 }, "Product Description", -1 /* HOISTED */);
-var _hoisted_15 = ["onUpdate:modelValue"];
-var _hoisted_16 = {
+var _hoisted_16 = ["onUpdate:modelValue"];
+var _hoisted_17 = {
   "class": "col-auto my-1"
 };
-var _hoisted_17 = ["onClick"];
-var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
+var _hoisted_18 = ["onClick"];
 var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
-var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
+var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "class": "fa fa-save mr-2"
 }, null, -1 /* HOISTED */);
-var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("บันทึก ");
-var _hoisted_22 = [_hoisted_20, _hoisted_21];
-var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("   ");
-var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
+var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("บันทึก ");
+var _hoisted_23 = [_hoisted_21, _hoisted_22];
+var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("   ");
+var _hoisted_25 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_modal = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("modal");
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($options.datas, function (value, i) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tr", {
+      "class": "text-center",
       key: i
-    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(i + 1), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(value.description), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(value.qty), 1 /* TEXT */), _hoisted_4, _hoisted_5, _hoisted_6, _hoisted_7, _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(value.total), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <button type=\"\" class=\"btn btn-warning\"><i class=\"fa fa-edit mr-2\"></i>แก้ไข</button> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_modal, {
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(i + 1), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(value.description), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(value.qty), 1 /* TEXT */), _hoisted_5, _hoisted_6, _hoisted_7, _hoisted_8, _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(value.total), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <button type=\"\" class=\"btn btn-warning\"><i class=\"fa fa-edit mr-2\"></i>แก้ไข</button> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_modal, {
       "modal-id": 'test' + i,
       title: "แก้ไขรายการสินค้า",
       "button-text": "แก้ไข",
@@ -25405,7 +25484,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           "aria-describedby": "emailHelp",
           placeholder: "Enter email",
           value: value.description + '-' + value.detail_id
-        }, null, 8 /* PROPS */, _hoisted_9), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+        }, null, 8 /* PROPS */, _hoisted_10), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
           style: {
             "font-size": "25px",
             "width": "60px",
@@ -25416,14 +25495,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           onClick: function onClick($event) {
             return $options.datas[i].qty--;
           }
-        }, " - ", 8 /* PROPS */, _hoisted_12)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [_hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+        }, " - ", 8 /* PROPS */, _hoisted_13)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [_hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
           "class": "form-control",
           type: "number",
           min: "0",
           "onUpdate:modelValue": function onUpdateModelValue($event) {
             return $options.datas[i].qty = $event;
           }
-        }, null, 8 /* PROPS */, _hoisted_15), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $options.datas[i].qty]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+        }, null, 8 /* PROPS */, _hoisted_16), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $options.datas[i].qty]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
           style: {
             "font-size": "25px",
             "width": "60px",
@@ -25434,18 +25513,18 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           onClick: function onClick($event) {
             return $options.datas[i].qty++;
           }
-        }, " + ", 8 /* PROPS */, _hoisted_17)])]), _hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <table class=\"table table-bordered\">\n                              <tbody>\n                                <tr>\n                                  <td><b>Total Qty</b></td>\n                                  <td>\n                                    <input\n                                      style=\"\n                                        color: red;\n                                        font-weight: bold;\n                                        font-size: 21px;\n                                      \"\n                                      type=\"email\"\n                                      disabled\n                                      class=\"form-control\"\n                                      id=\"exampleInputEmail1\"\n                                      aria-describedby=\"emailHelp\"\n                                      placeholder=\"Enter email\"\n                                      :value=\"num * mul\"\n                                    />\n                                  </td>\n                                </tr>\n                              </tbody>\n                            </table> "), _hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+        }, " + ", 8 /* PROPS */, _hoisted_18)])]), _hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <table class=\"table table-bordered\">\n                              <tbody>\n                                <tr>\n                                  <td><b>Total Qty</b></td>\n                                  <td>\n                                    <input\n                                      style=\"\n                                        color: red;\n                                        font-weight: bold;\n                                        font-size: 21px;\n                                      \"\n                                      type=\"email\"\n                                      disabled\n                                      class=\"form-control\"\n                                      id=\"exampleInputEmail1\"\n                                      aria-describedby=\"emailHelp\"\n                                      placeholder=\"Enter email\"\n                                      :value=\"num * mul\"\n                                    />\n                                  </td>\n                                </tr>\n                              </tbody>\n                            </table> "), _hoisted_20, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
           "data-dismiss": "modal",
           onClick: _cache[0] || (_cache[0] = function () {
             return $options.onSelect(_ctx.product);
           }),
           type: "button",
           "class": "btn btn-success float-right btn-lg"
-        }, _hoisted_22)];
+        }, _hoisted_23)];
       }),
       _: 2 /* DYNAMIC */
-    }, 1032 /* PROPS, DYNAMIC_SLOTS */, ["modal-id"]), _hoisted_23])]);
-  }), 128 /* KEYED_FRAGMENT */))])])]), _hoisted_24, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"row\">\n   <div class=\"col-md-4\">\n\n       </div>\n       <div class=\"col-md-2\">\n\n</div>\n<div class=\"col-md-6\">\n   <div class=\"form-group row\" style=\"margin-bottom: 0px;    margin-bottom: 0px;margin-top: -12px;\n\n   \">\n   <label for=\"staticEmail\" class=\"col-sm-6\" style=\"\"><span>Weight:</span> <span style=\"    font-size: 28px;\">25.48 KG</span>  </label>\n   <label for=\"staticEmail\" class=\"col-sm-6\" style=\"\"><span>Total:</span> <span style=\"    font-size: 28px;\">                                {{totalTaxes}}\n</span> </label>\n\n\n   </div>\n\n</div>\n\n</div> ")], 64 /* STABLE_FRAGMENT */);
+    }, 1032 /* PROPS, DYNAMIC_SLOTS */, ["modal-id"]), _hoisted_24])]);
+  }), 128 /* KEYED_FRAGMENT */))])])]), _hoisted_25, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"row\">\n   <div class=\"col-md-4\">\n\n       </div>\n       <div class=\"col-md-2\">\n\n</div>\n<div class=\"col-md-6\">\n   <div class=\"form-group row\" style=\"margin-bottom: 0px;    margin-bottom: 0px;margin-top: -12px;\n\n   \">\n   <label for=\"staticEmail\" class=\"col-sm-6\" style=\"\"><span>Weight:</span> <span style=\"    font-size: 28px;\">25.48 KG</span>  </label>\n   <label for=\"staticEmail\" class=\"col-sm-6\" style=\"\"><span>Total:</span> <span style=\"    font-size: 28px;\">                                {{totalTaxes}}\n</span> </label>\n\n\n   </div>\n\n</div>\n\n</div> ")], 64 /* STABLE_FRAGMENT */);
 }
 
 /***/ }),

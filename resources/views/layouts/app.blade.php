@@ -35,6 +35,7 @@
             color: red;
             padding-left: 5px;
         }
+
     </style>
     @stack('page_css')
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">

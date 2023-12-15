@@ -95,14 +95,13 @@ class PrintController extends Controller
 
         $data  = [];
 
-        if(!empty(request()->datestart) && !empty(request()->datestop)){
             $response = Http::withOptions(["verify"=>false])->post(env('DEV_API').'/report/ordersummaryreportbydate', [
-                'StartDate' =>request()->datestart,
-                'EndDate' =>request()->datestop
+                'StartDate' =>request()->datestart ?? "",
+                'EndDate' =>request()->datestop ?? ""
             ]);
 
             $data = $response->json()["data"];
-        }
+
 
 
         return view('print.ordersummaryreportbydate',compact('data'));
@@ -112,12 +111,14 @@ class PrintController extends Controller
         $data  = [];
 
         if(!empty(request()->datestart) && !empty(request()->datestop)){
-            $response = Http::withOptions(["verify"=>false])->post(env('DEV_API').'/report/ordersummaryreportbydate', [
+            $response = Http::withOptions(["verify"=>false])->post(env('DEV_API').'/report/overviewantiques', [
                 'StartDate' =>request()->datestart,
                 'EndDate' =>request()->datestop
             ]);
 
             $data = $response->json()["data"];
+
+            // dd($data);
         }
         return view('print.ordersummaryreportbynumber', compact('data'));
     }

@@ -29,6 +29,9 @@
         .dataTables_wrapper {
             margin: 20px;
         }
+        table{
+            text-align: center;
+        }
 
         .required:after {
             content: '(*)';

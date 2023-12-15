@@ -75,6 +75,13 @@ class ProductFilesController extends Controller
 
     public function dashboard(){
 
-        return view('DASHBOARD_ADMIN.dashboard.index');
+        $response = Http::withOptions(["verify"=>false])->post(env('DEV_API').'/report/overviewantiques', [
+            'createAt' =>request()->datestart ?? ""
+        ]);
+
+        $data = $response->json()["data"];
+
+
+        return view('DASHBOARD_ADMIN.dashboard.index', compact('data'));
     }
 }

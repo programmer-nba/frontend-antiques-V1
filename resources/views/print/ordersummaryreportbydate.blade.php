@@ -96,7 +96,7 @@ td {
 </head>
 <body>
     <h5>รายงานสรุปการซื้อ/ตามวันที่</h5>
-    <h5>วันที่ {{request()->datestart}} ถึง {{request()->datestop}}</h5>
+    <h5>วันที่ {{request()->datestart ?? "ทั้งหมด"}} ถึง {{request()->datestop  ?? "ทั้งหมด"}}</h5>
     <table id="example"  class="table table-striped table-bordered t1" style="width:100%">
         <thead>
             <tr>

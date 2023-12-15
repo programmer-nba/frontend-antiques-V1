@@ -40,8 +40,8 @@
 
 
                 <br>
-                @if (!empty(request()->datestart) )
-                             <h5>ภาพรวมระบบวันที่ {{request()->datestart}} </h5>
+                @if (true)
+                             <h5>ภาพรวมระบบวันที่ {{request()->datestart ?? "ทั้งหมด"}} </h5>
                 @php
                         $count = 5;
                 @endphp
@@ -60,57 +60,62 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="text-center">
-                            <td>1</td>
+
+                        @foreach ($data as $value)
+                        <tr>
+                            <td>{{$value['data']['queue']}}</td>
                             <td class="text-danger">
+                                @if ($value["data"]['status'] == 'FINISH')
+                                <button type="button" class="btn btn-warning">
+
+                                รับออเดอร์แล้ว
+                                @elseif($value["data"]['status'] == 'APPROVE')
                                 <button type="button" class="btn btn-success">
-                                จ่ายเงินแล้ว <span class="badge badge-light">APPROVE</span>
-                                <span class="sr-only">unread messages</span>
+
+                                จ่ายเงินแล้ว
+                                @endif
+                                 <span class="badge badge-light">{{$value["data"]["status"]}}</span>
+                                <span class="sr-only"></span>
                               </button>
 
                             </td>
 
-                            <td>นายอภิชาติ หวังดี ที่อยู่ 158 ม.9 ต.หนองหาร</td>
-                            <td>A</td>
-                            <td><a href="https://shop-admin.nbadigital.tech/thailand">คลิกเพื่อดูข้อมูลสินค้า</a></td>
-                            <td>250</td>
+                            <td class="text-left">{{$value["data"]['fullname_th']}}</td>
+                            <td>{{$value["data"]['class']}}</td>
                             <td>
-                                <img  style="width:70px;height:70px;" src="https://inwfile.com/s-cw/sxx8u7.jpg" alt="">
+                                <modal modal-id="add{{$value['_id']}}" title="ข้อมูลสินค้า" button-text="คลิกเพื่อดูข้อมูลสินค้า" class-name="" icon-name="">
+                                    <table class="table table-striped">
+                                        <thead>
+                                          <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">รายการ</th>
+                                            <th scope="col">จำนวน</th>
+                                            <th scope="col">ราคารวม</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($value['data']['order_detail'] as $value2)
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>{{$value2['description']}}</td>
+                                                <td>{{$value2['qty']}}</td>
+                                                <td>{{$value2['total']}}</td>
+                                              </tr>
+                                            @endforeach
+
+
+                                        </tbody>
+                                      </table>
+
+                                  </modal>&nbsp;&nbsp;
                             </td>
+                            <td>{{$value["data"]['total']}}</td>
+                            <td><img src=""></td>
 
                         </tr>
-                        @for ($i=0; $i<=10; $i++)
-                        <tr>
-                            <td>sdfsd</td>
-                            <td class="text-danger">
-                               <button type="button" class="btn btn-warning">
-                                รับออเดอร์แล้ว <span class="badge badge-light">FINISH</span>
-                                <span class="sr-only">unread messages</span>
-                              </button>
+                        @endforeach
 
-                            </td>
 
-                            <td>sdfsd</td>
-                            <td>sdfsd</td>
-                            <td>sdfsd</td>
-                            <td>sdfsd</td>
-                            <td>sdfsd</td>
-
-                        </tr>
-                        <tr>
-                            <td>sdfsd</td>
-                            <td class="text-danger">
-
-                            </td>
-
-                            <td>sdfsd</td>
-                            <td>sdfsd</td>
-                            <td>sdfsd</td>
-                            <td>sdfsd</td>
-                            <td>sdfsd</td>
-
-                        </tr>
-                        @endfor
 
                     </tbody>
                 </table>

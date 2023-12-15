@@ -239,11 +239,10 @@
     </tr>
   </thead>
   <tbody>
-
     <tr v-for="(item, key) in responseData.data">
     <td>{{key+1}}</td>
       <td>{{selectedDate}}</td>
-      <td>{{item}}</td>
+      <td>{{item.customer_name}}</td>
       <td>{{item.customer_class}}</td>
       <td>{{item.status}}</td>
       <td>{{item.pay_status}}</td>
@@ -534,47 +533,46 @@ export default {
       var items = this.$store.state.items;
 
       this.$store.dispatch("loadItems", []);
+      $('#modal-loading').modal('show');
 
-      await items.forEach(async function (element) {
-        console.log("aam", element);
+        for await(const element of items){
+            console.log("aam", element);
 
-        var clickedItems = [];
-        await axios
-          .post(
-            process.env.MIX_DEV_API + "/getdetailvendor",
-            {
-              detail_id: element.detail_id,
-              class: self.type,
-            },
-            {
-              headers: {
-                "ngrok-skip-browser-warning": "true",
-              },
-            }
-          )
-          .then(async (response) => {
-            self.mul = response.data.data;
+var clickedItems = [];
+const response = await axios
+  .post(
+    process.env.MIX_DEV_API + "/getdetailvendor",
+    {
+      detail_id: element.detail_id,
+      class: self.type,
+    },
+    {
+      headers: {
+        "ngrok-skip-browser-warning": "true",
+      },
+    }
+  );
 
-            // clickedItems.push({
-            //   description: element.description,
-            //   qty: element.qty,
-            //   total: element.qty * self.mul,
-            //   detail_id: element.detail_id,
-            // });
-            // console.log("it", clickedItems)
-            await self.$store.dispatch(
-              "loadItems",
-              self.$store.state.items.concat([
-                {
-                  description: element.description,
-                  qty: element.qty,
-                  total: element.qty * self.mul,
-                  detail_id: element.detail_id,
-                },
-              ])
-            );
-          });
-      });
+  await self.$store.dispatch(
+      "loadItems",
+      self.$store.state.items.concat([
+        {
+          description: element.description,
+          qty: element.qty,
+          total: element.qty * response.data.data,
+          detail_id: element.detail_id,
+        },
+      ])
+    );
+        }
+        setTimeout(function(){
+            $('#modal-loading').modal('hide');
+
+        }, 2000)
+
+    //   await items.forEach(async function (element) {
+
+    //   });
     },
     name: async function (val, oldVal) {
       //   this.$store.dispatch("loadCustomers", this.loadCustomers);
@@ -587,34 +585,41 @@ export default {
     loadCustomers: function (val, oldVal) {},
   },
   methods: {
-    updateUnlock(evt, item){
+    async updateUnlock(evt, item){
         console.log("evt", evt.target.checked)
         console.log("item", item)
         // $('#modal-loading').modal('show');
 
-// await axios
-//   .post(
-//     process.env.MIX_DEV_API + "/order/getorderbydateandqueue",
-//     {
-//       createAt: item.createAt,
-//       queue: item.queue,
-//     },
-//     {
-//       headers: {
-//         "ngrok-skip-browser-warning": "true",
-//       },
-//     }
-//   )
-//   .then((res) => {
+        if(evt.target.checked){
+            var status = 0;
+        }else{
+            var status = 1;
+        }
+        $('#modal-loading').modal('show');
+await axios
+  .post(
+    process.env.MIX_DEV_API + "/order/updatestatusafterpay",
+    {
+        _id: item._id,
+      status: status,
+    },
+    {
+      headers: {
+        "ngrok-skip-browser-warning": "true",
+      },
+    }
+  )
+  .then((res) => {
 
 
-//     $('#modal-loading').modal('hide');
+    $('#modal-loading').modal('hide');
 
-//   })
-//   .catch((err) => {
-//       $('#modal-loading').modal('hide');
+  })
+  .catch((err) => {
+    alert(err)
+      $('#modal-loading').modal('hide');
 
-//   });
+  });
     },
     showModal() {
         const config = {

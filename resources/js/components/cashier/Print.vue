@@ -25,13 +25,13 @@
                                                         <input type="text" class="form-control" placeholder="Enter ...">
                                                     </div>
                                                 </div> -->
-                                                <div class="col-sm-4">
+                                                <!-- <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label>Record by</label>
                                                         <input type="text" class="form-control" placeholder="Enter ...">
 
                                                     </div>
-                                                </div>
+                                                </div> -->
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label>Paid by</label>

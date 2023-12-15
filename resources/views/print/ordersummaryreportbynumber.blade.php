@@ -116,8 +116,7 @@ td {
             </tr>
         </thead>
         <tbody>
-            @for ($i=0; $i<2; $i++)
-
+            @foreach ($data as $value)
             <tr>
                 <td rowspan="3" >1</td>
                 <td rowspan="3" >66REC1104001</td>
@@ -158,6 +157,8 @@ td {
                 <td>30768.00</td> --}}
 
             </tr>
+            @dd($value)
+
             <tr>
                 <td rowspan="1" colspan="1" style="border-right: unset">
                     2
@@ -204,7 +205,7 @@ td {
                         79.00
                      </td>
             </tr>
-            @endfor
+            @endforeach
         </tbody>
     </table>
 

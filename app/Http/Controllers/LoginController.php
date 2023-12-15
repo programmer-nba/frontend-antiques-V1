@@ -64,7 +64,6 @@ class LoginController extends Controller
 
         } catch (\Throwable $th) {
 
-            dd($th);
 
             Alert::error("เข้าสู่ระบบไม่สำเร็จ", "username หรือ password ไม่ถูกต้อง");
 
@@ -95,6 +94,7 @@ class LoginController extends Controller
 
     public function register(Request $request) {
 
+
         $response = Http::post(env('DEV_API').'/register', [
             'username' => 'admin',
             'password' => '12345678',
@@ -102,7 +102,10 @@ class LoginController extends Controller
             'telephone' => '08985451555'
         ]);
 
-        dd($response->json());
+        Alert::success("สมัครสมาชิกเรียบร้อย", "");
+
+        return back();
+
     }
 
     public function logout(Request $request){

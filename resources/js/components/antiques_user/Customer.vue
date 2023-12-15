@@ -418,8 +418,9 @@ self.customer.birthday = result
 
             this.$store.dispatch("loadItems", []);
 
+            $('#modal-loading').modal('show');
 
-      await items.forEach(async function (element) {
+            for await(const element of items){
         console.log("aam", element);
 
         var clickedItems = [];
@@ -456,7 +457,11 @@ self.customer.birthday = result
             }])
             );
           });
-      });
+      }
+      setTimeout(function(){
+            $('#modal-loading').modal('hide');
+
+        }, 2000)
     },
     name: async function (val, oldVal) {
     //   this.$store.dispatch("loadCustomers", this.loadCustomers);
@@ -667,6 +672,8 @@ self.customer.birthday = result
 
 
         }).catch((err)=>{
+            $('#modal-loading').modal('hide');
+
             this.$store.dispatch("loadItems", []);
         })
         // console.log("item", item)
