@@ -21,7 +21,7 @@
           type="button"
           class="btn  btn-square-md"
           style="background-color:green;color:white;font-size:20px;width:150px !important;box-shadow: 0em  0.5em 0.8em #D9D9D9;"
-          :disabled="this.$store.state.dataOpen[0] == 'FINISH'"
+          :disabled="this.$store.state.dataOpen[0] == 'FINISH' || this.$store.state.dataOpen[0] == 'APPROVE'"
         >
           {{ d.category_name_en }}/{{ d.category_name_th }}
         </button>
@@ -54,7 +54,7 @@
         type="button"
         class=""
         @click="save()"
-        :disabled="this.$store.state.dataOpen[0] == 'FINISH'"
+        :disabled="this.$store.state.dataOpen[0] == 'FINISH'  || this.$store.state.dataOpen[0] == 'APPROVE'"
 
         style="      background-color: red;
     border: none;

@@ -3,6 +3,7 @@
     <div class="col-md-12">
       <div v-for="d in JSON.parse(data)" style="display: inline-block">
         <button
+        :disabled="this.$store.state.dataOpen[0] == 'APPROVE'"
           @click="toggleModal(d)"
           type="button"
           class="btn btn-square-md"
@@ -19,6 +20,7 @@
 
       </div>
       <button
+      :disabled="this.$store.state.dataOpen[0] == 'APPROVE'"
         type="button"
         class="btn btn-square-md"
         @click="save()"

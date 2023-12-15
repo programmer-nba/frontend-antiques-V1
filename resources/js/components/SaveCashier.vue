@@ -8,7 +8,7 @@
                                         </button>
                                     </div>
                                     <div class="col-md-6">
-                                        <button @click="save()" class="btn btn-success btn-lg">
+                                        <button :disabled="this.$store.state.dataOpen[0] == 'APPROVE'" @click="save()" class="btn btn-success btn-lg">
                                             <img src="{{ asset('images/sell.png') }}" style="width: 100px;height:100px;">
                                             <h4 class="mt-4">Cashier/จ่ายเงิน</h4>
                                         </button>

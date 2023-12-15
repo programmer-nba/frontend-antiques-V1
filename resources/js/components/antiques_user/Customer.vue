@@ -46,7 +46,7 @@
         <div class="form-group">
           <label>ID</label>
           <select2-component
-          :disabled="this.$store.state.dataOpen[0] == 'FINISH'"
+          :disabled="this.$store.state.dataOpen[0] == 'FINISH'  || this.$store.state.dataOpen[0] == 'APPROVE'"
             v-model="idCard"
             name="idcard[]"
             id="idcard"
@@ -63,7 +63,7 @@
         <div class="form-group">
           <label>Name</label>
 
-          <select2-component  :disabled="this.$store.state.dataOpen[0] == 'FINISH'" v-model="name" name="name[]" id="name" class="form-control">
+          <select2-component  :disabled="this.$store.state.dataOpen[0] == 'FINISH'  || this.$store.state.dataOpen[0] == 'APPROVE'" v-model="name" name="name[]" id="name" class="form-control">
             <option value="000000000">-- กรุณาเลือก --</option>
             <option v-for="data in dataName" :value="data.fullname_th">
               {{ data.fullname_th }}
@@ -90,7 +90,7 @@
       <div class="col-sm-4">
         <div class="form-group">
           <label>Warehoursse</label>
-          <select2-component         :disabled="this.$store.state.dataOpen[0] == 'FINISH'"
+          <select2-component         :disabled="this.$store.state.dataOpen[0] == 'FINISH'  || this.$store.state.dataOpen[0] == 'APPROVE'"
  name="Warehoursse[]" id="Warehoursse" class="form-control">
             <option value="1">W01 - WH Inside</option>
           </select2-component>
@@ -112,7 +112,7 @@
           <label>Vehicle ID </label>
 
           <select2-component
-          :disabled="this.$store.state.dataOpen[0] == 'FINISH'"
+          :disabled="this.$store.state.dataOpen[0] == 'FINISH'  || this.$store.state.dataOpen[0] == 'APPROVE'"
             v-model="vehicle"
             name="vehicle[]"
             id="vehicle"

@@ -89,6 +89,8 @@ td {
 
     <div class="total" style="text-align:center;">
         <h1>บิลเงินสด/ใบรับเงิน</h1>
+        <h4>เลขที่ใบเสร็จ {{$data['trackorder']}}</h4>
+
     </div>
     <div  style="position: absolute;top:0;right:0;">
             {{-- <p>Page 1 of 1</p> --}}
