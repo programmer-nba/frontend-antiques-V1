@@ -55,7 +55,6 @@
                             <th  class="text-center" >ข้อมูลสินค้า</th>
 
                             <th  class="text-center" >ราคาทั้งหมด</th>
-                            <th  class="text-center">รูปภาพ</th>
 
                         </tr>
                     </thead>
@@ -91,15 +90,21 @@
                                             <th scope="col">รายการ</th>
                                             <th scope="col">จำนวน</th>
                                             <th scope="col">ราคารวม</th>
+                                            <th scope="col">รูปภาพ</th>
                                           </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($value['data']['order_detail'] as $value2)
+                                            @foreach ($value['data']['order_detail'] as $key => $value2)
                                             <tr>
-                                                <th scope="row">1</th>
+                                                <th scope="row">{{$key+1}}</th>
                                                 <td>{{$value2['description']}}</td>
                                                 <td>{{$value2['qty']}}</td>
                                                 <td>{{$value2['total']}}</td>
+                                                <td>
+                                                    @if (!empty($value2['image']))
+                                                    <img style="width: 100px;" src="{{env('MIX_CAMERA_API')}}/images/{{$value2['image']}}.jpg">
+                                                    @endif
+                                                </td>
                                               </tr>
                                             @endforeach
 
@@ -110,7 +115,7 @@
                                   </modal>&nbsp;&nbsp;
                             </td>
                             <td>{{$value["data"]['total']}}</td>
-                            <td><img src=""></td>
+
 
                         </tr>
                         @endforeach

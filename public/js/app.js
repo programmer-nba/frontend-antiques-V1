@@ -20115,6 +20115,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   props: ["name", "id", "multiple", "vModel", "data", "username"],
   data: function data() {
     return {
+      myRnId: parseInt(Date.now() * Math.random()),
       active: false,
       show: false,
       num: 0,
@@ -20229,38 +20230,71 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       alert("dd");
     },
     onSelect: function onSelect(item) {
-      this.show = false;
-      this.active = false;
-      console.log(this.$store.state.items);
-      console.log("Uuuu", item);
-      //   this.clickedItems.push(this.$store.state.items);
-      var clickedItems = [];
-      clickedItems.push({
-        description: item.detail_name_th,
-        qty: this.num,
-        total: this.num * this.mul,
-        detail_id: item.detail_id,
-        unit: item.unit
-      });
-      localStorage.storedData = JSON.stringify(clickedItems);
-      this.$store.dispatch("loadItems", this.$store.state.items.concat(clickedItems));
-      //test
-
-      console.log(this.clickedItems);
-    },
-    toggleModal: function toggleModal(item) {
       var _this2 = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
-        var self;
+        var clickedItems;
         return _regeneratorRuntime().wrap(function _callee2$(_context2) {
           while (1) switch (_context2.prev = _context2.next) {
             case 0:
+              _this2.show = false;
+              _this2.active = false;
+              console.log(_this2.$store.state.items);
+              console.log("Uuuu", item);
+              //   this.clickedItems.push(this.$store.state.items);
+              clickedItems = [];
+              clickedItems.push({
+                description: item.detail_name_th,
+                qty: _this2.num,
+                total: _this2.num * _this2.mul,
+                detail_id: item.detail_id,
+                unit: item.unit,
+                image: _this2.myRnId + "-" + _this2.$store.state.items.length
+              });
+              localStorage.storedData = JSON.stringify(clickedItems);
+              $('#modal-loading').modal('show');
+              _context2.next = 10;
+              return axios.post("http://192.168.1.21:5555", {
+                // createAt : this.$store.state.queueDate[1],
+                // queue: this.$store.state.queueDate[0],
+                name: _this2.myRnId + "-" + _this2.$store.state.items.length
+              }, {
+                headers: {
+                  "ngrok-skip-browser-warning": "true"
+                }
+              }).then(function (response) {
+                //sdfsdfsdfsd
+
+                _this2.$store.dispatch("loadItems", _this2.$store.state.items.concat(clickedItems));
+                $('#modal-loading').modal('hide');
+              })["catch"](function (error) {
+                console.log(error);
+                this.$store.dispatch("loadItems", this.$store.state.items.concat(clickedItems));
+                $('#modal-loading').modal('hide');
+              });
+            case 10:
+              //test
+
+              console.log(_this2.clickedItems);
+            case 11:
+            case "end":
+              return _context2.stop();
+          }
+        }, _callee2);
+      }))();
+    },
+    toggleModal: function toggleModal(item) {
+      var _this3 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
+        var self;
+        return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+          while (1) switch (_context3.prev = _context3.next) {
+            case 0:
               console.log(item);
               console.log("sssssssssssssssssssssssss");
-              self = _this2; //   await axios.get(process.env.MIX_DEV_API + "/getOrderData", {'category_id': 1}).then(function (res) {
+              self = _this3; //   await axios.get(process.env.MIX_DEV_API + "/getOrderData", {'category_id': 1}).then(function (res) {
               //     console.log(res)
               //   });
-              _context2.next = 5;
+              _context3.next = 5;
               return axios.post("https://api.nbadigital.tech/antiques" + "/getOrderData", {
                 category_id: item.category_id
               }, {
@@ -20269,8 +20303,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 }
               }).then(function (response) {
                 console.log(response.data.getCateOrder);
-                _this2.productDetails = response.data.getCateOrder[0].getCateOrder.all_cate.detail_data;
-                console.log("produ", _this2.productDetails);
+                _this3.productDetails = response.data.getCateOrder[0].getCateOrder.all_cate.detail_data;
+                console.log("produ", _this3.productDetails);
                 var body = document.querySelector("body");
                 self.active = !self.active;
                 self.active ? body.classList.add("modal-open") : body.classList.remove("modal-open");
@@ -20289,44 +20323,36 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               });
             case 5:
             case "end":
-              return _context2.stop();
+              return _context3.stop();
           }
-        }, _callee2);
+        }, _callee3);
       }))();
     }
   }, "test", function test(id) {
-    var _this3 = this;
-    return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
-      return _regeneratorRuntime().wrap(function _callee3$(_context3) {
-        while (1) switch (_context3.prev = _context3.next) {
+    var _this4 = this;
+    return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4() {
+      return _regeneratorRuntime().wrap(function _callee4$(_context4) {
+        while (1) switch (_context4.prev = _context4.next) {
           case 0:
-            console.log("jj", _this3.$store.state.customers["class"]);
+            console.log("jj", _this4.$store.state.customers["class"]);
             // alert(id)
-            _context3.next = 3;
+            _context4.next = 3;
             return axios.post("https://api.nbadigital.tech/antiques" + "/getdetailvendor", {
               detail_id: id,
-              "class": _this3.$store.state.customers["class"]
+              "class": _this4.$store.state.customers["class"]
             }, {
               headers: {
                 "ngrok-skip-browser-warning": "true"
               }
             }).then(function (response) {
               console.log("aam", response.data);
-              _this3.mul = response.data.data;
-              // this.type = response.data.data[0].class;
-              // this.$store.dispatch('loadCustomers',response.data.data[0]);
-              // if(typeof this.$store.state.customers.class == 'undefined'){
-              //     this.mul = response.data.data;
-              // }else{
-              //     this.mul = response.data.data;
-              // }
-              // console.log(this.$store.state.customers.class)
+              _this4.mul = response.data.data;
             });
           case 3:
           case "end":
-            return _context3.stop();
+            return _context4.stop();
         }
-      }, _callee3);
+      }, _callee4);
     }))();
   })
 });
@@ -20589,24 +20615,72 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }
   },
   methods: {
-    onSelect: function onSelect(item) {
+    deleteProduct: function deleteProduct(value, i) {
       var _this = this;
-      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-        return _regeneratorRuntime().wrap(function _callee$(_context) {
-          while (1) switch (_context.prev = _context.next) {
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+        var text, self;
+        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+          while (1) switch (_context2.prev = _context2.next) {
             case 0:
-              _this.show = false;
-              _this.active = false;
-              _this.$store.dispatch('loadItems', _this.datas);
+              text = "".concat(value.description, " \u0E08\u0E33\u0E19\u0E27\u0E19 ").concat(value.qty, " ").concat(value.unit);
+              self = _this;
+              _this.$swal({
+                title: "คุณต้องการลบรายการนี้หรือไม่?",
+                text: text,
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                confirmButtonText: "ใช่, ฉันต้องการลบ!"
+              }).then( /*#__PURE__*/function () {
+                var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(result) {
+                  return _regeneratorRuntime().wrap(function _callee$(_context) {
+                    while (1) switch (_context.prev = _context.next) {
+                      case 0:
+                        if (!result.value) {
+                          _context.next = 4;
+                          break;
+                        }
+                        _context.next = 3;
+                        return self.$store.state.items.filter(function (value, key) {
+                          return i != key;
+                        });
+                      case 3:
+                        self.$store.state.items = _context.sent;
+                      case 4:
+                      case "end":
+                        return _context.stop();
+                    }
+                  }, _callee);
+                }));
+                return function (_x) {
+                  return _ref.apply(this, arguments);
+                };
+              }());
+            case 3:
+            case "end":
+              return _context2.stop();
+          }
+        }, _callee2);
+      }))();
+    },
+    onSelect: function onSelect(item) {
+      var _this2 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
+        return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+          while (1) switch (_context3.prev = _context3.next) {
+            case 0:
+              _this2.show = false;
+              _this2.active = false;
+              _this2.$store.dispatch('loadItems', _this2.datas);
 
               //save spiderman
               $('#modal-loading').modal('show');
-              _context.next = 6;
+              _context3.next = 6;
               return axios.post("https://api.nbadigital.tech/antiques" + "/order/createOrder", {
-                customers: _this.$store.state.customers,
-                items: _this.$store.state.items,
-                createAt: _this.$store.state.queueDate[1],
-                queue: _this.$store.state.queueDate[0]
+                customers: _this2.$store.state.customers,
+                items: _this2.$store.state.items,
+                createAt: _this2.$store.state.queueDate[1],
+                queue: _this2.$store.state.queueDate[0]
               }, {
                 headers: {
                   "ngrok-skip-browser-warning": "true"
@@ -20616,20 +20690,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               });
             case 6:
             case "end":
-              return _context.stop();
+              return _context3.stop();
           }
-        }, _callee);
+        }, _callee3);
       }))();
     },
     toggleModal: function toggleModal() {
-      var _this2 = this;
-      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+      var _this3 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4() {
         var self;
-        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
-          while (1) switch (_context2.prev = _context2.next) {
+        return _regeneratorRuntime().wrap(function _callee4$(_context4) {
+          while (1) switch (_context4.prev = _context4.next) {
             case 0:
-              self = _this2;
-              _context2.next = 3;
+              self = _this3;
+              _context4.next = 3;
               return axios.get("https://dummyjson.com/products").then(function (res) {
                 var body = document.querySelector("body");
                 self.active = !self.active;
@@ -20640,9 +20714,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               });
             case 3:
             case "end":
-              return _context2.stop();
+              return _context4.stop();
           }
-        }, _callee2);
+        }, _callee4);
       }))();
     },
     test: function test(id) {
@@ -22055,7 +22129,7 @@ function AsyncFromSyncIterator(r) { function AsyncFromSyncIteratorContinuation(r
               return _iterator.next();
             case 13:
               if (!(_iteratorAbruptCompletion = !(_step = _context6.sent).done)) {
-                _context6.next = 25;
+                _context6.next = 30;
                 break;
               }
               element = _step.value;
@@ -22069,61 +22143,68 @@ function AsyncFromSyncIterator(r) { function AsyncFromSyncIteratorContinuation(r
                 headers: {
                   "ngrok-skip-browser-warning": "true"
                 }
+              }).then(function (result) {
+                return result;
               });
             case 19:
               response = _context6.sent;
-              _context6.next = 22;
-              return self.$store.dispatch("loadItems", self.$store.state.items.concat([{
+              ;
+              _context6.t0 = self.$store;
+              _context6.next = 24;
+              return self.$store.state.items.concat([{
                 description: element.description,
                 qty: element.qty,
                 total: element.qty * response.data.data,
-                detail_id: element.detail_id
-              }]));
-            case 22:
+                detail_id: element.detail_id,
+                image: element.image
+              }]);
+            case 24:
+              _context6.t1 = _context6.sent;
+              _context6.next = 27;
+              return _context6.t0.dispatch.call(_context6.t0, "loadItems", _context6.t1);
+            case 27:
               _iteratorAbruptCompletion = false;
               _context6.next = 11;
               break;
-            case 25:
-              _context6.next = 31;
-              break;
-            case 27:
-              _context6.prev = 27;
-              _context6.t0 = _context6["catch"](9);
-              _didIteratorError = true;
-              _iteratorError = _context6.t0;
-            case 31:
-              _context6.prev = 31;
-              _context6.prev = 32;
-              if (!(_iteratorAbruptCompletion && _iterator["return"] != null)) {
-                _context6.next = 36;
-                break;
-              }
+            case 30:
               _context6.next = 36;
-              return _iterator["return"]();
+              break;
+            case 32:
+              _context6.prev = 32;
+              _context6.t2 = _context6["catch"](9);
+              _didIteratorError = true;
+              _iteratorError = _context6.t2;
             case 36:
               _context6.prev = 36;
+              _context6.prev = 37;
+              if (!(_iteratorAbruptCompletion && _iterator["return"] != null)) {
+                _context6.next = 41;
+                break;
+              }
+              _context6.next = 41;
+              return _iterator["return"]();
+            case 41:
+              _context6.prev = 41;
               if (!_didIteratorError) {
-                _context6.next = 39;
+                _context6.next = 44;
                 break;
               }
               throw _iteratorError;
-            case 39:
+            case 44:
+              return _context6.finish(41);
+            case 45:
               return _context6.finish(36);
-            case 40:
-              return _context6.finish(31);
-            case 41:
-              setTimeout(function () {
-                $('#modal-loading').modal('hide');
-              }, 2000);
+            case 46:
+              $('#modal-loading').modal('hide');
 
               //   await items.forEach(async function (element) {
 
               //   });
-            case 42:
+            case 47:
             case "end":
               return _context6.stop();
           }
-        }, _callee6, this, [[9, 27, 31, 41], [32,, 36, 40]]);
+        }, _callee6, this, [[9, 32, 36, 46], [37,, 41, 45]]);
       }));
       function idCard(_x2, _x3) {
         return _idCard.apply(this, arguments);
@@ -22771,6 +22852,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   props: ["name", "id", "multiple", "vModel", "data"],
   data: function data() {
     return {
+      cameraApi: "",
       active: false,
       show: false,
       num: 0,
@@ -22789,6 +22871,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     };
   },
   mounted: function mounted() {
+    this.cameraApi = "http://192.168.1.21:5555";
     // this.datas  = JSON.parse(localStorage.storedData);
     this.datas = this.$store.state.items;
     console.log("11111111111111");
@@ -22809,24 +22892,79 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }
   },
   methods: {
-    onSelect: function onSelect(item) {
+    deleteProduct: function deleteProduct(value, key) {
       var _this = this;
-      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-        return _regeneratorRuntime().wrap(function _callee$(_context) {
-          while (1) switch (_context.prev = _context.next) {
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+        var text, self;
+        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+          while (1) switch (_context2.prev = _context2.next) {
             case 0:
-              _this.show = false;
-              _this.active = false;
-              _this.$store.dispatch('loadItems', _this.datas);
+              text = "".concat(value.description, " \u0E08\u0E33\u0E19\u0E27\u0E19 ").concat(value.qty, " ").concat(value.unit);
+              self = _this;
+              _this.$swal({
+                title: "คุณต้องการลบรายการนี้หรือไม่?",
+                text: text,
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                confirmButtonText: "ใช่, ฉันต้องการลบ!"
+              }).then( /*#__PURE__*/function () {
+                var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(result) {
+                  return _regeneratorRuntime().wrap(function _callee$(_context) {
+                    while (1) switch (_context.prev = _context.next) {
+                      case 0:
+                        if (!result.value) {
+                          _context.next = 10;
+                          break;
+                        }
+                        _context.prev = 1;
+                        _context.next = 4;
+                        return self.$store.state.items.filter(function (value, key) {
+                          return i != key;
+                        });
+                      case 4:
+                        self.$store.state.items = _context.sent;
+                        _context.next = 10;
+                        break;
+                      case 7:
+                        _context.prev = 7;
+                        _context.t0 = _context["catch"](1);
+                        window.location.reload();
+                      case 10:
+                      case "end":
+                        return _context.stop();
+                    }
+                  }, _callee, null, [[1, 7]]);
+                }));
+                return function (_x) {
+                  return _ref.apply(this, arguments);
+                };
+              }());
+            case 3:
+            case "end":
+              return _context2.stop();
+          }
+        }, _callee2);
+      }))();
+    },
+    onSelect: function onSelect(item) {
+      var _this2 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
+        return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+          while (1) switch (_context3.prev = _context3.next) {
+            case 0:
+              _this2.show = false;
+              _this2.active = false;
+              _this2.$store.dispatch('loadItems', _this2.datas);
 
               //save spiderman
               $('#modal-loading').modal('show');
-              _context.next = 6;
+              _context3.next = 6;
               return axios.post("https://api.nbadigital.tech/antiques" + "/order/createOrder", {
-                customers: _this.$store.state.customers,
-                items: _this.$store.state.items,
-                createAt: _this.$store.state.queueDate[1],
-                queue: _this.$store.state.queueDate[0]
+                customers: _this2.$store.state.customers,
+                items: _this2.$store.state.items,
+                createAt: _this2.$store.state.queueDate[1],
+                queue: _this2.$store.state.queueDate[0]
               }, {
                 headers: {
                   "ngrok-skip-browser-warning": "true"
@@ -22836,20 +22974,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               });
             case 6:
             case "end":
-              return _context.stop();
+              return _context3.stop();
           }
-        }, _callee);
+        }, _callee3);
       }))();
     },
     toggleModal: function toggleModal() {
-      var _this2 = this;
-      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+      var _this3 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4() {
         var self;
-        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
-          while (1) switch (_context2.prev = _context2.next) {
+        return _regeneratorRuntime().wrap(function _callee4$(_context4) {
+          while (1) switch (_context4.prev = _context4.next) {
             case 0:
-              self = _this2;
-              _context2.next = 3;
+              self = _this3;
+              _context4.next = 3;
               return axios.get("https://dummyjson.com/products").then(function (res) {
                 var body = document.querySelector("body");
                 self.active = !self.active;
@@ -22860,9 +22998,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               });
             case 3:
             case "end":
-              return _context2.stop();
+              return _context4.stop();
           }
-        }, _callee2);
+        }, _callee4);
       }))();
     },
     test: function test(id) {
@@ -24050,7 +24188,13 @@ var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 var _hoisted_25 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("บันทึก ");
 var _hoisted_26 = [_hoisted_24, _hoisted_25];
 var _hoisted_27 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("   ");
-var _hoisted_28 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
+var _hoisted_28 = ["onClick"];
+var _hoisted_29 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "fa fa-trash mr-2"
+}, null, -1 /* HOISTED */);
+var _hoisted_30 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("ลบ ");
+var _hoisted_31 = [_hoisted_29, _hoisted_30];
+var _hoisted_32 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _this = this;
@@ -24060,7 +24204,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       "class": "text-center",
       key: i
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(i + 1), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(value.description), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(value.qty), 1 /* TEXT */), _hoisted_11, _this.$store.state.dataOpen[0] != 'FINISH' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("td", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <button type=\"\" class=\"btn btn-warning\"><i class=\"fa fa-edit mr-2\"></i>แก้ไข</button> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_modal, {
-      "modal-id": 'test' + i,
+      "modal-id": 'product' + i,
       title: "แก้ไขรายการสินค้า",
       "button-text": "แก้ไข",
       "class-name": "btn btn-sm btn-warning",
@@ -24114,8 +24258,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         }, _hoisted_26)];
       }),
       _: 2 /* DYNAMIC */
-    }, 1032 /* PROPS, DYNAMIC_SLOTS */, ["modal-id"]), _hoisted_27])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <td></td>\n                                            <td>0</td>\n                                            <td>{{value.total}}</td> ")]);
-  }), 128 /* KEYED_FRAGMENT */))])])]), _hoisted_28, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"row\">\n    <div class=\"col-md-4\">\n\n        </div>\n        <div class=\"col-md-2\">\n\n</div>\n<div class=\"col-md-6\">\n    <div class=\"form-group row\" style=\"margin-bottom: 0px;    margin-bottom: 0px;margin-top: -12px;\n\n    \">\n    <label for=\"staticEmail\" class=\"col-sm-6\" style=\"\"><span>Weight:</span> <span style=\"    font-size: 28px;\">25.48 KG</span>  </label>\n    <label for=\"staticEmail\" class=\"col-sm-6\" style=\"\"><span>Total:</span> <span style=\"    font-size: 28px;\">                                {{totalTaxes}}\n</span> </label>\n\n\n    </div>\n\n</div>\n\n</div> ")], 64 /* STABLE_FRAGMENT */);
+    }, 1032 /* PROPS, DYNAMIC_SLOTS */, ["modal-id"]), _hoisted_27, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+      "class": "btn btn-danger btn-sm",
+      onClick: function onClick($event) {
+        return $options.deleteProduct(value, i);
+      }
+    }, _hoisted_31, 8 /* PROPS */, _hoisted_28)])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <td></td>\n                                            <td>0</td>\n                                            <td>{{value.total}}</td> ")]);
+  }), 128 /* KEYED_FRAGMENT */))])])]), _hoisted_32, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"row\">\n    <div class=\"col-md-4\">\n\n        </div>\n        <div class=\"col-md-2\">\n\n</div>\n<div class=\"col-md-6\">\n    <div class=\"form-group row\" style=\"margin-bottom: 0px;    margin-bottom: 0px;margin-top: -12px;\n\n    \">\n    <label for=\"staticEmail\" class=\"col-sm-6\" style=\"\"><span>Weight:</span> <span style=\"    font-size: 28px;\">25.48 KG</span>  </label>\n    <label for=\"staticEmail\" class=\"col-sm-6\" style=\"\"><span>Total:</span> <span style=\"    font-size: 28px;\">                                {{totalTaxes}}\n</span> </label>\n\n\n    </div>\n\n</div>\n\n</div> ")], 64 /* STABLE_FRAGMENT */);
 }
 
 /***/ }),
@@ -25559,41 +25708,48 @@ var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   }
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", {
   "class": "text-center"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "ProductID"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "Description"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "Qty"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "UM"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "Amount"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "Total"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th")])], -1 /* HOISTED */);
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "ProductID"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "Description"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "Qty"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "UM"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "Amount"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "Total"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "Image"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th")])], -1 /* HOISTED */);
 var _hoisted_4 = {
   "class": "text-left"
 };
 var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, "กิโล", -1 /* HOISTED */);
 var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, "0", -1 /* HOISTED */);
-var _hoisted_7 = ["value"];
-var _hoisted_8 = {
+var _hoisted_7 = ["src"];
+var _hoisted_8 = ["value"];
+var _hoisted_9 = {
   "class": "form-row align-items-center"
 };
-var _hoisted_9 = {
+var _hoisted_10 = {
   "class": "col-auto my-1"
 };
-var _hoisted_10 = ["onClick"];
-var _hoisted_11 = {
+var _hoisted_11 = ["onClick"];
+var _hoisted_12 = {
   "class": "col-auto my-1"
 };
-var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "class": "mr-sm-2",
   "for": "inlineFormCustomSelect"
 }, "Product Description (KG)", -1 /* HOISTED */);
-var _hoisted_13 = ["onUpdate:modelValue"];
-var _hoisted_14 = {
+var _hoisted_14 = ["onUpdate:modelValue"];
+var _hoisted_15 = {
   "class": "col-auto my-1"
 };
-var _hoisted_15 = ["onClick"];
-var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
+var _hoisted_16 = ["onClick"];
 var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
-var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
+var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "class": "fa fa-save mr-2"
 }, null, -1 /* HOISTED */);
-var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("บันทึก ");
-var _hoisted_20 = [_hoisted_18, _hoisted_19];
-var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("   ");
-var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
+var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("บันทึก ");
+var _hoisted_21 = [_hoisted_19, _hoisted_20];
+var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("   ");
+var _hoisted_23 = ["onClick"];
+var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "fa fa-trash mr-2"
+}, null, -1 /* HOISTED */);
+var _hoisted_25 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("ลบ ");
+var _hoisted_26 = [_hoisted_24, _hoisted_25];
+var _hoisted_27 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_modal = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("modal");
@@ -25601,8 +25757,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tr", {
       "class": "text-center",
       key: i
-    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(i + 1), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(value.description), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(value.qty), 1 /* TEXT */), _hoisted_5, _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(value.total), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <button type=\"\" class=\"btn btn-warning\"><i class=\"fa fa-edit mr-2\"></i>แก้ไข</button> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_modal, {
-      "modal-id": 'test' + i,
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(i + 1), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(value.description), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(value.qty), 1 /* TEXT */), _hoisted_5, _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(value.total), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+      style: {
+        "width": "70px",
+        "height": "70px"
+      },
+      src: "".concat($data.cameraApi, "/images/").concat(value.image, ".jpg")
+    }, null, 8 /* PROPS */, _hoisted_7)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <button type=\"\" class=\"btn btn-warning\"><i class=\"fa fa-edit mr-2\"></i>แก้ไข</button> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_modal, {
+      "modal-id": 'testcashier' + i,
       title: "แก้ไขรายการสินค้า",
       "button-text": "แก้ไข",
       "class-name": "btn btn-sm btn-warning",
@@ -25617,7 +25779,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           "aria-describedby": "emailHelp",
           placeholder: "Enter email",
           value: value.description + '-' + value.detail_id
-        }, null, 8 /* PROPS */, _hoisted_7), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+        }, null, 8 /* PROPS */, _hoisted_8), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
           style: {
             "font-size": "25px",
             "width": "60px",
@@ -25628,14 +25790,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           onClick: function onClick($event) {
             return $options.datas[i].qty--;
           }
-        }, " - ", 8 /* PROPS */, _hoisted_10)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [_hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+        }, " - ", 8 /* PROPS */, _hoisted_11)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [_hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
           "class": "form-control",
           type: "number",
           min: "0",
+          style: {
+            "font-size": "20px",
+            "color": "blue",
+            "font-weight": "bold"
+          },
           "onUpdate:modelValue": function onUpdateModelValue($event) {
             return $options.datas[i].qty = $event;
           }
-        }, null, 8 /* PROPS */, _hoisted_13), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $options.datas[i].qty]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+        }, null, 8 /* PROPS */, _hoisted_14), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $options.datas[i].qty]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
           style: {
             "font-size": "25px",
             "width": "60px",
@@ -25646,18 +25813,23 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           onClick: function onClick($event) {
             return $options.datas[i].qty++;
           }
-        }, " + ", 8 /* PROPS */, _hoisted_15)])]), _hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <table class=\"table table-bordered\">\n                              <tbody>\n                                <tr>\n                                  <td><b>Total Qty</b></td>\n                                  <td>\n                                    <input\n                                      style=\"\n                                        color: red;\n                                        font-weight: bold;\n                                        font-size: 21px;\n                                      \"\n                                      type=\"email\"\n                                      disabled\n                                      class=\"form-control\"\n                                      id=\"exampleInputEmail1\"\n                                      aria-describedby=\"emailHelp\"\n                                      placeholder=\"Enter email\"\n                                      :value=\"num * mul\"\n                                    />\n                                  </td>\n                                </tr>\n                              </tbody>\n                            </table> "), _hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+        }, " + ", 8 /* PROPS */, _hoisted_16)])]), _hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <table class=\"table table-bordered\">\n                              <tbody>\n                                <tr>\n                                  <td><b>Total Qty</b></td>\n                                  <td>\n                                    <input\n                                      style=\"\n                                        color: red;\n                                        font-weight: bold;\n                                        font-size: 21px;\n                                      \"\n                                      type=\"email\"\n                                      disabled\n                                      class=\"form-control\"\n                                      id=\"exampleInputEmail1\"\n                                      aria-describedby=\"emailHelp\"\n                                      placeholder=\"Enter email\"\n                                      :value=\"num * mul\"\n                                    />\n                                  </td>\n                                </tr>\n                              </tbody>\n                            </table> "), _hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
           "data-dismiss": "modal",
           onClick: _cache[0] || (_cache[0] = function () {
             return $options.onSelect(_ctx.product);
           }),
           type: "button",
           "class": "btn btn-success float-right btn-lg"
-        }, _hoisted_20)];
+        }, _hoisted_21)];
       }),
       _: 2 /* DYNAMIC */
-    }, 1032 /* PROPS, DYNAMIC_SLOTS */, ["modal-id"]), _hoisted_21])]);
-  }), 128 /* KEYED_FRAGMENT */))])])]), _hoisted_22, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"row\">\n   <div class=\"col-md-4\">\n\n       </div>\n       <div class=\"col-md-2\">\n\n</div>\n<div class=\"col-md-6\">\n   <div class=\"form-group row\" style=\"margin-bottom: 0px;    margin-bottom: 0px;margin-top: -12px;\n\n   \">\n   <label for=\"staticEmail\" class=\"col-sm-6\" style=\"\"><span>Weight:</span> <span style=\"    font-size: 28px;\">25.48 KG</span>  </label>\n   <label for=\"staticEmail\" class=\"col-sm-6\" style=\"\"><span>Total:</span> <span style=\"    font-size: 28px;\">                                {{totalTaxes}}\n</span> </label>\n\n\n   </div>\n\n</div>\n\n</div> ")], 64 /* STABLE_FRAGMENT */);
+    }, 1032 /* PROPS, DYNAMIC_SLOTS */, ["modal-id"]), _hoisted_22, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+      "class": "btn btn-danger btn-sm",
+      onClick: function onClick($event) {
+        return $options.deleteProduct(value, i);
+      }
+    }, _hoisted_26, 8 /* PROPS */, _hoisted_23)])]);
+  }), 128 /* KEYED_FRAGMENT */))])])]), _hoisted_27, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"row\">\n   <div class=\"col-md-4\">\n\n       </div>\n       <div class=\"col-md-2\">\n\n</div>\n<div class=\"col-md-6\">\n   <div class=\"form-group row\" style=\"margin-bottom: 0px;    margin-bottom: 0px;margin-top: -12px;\n\n   \">\n   <label for=\"staticEmail\" class=\"col-sm-6\" style=\"\"><span>Weight:</span> <span style=\"    font-size: 28px;\">25.48 KG</span>  </label>\n   <label for=\"staticEmail\" class=\"col-sm-6\" style=\"\"><span>Total:</span> <span style=\"    font-size: 28px;\">                                {{totalTaxes}}\n</span> </label>\n\n\n   </div>\n\n</div>\n\n</div> ")], 64 /* STABLE_FRAGMENT */);
 }
 
 /***/ }),

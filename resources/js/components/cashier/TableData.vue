@@ -10,6 +10,7 @@
                                            <th>UM</th>
                                            <th>Amount</th>
                                            <th>Total</th>
+                                           <th>Image</th>
                                            <th></th>
                                        </tr>
                                    </thead>
@@ -22,10 +23,11 @@
                                            <td>กิโล</td>
                                            <td>0</td>
                                            <td>{{value.total}}</td>
+                                           <th ><img style="width:70px;height:70px;" :src="`${cameraApi}/images/${value.image}.jpg`"></th>
                                            <td >
 <!-- <button type="" class="btn btn-warning"><i class="fa fa-edit mr-2"></i>แก้ไข</button> -->
 <modal
-                          :modal-id="'test'+i"
+                          :modal-id="'testcashier'+i"
                           title="แก้ไขรายการสินค้า"
                           button-text="แก้ไข"
                           class-name="btn btn-sm btn-warning"
@@ -63,6 +65,7 @@
                                   class="form-control"
                                   type="number"
                                   min="0"
+                                  style="font-size: 20px; color: blue; font-weight: bold;"
                                   v-model="datas[i].qty"
                                 />
                               </div>
@@ -114,6 +117,9 @@
 
                          </modal
                         >&nbsp;&nbsp;
+                        <button class="btn btn-danger btn-sm" @click="deleteProduct(value, i)">
+                              <i class="fa fa-trash mr-2"></i>ลบ
+                            </button>
                                             </td>
 
                                        </tr>
@@ -152,6 +158,7 @@ export default {
  props: ["name", "id", "multiple", "vModel", "data"],
  data() {
    return {
+        cameraApi: "",
      active: false,
      show: false,
      num: 0,
@@ -166,6 +173,7 @@ export default {
  },
 
  mounted: function () {
+    this.cameraApi = process.env.MIX_CAMERA_API;
    // this.datas  = JSON.parse(localStorage.storedData);
    this.datas = this.$store.state.items;
    console.log("11111111111111")
@@ -186,6 +194,31 @@ export default {
    }
  },
  methods: {
+    async deleteProduct(value, key){
+
+        var text = `${value.description} จำนวน ${value.qty} ${value.unit}`;
+    const self = this;
+    this.$swal({
+    title: "คุณต้องการลบรายการนี้หรือไม่?",
+    text: text,
+    type: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    confirmButtonText: "ใช่, ฉันต้องการลบ!"
+}).then(async function (result) {
+
+    if (result.value) { // <-- if confirmed
+        try {
+            self.$store.state.items = await self.$store.state.items.filter(function(value, key){
+        return i != key
+       });
+        } catch (error) {
+            window.location.reload();
+        }
+
+    }
+          });
+},
     async onSelect(item) {
       this.show = false;
       this.active = false;

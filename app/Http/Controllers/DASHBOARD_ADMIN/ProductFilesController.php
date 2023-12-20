@@ -81,7 +81,6 @@ class ProductFilesController extends Controller
 
         $data = $response->json()["data"];
 
-
         return view('DASHBOARD_ADMIN.dashboard.index', compact('data'));
     }
 }

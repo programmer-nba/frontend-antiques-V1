@@ -16,7 +16,6 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-
                                         <tr class="text-center" v-for="(value, i) in datas" :key="i">
                                             <td>{{i+1}}</td>
                                             <td class="text-left">{{value.description}}</td>
@@ -25,7 +24,7 @@
                                             <td  v-if="this.$store.state.dataOpen[0] != 'FINISH'">
 <!-- <button type="" class="btn btn-warning"><i class="fa fa-edit mr-2"></i>แก้ไข</button> -->
 <modal
-                          :modal-id="'test'+i"
+                          :modal-id="'product'+i"
                           title="แก้ไขรายการสินค้า"
                           button-text="แก้ไข"
                           class-name="btn btn-sm btn-warning"
@@ -114,6 +113,9 @@
 
                          </modal
                         >&nbsp;&nbsp;
+                        <button class="btn btn-danger btn-sm" @click="deleteProduct(value, i)">
+                              <i class="fa fa-trash mr-2"></i>ลบ
+                            </button>
                                             </td>
 
                                             <!-- <td></td>
@@ -190,6 +192,27 @@ export default {
     }
   },
   methods: {
+
+  async deleteProduct(value, i){
+
+    var text = `${value.description} จำนวน ${value.qty} ${value.unit}`;
+    const self = this;
+    this.$swal({
+    title: "คุณต้องการลบรายการนี้หรือไม่?",
+    text: text,
+    type: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    confirmButtonText: "ใช่, ฉันต้องการลบ!"
+}).then(async function (result) {
+
+    if (result.value) { // <-- if confirmed
+       self.$store.state.items = await self.$store.state.items.filter(function(value, key){
+        return i != key
+       });
+    }
+          });
+  },
     async onSelect(item) {
       this.show = false;
       this.active = false;

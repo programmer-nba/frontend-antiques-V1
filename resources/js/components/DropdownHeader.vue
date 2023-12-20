@@ -335,6 +335,7 @@ export default {
   props: ["name", "id", "multiple", "vModel", "data", "username"],
   data() {
     return {
+        myRnId: parseInt(Date.now() * Math.random()),
       active: false,
       show: false,
       num: 0,
@@ -351,7 +352,6 @@ export default {
   },
 
   mounted: function () {
-
     const self = this;
     $(document).on('show.bs.modal', '.modal', function () {
         self.num = 0;
@@ -447,7 +447,7 @@ deduct(){
     test() {
       alert("dd");
     },
-    onSelect(item) {
+    async onSelect(item) {
       this.show = false;
       this.active = false;
       console.log(this.$store.state.items);
@@ -459,10 +459,40 @@ deduct(){
         qty: this.num,
         total: this.num * this.mul,
         detail_id: item.detail_id,
-        unit: item.unit
+        unit: item.unit,
+        image: this.myRnId+"-"+this.$store.state.items.length
       });
       localStorage.storedData = JSON.stringify(clickedItems);
-      this.$store.dispatch("loadItems", this.$store.state.items.concat(clickedItems));
+      $('#modal-loading').modal('show');
+
+      await axios
+        .post(
+            process.env.MIX_CAMERA_API,
+          {
+            // createAt : this.$store.state.queueDate[1],
+            // queue: this.$store.state.queueDate[0],
+            name: this.myRnId+"-"+this.$store.state.items.length
+          },
+          {
+            headers: {
+              "ngrok-skip-browser-warning": "true",
+            },
+          }
+        )
+        .then((response) => {
+            //sdfsdfsdfsd
+
+            this.$store.dispatch("loadItems", this.$store.state.items.concat(clickedItems));
+            $('#modal-loading').modal('hide');
+
+        }).catch(function(error){
+            console.log(error)
+            this.$store.dispatch("loadItems", this.$store.state.items.concat(clickedItems));
+            $('#modal-loading').modal('hide');
+
+        });
+
+
       //test
 
       console.log(this.clickedItems);
@@ -530,14 +560,6 @@ deduct(){
         .then((response) => {
           console.log("aam", response.data);
           this.mul = response.data.data;
-          // this.type = response.data.data[0].class;
-          // this.$store.dispatch('loadCustomers',response.data.data[0]);
-          // if(typeof this.$store.state.customers.class == 'undefined'){
-          //     this.mul = response.data.data;
-          // }else{
-          //     this.mul = response.data.data;
-          // }
-          // console.log(this.$store.state.customers.class)
         });
     },
   },

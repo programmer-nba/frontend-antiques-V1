@@ -551,24 +551,29 @@ const response = await axios
         "ngrok-skip-browser-warning": "true",
       },
     }
-  );
+  ).then( (result) => {
+        return result;
+    });;
 
   await self.$store.dispatch(
       "loadItems",
-      self.$store.state.items.concat([
+      await self.$store.state.items.concat([
         {
           description: element.description,
           qty: element.qty,
           total: element.qty * response.data.data,
           detail_id: element.detail_id,
+          image:element.image
         },
       ])
     );
-        }
-        setTimeout(function(){
-            $('#modal-loading').modal('hide');
 
-        }, 2000)
+
+        }
+
+        $('#modal-loading').modal('hide');
+
+
 
     //   await items.forEach(async function (element) {
 
