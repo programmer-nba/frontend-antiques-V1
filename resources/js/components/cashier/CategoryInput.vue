@@ -335,6 +335,31 @@ export default {
 
       console.log(this.clickedItems);
     },
+    async insert(num, id) {
+      this.num = this.num + num;
+      var len = this.num;
+
+      setTimeout(function () {
+        $("#" + id + "-input")
+          .val("")
+          .focus()
+          .val(len);
+      }, 0);
+    },
+    back(id) {
+      this.num = this.num.substring(0, this.num.length - 1);
+      var num = this.num;
+      setTimeout(function () {
+        $("#" + id + "-input")
+          .val("")
+          .focus()
+          .val(num);
+      }, 0);
+    },
+    clean(id) {
+      this.num = "";
+      $("#" + id + "-input").focus();
+    },
     async toggleModal(item) {
       console.log(item);
       console.log("sssssssssssssssssssssssss");

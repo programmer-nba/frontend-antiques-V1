@@ -28,7 +28,7 @@
             <slot></slot>
         </div>
         <div class="modal-footer">
-        
+
         </div>
       </div>
     </div>
@@ -38,5 +38,6 @@
 <script>
 export default {
   props: ["title", "buttonText", "className", "iconName", "modalId"],
+
 };
 </script>

@@ -32,7 +32,7 @@
                         width: 50%;
                       ">Date: </label>
                         <div class="col-sm-10">
-                          <input type="date"  class="form-control" id="staticEmail"  v-model="date">
+                          <input type="date"  class="form-control" id="staticEmail"  v-model="this.$store.state.queueDate[1]">
                         </div>
                       </div>
                 </li>

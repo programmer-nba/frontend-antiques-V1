@@ -26,6 +26,7 @@
                                            <th ><img style="width:70px;height:70px;" :src="`${cameraApi}/images/${value.image}.jpg`"></th>
                                            <td >
 <!-- <button type="" class="btn btn-warning"><i class="fa fa-edit mr-2"></i>แก้ไข</button> -->
+<button type="button" @click="showData(value)" class="btn btn-primary btn-sm"><i class="fa fa-eye mr-2"></i>ดูข้อมูล</button>&nbsp;&nbsp;
 <modal
                           :modal-id="'testcashier'+i"
                           title="แก้ไขรายการสินค้า"
@@ -149,6 +150,49 @@
 </div>
 
 </div> -->
+
+<div class="modal fade"  id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">รายการทั้งหมดของวันนี้</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <div  style="overflow-x:auto;">
+      <!-- <p>Response Data: {{ responseData }}</p> -->
+      <h2>เหล็กหนา 1 </h2>
+      <table class="table table-striped">
+                                        <thead>
+                                          <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">รายการ</th>
+                                            <th scope="col">จำนวน</th>
+                                            <th scope="col">ราคารวม</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        </tbody>
+                                      </table>
+
+
+    </div>
+
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+
+
 </template>
 
 <script>
@@ -218,6 +262,9 @@ export default {
 
     }
           });
+},
+async showData(value){
+$('#exampleModal').modal('show')
 },
     async onSelect(item) {
       this.show = false;

@@ -6,6 +6,7 @@
     class-name="btn btn-primary float-right"
     icon-name="fa fa-plus"
   >
+
   <div class="form-group">
       <label for="exampleInputEmail1">หมายเลขทะเบียนรถ </label>
       <input type="text" class="form-control" v-model="customer.vehicle" placeholder="ป้อนหมายเลขทะเบียนรถ" />
@@ -42,7 +43,7 @@
   <br /><br />
   <form>
     <div class="row">
-      <div class="col-sm-4">
+      <div class="col-md-4">
         <div class="form-group">
           <label>ID</label>
           <select2-component
@@ -59,7 +60,7 @@
           </select2-component>
         </div>
       </div>
-      <div class="col-sm-4">
+      <div class="col-md-4">
         <div class="form-group">
           <label>Name</label>
 
@@ -71,7 +72,7 @@
           </select2-component>
         </div>
       </div>
-      <div class="col-sm-4">
+      <div class="col-md-4">
         <div class="form-group">
           <label>Type</label>
           <input
@@ -87,7 +88,7 @@
     </div>
 
     <div class="row">
-      <div class="col-sm-4">
+      <div class="col-md-4">
         <div class="form-group">
           <label>Warehoursse</label>
           <select2-component         :disabled="this.$store.state.dataOpen[0] == 'FINISH'  || this.$store.state.dataOpen[0] == 'APPROVE'"
@@ -102,7 +103,7 @@
               <input type="text" class="form-control" placeholder="Enter ..." disabled />
             </div>
           </div> -->
-      <div class="col-sm-5">
+      <div class="col-md-5">
         <div class="form-group">
           <div v-for="(name, i) in key" :key="name.id">
             <div class="name">
@@ -125,7 +126,7 @@
           </select2-component>
         </div>
       </div>
-      <div class="col-sm-3">
+      <div class="col-md-3">
         <div class="form-group">
           <button type="button" @click="clear" class="btn btn-danger mt-4">ล้าง</button>
         </div>
@@ -138,7 +139,7 @@
         <img
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnqaInVc1iASODNTtkxaSp7Z_zoIDUDMNArKQwxCHUHw&s"
           alt=""
-          style="height: 80px; width: 80px; margin-right: 20px"
+          style="height: 10vh; width:5vw; margin-right: 1vw"
         />
       </td>
       <td>
@@ -146,7 +147,7 @@
           @click="getOrder()"
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLQDlDeKd8O4BrfOk6iuyzaaqXITgUJ69Zzw&usqp=CAU"
           alt=""
-          style="height: 80px; width: 80px; margin-right: 20px"
+          style="height: 10vh; width:5vw; margin-right: 1vw"
         />
       </td>
       <td>
@@ -154,7 +155,15 @@
         @click="saveafterfinish()"
           src="https://cdn-icons-png.flaticon.com/512/4856/4856668.png"
           alt=""
-          style="height: 80px; width: 80px; margin-right: 20px"
+          style="height: 10vh; width:5vw; margin-right: 1vw"
+        />
+      </td>
+      <td>
+        <img
+        @click="showList()"
+          :src="'/images/list.png'"
+          alt=""
+          style="height: 10vh; width:5vw; margin-right: 1vw"
         />
       </td>
       <!-- <td>
@@ -162,11 +171,98 @@
         <img
           src="https://icons-for-free.com/iconfiles/png/512/print-131964753156480777.png"
           alt=""
-          style="height: 80px; width: 80px; margin-right: 20px"
+          style="height: 10vh; width:5vw; margin-right: 1vw"
         /></a>
       </td> -->
     </tr>
   </table>
+
+
+
+
+
+  <div class="modal fade"  id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">รายการทั้งหมดของวันนี้</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <div  style="overflow-x:auto;">
+      <!-- <p>Response Data: {{ responseData }}</p> -->
+      <table class="table table-striped text-center">
+  <thead>
+    <tr>
+      <th scope="col">คิวที่</th>
+      <th scope="col">สถานะ</th>
+      <th scope="col">ข้อมูลลูกค้า</th>
+      <th scope="col">ประเภทลูกค้า</th>
+      <th scope="col">ข้อมูลสินค้า</th>
+      <th scope="col">ราคาทั้งหมด</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr v-for="(item, key) in overview">
+        <td>{{item["data"]["queue"]}}</td>
+        <td>
+            <button v-if="item['data']['status'] == 'FINISH'" type="button" class="btn btn-warning">รับออเดอร์แล้ว</button>
+            <button v-if="item['data']['status'] == 'APPROVE'" type="button" class="btn btn-success">จ่ายเงินแล้ว</button>
+        </td>
+        <td>{{item["data"]["fullname_th"]}}</td>
+        <td>{{item["data"]["class"]}}</td>
+        <td>
+                                <modal    :modal-id="'overview'+key"
+    title="รายการทั้งหมดของวันนี้"
+    button-text="ดูรายการสินค้า"
+    class-name="btn btn-primary"
+    icon-name="fa fa-eye"
+>
+<h2 class="text-center">คิวที่ {{item["data"]["queue"]}}</h2>
+                                    <table class="table table-striped">
+                                        <thead>
+                                          <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">รายการ</th>
+                                            <th scope="col">จำนวน</th>
+                                            <th scope="col">ราคารวม</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr v-for="(item2, key2) in item['data']['order_detail']">
+                                                <th scope="row">{{key2+1}}</th>
+                                                <td>{{item2['description']}}</td>
+                                                <td>{{item2['qty']}}</td>
+                                                <td>{{item2['total']}}</td>
+                                              </tr>
+                                        </tbody>
+                                      </table>
+
+                                  </modal>&nbsp;&nbsp;
+                            </td>
+                            <td>{{item["data"]['total']}}</td>
+
+    </tr>
+  </tbody>
+</table>
+
+
+    </div>
+
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+
+
 </template>
 
 <script>
@@ -196,6 +292,7 @@ export default {
       name: "",
       vehicle: "",
       type: "",
+      overview: "",
       loadCustomers: [],
       customer: {
         name: '',
@@ -476,6 +573,38 @@ self.customer.birthday = result
     }
   },
   methods: {
+    async showList(){
+        const config = {
+        method: 'post',
+        url: process.env.MIX_DEV_API + "/report/overviewantiques",
+        headers: {
+            "ngrok-skip-browser-warning": "true",
+          // Add any other headers as needed
+        },
+        data:{
+            createAt: new Date().toISOString().slice(0, 10),
+        }
+        // Other configuration options can be added here
+      };
+      $('#modal-loading').modal('show');
+
+      // Make the request
+      axios(config)
+        .then((response) => {
+            console.log("report/overviewantiques", response)
+            this.overview = response.data.data
+            console.log(this.overview)
+            $('#modal-loading').modal('hide');
+
+            $('#exampleModal').modal('show')
+
+
+        })
+        .catch((error) => {
+          // Handle errors
+          console.error('Error:', error);
+        });
+    },
     async saveCustomer(){
         console.log("customer",this.customer)
         await axios
@@ -516,12 +645,15 @@ self.customer.birthday = result
         this.type = "";
     },
     async saveafterfinish(){
+
         await axios
         .post(
           process.env.MIX_DEV_API + "/order/saveafterfinish",
           {
             customers: this.$store.state.customers,
             items: this.$store.state.items,
+            createAt : this.$store.state.queueDate[1],
+            queue: this.$store.state.queueDate[0]
           },
           {
             headers: {
@@ -544,7 +676,39 @@ self.customer.birthday = result
         });
     },
     reloadPage() {
-      window.location.reload();
+        const config = {
+        method: 'get',
+        url: process.env.MIX_DEV_API + "/order/getlastqueue",
+        headers: {
+            "ngrok-skip-browser-warning": "true",
+          // Add any other headers as needed
+        },
+        // Other configuration options can be added here
+      };
+
+      // Make the request
+      axios(config)
+        .then((response) => {
+
+          // Handle the response
+          this.queue = response.data.data;
+
+          this.$store.dispatch("loadQueueAndDate", [
+            this.queue,
+            new Date().toISOString().slice(0, 10)
+          ]);
+            //aaaaaaaaaaaaaaaaaaa
+          this.$store.dispatch("loadItems", []);
+            this.clear();
+            this.$store.dispatch("loadOpen", []);
+
+          console.log("test", this.$store.state.queueDate)
+
+        })
+        .catch((error) => {
+          // Handle errors
+          console.error('Error:', error);
+        });
     },
     myChangeEvent(val) {
       alert(val);

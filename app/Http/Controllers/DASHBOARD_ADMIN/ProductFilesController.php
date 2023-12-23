@@ -83,4 +83,13 @@ class ProductFilesController extends Controller
 
         return view('DASHBOARD_ADMIN.dashboard.index', compact('data'));
     }
+
+    public function user(){
+        return view('DASHBOARD_ADMIN.user.index');
+    }
+
+    public function cashier(){
+        return view('DASHBOARD_ADMIN.cashier.index');
+
+    }
 }

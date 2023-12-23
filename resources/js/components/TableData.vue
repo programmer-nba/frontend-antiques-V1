@@ -8,7 +8,7 @@
                                             <th>Description</th>
                                             <th>Qty</th>
                                             <th>UM</th>
-                                            <th v-if="this.$store.state.dataOpen[0] != 'FINISH'"></th>
+                                            <th v-if="this.$store.state.dataOpen[0] != 'FINISH' && this.$store.state.dataOpen[0] != 'APPROVE'"></th>
 
                                             <!-- <th>Amount</th>
                                             <th>DeductAmt</th>
@@ -21,8 +21,8 @@
                                             <td class="text-left">{{value.description}}</td>
                                             <td>{{value.qty}}</td>
                                             <td>กิโล</td>
-                                            <td  v-if="this.$store.state.dataOpen[0] != 'FINISH'">
-<!-- <button type="" class="btn btn-warning"><i class="fa fa-edit mr-2"></i>แก้ไข</button> -->
+                                            <td  v-if="this.$store.state.dataOpen[0] != 'FINISH' && this.$store.state.dataOpen[0] != 'APPROVE'">
+<!-- <button type="" class="btn btn-primary btn-sm"><i class="fa fa-eye mr-2"></i>ดูข้อมูล</button>&nbsp;&nbsp; -->
 <modal
                           :modal-id="'product'+i"
                           title="แก้ไขรายการสินค้า"

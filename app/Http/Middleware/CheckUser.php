@@ -16,7 +16,7 @@ class CheckUser
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Session::has('level') && session('level') == 2) {
+        if (Session::has('level') && (session('level') == 2 || session('level') == 1)) {
             return $next($request);
         }
 

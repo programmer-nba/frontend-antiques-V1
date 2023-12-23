@@ -17,7 +17,7 @@ class CheckCashier
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Session::has('level') && session('level') == 3) {
+        if (Session::has('level') && (session('level') == 3 || session('level') == 1)) {
             return $next($request);
         }
 
