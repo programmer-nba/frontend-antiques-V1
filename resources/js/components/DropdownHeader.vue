@@ -811,6 +811,7 @@ export default {
 
       $("#modal-loading").modal("show");
 
+      if(false){
         await axios
             .post(
                 process.env.MIX_CAMERA_API,
@@ -836,6 +837,14 @@ export default {
                 this.saveafterfinish()
 
             })
+      }else{
+        this.$store.dispatch("loadItems", this.$store.state.items.concat(clickedItems));
+        $('#modal-loading').modal('hide');
+                this.saveafterfinish()
+
+      }
+
+
 
             // return;
 

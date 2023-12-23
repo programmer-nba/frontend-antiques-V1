@@ -20323,7 +20323,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               });
               localStorage.storedData = JSON.stringify(clickedItems);
               $("#modal-loading").modal("show");
-              _context3.next = 10;
+              if (true) {
+                _context3.next = 13;
+                break;
+              }
+              _context3.next = 11;
               return axios.post("http://192.168.1.21:5555", {
                 // createAt : this.$store.state.queueDate[1],
                 // queue: this.$store.state.queueDate[0],
@@ -20342,7 +20346,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 $('#modal-loading').modal('hide');
                 _this4.saveafterfinish();
               });
-            case 10:
+            case 11:
+              _context3.next = 16;
+              break;
+            case 13:
+              _this4.$store.dispatch("loadItems", _this4.$store.state.items.concat(clickedItems));
+              $('#modal-loading').modal('hide');
+              _this4.saveafterfinish();
+            case 16:
               // return;
 
               try {
@@ -20380,7 +20391,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               //test
 
               console.log(_this4.clickedItems);
-            case 12:
+            case 18:
             case "end":
               return _context3.stop();
           }
