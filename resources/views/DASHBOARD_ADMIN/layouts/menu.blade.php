@@ -46,14 +46,14 @@
     </a>
 </li>
 <li class="nav-item">
-    <a href="{{route('user.index')}}"
+    <a href="{{route('admin.user.index')}}"
        class="nav-link {{ Request::is('admin/user*') ? 'active' : '' }}">
        <i class="nav-icon fa fa-globe"></i>
         <p>หน้าบ้านคีย์ข้อมูล</p>
     </a>
 </li>
 <li class="nav-item">
-    <a href="{{route('cashier.index')}}"
+    <a href="{{route('admin.cashier.index')}}"
        class="nav-link {{ Request::is('admin/cashier*') ? 'active' : '' }}">
        <i class="nav-icon fa fa-globe"></i>
         <p>หน้าแคชเชียร์จ่ายเงิน</p>
