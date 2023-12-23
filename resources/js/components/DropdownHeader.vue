@@ -311,57 +311,7 @@
                               </div> -->
 
                                 <table class="mt-3 text-center">
-                                  <tr>
-                                    <td>
-                                      <button
-                                        type="button"
-                                        style="
-                                          background-color: grey;
-                                          color: white;
-                                          border: 1px solid grey;
-                                          font-size: 2rem;
-                                          width: 4rem;
-                                          height: 4rem;
-                                        "
-                                        @click="clean(product.detail_id)"
-                                      >
-                                        C
-                                      </button>
-                                    </td>
-                                    <td>
-                                      <button
-                                        type="button"
-                                        style="
-                                          background-color: grey;
-                                          color: white;
-                                          border: 1px solid grey;
-                                          font-size: 2rem;
-                                          width: 5rem;
-                                          height: 4rem;
-                                        "
-                                        @click="back(product.detail_id)"
-                                      >
-                                        DEL
-                                      </button>
-                                    </td>
 
-                                    <td colspan="2">
-                                      <button
-                                        type="button"
-                                        style="
-                                          background-color: grey;
-                                          color: white;
-                                          border: 1px solid grey;
-                                          font-size: 2rem;
-                                          width: 4rem;
-                                          height: 4rem;
-                                        "
-                                        @click="insert('.', product.detail_id)"
-                                      >
-                                        .
-                                      </button>
-                                    </td>
-                                  </tr>
 
                                   <tr>
                                     <td>
@@ -412,8 +362,6 @@
                                         3
                                       </button>
                                     </td>
-                                  </tr>
-                                  <tr>
                                     <td>
                                       <button
                                         type="button"
@@ -446,6 +394,10 @@
                                         5
                                       </button>
                                     </td>
+                                  </tr>
+                                  <tr>
+
+
                                     <td>
                                       <button
                                         type="button"
@@ -462,8 +414,6 @@
                                         6
                                       </button>
                                     </td>
-                                  </tr>
-                                  <tr>
                                     <td>
                                       <button
                                         type="button"
@@ -512,9 +462,6 @@
                                         9
                                       </button>
                                     </td>
-                                  </tr>
-
-                                  <tr>
                                     <td colspan="3">
                                       <button
                                         type="button"
@@ -529,6 +476,82 @@
                                         @click="insert(0, product.detail_id)"
                                       >
                                         0
+                                      </button>
+                                    </td>
+                                  </tr>
+                                  <tr>
+
+                                    <td colspan="1">
+                                      <button
+                                        type="button"
+                                        style="
+                                          background-color: grey;
+                                          color: white;
+                                          border: 1px solid grey;
+                                          font-size: 2rem;
+                                          width: 4rem;
+                                          height: 4rem;
+                                        "
+                                        @click="insert('.', product.detail_id)"
+                                      >
+                                        .
+                                      </button>
+                                    </td>
+                                    <td>
+                                      <button
+                                        type="button"
+                                        style="
+                                          background-color: grey;
+                                          color: white;
+                                          border: 1px solid grey;
+                                          font-size: 2rem;
+                                          width: 4rem;
+                                          height: 4rem;
+                                        "
+                                        @click="clean(product.detail_id)"
+                                      >
+                                        C
+                                      </button>
+                                    </td>
+                                    <td>
+                                      <button
+                                        type="button"
+                                        style="
+                                          background-color: grey;
+                                          color: white;
+                                          border: 1px solid grey;
+                                          font-size: 2rem;
+                                          width: 5rem;
+                                          height: 4rem;
+                                        "
+                                        @click="back(product.detail_id)"
+                                      >
+                                        DEL
+                                      </button>
+                                    </td>
+
+                                    <td colspan="2">
+                                        <!-- <button
+                              data-dismiss="modal"
+                              @click="() => onSelect(product)"
+                              type="button"
+                              class="btn btn-success float-right btn-lg"
+                            >
+                              <i class="fa fa-save mr-2"></i>บันทึก
+                            </button> -->
+                            <button
+                                        type="button"
+                                        style="
+                                          background-color: green;
+                                          color: white;
+                                          border: 1px solid green;
+                                          font-size: 2rem;
+                                          width: 100%;
+                                          height: 4rem;
+                                        "
+                                        @click="onSelect(product)"
+                                      >
+                                      <i class="fa fa-save mr-2"></i>บันทึก
                                       </button>
                                     </td>
                                   </tr>
@@ -561,14 +584,7 @@
                               </tbody>
                             </table> -->
                             <br />
-                            <button
-                              data-dismiss="modal"
-                              @click="() => onSelect(product)"
-                              type="button"
-                              class="btn btn-success float-right btn-lg"
-                            >
-                              <i class="fa fa-save mr-2"></i>บันทึก
-                            </button>
+
                           </form> </modal
                         >&nbsp;&nbsp;
                       </td>
@@ -775,7 +791,7 @@ export default {
       this.num = "";
       $("#" + id + "-input").focus();
     },
-    onSelect(item) {
+    async onSelect(item) {
       this.show = false;
       this.active = false;
 
@@ -795,7 +811,36 @@ export default {
 
       $("#modal-loading").modal("show");
 
+        await axios
+            .post(
+                process.env.MIX_CAMERA_API,
+              {
+                // createAt : this.$store.state.queueDate[1],
+                // queue: this.$store.state.queueDate[0],
+                name: this.myRnId+"-"+this.$store.state.items.length
+              },
+              {
+                headers: {
+                  "ngrok-skip-browser-warning": "true",
+                },
+              }
+            )
+            .then((response) => {
+                //sdfsdfsdfsd
+
+                this.$store.dispatch("loadItems", this.$store.state.items.concat(clickedItems));
+        //         $(".modal").modal("hide"); // closes all active pop ups.
+        // $(".modal-backdrop").remove(); // removes the grey overlay.
+
+                $('#modal-loading').modal('hide');
+                this.saveafterfinish()
+
+            })
+
+            // return;
+
       try {
+
         // await axios
         //     .post(
         //         process.env.MIX_CAMERA_API,
@@ -818,10 +863,10 @@ export default {
 
         //     }).catch(function(error){
         //         console.log(error)
-        this.$store.dispatch("loadItems", this.$store.state.items.concat(clickedItems));
-        $(".modal").modal("hide"); // closes all active pop ups.
-        $(".modal-backdrop").remove(); // removes the grey overlay.
-        this.saveafterfinish()
+        // this.$store.dispatch("loadItems", this.$store.state.items.concat(clickedItems));
+        // $(".modal").modal("hide"); // closes all active pop ups.
+        // $(".modal-backdrop").remove(); // removes the grey overlay.
+        // this.saveafterfinish()
       } catch (error) {
         $("#modal-loading").modal("hide");
       }
@@ -850,15 +895,15 @@ export default {
           }
         )
         .then((response) => {
-
-            this.$swal({
-            title: "บันทึกรายการข้อมูลสำเร็จ!",
-            icon: "success",
-          }).then(function () {
             $('#modal-loading').modal('hide');
 
-            // window.location.reload();
-          });
+        //     this.$swal({
+        //     title: "บันทึกรายการข้อมูลสำเร็จ!",
+        //     icon: "success",
+        //   }).then(function () {
+
+        //     // window.location.reload();
+        //   });
 
 
         });

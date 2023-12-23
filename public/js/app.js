@@ -20301,104 +20301,140 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       $("#" + id + "-input").focus();
     },
     onSelect: function onSelect(item) {
-      this.show = false;
-      this.active = false;
-      console.log(this.$store.state.items);
-      console.log("Uuuu", item);
-      //   this.clickedItems.push(this.$store.state.items);
-      var clickedItems = [];
-      clickedItems.push({
-        description: item.detail_name_th,
-        qty: this.num,
-        total: this.num * this.mul,
-        detail_id: item.detail_id,
-        unit: item.unit,
-        image: this.myRnId + "-" + this.$store.state.items.length
-      });
-      localStorage.storedData = JSON.stringify(clickedItems);
-      $("#modal-loading").modal("show");
-      try {
-        // await axios
-        //     .post(
-        //         process.env.MIX_CAMERA_API,
-        //       {
-        //         // createAt : this.$store.state.queueDate[1],
-        //         // queue: this.$store.state.queueDate[0],
-        //         name: this.myRnId+"-"+this.$store.state.items.length
-        //       },
-        //       {
-        //         headers: {
-        //           "ngrok-skip-browser-warning": "true",
-        //         },
-        //       }
-        //     )
-        //     .then((response) => {
-        //         //sdfsdfsdfsd
-
-        //         this.$store.dispatch("loadItems", this.$store.state.items.concat(clickedItems));
-        //         $('#modal-loading').modal('hide');
-
-        //     }).catch(function(error){
-        //         console.log(error)
-        this.$store.dispatch("loadItems", this.$store.state.items.concat(clickedItems));
-        $(".modal").modal("hide"); // closes all active pop ups.
-        $(".modal-backdrop").remove(); // removes the grey overlay.
-        this.saveafterfinish();
-      } catch (error) {
-        $("#modal-loading").modal("hide");
-      }
-
-      //test
-
-      console.log(this.clickedItems);
-    },
-    saveafterfinish: function saveafterfinish() {
       var _this4 = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
+        var clickedItems;
         return _regeneratorRuntime().wrap(function _callee3$(_context3) {
           while (1) switch (_context3.prev = _context3.next) {
             case 0:
-              $('#modal-loading').modal('show');
-              _context3.next = 3;
-              return axios.post("https://5cd1-147-50-183-56.ngrok-free.app/antiques" + "/order/saveafterfinish", {
-                customers: _this4.$store.state.customers,
-                items: _this4.$store.state.items,
-                createAt: _this4.$store.state.queueDate[1],
-                queue: _this4.$store.state.queueDate[0]
+              _this4.show = false;
+              _this4.active = false;
+              console.log(_this4.$store.state.items);
+              console.log("Uuuu", item);
+              //   this.clickedItems.push(this.$store.state.items);
+              clickedItems = [];
+              clickedItems.push({
+                description: item.detail_name_th,
+                qty: _this4.num,
+                total: _this4.num * _this4.mul,
+                detail_id: item.detail_id,
+                unit: item.unit,
+                image: _this4.myRnId + "-" + _this4.$store.state.items.length
+              });
+              localStorage.storedData = JSON.stringify(clickedItems);
+              $("#modal-loading").modal("show");
+              _context3.next = 10;
+              return axios.post("http://192.168.1.21:5555", {
+                // createAt : this.$store.state.queueDate[1],
+                // queue: this.$store.state.queueDate[0],
+                name: _this4.myRnId + "-" + _this4.$store.state.items.length
               }, {
                 headers: {
                   "ngrok-skip-browser-warning": "true"
                 }
               }).then(function (response) {
-                _this4.$swal({
-                  title: "บันทึกรายการข้อมูลสำเร็จ!",
-                  icon: "success"
-                }).then(function () {
-                  $('#modal-loading').modal('hide');
+                //sdfsdfsdfsd
 
-                  // window.location.reload();
-                });
+                _this4.$store.dispatch("loadItems", _this4.$store.state.items.concat(clickedItems));
+                //         $(".modal").modal("hide"); // closes all active pop ups.
+                // $(".modal-backdrop").remove(); // removes the grey overlay.
+
+                $('#modal-loading').modal('hide');
+                _this4.saveafterfinish();
               });
-            case 3:
+            case 10:
+              // return;
+
+              try {
+
+                // await axios
+                //     .post(
+                //         process.env.MIX_CAMERA_API,
+                //       {
+                //         // createAt : this.$store.state.queueDate[1],
+                //         // queue: this.$store.state.queueDate[0],
+                //         name: this.myRnId+"-"+this.$store.state.items.length
+                //       },
+                //       {
+                //         headers: {
+                //           "ngrok-skip-browser-warning": "true",
+                //         },
+                //       }
+                //     )
+                //     .then((response) => {
+                //         //sdfsdfsdfsd
+
+                //         this.$store.dispatch("loadItems", this.$store.state.items.concat(clickedItems));
+                //         $('#modal-loading').modal('hide');
+
+                //     }).catch(function(error){
+                //         console.log(error)
+                // this.$store.dispatch("loadItems", this.$store.state.items.concat(clickedItems));
+                // $(".modal").modal("hide"); // closes all active pop ups.
+                // $(".modal-backdrop").remove(); // removes the grey overlay.
+                // this.saveafterfinish()
+              } catch (error) {
+                $("#modal-loading").modal("hide");
+              }
+
+              //test
+
+              console.log(_this4.clickedItems);
+            case 12:
             case "end":
               return _context3.stop();
           }
         }, _callee3);
       }))();
     },
-    toggleModal: function toggleModal(item) {
+    saveafterfinish: function saveafterfinish() {
       var _this5 = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4() {
-        var self;
         return _regeneratorRuntime().wrap(function _callee4$(_context4) {
           while (1) switch (_context4.prev = _context4.next) {
             case 0:
+              $('#modal-loading').modal('show');
+              _context4.next = 3;
+              return axios.post("https://5cd1-147-50-183-56.ngrok-free.app/antiques" + "/order/saveafterfinish", {
+                customers: _this5.$store.state.customers,
+                items: _this5.$store.state.items,
+                createAt: _this5.$store.state.queueDate[1],
+                queue: _this5.$store.state.queueDate[0]
+              }, {
+                headers: {
+                  "ngrok-skip-browser-warning": "true"
+                }
+              }).then(function (response) {
+                $('#modal-loading').modal('hide');
+
+                //     this.$swal({
+                //     title: "บันทึกรายการข้อมูลสำเร็จ!",
+                //     icon: "success",
+                //   }).then(function () {
+
+                //     // window.location.reload();
+                //   });
+              });
+            case 3:
+            case "end":
+              return _context4.stop();
+          }
+        }, _callee4);
+      }))();
+    },
+    toggleModal: function toggleModal(item) {
+      var _this6 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee5() {
+        var self;
+        return _regeneratorRuntime().wrap(function _callee5$(_context5) {
+          while (1) switch (_context5.prev = _context5.next) {
+            case 0:
               console.log(item);
               console.log("sssssssssssssssssssssssss");
-              self = _this5; //   await axios.get(process.env.MIX_DEV_API + "/getOrderData", {'category_id': 1}).then(function (res) {
+              self = _this6; //   await axios.get(process.env.MIX_DEV_API + "/getOrderData", {'category_id': 1}).then(function (res) {
               //     console.log(res)
               //   });
-              _context4.next = 5;
+              _context5.next = 5;
               return axios.post("https://5cd1-147-50-183-56.ngrok-free.app/antiques" + "/getOrderData", {
                 category_id: item.category_id
               }, {
@@ -20407,8 +20443,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 }
               }).then(function (response) {
                 console.log(response.data.getCateOrder);
-                _this5.productDetails = response.data.getCateOrder[0].getCateOrder.all_cate.detail_data;
-                console.log("produ", _this5.productDetails);
+                _this6.productDetails = response.data.getCateOrder[0].getCateOrder.all_cate.detail_data;
+                console.log("produ", _this6.productDetails);
                 var body = document.querySelector("body");
                 self.active = !self.active;
                 self.active ? body.classList.add("modal-open") : body.classList.remove("modal-open");
@@ -20426,36 +20462,36 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               });
             case 5:
             case "end":
-              return _context4.stop();
+              return _context5.stop();
           }
-        }, _callee4);
+        }, _callee5);
       }))();
     }
   }, "test", function test(id) {
-    var _this6 = this;
-    return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee5() {
-      return _regeneratorRuntime().wrap(function _callee5$(_context5) {
-        while (1) switch (_context5.prev = _context5.next) {
+    var _this7 = this;
+    return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee6() {
+      return _regeneratorRuntime().wrap(function _callee6$(_context6) {
+        while (1) switch (_context6.prev = _context6.next) {
           case 0:
-            console.log("jj", _this6.$store.state.customers["class"]);
+            console.log("jj", _this7.$store.state.customers["class"]);
             // alert(id)
-            _context5.next = 3;
+            _context6.next = 3;
             return axios.post("https://5cd1-147-50-183-56.ngrok-free.app/antiques" + "/getdetailvendor", {
               detail_id: id,
-              "class": _this6.$store.state.customers["class"]
+              "class": _this7.$store.state.customers["class"]
             }, {
               headers: {
                 "ngrok-skip-browser-warning": "true"
               }
             }).then(function (response) {
               console.log("aam", response.data);
-              _this6.mul = response.data.data;
+              _this7.mul = response.data.data;
             });
           case 3:
           case "end":
-            return _context5.stop();
+            return _context6.stop();
         }
-      }, _callee5);
+      }, _callee6);
     }))();
   })
 });
@@ -23904,33 +23940,36 @@ var _hoisted_50 = {
 };
 var _hoisted_51 = ["onClick"];
 var _hoisted_52 = ["onClick"];
-var _hoisted_53 = {
-  colspan: "2"
-};
+var _hoisted_53 = ["onClick"];
 var _hoisted_54 = ["onClick"];
 var _hoisted_55 = ["onClick"];
 var _hoisted_56 = ["onClick"];
 var _hoisted_57 = ["onClick"];
 var _hoisted_58 = ["onClick"];
 var _hoisted_59 = ["onClick"];
-var _hoisted_60 = ["onClick"];
-var _hoisted_61 = ["onClick"];
-var _hoisted_62 = ["onClick"];
-var _hoisted_63 = ["onClick"];
-var _hoisted_64 = {
+var _hoisted_60 = {
   colspan: "3"
 };
+var _hoisted_61 = ["onClick"];
+var _hoisted_62 = {
+  colspan: "1"
+};
+var _hoisted_63 = ["onClick"];
+var _hoisted_64 = ["onClick"];
 var _hoisted_65 = ["onClick"];
-var _hoisted_66 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
-var _hoisted_67 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
-var _hoisted_68 = ["onClick"];
-var _hoisted_69 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+var _hoisted_66 = {
+  colspan: "2"
+};
+var _hoisted_67 = ["onClick"];
+var _hoisted_68 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "class": "fa fa-save mr-2"
 }, null, -1 /* HOISTED */);
-var _hoisted_70 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("บันทึก ");
-var _hoisted_71 = [_hoisted_69, _hoisted_70];
-var _hoisted_72 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("   ");
-var _hoisted_73 = {
+var _hoisted_69 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("บันทึก ");
+var _hoisted_70 = [_hoisted_68, _hoisted_69];
+var _hoisted_71 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
+var _hoisted_72 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
+var _hoisted_73 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("   ");
+var _hoisted_74 = {
   key: 0,
   "class": "modal-backdrop fade show"
 };
@@ -24110,48 +24149,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             "height": "4rem"
           },
           onClick: function onClick($event) {
-            return $options.clean(product.detail_id);
-          }
-        }, " C ", 8 /* PROPS */, _hoisted_51)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-          type: "button",
-          style: {
-            "background-color": "grey",
-            "color": "white",
-            "border": "1px solid grey",
-            "font-size": "2rem",
-            "width": "5rem",
-            "height": "4rem"
-          },
-          onClick: function onClick($event) {
-            return $options.back(product.detail_id);
-          }
-        }, " DEL ", 8 /* PROPS */, _hoisted_52)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_53, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-          type: "button",
-          style: {
-            "background-color": "grey",
-            "color": "white",
-            "border": "1px solid grey",
-            "font-size": "2rem",
-            "width": "4rem",
-            "height": "4rem"
-          },
-          onClick: function onClick($event) {
-            return $options.insert('.', product.detail_id);
-          }
-        }, " . ", 8 /* PROPS */, _hoisted_54)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-          type: "button",
-          style: {
-            "background-color": "grey",
-            "color": "white",
-            "border": "1px solid grey",
-            "font-size": "2rem",
-            "width": "4rem",
-            "height": "4rem"
-          },
-          onClick: function onClick($event) {
             return $options.insert(1, product.detail_id);
           }
-        }, " 1 ", 8 /* PROPS */, _hoisted_55)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+        }, " 1 ", 8 /* PROPS */, _hoisted_51)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
           type: "button",
           style: {
             "background-color": "grey",
@@ -24164,7 +24164,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           onClick: function onClick($event) {
             return $options.insert(2, product.detail_id);
           }
-        }, " 2 ", 8 /* PROPS */, _hoisted_56)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+        }, " 2 ", 8 /* PROPS */, _hoisted_52)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
           type: "button",
           style: {
             "background-color": "grey",
@@ -24177,7 +24177,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           onClick: function onClick($event) {
             return $options.insert(3, product.detail_id);
           }
-        }, " 3 ", 8 /* PROPS */, _hoisted_57)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+        }, " 3 ", 8 /* PROPS */, _hoisted_53)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
           type: "button",
           style: {
             "background-color": "grey",
@@ -24190,7 +24190,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           onClick: function onClick($event) {
             return $options.insert(4, product.detail_id);
           }
-        }, " 4 ", 8 /* PROPS */, _hoisted_58)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+        }, " 4 ", 8 /* PROPS */, _hoisted_54)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
           type: "button",
           style: {
             "background-color": "grey",
@@ -24203,7 +24203,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           onClick: function onClick($event) {
             return $options.insert(5, product.detail_id);
           }
-        }, " 5 ", 8 /* PROPS */, _hoisted_59)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+        }, " 5 ", 8 /* PROPS */, _hoisted_55)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
           type: "button",
           style: {
             "background-color": "grey",
@@ -24216,7 +24216,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           onClick: function onClick($event) {
             return $options.insert(6, product.detail_id);
           }
-        }, " 6 ", 8 /* PROPS */, _hoisted_60)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+        }, " 6 ", 8 /* PROPS */, _hoisted_56)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
           type: "button",
           style: {
             "background-color": "grey",
@@ -24229,7 +24229,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           onClick: function onClick($event) {
             return $options.insert(7, product.detail_id);
           }
-        }, " 7 ", 8 /* PROPS */, _hoisted_61)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+        }, " 7 ", 8 /* PROPS */, _hoisted_57)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
           type: "button",
           style: {
             "background-color": "grey",
@@ -24242,7 +24242,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           onClick: function onClick($event) {
             return $options.insert(8, product.detail_id);
           }
-        }, " 8 ", 8 /* PROPS */, _hoisted_62)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+        }, " 8 ", 8 /* PROPS */, _hoisted_58)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
           type: "button",
           style: {
             "background-color": "grey",
@@ -24255,7 +24255,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           onClick: function onClick($event) {
             return $options.insert(9, product.detail_id);
           }
-        }, " 9 ", 8 /* PROPS */, _hoisted_63)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_64, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+        }, " 9 ", 8 /* PROPS */, _hoisted_59)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_60, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
           type: "button",
           style: {
             "background-color": "grey",
@@ -24268,18 +24268,63 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           onClick: function onClick($event) {
             return $options.insert(0, product.detail_id);
           }
-        }, " 0 ", 8 /* PROPS */, _hoisted_65)])])])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _hoisted_66, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <table class=\"table table-bordered\">\n                              <tbody>\n                                <tr>\n                                  <td><b>Total Qty</b></td>\n                                  <td>\n                                    <input\n                                      style=\"\n                                        color: red;\n                                        font-weight: bold;\n                                        font-size: 21px;\n                                      \"\n                                      type=\"email\"\n                                      disabled\n                                      class=\"form-control\"\n                                      id=\"exampleInputEmail1\"\n                                      aria-describedby=\"emailHelp\"\n                                      placeholder=\"Enter email\"\n                                      :value=\"num * mul\"\n                                    />\n                                  </td>\n                                </tr>\n                              </tbody>\n                            </table> "), _hoisted_67, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-          "data-dismiss": "modal",
-          onClick: function onClick() {
-            return $options.onSelect(product);
-          },
+        }, " 0 ", 8 /* PROPS */, _hoisted_61)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_62, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
           type: "button",
-          "class": "btn btn-success float-right btn-lg"
-        }, _hoisted_71, 8 /* PROPS */, _hoisted_68)])];
+          style: {
+            "background-color": "grey",
+            "color": "white",
+            "border": "1px solid grey",
+            "font-size": "2rem",
+            "width": "4rem",
+            "height": "4rem"
+          },
+          onClick: function onClick($event) {
+            return $options.insert('.', product.detail_id);
+          }
+        }, " . ", 8 /* PROPS */, _hoisted_63)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+          type: "button",
+          style: {
+            "background-color": "grey",
+            "color": "white",
+            "border": "1px solid grey",
+            "font-size": "2rem",
+            "width": "4rem",
+            "height": "4rem"
+          },
+          onClick: function onClick($event) {
+            return $options.clean(product.detail_id);
+          }
+        }, " C ", 8 /* PROPS */, _hoisted_64)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+          type: "button",
+          style: {
+            "background-color": "grey",
+            "color": "white",
+            "border": "1px solid grey",
+            "font-size": "2rem",
+            "width": "5rem",
+            "height": "4rem"
+          },
+          onClick: function onClick($event) {
+            return $options.back(product.detail_id);
+          }
+        }, " DEL ", 8 /* PROPS */, _hoisted_65)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_66, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <button\n                              data-dismiss=\"modal\"\n                              @click=\"() => onSelect(product)\"\n                              type=\"button\"\n                              class=\"btn btn-success float-right btn-lg\"\n                            >\n                              <i class=\"fa fa-save mr-2\"></i>บันทึก\n                            </button> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+          type: "button",
+          style: {
+            "background-color": "green",
+            "color": "white",
+            "border": "1px solid green",
+            "font-size": "2rem",
+            "width": "100%",
+            "height": "4rem"
+          },
+          onClick: function onClick($event) {
+            return $options.onSelect(product);
+          }
+        }, _hoisted_70, 8 /* PROPS */, _hoisted_67)])])])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _hoisted_71, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <table class=\"table table-bordered\">\n                              <tbody>\n                                <tr>\n                                  <td><b>Total Qty</b></td>\n                                  <td>\n                                    <input\n                                      style=\"\n                                        color: red;\n                                        font-weight: bold;\n                                        font-size: 21px;\n                                      \"\n                                      type=\"email\"\n                                      disabled\n                                      class=\"form-control\"\n                                      id=\"exampleInputEmail1\"\n                                      aria-describedby=\"emailHelp\"\n                                      placeholder=\"Enter email\"\n                                      :value=\"num * mul\"\n                                    />\n                                  </td>\n                                </tr>\n                              </tbody>\n                            </table> "), _hoisted_72])];
       }),
       _: 2 /* DYNAMIC */
-    }, 1032 /* PROPS, DYNAMIC_SLOTS */, ["modal-id"]), _hoisted_72])]);
-  }), 256 /* UNKEYED_FRAGMENT */))])])])])])])])], 2 /* CLASS */), $data.active ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_73)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])], 64 /* STABLE_FRAGMENT */);
+    }, 1032 /* PROPS, DYNAMIC_SLOTS */, ["modal-id"]), _hoisted_73])]);
+  }), 256 /* UNKEYED_FRAGMENT */))])])])])])])])], 2 /* CLASS */), $data.active ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_74)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])], 64 /* STABLE_FRAGMENT */);
 }
 
 /***/ }),
