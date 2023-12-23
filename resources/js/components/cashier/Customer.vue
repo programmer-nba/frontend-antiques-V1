@@ -222,7 +222,7 @@
 
         <div v-if="responseData" style="overflow-x:auto;">
       <!-- <p>Response Data: {{ responseData }}</p> -->
-      <table class="table table-striped">
+      <table class="table table-striped text-center">
   <thead>
     <tr>
       <th scope="col">Q_No</th>

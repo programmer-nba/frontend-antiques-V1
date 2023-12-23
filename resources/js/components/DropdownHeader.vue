@@ -896,7 +896,8 @@ export default {
         )
         .then((response) => {
             $('#modal-loading').modal('hide');
-
+            $(".modal").modal("hide"); // closes all active pop ups.
+        $(".modal-backdrop").remove(); // removes the grey overlay.
         //     this.$swal({
         //     title: "บันทึกรายการข้อมูลสำเร็จ!",
         //     icon: "success",

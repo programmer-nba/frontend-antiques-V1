@@ -552,6 +552,7 @@ self.customer.birthday = result
               qty: element.qty,
               total: element.qty * self.mul,
               detail_id: element.detail_id,
+              unit: element.unit
             }])
             );
           });

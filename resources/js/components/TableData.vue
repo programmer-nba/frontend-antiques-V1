@@ -20,7 +20,7 @@
                                             <td>{{i+1}}</td>
                                             <td class="text-left">{{value.description}}</td>
                                             <td>{{value.qty}}</td>
-                                            <td>กิโล</td>
+                                            <td>{{value.unit}}</td>
                                             <td  v-if="this.$store.state.dataOpen[0] != 'FINISH' && this.$store.state.dataOpen[0] != 'APPROVE'">
 <!-- <button type="" class="btn btn-primary btn-sm"><i class="fa fa-eye mr-2"></i>ดูข้อมูล</button>&nbsp;&nbsp; -->
 <modal
@@ -223,7 +223,7 @@ export default {
 
       await axios
         .post(
-          process.env.MIX_DEV_API + "/order/createOrder",
+          process.env.MIX_DEV_API + "/order/saveafterfinish",
           {
             customers: this.$store.state.customers,
             items: this.$store.state.items,
