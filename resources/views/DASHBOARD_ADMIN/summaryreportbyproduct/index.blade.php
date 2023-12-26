@@ -75,7 +75,7 @@
                             <td>{{$value["unit"]}}</td>
                             <td>{{$value['qty']}}</td>
                             <td></td>
-                            <td>                        {{ round($value['total'] /  $value['qty'], 2) }}
+                            <td>                        {{ round((int)$value['total'] /  (int)$value['qty'], 2) }}
                             </td>
                             <td>{{$value['total']}}</td>
                             <td></td>

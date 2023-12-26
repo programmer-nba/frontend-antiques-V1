@@ -70,13 +70,10 @@
   <br /><br />
   <form>
     <div class="row">
-
-
       <div class="col-sm-4">
         <div class="form-group">
           <label>ID</label>
           <select2-component
-
             v-model="idCard"
             name="idcard[]"
             id="idcard"
@@ -93,13 +90,7 @@
         <div class="form-group">
           <label>Name</label>
 
-          <select2-component
-
-            v-model="name"
-            name="name[]"
-            id="name"
-            class="form-control"
-          >
+          <select2-component v-model="name" name="name[]" id="name" class="form-control">
             <option value="000000000">-- กรุณาเลือก --</option>
             <option v-for="data in dataName" :value="data.fullname_th">
               {{ data.fullname_th }}
@@ -126,12 +117,7 @@
       <div class="col-sm-4">
         <div class="form-group">
           <label>Warehoursse</label>
-          <select2-component
-
-            name="Warehoursse[]"
-            id="Warehoursse"
-            class="form-control"
-          >
+          <select2-component name="Warehoursse[]" id="Warehoursse" class="form-control">
             <option value="1">W01 - WH Inside</option>
           </select2-component>
         </div>
@@ -152,7 +138,6 @@
           <label>Vehicle ID </label>
 
           <select2-component
-
             v-model="vehicle"
             name="vehicle[]"
             id="vehicle"
@@ -174,7 +159,7 @@
   </form>
   <table>
     <tr>
-        <td @click="showModal">
+      <td @click="showModal">
         <img
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnqaInVc1iASODNTtkxaSp7Z_zoIDUDMNArKQwxCHUHw&s"
           alt=""
@@ -208,71 +193,85 @@
     </tr>
   </table>
 
-    <!-- Modal -->
-<div class="modal fade"  id="productDetail" tabindex="-1" aria-labelledby="productDetailLabel" aria-hidden="true">
-  <div class="modal-dialog modal-xl">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="productDetailLabel">Stock Receive</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
+  <!-- Modal -->
+  <div
+    class="modal fade"
+    id="productDetail"
+    tabindex="-1"
+    aria-labelledby="productDetailLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="productDetailLabel">Stock Receive</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div v-if="responseData" style="overflow-x: auto">
+            <!-- <p>Response Data: {{ responseData }}</p> -->
+            <table class="table table-striped text-center">
+              <thead>
+                <tr>
+                  <th scope="col">Q_No</th>
+                  <th scope="col">dlmDate</th>
+                  <th scope="col">Cust_Name</th>
+                  <th scope="col">strVendorType</th>
+                  <th scope="col">Finish</th>
+                  <th scope="col">Pay_Status</th>
+                  <th scope="col">strTRNNO</th>
+                  <th scope="col">dtmUpdate</th>
+                  <th scope="col">unlock</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="(item, key) in responseData.data">
+                  <td>{{ key + 1 }}</td>
+                  <td>{{ selectedDate }}</td>
+                  <td>{{ item.customer_name }}</td>
+                  <td>{{ item.customer_class }}</td>
+                  <td>{{ item.status }}</td>
+                  <td>{{ item.pay_status }}</td>
+                  <td>{{ item.trackorder }}</td>
+                  <td>{{ item.createAt }}</td>
 
-        <div v-if="responseData" style="overflow-x:auto;">
-      <!-- <p>Response Data: {{ responseData }}</p> -->
-      <table class="table table-striped text-center">
-  <thead>
-    <tr>
-      <th scope="col">Q_No</th>
-      <th scope="col">dlmDate</th>
-      <th scope="col">Cust_Name</th>
-      <th scope="col">strVendorType</th>
-      <th scope="col">Finish</th>
-      <th scope="col">Pay_Status</th>
-      <th scope="col">strTRNNO</th>
-      <th scope="col">dtmUpdate</th>
-      <th scope="col">unlock</th>
-      <th scope="col"></th>
-
-    </tr>
-  </thead>
-  <tbody>
-    <tr v-for="(item, key) in responseData.data">
-    <td>{{key+1}}</td>
-      <td>{{selectedDate}}</td>
-      <td>{{item.customer_name}}</td>
-      <td>{{item.customer_class}}</td>
-      <td>{{item.status}}</td>
-      <td>{{item.pay_status}}</td>
-      <td>{{item.trackorder}}</td>
-      <td>{{item.createAt}}</td>
-
-      <td>
-        <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
-<input @change="updateUnlock($event, item)"  type="checkbox" class="custom-control-input" :id="'customSwitch'+key" :checked="item.status != 'FINISH'">
-<label class="custom-control-label" :for="'customSwitch'+key"></label>
-</div>
-      </td>
-      <td>
-        <button class="btn btn-success" @click="getOrder(item)"><i class="fa fa-plus mr-2"></i>เลือก</button>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-
-    </div>
-
-      </div>
-      <!-- <div class="modal-footer">
+                  <td>
+                    <div
+                      class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success"
+                    >
+                      <input
+                        @change="updateUnlock($event, item)"
+                        type="checkbox"
+                        class="custom-control-input"
+                        :id="'customSwitch' + key"
+                        :checked="item.status != 'FINISH'"
+                      />
+                      <label
+                        class="custom-control-label"
+                        :for="'customSwitch' + key"
+                      ></label>
+                    </div>
+                  </td>
+                  <td>
+                    <button class="btn btn-success" @click="getOrder(item)">
+                      <i class="fa fa-plus mr-2"></i>เลือก
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary">Save changes</button>
       </div> -->
+      </div>
     </div>
   </div>
-</div>
 </template>
 
 <script>
@@ -284,13 +283,13 @@ export default {
   },
   data() {
     return {
-        selectedDate: new Date().toLocaleDateString('th-TH', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
+      selectedDate: new Date().toLocaleDateString("th-TH", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
       }),
-        modalOpen: false,
-        responseData: null,
+      modalOpen: false,
+      responseData: null,
 
       active: false,
       key: [],
@@ -533,51 +532,48 @@ export default {
       var items = this.$store.state.items;
 
       this.$store.dispatch("loadItems", []);
-      $('#modal-loading').modal('show');
+      $("#modal-loading").modal("show");
 
-        for await(const element of items){
-            console.log("aam", element);
+      for await (const element of items) {
+        console.log("aam", element);
 
-var clickedItems = [];
-const response = await axios
-  .post(
-    process.env.MIX_DEV_API + "/getdetailvendor",
-    {
-      detail_id: element.detail_id,
-      class: self.type,
-    },
-    {
-      headers: {
-        "ngrok-skip-browser-warning": "true",
-      },
-    }
-  ).then( (result) => {
-        return result;
-    });;
+        var clickedItems = [];
+        const response = await axios
+          .post(
+            process.env.MIX_DEV_API + "/getdetailvendor",
+            {
+              detail_id: element.detail_id,
+              class: self.type,
+            },
+            {
+              headers: {
+                "ngrok-skip-browser-warning": "true",
+              },
+            }
+          )
+          .then((result) => {
+            return result;
+          });
 
-  await self.$store.dispatch(
-      "loadItems",
-      await self.$store.state.items.concat([
-        {
-          description: element.description,
-          qty: element.qty,
-          total: element.qty * response.data.data,
-          detail_id: element.detail_id,
-          image:element.image
-        },
-      ])
-    );
+        await self.$store.dispatch(
+          "loadItems",
+          await self.$store.state.items.concat([
+            {
+              description: element.description,
+              qty: element.qty,
+              total: element.qty * response.data.data,
+              detail_id: element.detail_id,
+              image: element.image,
+            },
+          ])
+        );
+      }
 
+      $("#modal-loading").modal("hide");
 
-        }
+      //   await items.forEach(async function (element) {
 
-        $('#modal-loading').modal('hide');
-
-
-
-    //   await items.forEach(async function (element) {
-
-    //   });
+      //   });
     },
     name: async function (val, oldVal) {
       //   this.$store.dispatch("loadCustomers", this.loadCustomers);
@@ -590,48 +586,44 @@ const response = await axios
     loadCustomers: function (val, oldVal) {},
   },
   methods: {
-    async updateUnlock(evt, item){
-        console.log("evt", evt.target.checked)
-        console.log("item", item)
-        // $('#modal-loading').modal('show');
+    async updateUnlock(evt, item) {
+      console.log("evt", evt.target.checked);
+      console.log("item", item);
+      // $('#modal-loading').modal('show');
 
-        if(evt.target.checked){
-            var status = 0;
-        }else{
-            var status = 1;
-        }
-        $('#modal-loading').modal('show');
-await axios
-  .post(
-    process.env.MIX_DEV_API + "/order/updatestatusafterpay",
-    {
-        _id: item._id,
-      status: status,
-    },
-    {
-      headers: {
-        "ngrok-skip-browser-warning": "true",
-      },
-    }
-  )
-  .then((res) => {
-
-
-    $('#modal-loading').modal('hide');
-
-  })
-  .catch((err) => {
-    alert(err)
-      $('#modal-loading').modal('hide');
-
-  });
+      if (evt.target.checked) {
+        var status = 0;
+      } else {
+        var status = 1;
+      }
+      $("#modal-loading").modal("show");
+      await axios
+        .post(
+          process.env.MIX_DEV_API + "/order/updatestatusafterpay",
+          {
+            _id: item._id,
+            status: status,
+          },
+          {
+            headers: {
+              "ngrok-skip-browser-warning": "true",
+            },
+          }
+        )
+        .then((res) => {
+          $("#modal-loading").modal("hide");
+        })
+        .catch((err) => {
+          alert(err);
+          $("#modal-loading").modal("hide");
+        });
     },
     showModal() {
-        const config = {
-        method: 'get',
+      const config = {
+        method: "get",
         url: process.env.MIX_DEV_API + "/order/getfinishtoday",
         headers: {
-            "ngrok-skip-browser-warning": "true",
+          "ngrok-skip-browser-warning": "true",
           // Add any other headers as needed
         },
         // Other configuration options can be added here
@@ -641,17 +633,16 @@ await axios
       axios(config)
         .then((response) => {
           // Handle the response
-          console.log("ddddddd", response)
+          console.log("ddddddd", response);
           this.responseData = response.data;
 
-          $('#productDetail').modal('show')
-;
+          $("#productDetail").modal("show");
         })
         .catch((error) => {
           // Handle errors
-          console.error('Error:', error);
+          console.error("Error:", error);
         });
-      },
+    },
     async saveCustomer() {
       console.log("customer", this.customer);
       await axios
@@ -684,11 +675,11 @@ await axios
         });
     },
     clear() {
-        $("#idcard").val("000000000").trigger("change");
-        $("#name").val("000000000").trigger("change");
-        $("#vehicle").val("000000000").trigger("change");
+      $("#idcard").val("000000000").trigger("change");
+      $("#name").val("000000000").trigger("change");
+      $("#vehicle").val("000000000").trigger("change");
 
-        this.type = "";
+      this.type = "";
     },
     async saveafterfinish() {
       await axios
@@ -807,24 +798,24 @@ await axios
       // let api_url = process.env.MIX_API_KEY;
       // alert(api_url)
     },
-    async getOrder(item){
-        console.log("item", item)
-        var clickedItems = [];
+    async getOrder(item) {
+      console.log("item", item);
+      var clickedItems = [];
 
-        //sdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsd
-        this.$store.dispatch("loadOrderId", item._id);
-        $('#productDetail').modal('hide')
+      //sdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsd
+      this.$store.dispatch("loadOrderId", item._id);
+      $("#productDetail").modal("hide");
 
-        clickedItems.push({ description: item.detail_name_th, qty: this.num, total: this.num * this.mul });
-    //   localStorage.storedData = JSON.stringify(this.clickedItems);
+      clickedItems.push({
+        description: item.detail_name_th,
+        qty: this.num,
+        total: this.num * this.mul,
+      });
+      //   localStorage.storedData = JSON.stringify(this.clickedItems);
       this.$store.dispatch("loadItems", item.order_detail);
 
-      this.$store.dispatch("loadQueueAndDate", [
-            item.queue,
-            item.createAt,
-            item.queue
-          ]);
-          $('#modal-loading').modal('show');
+      this.$store.dispatch("loadQueueAndDate", [item.queue, item.createAt, item.queue]);
+      $("#modal-loading").modal("show");
 
       await axios
         .post(
@@ -847,7 +838,10 @@ await axios
           this.$store.dispatch("loadOrderId", res.data.data[0]._id);
           $("#idcard").val(res.data.data[1].id_card).trigger("change");
 
-          this.$store.dispatch("loadOpen", [res.data.data[0].status, res.data.data[0].trackorder]);
+          this.$store.dispatch("loadOpen", [
+            res.data.data[0].status,
+            res.data.data[0].trackorder,
+          ]);
 
           if (typeof res.data.data[0].order_detail == "undefined") {
             this.$store.dispatch("loadItems", []);
@@ -855,19 +849,17 @@ await axios
             this.$store.dispatch("loadItems", res.data.data[0].order_detail);
           }
 
-          $('#modal-loading').modal('hide');
-
+          $("#modal-loading").modal("hide");
         })
         .catch((err) => {
-            $('#modal-loading').modal('hide');
+          $("#modal-loading").modal("hide");
 
           this.$store.dispatch("loadItems", []);
         });
-
     },
     async getOrder2() {
       console.log("test", this.$store.state.customers);
-      $('#modal-loading').modal('show');
+      $("#modal-loading").modal("show");
 
       await axios
         .post(
@@ -890,7 +882,10 @@ await axios
           this.$store.dispatch("loadOrderId", res.data.data[0]._id);
           $("#idcard").val(res.data.data[1].id_card).trigger("change");
 
-          this.$store.dispatch("loadOpen", [res.data.data[0].status, res.data.data[0].trackorder]);
+          this.$store.dispatch("loadOpen", [
+            res.data.data[0].status,
+            res.data.data[0].trackorder,
+          ]);
 
           if (typeof res.data.data[0].order_detail == "undefined") {
             this.$store.dispatch("loadItems", []);
@@ -898,12 +893,10 @@ await axios
             this.$store.dispatch("loadItems", res.data.data[0].order_detail);
           }
 
-          $('#modal-loading').modal('hide');
-
+          $("#modal-loading").modal("hide");
         })
         .catch((err) => {
-
-            $('#modal-loading').modal('hide');
+          $("#modal-loading").modal("hide");
 
           this.$store.dispatch("loadItems", []);
         });

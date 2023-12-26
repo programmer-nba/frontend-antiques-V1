@@ -54,10 +54,10 @@ Route::get('/', function () {
     return redirect(route('dashboard'));
 })->name('home');
 
-Route::get('/checkOnline', function (App\Repositories\AttendanceRepository $attendanceRepo) {
-    if (Auth::check()) { }
-    return $attendanceRepo->CountUserOnline();
-})->name('checkOnline');
+// Route::get('/checkOnline', function (App\Repositories\AttendanceRepository $attendanceRepo) {
+//     if (Auth::check()) { }
+//     return $attendanceRepo->CountUserOnline();
+// })->name('checkOnline');
 
 
 

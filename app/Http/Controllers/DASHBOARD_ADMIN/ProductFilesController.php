@@ -68,7 +68,6 @@ class ProductFilesController extends Controller
 
             $data = $response->json()["data"];
 
-
         return view('DASHBOARD_ADMIN.summaryreportbyproduct.index', compact('data'));
 
     }

@@ -22,7 +22,8 @@
             color: white;
             font-size: 20px;
             width: 10vw !important;
-    height: 12vh !important;            box-shadow: 0em 0.5em 0.8em #d9d9d9;
+            height: 12vh !important;
+            box-shadow: 0em 0.5em 0.8em #d9d9d9;
           "
           :disabled="
             this.$store.state.dataOpen[0] == 'FINISH' ||
@@ -143,7 +144,7 @@
                       <td>{{ product.detail_id }}</td>
                       <td>{{ product.detail_name_th }}</td>
                       <td>{{ product.detail_name_en }}</td>
-                      <td>
+                      <td @click="test(product.detail_id)">
                         <modal
                           :modal-id="'test' + product.detail_id"
                           title="เพิ่มรายการสินค้า"
@@ -311,8 +312,6 @@
                               </div> -->
 
                                 <table class="mt-3 text-center">
-
-
                                   <tr>
                                     <td>
                                       <button
@@ -396,8 +395,6 @@
                                     </td>
                                   </tr>
                                   <tr>
-
-
                                     <td>
                                       <button
                                         type="button"
@@ -480,7 +477,6 @@
                                     </td>
                                   </tr>
                                   <tr>
-
                                     <td colspan="1">
                                       <button
                                         type="button"
@@ -531,7 +527,7 @@
                                     </td>
 
                                     <td colspan="2">
-                                        <!-- <button
+                                      <!-- <button
                               data-dismiss="modal"
                               @click="() => onSelect(product)"
                               type="button"
@@ -539,7 +535,7 @@
                             >
                               <i class="fa fa-save mr-2"></i>บันทึก
                             </button> -->
-                            <button
+                                      <button
                                         type="button"
                                         style="
                                           background-color: green;
@@ -551,7 +547,7 @@
                                         "
                                         @click="onSelect(product)"
                                       >
-                                      <i class="fa fa-save mr-2"></i>บันทึก
+                                        <i class="fa fa-save mr-2"></i>บันทึก
                                       </button>
                                     </td>
                                   </tr>
@@ -584,7 +580,6 @@
                               </tbody>
                             </table> -->
                             <br />
-
                           </form> </modal
                         >&nbsp;&nbsp;
                       </td>
@@ -678,12 +673,12 @@ export default {
     handleClick() {
       //   this.inputs.push("newInput");
     },
-    getLastQueue(){
-        const config = {
-        method: 'get',
+    getLastQueue() {
+      const config = {
+        method: "get",
         url: process.env.MIX_DEV_API + "/order/getlastqueue",
         headers: {
-            "ngrok-skip-browser-warning": "true",
+          "ngrok-skip-browser-warning": "true",
           // Add any other headers as needed
         },
         // Other configuration options can be added here
@@ -692,20 +687,18 @@ export default {
       // Make the request
       axios(config)
         .then((response) => {
-
           this.$store.dispatch("loadQueueAndDate", [
             response.data.data,
-            new Date().toISOString().slice(0, 10)
+            new Date().toISOString().slice(0, 10),
           ]);
 
-            this.$store.dispatch("loadItems", []);
+          this.$store.dispatch("loadItems", []);
 
-          console.log("test", this.$store.state.queueDate)
-
+          console.log("test", this.$store.state.queueDate);
         })
         .catch((error) => {
           // Handle errors
-          console.error('Error:', error);
+          console.error("Error:", error);
         });
     },
     save: async function () {
@@ -717,7 +710,7 @@ export default {
       // }, 0);
 
       $("#modal-loading").modal("show");
-        const self = this;
+      const self = this;
       await axios
         .post(
           process.env.MIX_DEV_API + "/order/createOrder",
@@ -740,13 +733,12 @@ export default {
             title: "เพิ่มรายการข้อมูลสำเร็จ!",
             icon: "success",
           }).then(function () {
-                self.getLastQueue();
-
+            self.getLastQueue();
           });
 
-        //   setTimeout(() => {
-        //     window.location.reload();
-        //   }, 5000);
+          //   setTimeout(() => {
+          //     window.location.reload();
+          //   }, 5000);
         })
         .catch((err) => {
           $("#modal-loading").modal("hide");
@@ -811,45 +803,52 @@ export default {
 
       $("#modal-loading").modal("show");
 
-      if(false){
-        await axios
-            .post(
-                process.env.MIX_CAMERA_API,
-              {
-                // createAt : this.$store.state.queueDate[1],
-                // queue: this.$store.state.queueDate[0],
-                name: this.myRnId+"-"+this.$store.state.items.length
+      if (false) {
+        try {
+            await axios
+          .post(
+            process.env.MIX_CAMERA_API,
+            {
+              // createAt : this.$store.state.queueDate[1],
+              // queue: this.$store.state.queueDate[0],
+              name: this.myRnId + "-" + this.$store.state.items.length,
+            },
+            {
+              headers: {
+                "ngrok-skip-browser-warning": "true",
               },
-              {
-                headers: {
-                  "ngrok-skip-browser-warning": "true",
-                },
-              }
-            )
-            .then((response) => {
-                //sdfsdfsdfsd
+            }
+          )
+          .then((response) => {
+            //sdfsdfsdfsd
 
-                this.$store.dispatch("loadItems", this.$store.state.items.concat(clickedItems));
-        //         $(".modal").modal("hide"); // closes all active pop ups.
-        // $(".modal-backdrop").remove(); // removes the grey overlay.
+            this.$store.dispatch(
+              "loadItems",
+              this.$store.state.items.concat(clickedItems)
+            );
+            //         $(".modal").modal("hide"); // closes all active pop ups.
+            // $(".modal-backdrop").remove(); // removes the grey overlay.
 
-                $('#modal-loading').modal('hide');
-                this.saveafterfinish()
+            $("#modal-loading").modal("hide");
+            this.saveafterfinish();
+          });
+        } catch (error) {
+            this.$swal({
+            title:error,
+            icon: "success",
+          }).then(function () {
+            self.getLastQueue();
+          });        }
 
-            })
-      }else{
+      } else {
         this.$store.dispatch("loadItems", this.$store.state.items.concat(clickedItems));
-        $('#modal-loading').modal('hide');
-                this.saveafterfinish()
-
+        $("#modal-loading").modal("hide");
+        this.saveafterfinish();
       }
 
-
-
-            // return;
+      // return;
 
       try {
-
         // await axios
         //     .post(
         //         process.env.MIX_CAMERA_API,
@@ -866,10 +865,8 @@ export default {
         //     )
         //     .then((response) => {
         //         //sdfsdfsdfsd
-
         //         this.$store.dispatch("loadItems", this.$store.state.items.concat(clickedItems));
         //         $('#modal-loading').modal('hide');
-
         //     }).catch(function(error){
         //         console.log(error)
         // this.$store.dispatch("loadItems", this.$store.state.items.concat(clickedItems));
@@ -884,18 +881,17 @@ export default {
 
       console.log(this.clickedItems);
     },
-    async saveafterfinish(){
-        $('#modal-loading').modal('show');
+    async saveafterfinish() {
+      $("#modal-loading").modal("show");
 
-        await axios
+      await axios
         .post(
           process.env.MIX_DEV_API + "/order/saveafterfinish",
           {
             customers: this.$store.state.customers,
             items: this.$store.state.items,
-            createAt : this.$store.state.queueDate[1],
-            queue: this.$store.state.queueDate[0]
-
+            createAt: this.$store.state.queueDate[1],
+            queue: this.$store.state.queueDate[0],
           },
           {
             headers: {
@@ -904,18 +900,16 @@ export default {
           }
         )
         .then((response) => {
-            $('#modal-loading').modal('hide');
-            $(".modal").modal("hide"); // closes all active pop ups.
-        $(".modal-backdrop").remove(); // removes the grey overlay.
-        //     this.$swal({
-        //     title: "บันทึกรายการข้อมูลสำเร็จ!",
-        //     icon: "success",
-        //   }).then(function () {
+          $("#modal-loading").modal("hide");
+          $(".modal").modal("hide"); // closes all active pop ups.
+          $(".modal-backdrop").remove(); // removes the grey overlay.
+          //     this.$swal({
+          //     title: "บันทึกรายการข้อมูลสำเร็จ!",
+          //     icon: "success",
+          //   }).then(function () {
 
-        //     // window.location.reload();
-        //   });
-
-
+          //     // window.location.reload();
+          //   });
         });
     },
     async toggleModal(item) {
@@ -963,6 +957,7 @@ export default {
     },
     async test(id) {
       console.log("jj", this.$store.state.customers.class);
+
       // alert(id)
       await axios
         .post(
@@ -978,7 +973,6 @@ export default {
           }
         )
         .then((response) => {
-          console.log("aam", response.data);
           this.mul = response.data.data;
         });
     },

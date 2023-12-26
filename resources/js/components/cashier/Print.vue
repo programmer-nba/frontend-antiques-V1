@@ -1,57 +1,60 @@
 <template>
-     <div class="row">
-                            <div class="col-md-7">
-                                <div class="">
-
-
-                                    <div class="card-body">
-                                        <form>
-                                            <!-- <a @click="print" class="btn btn-primary mr-2"><i
+  <div class="row">
+    <div class="col-md-7">
+      <div class="">
+        <div class="card-body">
+          <form>
+            <!-- <a @click="print" class="btn btn-primary mr-2"><i
                                                     class="fa fa-print mr-2"></i>PRINT
                                                 REPORT</a> -->
-                                            <button @click="print(1)" type="button" class="btn btn-primary mr-2"><i class="fa fa-print mr-2"></i>ออกใบเสร็จรับเงิน</button>
-                                            <button @click="print(2)" type="button" class="btn btn-primary mr-2"><i class="fa fa-print mr-2"></i>ออกใบรับเงิน</button>
+            <button @click="print(1)" type="button" class="btn btn-primary mr-2">
+              <i class="fa fa-print mr-2"></i>ออกใบเสร็จรับเงิน
+            </button>
+            <button @click="print(2)" type="button" class="btn btn-primary mr-2">
+              <i class="fa fa-print mr-2"></i>ออกใบรับเงิน
+            </button>
 
-                                            <!-- <button class="btn btn-primary mr-2"><i
+            <!-- <button class="btn btn-primary mr-2"><i
                                                     class="fa fa-print mr-2"></i>พิมพ์บัตรประชาชน</button>
                                             <button class="btn btn-secondary mt-2"><i class="fa fa-print mr-2"></i>Paid Details
                                                 Report</button> -->
-                                            <br><br>
-                                            <div class="row">
-                                                <!-- <div class="col-sm-4">
+            <br /><br />
+            <div class="row">
+              <!-- <div class="col-sm-4">
 
                                                     <div class="form-group">
                                                         <label>เลขที่ใบเสร็จ</label>
                                                         <input type="text" class="form-control" placeholder="Enter ...">
                                                     </div>
                                                 </div> -->
-                                                <!-- <div class="col-sm-4">
+              <!-- <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label>Record by</label>
                                                         <input type="text" class="form-control" placeholder="Enter ...">
 
                                                     </div>
                                                 </div> -->
-                                                <div class="col-sm-4">
-                                                    <div class="form-group">
-                                                        <label>Paid by</label>
-                                                        <input readonly type="text" class="form-control" placeholder="Enter ..." :value="this.username">
-
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </form>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="col-md-5">
-                                <div class="">
-
-
-                                    <div class="card-body">
-                                        <!-- <div class="form-group row">
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label>Paid by</label>
+                  <input
+                    readonly
+                    type="text"
+                    class="form-control"
+                    placeholder="Enter ..."
+                    :value="this.username"
+                  />
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-5">
+      <div class="">
+        <div class="card-body">
+          <!-- <div class="form-group row">
                                             <label for="inputEmail3" class="col-sm-4 col-form-label">Amount</label>
                                             <div class="col-sm-8">
                                                 <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
@@ -69,7 +72,7 @@
                                                 <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
                                             </div>
                                         </div> -->
-                                        <!-- <div class="form-group row">
+          <!-- <div class="form-group row">
 
                                             <div class="col-sm-9">
 
@@ -108,69 +111,79 @@
                                                 </div>
                                             </div>
                                         </div> -->
-                                        <div class="form-group row">
-                                            <label style="font-size:23px;" for="inputEmail3" class="col-sm-5 col-form-label">Total/ยอดรวม</label>
-                                            <div class="col-sm-7">
-                                                <input style="    font-size: 35px;
-    color: green;
-    font-weight: bold;" type="text" class="form-control" id="inputEmail3" placeholder="" :value="sum" disabled >
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
+          <div class="form-group row">
+            <label
+              style="font-size: 23px"
+              for="inputEmail3"
+              class="col-sm-5 col-form-label"
+              >Total/ยอดรวม</label
+            >
+            <div class="col-sm-7">
+              <input
+                style="font-size: 35px; color: green; font-weight: bold"
+                type="text"
+                class="form-control"
+                id="inputEmail3"
+                placeholder=""
+                :value="sum"
+                disabled
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 <script>
 export default {
-    props: [ "username"],
+  props: ["username"],
   data() {
     return {
-        a: 1,
-        orderId: '',
+      a: 1,
+      orderId: "",
     };
   },
-  async mounted(){
-
-  },
+  async mounted() {},
   computed: {
     sum() {
-
-
-        return this.$store.state.items.reduce((accumulator, currentValue) => accumulator + currentValue.total, 0).toFixed(2);
-
+      return this.$store.state.items
+        .reduce((accumulator, currentValue) => accumulator + currentValue.total, 0)
+        .toFixed(2);
     },
-},
+  },
   created() {},
   methods: {
     print: async function (type) {
-        const self = this;
-        $('#modal-loading').modal('show');
+      const self = this;
+      $("#modal-loading").modal("show");
 
-    await axios.post(process.env.MIX_DEV_API + "/order/getorderbydateandqueue",{
-            createAt : this.$store.state.queueDate[1],
-            queue: this.$store.state.queueDate[0]
-        } ,{
+      await axios
+        .post(
+          process.env.MIX_DEV_API + "/order/getorderbydateandqueue",
+          {
+            createAt: this.$store.state.queueDate[1],
+            queue: this.$store.state.queueDate[0],
+          },
+          {
             headers: {
-                "ngrok-skip-browser-warning": "true",
-            }
-        }).then((res)=>{
-            $('#modal-loading').modal('hide');
+              "ngrok-skip-browser-warning": "true",
+            },
+          }
+        )
+        .then((res) => {
+          $("#modal-loading").modal("hide");
 
-            self.orderId = res.data.data[0].orderId
-            if(type == 1){
-                window.open('/cashier/print/receiptorder?id='+self.orderId, '_blank');
-
-            }else{
-                window.open('/cashier/print/receipt-cash-bill?id='+self.orderId, '_blank');
-
-            }
-
-        }).catch(error => {
-            $('#modal-loading').modal('hide');
+          self.orderId = res.data.data[0].orderId;
+          if (type == 1) {
+            window.open("/cashier/print/receiptorder?id=" + self.orderId, "_blank");
+          } else {
+            window.open("/cashier/print/receipt-cash-bill?id=" + self.orderId, "_blank");
+          }
         })
-
+        .catch((error) => {
+          $("#modal-loading").modal("hide");
+        });
     },
   },
 };

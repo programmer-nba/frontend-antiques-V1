@@ -3,7 +3,7 @@
     <div class="col-md-12">
       <div v-for="d in JSON.parse(data)" style="display: inline-block">
         <button
-        :disabled="this.$store.state.dataOpen[0] == 'APPROVE'"
+          :disabled="this.$store.state.dataOpen[0] == 'APPROVE'"
           @click="toggleModal(d)"
           type="button"
           class="btn btn-square-md"
@@ -17,26 +17,27 @@
         >
           {{ d.category_name_en }}/{{ d.category_name_th }}
         </button>
-
       </div>
       <button
-      :disabled="this.$store.state.dataOpen[0] == 'APPROVE'"
+        :disabled="this.$store.state.dataOpen[0] == 'APPROVE'"
         type="button"
         class="btn btn-square-md"
         @click="save()"
         style="
-        background-color: green;
-            color: white;
-            font-size: 16px;
-            width: 100px !important;
-            box-shadow: 0em 0.5em 0.8em #d9d9d9;
+          background-color: green;
+          color: white;
+          font-size: 16px;
+          width: 100px !important;
+          box-shadow: 0em 0.5em 0.8em #d9d9d9;
         "
       >
-      <img src="https://drive.google.com/uc?export=view&id=1rCZKbIuyvzV1fd0CdTVw5S2p3grcmirs" style="width: 40px;height:40px;">
+        <img
+          src="https://drive.google.com/uc?export=view&id=1rCZKbIuyvzV1fd0CdTVw5S2p3grcmirs"
+          style="width: 40px; height: 40px"
+        />
 
-      Cashier/จ่ายเงิน
+        Cashier/จ่ายเงิน
       </button>
-
     </div>
     <!-- <div class="col-md-12 text-right">
 
@@ -244,9 +245,9 @@ export default {
 
   mounted: function () {
     const self = this;
-    $(document).on('show.bs.modal', '.modal', function () {
-        self.num = 0;
-});
+    $(document).on("show.bs.modal", ".modal", function () {
+      self.num = 0;
+    });
 
     // this.dataTemp = this.$store.state.items;
     var vm = this;
@@ -327,7 +328,7 @@ export default {
         qty: this.num,
         total: this.num * this.mul,
         detail_id: item.detail_id,
-        unit: item.unit
+        unit: item.unit,
       });
       localStorage.storedData = JSON.stringify(clickedItems);
       this.$store.dispatch("loadItems", this.$store.state.items.concat(clickedItems));
@@ -405,7 +406,7 @@ export default {
         });
     },
     async test(id) {
-        console.log("jj", this.$store.state.customers.class);
+      console.log("jj", this.$store.state.customers.class);
       // alert(id)
       await axios
         .post(

@@ -6,27 +6,51 @@
     class-name="btn btn-primary float-right"
     icon-name="fa fa-plus"
   >
-
-  <div class="form-group">
+    <div class="form-group">
       <label for="exampleInputEmail1">หมายเลขทะเบียนรถ </label>
-      <input type="text" class="form-control" v-model="customer.vehicle" placeholder="ป้อนหมายเลขทะเบียนรถ" />
+      <input
+        type="text"
+        class="form-control"
+        v-model="customer.vehicle"
+        placeholder="ป้อนหมายเลขทะเบียนรถ"
+      />
     </div>
     <div class="form-group">
       <label for="exampleInputEmail1">เลขบัตรประชาชน </label>
-      <input type="text" class="form-control" v-model="customer.idcard" placeholder="ป้อนเลขบัตรประชาชน"     maxlength = "13"
-/>
+      <input
+        type="text"
+        class="form-control"
+        v-model="customer.idcard"
+        placeholder="ป้อนเลขบัตรประชาชน"
+        maxlength="13"
+      />
     </div>
     <div class="form-group">
       <label for="exampleInputEmail1">ชื่อ </label>
-      <input type="text" class="form-control" v-model="customer.name" placeholder="ป้อนชื่อ" />
+      <input
+        type="text"
+        class="form-control"
+        v-model="customer.name"
+        placeholder="ป้อนชื่อ"
+      />
     </div>
     <div class="form-group">
       <label for="exampleInputEmail1">ที่อยู่ </label>
-      <input type="text" class="form-control" v-model="customer.address" placeholder="ป้อนที่อยู่" />
+      <input
+        type="text"
+        class="form-control"
+        v-model="customer.address"
+        placeholder="ป้อนที่อยู่"
+      />
     </div>
     <div class="form-group">
       <label for="exampleInputEmail1">วันเกิด </label>
-      <input type="text" class="form-control" v-model="customer.birthday" placeholder="ป้อนวันเกิด" />
+      <input
+        type="text"
+        class="form-control"
+        v-model="customer.birthday"
+        placeholder="ป้อนวันเกิด"
+      />
     </div>
     <!-- <button
                               @click="() => saveCategory()"
@@ -35,7 +59,11 @@
                             >
                               <i class="fa fa-save mr-2"></i>บันทึก
                             </button> -->
-    <button type="button" @click="saveCustomer()" class="btn btn-success mr-2 float-right">
+    <button
+      type="button"
+      @click="saveCustomer()"
+      class="btn btn-success mr-2 float-right"
+    >
       <i class="fa fa-save mr-2"></i>บันทึกข้อมูล
     </button> </modal
   >&nbsp;
@@ -47,7 +75,10 @@
         <div class="form-group">
           <label>ID</label>
           <select2-component
-          :disabled="this.$store.state.dataOpen[0] == 'FINISH'  || this.$store.state.dataOpen[0] == 'APPROVE'"
+            :disabled="
+              this.$store.state.dataOpen[0] == 'FINISH' ||
+              this.$store.state.dataOpen[0] == 'APPROVE'
+            "
             v-model="idCard"
             name="idcard[]"
             id="idcard"
@@ -64,7 +95,16 @@
         <div class="form-group">
           <label>Name</label>
 
-          <select2-component  :disabled="this.$store.state.dataOpen[0] == 'FINISH'  || this.$store.state.dataOpen[0] == 'APPROVE'" v-model="name" name="name[]" id="name" class="form-control">
+          <select2-component
+            :disabled="
+              this.$store.state.dataOpen[0] == 'FINISH' ||
+              this.$store.state.dataOpen[0] == 'APPROVE'
+            "
+            v-model="name"
+            name="name[]"
+            id="name"
+            class="form-control"
+          >
             <option value="000000000">-- กรุณาเลือก --</option>
             <option v-for="data in dataName" :value="data.fullname_th">
               {{ data.fullname_th }}
@@ -91,8 +131,15 @@
       <div class="col-md-4">
         <div class="form-group">
           <label>Warehoursse</label>
-          <select2-component         :disabled="this.$store.state.dataOpen[0] == 'FINISH'  || this.$store.state.dataOpen[0] == 'APPROVE'"
- name="Warehoursse[]" id="Warehoursse" class="form-control">
+          <select2-component
+            :disabled="
+              this.$store.state.dataOpen[0] == 'FINISH' ||
+              this.$store.state.dataOpen[0] == 'APPROVE'
+            "
+            name="Warehoursse[]"
+            id="Warehoursse"
+            class="form-control"
+          >
             <option value="1">W01 - WH Inside</option>
           </select2-component>
         </div>
@@ -113,7 +160,10 @@
           <label>Vehicle ID </label>
 
           <select2-component
-          :disabled="this.$store.state.dataOpen[0] == 'FINISH'  || this.$store.state.dataOpen[0] == 'APPROVE'"
+            :disabled="
+              this.$store.state.dataOpen[0] == 'FINISH' ||
+              this.$store.state.dataOpen[0] == 'APPROVE'
+            "
             v-model="vehicle"
             name="vehicle[]"
             id="vehicle"
@@ -139,7 +189,7 @@
         <img
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnqaInVc1iASODNTtkxaSp7Z_zoIDUDMNArKQwxCHUHw&s"
           alt=""
-          style="height: 10vh; width:5vw; margin-right: 1vw"
+          style="height: 10vh; width: 5vw; margin-right: 1vw"
         />
       </td>
       <td>
@@ -147,23 +197,23 @@
           @click="getOrder()"
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLQDlDeKd8O4BrfOk6iuyzaaqXITgUJ69Zzw&usqp=CAU"
           alt=""
-          style="height: 10vh; width:5vw; margin-right: 1vw"
+          style="height: 10vh; width: 5vw; margin-right: 1vw"
         />
       </td>
       <td>
         <img
-        @click="saveafterfinish()"
+          @click="saveafterfinish()"
           src="https://cdn-icons-png.flaticon.com/512/4856/4856668.png"
           alt=""
-          style="height: 10vh; width:5vw; margin-right: 1vw"
+          style="height: 10vh; width: 5vw; margin-right: 1vw"
         />
       </td>
       <td>
         <img
-        @click="showList()"
+          @click="showList()"
           :src="'/images/list.png'"
           alt=""
-          style="height: 10vh; width:5vw; margin-right: 1vw"
+          style="height: 10vh; width: 5vw; margin-right: 1vw"
         />
       </td>
       <!-- <td>
@@ -177,92 +227,98 @@
     </tr>
   </table>
 
-
-
-
-
-  <div class="modal fade"  id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-xl">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">รายการทั้งหมดของวันนี้</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-
-        <div  style="overflow-x:auto;">
-      <!-- <p>Response Data: {{ responseData }}</p> -->
-      <table class="table table-striped text-center">
-  <thead>
-    <tr>
-      <th scope="col">คิวที่</th>
-      <th scope="col">สถานะ</th>
-      <th scope="col">ข้อมูลลูกค้า</th>
-      <th scope="col">ประเภทลูกค้า</th>
-      <th scope="col">ข้อมูลสินค้า</th>
-      <th scope="col">ราคาทั้งหมด</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr v-for="(item, key) in overview">
-        <td>{{item["data"]["queue"]}}</td>
-        <td>
-            <button v-if="item['data']['status'] == 'FINISH'" type="button" class="btn btn-warning">รับออเดอร์แล้ว</button>
-            <button v-if="item['data']['status'] == 'APPROVE'" type="button" class="btn btn-success">จ่ายเงินแล้ว</button>
-        </td>
-        <td>{{item["data"]["fullname_th"]}}</td>
-        <td>{{item["data"]["class"]}}</td>
-        <td>
-                                <modal    :modal-id="'overview'+key"
-    title="รายการทั้งหมดของวันนี้"
-    button-text="ดูรายการสินค้า"
-    class-name="btn btn-primary"
-    icon-name="fa fa-eye"
->
-<h2 class="text-center">คิวที่ {{item["data"]["queue"]}}</h2>
-                                    <table class="table table-striped">
-                                        <thead>
-                                          <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">รายการ</th>
-                                            <th scope="col">จำนวน</th>
-                                            <th scope="col">ราคารวม</th>
-                                          </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr v-for="(item2, key2) in item['data']['order_detail']">
-                                                <th scope="row">{{key2+1}}</th>
-                                                <td>{{item2['description']}}</td>
-                                                <td>{{item2['qty']}}</td>
-                                                <td>{{item2['total']}}</td>
-                                              </tr>
-                                        </tbody>
-                                      </table>
-
-                                  </modal>&nbsp;&nbsp;
-                            </td>
-                            <td>{{item["data"]['total']}}</td>
-
-    </tr>
-  </tbody>
-</table>
-
-
-    </div>
-
-      </div>
-      <!-- <div class="modal-footer">
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">รายการทั้งหมดของวันนี้</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div style="overflow-x: auto">
+            <!-- <p>Response Data: {{ responseData }}</p> -->
+            <table class="table table-striped text-center">
+              <thead>
+                <tr>
+                  <th scope="col">คิวที่</th>
+                  <th scope="col">สถานะ</th>
+                  <th scope="col">ข้อมูลลูกค้า</th>
+                  <th scope="col">ประเภทลูกค้า</th>
+                  <th scope="col">ข้อมูลสินค้า</th>
+                  <th scope="col">ราคาทั้งหมด</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="(item, key) in overview">
+                  <td>{{ item["data"]["queue"] }}</td>
+                  <td>
+                    <button
+                      v-if="item['data']['status'] == 'FINISH'"
+                      type="button"
+                      class="btn btn-warning"
+                    >
+                      รับออเดอร์แล้ว
+                    </button>
+                    <button
+                      v-if="item['data']['status'] == 'APPROVE'"
+                      type="button"
+                      class="btn btn-success"
+                    >
+                      จ่ายเงินแล้ว
+                    </button>
+                  </td>
+                  <td>{{ item["data"]["fullname_th"] }}</td>
+                  <td>{{ item["data"]["class"] }}</td>
+                  <td>
+                    <modal
+                      :modal-id="'overview' + key"
+                      title="รายการทั้งหมดของวันนี้"
+                      button-text="ดูรายการสินค้า"
+                      class-name="btn btn-primary"
+                      icon-name="fa fa-eye"
+                    >
+                      <h2 class="text-center">คิวที่ {{ item["data"]["queue"] }}</h2>
+                      <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">รายการ</th>
+                            <th scope="col">จำนวน</th>
+                            <th scope="col">ราคารวม</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr v-for="(item2, key2) in item['data']['order_detail']">
+                            <th scope="row">{{ key2 + 1 }}</th>
+                            <td>{{ item2["description"] }}</td>
+                            <td>{{ item2["qty"] }}</td>
+                            <td>{{ item2["total"] }}</td>
+                          </tr>
+                        </tbody>
+                      </table> </modal
+                    >&nbsp;&nbsp;
+                  </td>
+                  <td>{{ item["data"]["total"] }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary">Save changes</button>
       </div> -->
+      </div>
     </div>
   </div>
-</div>
-
-
-
 </template>
 
 <script>
@@ -295,12 +351,12 @@ export default {
       overview: "",
       loadCustomers: [],
       customer: {
-        name: '',
-        vehicle: '',
-        idcard: '',
-        address: '',
-        birthday: ''
-      }
+        name: "",
+        vehicle: "",
+        idcard: "",
+        address: "",
+        birthday: "",
+      },
     };
   },
   mounted: async function () {
@@ -319,51 +375,53 @@ export default {
     this.loadVehicle();
     const self = this;
 
+    $("#createCustomer").on("hidden.bs.modal", function () {
+      //   alert('hidden event fired!');
+    });
 
-    $('#createCustomer').on('hidden.bs.modal', function () {
-//   alert('hidden event fired!');
-});
-
-
-$('#createCustomer').on('show.bs.modal', function (e) {
-
-    setInterval(() => {
+    $("#createCustomer").on("show.bs.modal", function (e) {
+      setInterval(() => {
         $.ajax({
-        url: 'https://localhost:8182/thaiid/read.jsonp?callback=callback&section1=true&section2a=true&section2c=true',
-        method: 'GET',
-        type: 'JSON',
-        success: function (jsondata) {
-
+          url:
+            "https://localhost:8182/thaiid/read.jsonp?callback=callback&section1=true&section2a=true&section2c=true",
+          method: "GET",
+          type: "JSON",
+          success: function (jsondata) {
             var data = jsondata.substr(13, jsondata.length - 14);
             var jdata = JSON.parse(data);
-            console.log(jdata)
+            console.log(jdata);
 
             if (jdata !== null) {
-                self.customer.idcard = jdata.CitizenNo
-                self.customer.name = jdata.TitleNameTh+jdata.FirstNameTh + " " + jdata.LastNameTh
-                self.customer.address = `บ้านเลขที่ ${jdata.HomeNo} หมู่ ${jdata.Moo} ตำบล${jdata.Tumbol} อำเภอ${jdata.Amphur} จังหวัด${jdata.Province}`
+              self.customer.idcard = jdata.CitizenNo;
+              self.customer.name =
+                jdata.TitleNameTh + jdata.FirstNameTh + " " + jdata.LastNameTh;
+              self.customer.address = `บ้านเลขที่ ${jdata.HomeNo} หมู่ ${jdata.Moo} ตำบล${jdata.Tumbol} อำเภอ${jdata.Amphur} จังหวัด${jdata.Province}`;
 
-                const date = new Date(jdata.BirthDate
-.substr(0,4) -543, jdata.BirthDate.substr(4,2)-1, String(jdata.BirthDate).substr(6,2))
-                console.log(jdata.BirthDate
-.substr(0,4), jdata.BirthDate
-.substr(4,2), jdata.BirthDate
-.substr(6,2))
-const result = date.toLocaleDateString('th-TH', {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
-})
+              const date = new Date(
+                jdata.BirthDate.substr(0, 4) - 543,
+                jdata.BirthDate.substr(4, 2) - 1,
+                String(jdata.BirthDate).substr(6, 2)
+              );
+              console.log(
+                jdata.BirthDate.substr(0, 4),
+                jdata.BirthDate.substr(4, 2),
+                jdata.BirthDate.substr(6, 2)
+              );
+              const result = date.toLocaleDateString("th-TH", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              });
 
-self.customer.birthday = result
-
-            }else{
-                self.customer.idcard = "";
-                self.customer.name = "";
-                self.customer.address = "";
+              self.customer.birthday = result;
+            } else {
+              self.customer.idcard = "";
+              self.customer.name = "";
+              self.customer.address = "";
             }
-        }, error: function (jqXHR, textStatus, errorThrown) {
-            console.log(textStatus)
+          },
+          error: function (jqXHR, textStatus, errorThrown) {
+            console.log(textStatus);
             // $.busyLoadFull("hide");
             // Swal.fire({
             //     type: 'warning',
@@ -372,11 +430,10 @@ self.customer.birthday = result
             // }).then((res) => {
             //     start_read();
             // });
-        }
-    })
-    }, 1000);
-
-})
+          },
+        });
+      }, 1000);
+    });
 
     $("#vehicle").on("change", async function () {
       await axios
@@ -508,17 +565,17 @@ self.customer.birthday = result
       console.log(oldVal);
     },
     idCard: async function (val, oldVal) {
-        const self = this;
+      const self = this;
       this.$store.dispatch("loadCustomers", this.loadCustomers);
       console.log(this.$store.state.customers);
-    console.log("jj",this.loadCustomers)
-        var items = this.$store.state.items;
+      console.log("jj", this.loadCustomers);
+      var items = this.$store.state.items;
 
-            this.$store.dispatch("loadItems", []);
+      this.$store.dispatch("loadItems", []);
 
-            $('#modal-loading').modal('show');
+      $("#modal-loading").modal("show");
 
-            for await(const element of items){
+      for await (const element of items) {
         console.log("aam", element);
 
         var clickedItems = [];
@@ -537,7 +594,6 @@ self.customer.birthday = result
           )
           .then(async (response) => {
             self.mul = response.data.data;
-
             // clickedItems.push({
             //   description: element.description,
             //   qty: element.qty,
@@ -547,68 +603,66 @@ self.customer.birthday = result
             // console.log("it", clickedItems)
             await self.$store.dispatch(
               "loadItems",
-              self.$store.state.items.concat([{
-              description: element.description,
-              qty: element.qty,
-              total: element.qty * self.mul,
-              detail_id: element.detail_id,
-              unit: element.unit
-            }])
+              self.$store.state.items.concat([
+                {
+                  description: element.description,
+                  qty: element.qty,
+                  total: element.qty * self.mul,
+                  detail_id: element.detail_id,
+                  unit: element.unit,
+                },
+              ])
             );
           });
       }
-      setTimeout(function(){
-            $('#modal-loading').modal('hide');
-
-        }, 2000)
+      setTimeout(function () {
+        $("#modal-loading").modal("hide");
+      }, 2000);
     },
     name: async function (val, oldVal) {
-    //   this.$store.dispatch("loadCustomers", this.loadCustomers);
-    //   console.log(this.$store.state.customers);
+      //   this.$store.dispatch("loadCustomers", this.loadCustomers);
+      //   console.log(this.$store.state.customers);
     },
     vehicle: function (val, oldVal) {
-    //   this.$store.dispatch("loadCustomers", this.loadCustomers);
-    //   console.log(this.$store.state.customers);
+      //   this.$store.dispatch("loadCustomers", this.loadCustomers);
+      //   console.log(this.$store.state.customers);
     },
-    loadCustomers: function(val, oldVal){
-    }
+    loadCustomers: function (val, oldVal) {},
   },
   methods: {
-    async showList(){
-        const config = {
-        method: 'post',
+    async showList() {
+      const config = {
+        method: "post",
         url: process.env.MIX_DEV_API + "/report/overviewantiques",
         headers: {
-            "ngrok-skip-browser-warning": "true",
+          "ngrok-skip-browser-warning": "true",
           // Add any other headers as needed
         },
-        data:{
-            createAt: new Date().toISOString().slice(0, 10),
-        }
+        data: {
+          createAt: new Date().toISOString().slice(0, 10),
+        },
         // Other configuration options can be added here
       };
-      $('#modal-loading').modal('show');
+      $("#modal-loading").modal("show");
 
       // Make the request
       axios(config)
         .then((response) => {
-            console.log("report/overviewantiques", response)
-            this.overview = response.data.data
-            console.log(this.overview)
-            $('#modal-loading').modal('hide');
+          console.log("report/overviewantiques", response);
+          this.overview = response.data.data;
+          console.log(this.overview);
+          $("#modal-loading").modal("hide");
 
-            $('#exampleModal').modal('show')
-
-
+          $("#exampleModal").modal("show");
         })
         .catch((error) => {
           // Handle errors
-          console.error('Error:', error);
+          console.error("Error:", error);
         });
     },
-    async saveCustomer(){
-        console.log("customer",this.customer)
-        await axios
+    async saveCustomer() {
+      console.log("customer", this.customer);
+      await axios
         .post(
           process.env.MIX_DEV_API + "/customer/createCus",
           {
@@ -616,7 +670,7 @@ self.customer.birthday = result
             fullname_th: this.customer.name,
             vehicle: this.customer.vehicle,
             birthday: this.customer.birthday,
-            address: this.customer.address
+            address: this.customer.address,
           },
           {
             headers: {
@@ -625,8 +679,7 @@ self.customer.birthday = result
           }
         )
         .then((response) => {
-
-            this.$swal({
+          this.$swal({
             title: "บันทึกรายการข้อมูลสำเร็จ!",
             icon: "success",
           }).then(function () {
@@ -638,23 +691,22 @@ self.customer.birthday = result
           }, 5000);
         });
     },
-    clear(){
-        $("#idcard").val("000000000").trigger("change");
-        $("#name").val("000000000").trigger("change");
-        $("#vehicle").val("000000000").trigger("change");
+    clear() {
+      $("#idcard").val("000000000").trigger("change");
+      $("#name").val("000000000").trigger("change");
+      $("#vehicle").val("000000000").trigger("change");
 
-        this.type = "";
+      this.type = "";
     },
-    async saveafterfinish(){
-
-        await axios
+    async saveafterfinish() {
+      await axios
         .post(
           process.env.MIX_DEV_API + "/order/saveafterfinish",
           {
             customers: this.$store.state.customers,
             items: this.$store.state.items,
-            createAt : this.$store.state.queueDate[1],
-            queue: this.$store.state.queueDate[0]
+            createAt: this.$store.state.queueDate[1],
+            queue: this.$store.state.queueDate[0],
           },
           {
             headers: {
@@ -663,8 +715,7 @@ self.customer.birthday = result
           }
         )
         .then((response) => {
-
-            this.$swal({
+          this.$swal({
             title: "บันทึกรายการข้อมูลสำเร็จ!",
             icon: "success",
           }).then(function () {
@@ -677,11 +728,11 @@ self.customer.birthday = result
         });
     },
     reloadPage() {
-        const config = {
-        method: 'get',
+      const config = {
+        method: "get",
         url: process.env.MIX_DEV_API + "/order/getlastqueue",
         headers: {
-            "ngrok-skip-browser-warning": "true",
+          "ngrok-skip-browser-warning": "true",
           // Add any other headers as needed
         },
         // Other configuration options can be added here
@@ -690,25 +741,23 @@ self.customer.birthday = result
       // Make the request
       axios(config)
         .then((response) => {
-
           // Handle the response
           this.queue = response.data.data;
 
           this.$store.dispatch("loadQueueAndDate", [
             this.queue,
-            new Date().toISOString().slice(0, 10)
+            new Date().toISOString().slice(0, 10),
           ]);
-            //aaaaaaaaaaaaaaaaaaa
+          //aaaaaaaaaaaaaaaaaaa
           this.$store.dispatch("loadItems", []);
-            this.clear();
-            this.$store.dispatch("loadOpen", []);
+          this.clear();
+          this.$store.dispatch("loadOpen", []);
 
-          console.log("test", this.$store.state.queueDate)
-
+          console.log("test", this.$store.state.queueDate);
         })
         .catch((error) => {
           // Handle errors
-          console.error('Error:', error);
+          console.error("Error:", error);
         });
     },
     myChangeEvent(val) {
@@ -798,60 +847,61 @@ self.customer.birthday = result
       // let api_url = process.env.MIX_API_KEY;
       // alert(api_url)
     },
-    async getOrder(){
-        console.log("test", this.$store.state.customers)
-        $('#modal-loading').modal('show');
+    async getOrder() {
+      console.log("test", this.$store.state.customers);
+      $("#modal-loading").modal("show");
 
-        await axios.post(process.env.MIX_DEV_API + "/order/getorderbydateandqueue",{
-            createAt : this.$store.state.queueDate[1],
-            queue: this.$store.state.queueDate[0]
-        } ,{
+      await axios
+        .post(
+          process.env.MIX_DEV_API + "/order/getorderbydateandqueue",
+          {
+            createAt: this.$store.state.queueDate[1],
+            queue: this.$store.state.queueDate[0],
+          },
+          {
             headers: {
-                "ngrok-skip-browser-warning": "true",
-}
-        }).then((res)=>{
+              "ngrok-skip-browser-warning": "true",
+            },
+          }
+        )
+        .then((res) => {
+          $("#modal-loading").modal("hide");
 
-            $('#modal-loading').modal('hide');
+          console.log("--แจ้งเตือน LINE--", res);
+          //     var clickedItems = [];
+          // clickedItems.push({ description: item.detail_name_th, qty: this.num, total: this.num * this.mul });
+          //   localStorage.storedData = JSON.stringify(this.clickedItems);
+          this.$store.dispatch("loadOrderId", res.data.data[0]._id);
+          $("#idcard").val(res.data.data[1].id_card).trigger("change");
 
-            console.log('--แจ้งเตือน LINE--', res)
-        //     var clickedItems = [];
-        // clickedItems.push({ description: item.detail_name_th, qty: this.num, total: this.num * this.mul });
-    //   localStorage.storedData = JSON.stringify(this.clickedItems);
-    this.$store.dispatch("loadOrderId", res.data.data[0]._id);
-    $("#idcard").val(res.data.data[1].id_card).trigger("change");
-
-    this.$store.dispatch("loadOpen", [
-        res.data.data[0].status,
-        res.data.data[0].trackorder
+          this.$store.dispatch("loadOpen", [
+            res.data.data[0].status,
+            res.data.data[0].trackorder,
           ]);
 
-
-            if(typeof res.data.data[0].order_detail == "undefined"){
-                this.$store.dispatch("loadItems", []);
-
-            }else{
-                $('#modal-loading').modal('hide');
-
-                this.$store.dispatch("loadItems", res.data.data[0].order_detail);
-
-            }
-
-
-        }).catch((err)=>{
-            $('#modal-loading').modal('hide');
-
+          if (typeof res.data.data[0].order_detail == "undefined") {
             this.$store.dispatch("loadItems", []);
+          } else {
+            $("#modal-loading").modal("hide");
+
+            this.$store.dispatch("loadItems", res.data.data[0].order_detail);
+          }
         })
-        // console.log("item", item)
-    //     var clickedItems = [];
+        .catch((err) => {
+          $("#modal-loading").modal("hide");
 
-    //     //sdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsd
-    //     this.$store.dispatch("loadOrderId", item._id);
-    //     $('#exampleModal').modal('hide')
+          this.$store.dispatch("loadItems", []);
+        });
+      // console.log("item", item)
+      //     var clickedItems = [];
 
-    //     clickedItems.push({ description: item.detail_name_th, qty: this.num, total: this.num * this.mul });
-    // //   localStorage.storedData = JSON.stringify(this.clickedItems);
-    //   this.$store.dispatch("loadItems", item.order_detail);
+      //     //sdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsd
+      //     this.$store.dispatch("loadOrderId", item._id);
+      //     $('#exampleModal').modal('hide')
+
+      //     clickedItems.push({ description: item.detail_name_th, qty: this.num, total: this.num * this.mul });
+      // //   localStorage.storedData = JSON.stringify(this.clickedItems);
+      //   this.$store.dispatch("loadItems", item.order_detail);
     },
   },
 };
