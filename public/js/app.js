@@ -20786,9 +20786,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               console.log("user value", value);
               $("#modal-loading").modal("show");
               _this.viewDetail[0] = value.description;
-              _this.viewDetail[1] = "abc";
-              _context.next = 6;
-              return axios.post("https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/order/saveafterfinish", {
+              _context.next = 5;
+              return axios.post("https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/order/viewdetailorder", {
                 detail_id: value.detail_id,
                 createAt: _this.$store.state.queueDate[1],
                 queue: _this.$store.state.queueDate[0]
@@ -20797,10 +20796,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   "ngrok-skip-browser-warning": "true"
                 }
               }).then(function (response) {
+                _this.viewDetail[1] = response.data.data[0].order_detail;
                 $("#modal-loading").modal("hide");
                 $("#showDataTable").modal("show");
               });
-            case 6:
+            case 5:
             case "end":
               return _context.stop();
           }
@@ -23243,11 +23243,24 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         return _regeneratorRuntime().wrap(function _callee3$(_context3) {
           while (1) switch (_context3.prev = _context3.next) {
             case 0:
-              console.log("value", value);
-              _this2.viewDetail[0] = value;
-              _this2.viewDetail[1] = "abc";
-              $("#showDataTable").modal("show");
-            case 4:
+              console.log("user value", value);
+              $("#modal-loading").modal("show");
+              _this2.viewDetail[0] = value.description;
+              _context3.next = 5;
+              return axios.post("https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/order/viewdetailorder", {
+                detail_id: value.detail_id,
+                createAt: _this2.$store.state.queueDate[1],
+                queue: _this2.$store.state.queueDate[0]
+              }, {
+                headers: {
+                  "ngrok-skip-browser-warning": "true"
+                }
+              }).then(function (response) {
+                _this2.viewDetail[1] = response.data.data[0].order_detail;
+                $("#modal-loading").modal("hide");
+                $("#showDataTable").modal("show");
+              });
+            case 5:
             case "end":
               return _context3.stop();
           }
@@ -24729,7 +24742,6 @@ var _hoisted_38 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 }, "Qty"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
   scope: "col"
 }, "UM")])], -1 /* HOISTED */);
-var _hoisted_39 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td")], -1 /* HOISTED */);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _this = this;
@@ -24805,7 +24817,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         return $options.deleteProduct(value, i);
       }
     }, _hoisted_29, 8 /* PROPS */, _hoisted_26)])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <td></td>\n                                            <td>0</td>\n                                            <td>{{value.total}}</td> ")]);
-  }), 128 /* KEYED_FRAGMENT */))])])]), _hoisted_30, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"row\">\n    <div class=\"col-md-4\">\n\n        </div>\n        <div class=\"col-md-2\">\n\n</div>\n<div class=\"col-md-6\">\n    <div class=\"form-group row\" style=\"margin-bottom: 0px;    margin-bottom: 0px;margin-top: -12px;\n\n    \">\n    <label for=\"staticEmail\" class=\"col-sm-6\" style=\"\"><span>Weight:</span> <span style=\"    font-size: 28px;\">25.48 KG</span>  </label>\n    <label for=\"staticEmail\" class=\"col-sm-6\" style=\"\"><span>Total:</span> <span style=\"    font-size: 28px;\">                                {{totalTaxes}}\n</span> </label>\n\n\n    </div>\n\n</div>\n\n</div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_31, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_32, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_33, [_hoisted_34, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_35, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_36, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p>Response Data: {{ responseData }}</p> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.viewDetail[0]), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_37, [_hoisted_38, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.viewDetail[1]) + " ", 1 /* TEXT */), _hoisted_39])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"modal-footer\">\n        <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\n        <button type=\"button\" class=\"btn btn-primary\">Save changes</button>\n      </div> ")])])])], 64 /* STABLE_FRAGMENT */);
+  }), 128 /* KEYED_FRAGMENT */))])])]), _hoisted_30, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"row\">\n    <div class=\"col-md-4\">\n\n        </div>\n        <div class=\"col-md-2\">\n\n</div>\n<div class=\"col-md-6\">\n    <div class=\"form-group row\" style=\"margin-bottom: 0px;    margin-bottom: 0px;margin-top: -12px;\n\n    \">\n    <label for=\"staticEmail\" class=\"col-sm-6\" style=\"\"><span>Weight:</span> <span style=\"    font-size: 28px;\">25.48 KG</span>  </label>\n    <label for=\"staticEmail\" class=\"col-sm-6\" style=\"\"><span>Total:</span> <span style=\"    font-size: 28px;\">                                {{totalTaxes}}\n</span> </label>\n\n\n    </div>\n\n</div>\n\n</div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_31, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_32, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_33, [_hoisted_34, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_35, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_36, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p>Response Data: {{ responseData }}</p> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.viewDetail[0]), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_37, [_hoisted_38, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.viewDetail[1], function (value, index) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tr", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(index + 1), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(value.description), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(value.qty), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(value.unit), 1 /* TEXT */)]);
+  }), 256 /* UNKEYED_FRAGMENT */))])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"modal-footer\">\n        <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\n        <button type=\"button\" class=\"btn btn-primary\">Save changes</button>\n      </div> ")])])])], 64 /* STABLE_FRAGMENT */);
 }
 
 /***/ }),
@@ -26445,8 +26459,11 @@ var _hoisted_39 = {
     "overflow-x": "auto"
   }
 };
-var _hoisted_40 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, "เหล็กหนา 1", -1 /* HOISTED */);
-var _hoisted_41 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<table class=\"table table-striped\"><thead><tr><th scope=\"col\">#</th><th scope=\"col\">รายการ</th><th scope=\"col\">จำนวน</th><th scope=\"col\">ราคารวม</th></tr></thead><tbody></tbody></table>", 1);
+var _hoisted_40 = {
+  "class": "table table-striped"
+};
+var _hoisted_41 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", null, null, -1 /* HOISTED */);
+
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _this = this;
   var _component_modal = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("modal");
@@ -26535,7 +26552,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         return $options.deleteProduct(value, i);
       }
     }, _hoisted_32, 8 /* PROPS */, _hoisted_29)])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]);
-  }), 128 /* KEYED_FRAGMENT */))])])]), _hoisted_33, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"row\">\n   <div class=\"col-md-4\">\n\n       </div>\n       <div class=\"col-md-2\">\n\n</div>\n<div class=\"col-md-6\">\n   <div class=\"form-group row\" style=\"margin-bottom: 0px;    margin-bottom: 0px;margin-top: -12px;\n\n   \">\n   <label for=\"staticEmail\" class=\"col-sm-6\" style=\"\"><span>Weight:</span> <span style=\"    font-size: 28px;\">25.48 KG</span>  </label>\n   <label for=\"staticEmail\" class=\"col-sm-6\" style=\"\"><span>Total:</span> <span style=\"    font-size: 28px;\">                                {{totalTaxes}}\n</span> </label>\n\n\n   </div>\n\n</div>\n\n</div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_34, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_35, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_36, [_hoisted_37, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_38, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_39, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p>Response Data: {{ responseData }}</p> "), _hoisted_40, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.viewDetail) + "fff ", 1 /* TEXT */), _hoisted_41])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"modal-footer\">\n        <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\n        <button type=\"button\" class=\"btn btn-primary\">Save changes</button>\n      </div> ")])])])], 64 /* STABLE_FRAGMENT */);
+  }), 128 /* KEYED_FRAGMENT */))])])]), _hoisted_33, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"row\">\n   <div class=\"col-md-4\">\n\n       </div>\n       <div class=\"col-md-2\">\n\n</div>\n<div class=\"col-md-6\">\n   <div class=\"form-group row\" style=\"margin-bottom: 0px;    margin-bottom: 0px;margin-top: -12px;\n\n   \">\n   <label for=\"staticEmail\" class=\"col-sm-6\" style=\"\"><span>Weight:</span> <span style=\"    font-size: 28px;\">25.48 KG</span>  </label>\n   <label for=\"staticEmail\" class=\"col-sm-6\" style=\"\"><span>Total:</span> <span style=\"    font-size: 28px;\">                                {{totalTaxes}}\n</span> </label>\n\n\n   </div>\n\n</div>\n\n</div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_34, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_35, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_36, [_hoisted_37, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_38, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_39, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p>Response Data: {{ responseData }}</p> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.viewDetail[0]), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_40, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("thead", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.viewDetail[1], function (value, index) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tr", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(index + 1), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(value.description), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(value.qty), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(value.unit), 1 /* TEXT */)]);
+  }), 256 /* UNKEYED_FRAGMENT */))]), _hoisted_41])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"modal-footer\">\n        <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\n        <button type=\"button\" class=\"btn btn-primary\">Save changes</button>\n      </div> ")])])])], 64 /* STABLE_FRAGMENT */);
 }
 
 /***/ }),

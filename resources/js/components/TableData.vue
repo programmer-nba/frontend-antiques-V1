@@ -179,12 +179,11 @@
                 </tr>
               </thead>
               <tbody>
-                {{viewDetail[1]}}
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                <tr v-for="(value, index) in viewDetail[1]">
+                    <td>{{index+1}}</td>
+                    <td>{{value.description}}</td>
+                    <td>{{value.qty}}</td>
+                    <td>{{value.unit}}</td>
                 </tr>
               </tbody>
             </table>
@@ -245,11 +244,10 @@ export default {
         console.log("user value", value)
         $("#modal-loading").modal("show");
         this.viewDetail[0] = value.description;
-        this.viewDetail[1] = "abc";
 
 await axios
   .post(
-    process.env.MIX_DEV_API + "/order/saveafterfinish",
+    process.env.MIX_DEV_API + "/order/viewdetailorder",
     {
       detail_id: value.detail_id,
       createAt: this.$store.state.queueDate[1],
@@ -262,6 +260,7 @@ await axios
     }
   )
   .then((response) => {
+    this.viewDetail[1] = response.data.data[0].order_detail;
     $("#modal-loading").modal("hide");
     $("#showDataTable").modal("show");
 

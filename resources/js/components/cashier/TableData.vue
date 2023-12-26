@@ -180,15 +180,14 @@
         <div class="modal-body">
           <div style="overflow-x: auto">
             <!-- <p>Response Data: {{ responseData }}</p> -->
-            <h2>เหล็กหนา 1</h2>
-            {{viewDetail}}fff
+            <h2> {{viewDetail[0]}}</h2>
             <table class="table table-striped">
               <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">รายการ</th>
-                  <th scope="col">จำนวน</th>
-                  <th scope="col">ราคารวม</th>
+                <tr v-for="(value, index) in viewDetail[1]">
+                    <td>{{index+1}}</td>
+                    <td>{{value.description}}</td>
+                    <td>{{value.qty}}</td>
+                    <td>{{value.unit}}</td>
                 </tr>
               </thead>
               <tbody></tbody>
@@ -275,10 +274,30 @@ export default {
       });
     },
     async showData(value) {
-        console.log("value", value)
-        this.viewDetail[0] = value;
-        this.viewDetail[1] = "abc";
-      $("#showDataTable").modal("show");
+        console.log("user value", value)
+        $("#modal-loading").modal("show");
+        this.viewDetail[0] = value.description;
+
+await axios
+  .post(
+    process.env.MIX_DEV_API + "/order/viewdetailorder",
+    {
+      detail_id: value.detail_id,
+      createAt: this.$store.state.queueDate[1],
+      queue: this.$store.state.queueDate[0],
+    },
+    {
+      headers: {
+        "ngrok-skip-browser-warning": "true",
+      },
+    }
+  )
+  .then((response) => {
+    this.viewDetail[1] = response.data.data[0].order_detail;
+    $("#modal-loading").modal("hide");
+    $("#showDataTable").modal("show");
+
+  });
     },
     async onSelect(item) {
       this.show = false;
