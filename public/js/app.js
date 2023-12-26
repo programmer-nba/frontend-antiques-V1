@@ -19495,7 +19495,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         while (1) switch (_context2.prev = _context2.next) {
           case 0:
             _context2.next = 2;
-            return axios__WEBPACK_IMPORTED_MODULE_0___default().get("https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/get", {
+            return axios__WEBPACK_IMPORTED_MODULE_0___default().get("https://api.nbadigital.tech/antiques" + "/get", {
               headers: {
                 "ngrok-skip-browser-warning": "true"
               }
@@ -19563,7 +19563,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               self.item_detail_products = [];
               _this2.choose_category_id = event.category_id;
               _context3.next = 7;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().post("https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/getcatebyid", {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().post("https://api.nbadigital.tech/antiques" + "/getcatebyid", {
                 category_id: event.category_id
               }, {
                 headers: {
@@ -19606,7 +19606,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               _this3.choose_type_id = event.type_id;
               _context4.next = 6;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().post("https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/getdetailbyid", {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().post("https://api.nbadigital.tech/antiques" + "/getdetailbyid", {
                 type_id: event.type_id
               }, {
                 headers: {
@@ -19630,7 +19630,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) switch (_context5.prev = _context5.next) {
             case 0:
               _context5.next = 2;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().post("https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/CreateCategory", {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().post("https://api.nbadigital.tech/antiques" + "/CreateCategory", {
                 category_name_th: _this4.category_name_th,
                 category_name_en: _this4.category_name_en
               }, {
@@ -19662,7 +19662,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 detail_en: _this5.type_name_en
               });
               _context6.next = 3;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().post("https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/createtype", {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().post("https://api.nbadigital.tech/antiques" + "/createtype", {
                 category_id: _this5.choose_category_id,
                 detail_th: _this5.type_name_th,
                 detail_en: _this5.type_name_en
@@ -19699,7 +19699,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 price_D: 0
               });
               _context7.next = 3;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().post("https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/createdetailproduct", {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().post("https://api.nbadigital.tech/antiques" + "/createdetailproduct", {
                 category_id: _this6.choose_category_id,
                 type_id: _this6.choose_type_id,
                 detail_name_th: _this6.detail_name_th,
@@ -19731,7 +19731,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) switch (_context8.prev = _context8.next) {
             case 0:
               _context8.next = 2;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().put("https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/update", {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().put("https://api.nbadigital.tech/antiques" + "/update", {
                 _id: id,
                 category_name_th: _this7.item_categorys[index].category_name_th,
                 category_name_en: _this7.item_categorys[index].category_name_en
@@ -19761,7 +19761,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) switch (_context9.prev = _context9.next) {
             case 0:
               _context9.next = 2;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().put("https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/updatevendor", {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().put("https://api.nbadigital.tech/antiques" + "/updatevendor", {
                 vendor_id: _this8.vendor_id,
                 vendor_data: JSON.stringify({
                   A: _this8.vendor_type[0]["A"],
@@ -19795,7 +19795,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) switch (_context10.prev = _context10.next) {
             case 0:
               _context10.next = 2;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().put("https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/updateType", {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().put("https://api.nbadigital.tech/antiques" + "/updateType", {
                 _id: id,
                 detail_th: _this9.item_types[index].detail_th,
                 detail_en: _this9.item_types[index].detail_en
@@ -19825,7 +19825,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) switch (_context11.prev = _context11.next) {
             case 0:
               _context11.next = 2;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().put("https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/updatedetail", {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().put("https://api.nbadigital.tech/antiques" + "/updatedetail", {
                 _id: id,
                 detail_name_th: _this10.item_detail_products[index].detail_name_th,
                 detail_name_en: _this10.item_detail_products[index].detail_name_en
@@ -19872,7 +19872,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                           break;
                         }
                         _context12.next = 3;
-                        return axios__WEBPACK_IMPORTED_MODULE_0___default().put("https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/deletetypedata", {
+                        return axios__WEBPACK_IMPORTED_MODULE_0___default().put("https://api.nbadigital.tech/antiques" + "/deletetypedata", {
                           _id: id
                         }, {
                           headers: {
@@ -19927,7 +19927,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                           break;
                         }
                         _context14.next = 3;
-                        return axios__WEBPACK_IMPORTED_MODULE_0___default().put("https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/deletedetail", {
+                        return axios__WEBPACK_IMPORTED_MODULE_0___default().put("https://api.nbadigital.tech/antiques" + "/deletedetail", {
                           detail_id: id
                         }, {
                           headers: {
@@ -19982,7 +19982,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                           break;
                         }
                         _context16.next = 3;
-                        return axios__WEBPACK_IMPORTED_MODULE_0___default().put("https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/delete", {
+                        return axios__WEBPACK_IMPORTED_MODULE_0___default().put("https://api.nbadigital.tech/antiques" + "/delete", {
                           _id: id
                         }, {
                           headers: {
@@ -20058,7 +20058,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               //   });
               _this14.choose_detail_id = event.detail_id;
               _context18.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().post("https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/getvendorbyid", {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().post("https://api.nbadigital.tech/antiques" + "/getvendorbyid", {
                 detail_id: event.detail_id
               }, {
                 headers: {
@@ -20187,7 +20187,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this = this;
       var config = {
         method: "get",
-        url: "https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/order/getlastqueue",
+        url: "https://api.nbadigital.tech/antiques" + "/order/getlastqueue",
         headers: {
           "ngrok-skip-browser-warning": "true"
           // Add any other headers as needed
@@ -20222,7 +20222,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               $("#modal-loading").modal("show");
               self = this;
               _context.next = 4;
-              return axios.post("https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/order/createOrder", {
+              return axios.post("https://api.nbadigital.tech/antiques" + "/order/createOrder", {
                 customers: this.$store.state.customers,
                 items: this.$store.state.items,
                 createAt: this.$store.state.queueDate[1],
@@ -20416,7 +20416,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             case 0:
               $("#modal-loading").modal("show");
               _context4.next = 3;
-              return axios.post("https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/order/saveafterfinish", {
+              return axios.post("https://api.nbadigital.tech/antiques" + "/order/saveafterfinish", {
                 customers: _this5.$store.state.customers,
                 items: _this5.$store.state.items,
                 createAt: _this5.$store.state.queueDate[1],
@@ -20457,7 +20457,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               //     console.log(res)
               //   });
               _context5.next = 5;
-              return axios.post("https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/getOrderData", {
+              return axios.post("https://api.nbadigital.tech/antiques" + "/getOrderData", {
                 category_id: item.category_id
               }, {
                 headers: {
@@ -20499,7 +20499,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
             // alert(id)
             _context6.next = 3;
-            return axios.post("https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/getdetailvendor", {
+            return axios.post("https://api.nbadigital.tech/antiques" + "/getdetailvendor", {
               detail_id: id,
               "class": _this7.$store.state.customers["class"]
             }, {
@@ -20566,7 +20566,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return axios.post("https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/order/approveorder", {
+              return axios.post("https://api.nbadigital.tech/antiques" + "/order/approveorder", {
                 customers: this.$store.state.customers,
                 items: this.$store.state.items
               }, {
@@ -20629,7 +20629,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               //     return sum + tax.total;
               // }, 0);
               _context.next = 5;
-              return axios.post("https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/order/approveorder", {
+              return axios.post("https://api.nbadigital.tech/antiques" + "/order/approveorder", {
                 _id: this.$store.state.orderId,
                 items: this.$store.state.items
               }, {
@@ -20787,7 +20787,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               $("#modal-loading").modal("show");
               _this.viewDetail[0] = value.description;
               _context.next = 5;
-              return axios.post("https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/order/viewdetailorder", {
+              return axios.post("https://api.nbadigital.tech/antiques" + "/order/viewdetailorder", {
                 detail_id: value.detail_id,
                 createAt: _this.$store.state.queueDate[1],
                 queue: _this.$store.state.queueDate[0]
@@ -20868,7 +20868,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               //save spiderman
               $("#modal-loading").modal("show");
               _context4.next = 6;
-              return axios.post("https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/order/saveafterfinish", {
+              return axios.post("https://api.nbadigital.tech/antiques" + "/order/saveafterfinish", {
                 customers: _this3.$store.state.customers,
                 items: _this3.$store.state.items,
                 createAt: _this3.$store.state.queueDate[1],
@@ -21088,7 +21088,7 @@ function AsyncFromSyncIterator(r) { function AsyncFromSyncIteratorContinuation(r
                 while (1) switch (_context.prev = _context.next) {
                   case 0:
                     _context.next = 2;
-                    return axios.post("https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/customer/filterCusByData", {
+                    return axios.post("https://api.nbadigital.tech/antiques" + "/customer/filterCusByData", {
                       vehicle: $("#vehicle").val()
                     }, {
                       headers: {
@@ -21117,7 +21117,7 @@ function AsyncFromSyncIterator(r) { function AsyncFromSyncIteratorContinuation(r
                 while (1) switch (_context3.prev = _context3.next) {
                   case 0:
                     _context3.next = 2;
-                    return axios.post("https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/customer/filterCusByData", {
+                    return axios.post("https://api.nbadigital.tech/antiques" + "/customer/filterCusByData", {
                       id_card: $("#idcard").val()
                     }, {
                       headers: {
@@ -21161,7 +21161,7 @@ function AsyncFromSyncIterator(r) { function AsyncFromSyncIteratorContinuation(r
                 while (1) switch (_context4.prev = _context4.next) {
                   case 0:
                     _context4.next = 2;
-                    return axios.post("https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/customer/filterCusByData", {
+                    return axios.post("https://api.nbadigital.tech/antiques" + "/customer/filterCusByData", {
                       fullname_th: $("#name").val()
                     }, {
                       headers: {
@@ -21262,7 +21262,7 @@ function AsyncFromSyncIterator(r) { function AsyncFromSyncIteratorContinuation(r
                       console.log("aam", element);
                       clickedItems = [];
                       _context7.next = 5;
-                      return axios.post("https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/getdetailvendor", {
+                      return axios.post("https://api.nbadigital.tech/antiques" + "/getdetailvendor", {
                         detail_id: element.detail_id,
                         "class": self.type
                       }, {
@@ -21394,7 +21394,7 @@ function AsyncFromSyncIterator(r) { function AsyncFromSyncIteratorContinuation(r
             case 0:
               config = {
                 method: "post",
-                url: "https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/report/overviewantiques",
+                url: "https://api.nbadigital.tech/antiques" + "/report/overviewantiques",
                 headers: {
                   "ngrok-skip-browser-warning": "true"
                   // Add any other headers as needed
@@ -21434,7 +21434,7 @@ function AsyncFromSyncIterator(r) { function AsyncFromSyncIteratorContinuation(r
             case 0:
               console.log("customer", _this2.customer);
               _context11.next = 3;
-              return axios.post("https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/customer/createCus", {
+              return axios.post("https://api.nbadigital.tech/antiques" + "/customer/createCus", {
                 id_card: _this2.customer.idcard,
                 fullname_th: _this2.customer.name,
                 vehicle: _this2.customer.vehicle,
@@ -21475,7 +21475,7 @@ function AsyncFromSyncIterator(r) { function AsyncFromSyncIteratorContinuation(r
           while (1) switch (_context12.prev = _context12.next) {
             case 0:
               _context12.next = 2;
-              return axios.post("https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/order/saveafterfinish", {
+              return axios.post("https://api.nbadigital.tech/antiques" + "/order/saveafterfinish", {
                 customers: _this3.$store.state.customers,
                 items: _this3.$store.state.items,
                 createAt: _this3.$store.state.queueDate[1],
@@ -21506,7 +21506,7 @@ function AsyncFromSyncIterator(r) { function AsyncFromSyncIteratorContinuation(r
       var _this4 = this;
       var config = {
         method: "get",
-        url: "https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/order/getlastqueue",
+        url: "https://api.nbadigital.tech/antiques" + "/order/getlastqueue",
         headers: {
           "ngrok-skip-browser-warning": "true"
           // Add any other headers as needed
@@ -21552,7 +21552,7 @@ function AsyncFromSyncIterator(r) { function AsyncFromSyncIteratorContinuation(r
           while (1) switch (_context13.prev = _context13.next) {
             case 0:
               _context13.next = 2;
-              return axios.get("https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/customer/dropdownCus_id", {
+              return axios.get("https://api.nbadigital.tech/antiques" + "/customer/dropdownCus_id", {
                 headers: {
                   "ngrok-skip-browser-warning": "true"
                 }
@@ -21578,7 +21578,7 @@ function AsyncFromSyncIterator(r) { function AsyncFromSyncIteratorContinuation(r
           while (1) switch (_context14.prev = _context14.next) {
             case 0:
               _context14.next = 2;
-              return axios.get("https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/customer/dropdownCus_name", {
+              return axios.get("https://api.nbadigital.tech/antiques" + "/customer/dropdownCus_name", {
                 headers: {
                   "ngrok-skip-browser-warning": "true"
                 }
@@ -21599,7 +21599,7 @@ function AsyncFromSyncIterator(r) { function AsyncFromSyncIteratorContinuation(r
           while (1) switch (_context15.prev = _context15.next) {
             case 0:
               _context15.next = 2;
-              return axios.get("https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/customer/dropdownCus_vehicle", {
+              return axios.get("https://api.nbadigital.tech/antiques" + "/customer/dropdownCus_vehicle", {
                 headers: {
                   "ngrok-skip-browser-warning": "true"
                 }
@@ -21674,7 +21674,7 @@ function AsyncFromSyncIterator(r) { function AsyncFromSyncIteratorContinuation(r
               console.log("test", _this9.$store.state.customers);
               $("#modal-loading").modal("show");
               _context17.next = 4;
-              return axios.post("https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/order/getorderbydateandqueue", {
+              return axios.post("https://api.nbadigital.tech/antiques" + "/order/getorderbydateandqueue", {
                 createAt: _this9.$store.state.queueDate[1],
                 queue: _this9.$store.state.queueDate[0]
               }, {
@@ -21749,7 +21749,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return axios.post("https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/order/getorderbydateandqueue", {
+              return axios.post("https://api.nbadigital.tech/antiques" + "/order/getorderbydateandqueue", {
                 createAt: _this.date,
                 queue: _this.queue
               }, {
@@ -21796,7 +21796,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this2 = this;
       var config = {
         method: 'get',
-        url: "https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/order/getfinishtoday",
+        url: "https://api.nbadigital.tech/antiques" + "/order/getfinishtoday",
         headers: {
           "ngrok-skip-browser-warning": "true"
           // Add any other headers as needed
@@ -21820,7 +21820,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     var _this3 = this;
     var config = {
       method: 'get',
-      url: "https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/order/getlastqueue",
+      url: "https://api.nbadigital.tech/antiques" + "/order/getlastqueue",
       headers: {
         "ngrok-skip-browser-warning": "true"
         // Add any other headers as needed
@@ -21940,7 +21940,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return axios.post("https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/order/approveorder", {
+              return axios.post("https://api.nbadigital.tech/antiques" + "/order/approveorder", {
                 customers: this.$store.state.customers,
                 items: this.$store.state.items,
                 createAt: this.$store.state.queueDate[1],
@@ -22037,7 +22037,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               //     console.log(res)
               //   });
               _context3.next = 5;
-              return axios.post("https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/getOrderData", {
+              return axios.post("https://api.nbadigital.tech/antiques" + "/getOrderData", {
                 category_id: item.category_id
               }, {
                 headers: {
@@ -22079,7 +22079,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             console.log("jj", _this4.$store.state.customers["class"]);
             // alert(id)
             _context4.next = 3;
-            return axios.post("https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/getdetailvendor", {
+            return axios.post("https://api.nbadigital.tech/antiques" + "/getdetailvendor", {
               detail_id: id,
               "class": _this4.$store.state.customers["class"]
             }, {
@@ -22248,7 +22248,7 @@ function AsyncFromSyncIterator(r) { function AsyncFromSyncIteratorContinuation(r
                 while (1) switch (_context.prev = _context.next) {
                   case 0:
                     _context.next = 2;
-                    return axios.post("https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/customer/filterCusByData", {
+                    return axios.post("https://api.nbadigital.tech/antiques" + "/customer/filterCusByData", {
                       vehicle: $("#vehicle").val()
                     }, {
                       headers: {
@@ -22277,7 +22277,7 @@ function AsyncFromSyncIterator(r) { function AsyncFromSyncIteratorContinuation(r
                 while (1) switch (_context3.prev = _context3.next) {
                   case 0:
                     _context3.next = 2;
-                    return axios.post("https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/customer/filterCusByData", {
+                    return axios.post("https://api.nbadigital.tech/antiques" + "/customer/filterCusByData", {
                       id_card: $("#idcard").val()
                     }, {
                       headers: {
@@ -22321,7 +22321,7 @@ function AsyncFromSyncIterator(r) { function AsyncFromSyncIteratorContinuation(r
                 while (1) switch (_context4.prev = _context4.next) {
                   case 0:
                     _context4.next = 2;
-                    return axios.post("https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/customer/filterCusByData", {
+                    return axios.post("https://api.nbadigital.tech/antiques" + "/customer/filterCusByData", {
                       fullname_th: $("#name").val()
                     }, {
                       headers: {
@@ -22426,7 +22426,7 @@ function AsyncFromSyncIterator(r) { function AsyncFromSyncIteratorContinuation(r
               console.log("aam", element);
               clickedItems = [];
               _context6.next = 19;
-              return axios.post("https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/getdetailvendor", {
+              return axios.post("https://api.nbadigital.tech/antiques" + "/getdetailvendor", {
                 detail_id: element.detail_id,
                 "class": self.type
               }, {
@@ -22539,7 +22539,7 @@ function AsyncFromSyncIterator(r) { function AsyncFromSyncIteratorContinuation(r
               }
               $("#modal-loading").modal("show");
               _context8.next = 6;
-              return axios.post("https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/order/updatestatusafterpay", {
+              return axios.post("https://api.nbadigital.tech/antiques" + "/order/updatestatusafterpay", {
                 _id: item._id,
                 status: status
               }, {
@@ -22563,7 +22563,7 @@ function AsyncFromSyncIterator(r) { function AsyncFromSyncIteratorContinuation(r
       var _this = this;
       var config = {
         method: "get",
-        url: "https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/order/getfinishtoday",
+        url: "https://api.nbadigital.tech/antiques" + "/order/getfinishtoday",
         headers: {
           "ngrok-skip-browser-warning": "true"
           // Add any other headers as needed
@@ -22590,7 +22590,7 @@ function AsyncFromSyncIterator(r) { function AsyncFromSyncIteratorContinuation(r
             case 0:
               console.log("customer", _this2.customer);
               _context9.next = 3;
-              return axios.post("https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/customer/createCus", {
+              return axios.post("https://api.nbadigital.tech/antiques" + "/customer/createCus", {
                 id_card: _this2.customer.idcard,
                 fullname_th: _this2.customer.name,
                 vehicle: _this2.customer.vehicle,
@@ -22631,7 +22631,7 @@ function AsyncFromSyncIterator(r) { function AsyncFromSyncIteratorContinuation(r
           while (1) switch (_context10.prev = _context10.next) {
             case 0:
               _context10.next = 2;
-              return axios.post("https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/order/saveafterfinish", {
+              return axios.post("https://api.nbadigital.tech/antiques" + "/order/saveafterfinish", {
                 customers: _this3.$store.state.customers,
                 items: _this3.$store.state.items
               }, {
@@ -22682,7 +22682,7 @@ function AsyncFromSyncIterator(r) { function AsyncFromSyncIteratorContinuation(r
           while (1) switch (_context11.prev = _context11.next) {
             case 0:
               _context11.next = 2;
-              return axios.get("https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/customer/dropdownCus_id", {
+              return axios.get("https://api.nbadigital.tech/antiques" + "/customer/dropdownCus_id", {
                 headers: {
                   "ngrok-skip-browser-warning": "true"
                 }
@@ -22708,7 +22708,7 @@ function AsyncFromSyncIterator(r) { function AsyncFromSyncIteratorContinuation(r
           while (1) switch (_context12.prev = _context12.next) {
             case 0:
               _context12.next = 2;
-              return axios.get("https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/customer/dropdownCus_name", {
+              return axios.get("https://api.nbadigital.tech/antiques" + "/customer/dropdownCus_name", {
                 headers: {
                   "ngrok-skip-browser-warning": "true"
                 }
@@ -22729,7 +22729,7 @@ function AsyncFromSyncIterator(r) { function AsyncFromSyncIteratorContinuation(r
           while (1) switch (_context13.prev = _context13.next) {
             case 0:
               _context13.next = 2;
-              return axios.get("https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/customer/dropdownCus_vehicle", {
+              return axios.get("https://api.nbadigital.tech/antiques" + "/customer/dropdownCus_vehicle", {
                 headers: {
                   "ngrok-skip-browser-warning": "true"
                 }
@@ -22816,7 +22816,7 @@ function AsyncFromSyncIterator(r) { function AsyncFromSyncIteratorContinuation(r
               _this8.$store.dispatch("loadQueueAndDate", [item.queue, item.createAt, item.queue]);
               $("#modal-loading").modal("show");
               _context15.next = 10;
-              return axios.post("https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/order/getorderbydateandqueue", {
+              return axios.post("https://api.nbadigital.tech/antiques" + "/order/getorderbydateandqueue", {
                 createAt: item.createAt,
                 queue: item.queue
               }, {
@@ -22857,7 +22857,7 @@ function AsyncFromSyncIterator(r) { function AsyncFromSyncIteratorContinuation(r
               console.log("test", _this9.$store.state.customers);
               $("#modal-loading").modal("show");
               _context16.next = 4;
-              return axios.post("https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/order/getorderbydateandqueue", {
+              return axios.post("https://api.nbadigital.tech/antiques" + "/order/getorderbydateandqueue", {
                 createAt: _this9.$store.state.queueDate[1],
                 queue: _this9.$store.state.queueDate[0]
               }, {
@@ -22931,7 +22931,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return axios.post("https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/order/getorderbydateandqueue", {
+              return axios.post("https://api.nbadigital.tech/antiques" + "/order/getorderbydateandqueue", {
                 createAt: _this.date,
                 queue: _this.queue
               }, {
@@ -22978,7 +22978,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this2 = this;
       var config = {
         method: "get",
-        url: "https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/order/getfinishtoday",
+        url: "https://api.nbadigital.tech/antiques" + "/order/getfinishtoday",
         headers: {
           "ngrok-skip-browser-warning": "true"
           // Add any other headers as needed
@@ -23002,7 +23002,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     var _this3 = this;
     var config = {
       method: "get",
-      url: "https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/order/getlastqueue",
+      url: "https://api.nbadigital.tech/antiques" + "/order/getlastqueue",
       headers: {
         "ngrok-skip-browser-warning": "true"
         // Add any other headers as needed
@@ -23085,7 +23085,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               self = this;
               $("#modal-loading").modal("show");
               _context2.next = 4;
-              return axios.post("https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/order/getorderbydateandqueue", {
+              return axios.post("https://api.nbadigital.tech/antiques" + "/order/getorderbydateandqueue", {
                 createAt: this.$store.state.queueDate[1],
                 queue: this.$store.state.queueDate[0]
               }, {
@@ -23247,7 +23247,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               $("#modal-loading").modal("show");
               _this2.viewDetail[0] = value.description;
               _context3.next = 5;
-              return axios.post("https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/order/viewdetailorder", {
+              return axios.post("https://api.nbadigital.tech/antiques" + "/order/viewdetailorder", {
                 detail_id: value.detail_id,
                 createAt: _this2.$store.state.queueDate[1],
                 queue: _this2.$store.state.queueDate[0]
@@ -23280,7 +23280,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               //save spiderman
               $("#modal-loading").modal("show");
               _context4.next = 6;
-              return axios.post("https://05ce-147-50-183-56.ngrok-free.app/antiques" + "/order/createOrder", {
+              return axios.post("https://api.nbadigital.tech/antiques" + "/order/createOrder", {
                 customers: _this3.$store.state.customers,
                 items: _this3.$store.state.items,
                 createAt: _this3.$store.state.queueDate[1],
