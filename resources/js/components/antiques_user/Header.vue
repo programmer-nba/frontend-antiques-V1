@@ -103,9 +103,7 @@ export default {
           <body>
             <h3 style="text-align:center">วงษ์พาณิชย์ สุขุมวิท 101/1</h3>
             <p style="text-align:center">${dateTime}</p>
-            <br>
-            <h1 style="text-align:center">${queue}</h1>
-            <br>
+            <h1 style="text-align:center;font-size:50px;">${queue}</h1>
             <p style="text-align:center">กรุณารอเรียกรับเงิน</p>
           </body>
         </html>
