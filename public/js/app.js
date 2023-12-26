@@ -21742,16 +21742,46 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     };
   },
   methods: {
-    getOrderDataByDateAndQueue: function getOrderDataByDateAndQueue() {
+    printQueue: function printQueue() {
       var _this = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+        var printFrame, printDocument, today, date, time, dateTime, queue;
         return _regeneratorRuntime().wrap(function _callee$(_context) {
           while (1) switch (_context.prev = _context.next) {
             case 0:
-              _context.next = 2;
+              printFrame = document.createElement('iframe');
+              printFrame.style.visibility = 'hidden';
+              document.body.appendChild(printFrame);
+              printDocument = printFrame.contentDocument || printFrame.contentWindow.document;
+              today = new Date();
+              date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+              time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+              dateTime = date + ' ' + time;
+              queue = _this.$store.state.queueDate[0]; // Replace the following line with the content you want to print
+              printDocument.write("\n        <html>\n          <head>\n            <title>\u0E43\u0E1A\u0E04\u0E34\u0E27</title>\n          </head>\n          <body>\n            <h3 style=\"text-align:center\">\u0E27\u0E07\u0E29\u0E4C\u0E1E\u0E32\u0E13\u0E34\u0E0A\u0E22\u0E4C \u0E2A\u0E38\u0E02\u0E38\u0E21\u0E27\u0E34\u0E17 101/1</h3>\n            <p style=\"text-align:center\">".concat(dateTime, "</p>\n            <br>\n            <h1 style=\"text-align:center\">").concat(queue, "</h1>\n            <br>\n            <p style=\"text-align:center\">\u0E01\u0E23\u0E38\u0E13\u0E32\u0E23\u0E2D\u0E40\u0E23\u0E35\u0E22\u0E01\u0E23\u0E31\u0E1A\u0E40\u0E07\u0E34\u0E19</p>\n          </body>\n        </html>\n      "));
+              printFrame.contentWindow.print();
+
+              // Remove the iframe after printing
+              setTimeout(function () {
+                document.body.removeChild(printFrame);
+              }, 1000); // Adjust the timeout as needed
+            case 12:
+            case "end":
+              return _context.stop();
+          }
+        }, _callee);
+      }))();
+    },
+    getOrderDataByDateAndQueue: function getOrderDataByDateAndQueue() {
+      var _this2 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+          while (1) switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.next = 2;
               return axios.post("https://api.nbadigital.tech/antiques" + "/order/getorderbydateandqueue", {
-                createAt: _this.date,
-                queue: _this.queue
+                createAt: _this2.date,
+                queue: _this2.queue
               }, {
                 headers: {
                   "ngrok-skip-browser-warning": "true"
@@ -21761,20 +21791,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 //     var clickedItems = [];
                 // clickedItems.push({ description: item.detail_name_th, qty: this.num, total: this.num * this.mul });
                 //   localStorage.storedData = JSON.stringify(this.clickedItems);
-                _this.$store.dispatch("loadOrderId", res.data.data[0]._id);
+                _this2.$store.dispatch("loadOrderId", res.data.data[0]._id);
                 if (typeof res.data.data[0].order_detail == "undefined") {
-                  _this.$store.dispatch("loadItems", []);
+                  _this2.$store.dispatch("loadItems", []);
                 } else {
-                  _this.$store.dispatch("loadItems", res.data.data[0].order_detail);
+                  _this2.$store.dispatch("loadItems", res.data.data[0].order_detail);
                 }
               })["catch"](function (err) {
-                _this.$store.dispatch("loadItems", []);
+                _this2.$store.dispatch("loadItems", []);
               });
             case 2:
             case "end":
-              return _context.stop();
+              return _context2.stop();
           }
-        }, _callee);
+        }, _callee2);
       }))();
     },
     getOrder: function getOrder(item) {
@@ -21793,7 +21823,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.$store.dispatch("loadItems", item.order_detail);
     },
     showModal: function showModal() {
-      var _this2 = this;
+      var _this3 = this;
       var config = {
         method: 'get',
         url: "https://api.nbadigital.tech/antiques" + "/order/getfinishtoday",
@@ -21808,7 +21838,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       axios(config).then(function (response) {
         // Handle the response
         console.log("ddddddd", response);
-        _this2.responseData = response.data;
+        _this3.responseData = response.data;
         $('#exampleModal').modal('show');
       })["catch"](function (error) {
         // Handle errors
@@ -21817,7 +21847,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }
   },
   mounted: function mounted() {
-    var _this3 = this;
+    var _this4 = this;
     var config = {
       method: 'get',
       url: "https://api.nbadigital.tech/antiques" + "/order/getlastqueue",
@@ -21831,9 +21861,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     // Make the request
     axios(config).then(function (response) {
       // Handle the response
-      _this3.queue = response.data.data;
-      _this3.$store.dispatch("loadQueueAndDate", [_this3.queue, _this3.date]);
-      console.log("test", _this3.$store.state.queueDate);
+      _this4.queue = response.data.data;
+      _this4.$store.dispatch("loadQueueAndDate", [_this4.queue, _this4.date]);
+      console.log("test", _this4.$store.state.queueDate);
     })["catch"](function (error) {
       // Handle errors
       console.error('Error:', error);
@@ -21851,8 +21881,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   watch: {
     date: function date() {
-      alert(this.$store.state.queueDate[1]);
-      alert(this.date);
+      // alert(this.$store.state.queueDate[1])
+      // alert(this.date)
+
       this.$store.dispatch("loadQueueAndDate", [this.queue, this.date]);
     },
     queue: function queue() {
@@ -25372,6 +25403,11 @@ var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 var _hoisted_20 = {
   "class": "col-sm-4"
 };
+var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "fa fa-print mr-2"
+}, null, -1 /* HOISTED */);
+var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("PRINT QUEUE");
+var _hoisted_23 = [_hoisted_21, _hoisted_22];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _this = this;
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("ul", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
@@ -25413,7 +25449,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       "height": "39px",
       "text-align": "center"
     }
-  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, this.$store.state.queueDate[0]]])])])])]);
+  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, this.$store.state.queueDate[0]]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    type: "button",
+    "class": "btn btn-warning",
+    onClick: _cache[2] || (_cache[2] = function ($event) {
+      return $options.printQueue();
+    })
+  }, _hoisted_23)])])]);
 }
 
 /***/ }),

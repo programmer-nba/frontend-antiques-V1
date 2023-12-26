@@ -51,6 +51,8 @@
                           font-weight: bold;
                           padding: 2px;height:39px;text-align: center;">
                         </div>
+                        <button type="button" class="btn btn-warning" @click="printQueue()"><i class="fa fa-print mr-2"></i>PRINT QUEUE</button>
+
                       </div>
                 </li>
 
@@ -78,6 +80,45 @@ export default {
   },
 
   methods: {
+    async printQueue(){
+        const printFrame = document.createElement('iframe');
+      printFrame.style.visibility = 'hidden';
+      document.body.appendChild(printFrame);
+
+      const printDocument = printFrame.contentDocument || printFrame.contentWindow.document;
+
+      const today = new Date();
+
+      const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+                    const time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+                    const dateTime = date +' '+ time;
+                    var queue = this.$store.state.queueDate[0];
+
+      // Replace the following line with the content you want to print
+      printDocument.write(`
+        <html>
+          <head>
+            <title>ใบคิว</title>
+          </head>
+          <body>
+            <h3 style="text-align:center">วงษ์พาณิชย์ สุขุมวิท 101/1</h3>
+            <p style="text-align:center">${dateTime}</p>
+            <br>
+            <h1 style="text-align:center">${queue}</h1>
+            <br>
+            <p style="text-align:center">กรุณารอเรียกรับเงิน</p>
+          </body>
+        </html>
+      `);
+
+      printFrame.contentWindow.print();
+
+      // Remove the iframe after printing
+      setTimeout(() => {
+        document.body.removeChild(printFrame);
+      }, 1000); // Adjust the timeout as needed
+
+    },
     async getOrderDataByDateAndQueue(){
       await axios.post(process.env.MIX_DEV_API + "/order/getorderbydateandqueue",{
             createAt : this.date,
@@ -205,8 +246,8 @@ export default {
   },
   watch:{
     date:function(){
-        alert(this.$store.state.queueDate[1])
-        alert(this.date)
+        // alert(this.$store.state.queueDate[1])
+        // alert(this.date)
 
         this.$store.dispatch("loadQueueAndDate", [
             this.queue,
